@@ -16,5 +16,6 @@
       "sizes": "960x960"
     }
   ],
-  "start_url": "./"
+  "start_url": "./", 
+	"scope": "./"
 }
