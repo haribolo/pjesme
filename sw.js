@@ -6,7 +6,10 @@ var CURRENT_CACHES = {
 
   var urlsToPrefetch = [
 './',
-'./img/favicon.png'
+'./img/favicon.png',
+'./img/android-startup.png',
+'./img/apple-touch-icon.png',
+'./img/apple-touch-startup-image.png'
   ];
 
 self.addEventListener('install', function(event) {
