@@ -11,6 +11,11 @@
       "sizes": "192x192"
     },
     {
+      "src": "https://haribolo.github.io/pjesme/img/android-startup.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
       "src": "https://haribolo.github.io/pjesme/img/apple-touch-startup-image.png",
       "type": "image/png",
       "sizes": "960x960"
