@@ -1,12 +1,12 @@
 (function() {
-var CACHE_VERSION = 25;
+var CACHE_VERSION = 1;
 var CURRENT_CACHES = {
   prefetch: 'haribol-v' + CACHE_VERSION
 };
 
   var urlsToPrefetch = [
-'/',
-'/favicon.png'
+'./',
+'./img/favicon.png'
   ];
 
 self.addEventListener('install', function(event) {
