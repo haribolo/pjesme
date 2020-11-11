@@ -1366,25 +1366,13 @@ function hideTranslation(){
 </script>
 
 <script>
-navigator.serviceWorker.register('./sw.js').then(function(registration) {
-    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    var head = document.head;
-    var noManifest = true;
-    // Walk through the head to check if a manifest already exists
-    for (var i = 0; i < head.childNodes.length; i++) {
-        if (head.childNodes[i].rel === 'manifest') {
-            noManifest = false;
-            break;
-        }
-    }
-    // If there is no manifest already, add one.
-    if (noManifest) {
-        var manifest = document.createElement('link');
-        manifest.rel = 'manifest';
-        manifest.href = 'manifest.json';
-        document.head.appendChild(manifest);
-    }
-});
+	if (navigator.serviceWorker) {
+	  navigator.serviceWorker.register('./sw.js').then(function(registration) {
+	    console.log('ServiceWorker registration successful with scope:',  registration.scope);
+	  }).catch(function(error) {
+	    console.log('ServiceWorker registration failed:', error);
+	  });
+	}
 </script>
 
 </body>
