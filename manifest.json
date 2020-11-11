@@ -16,6 +16,5 @@
       "sizes": "960x960"
     }
   ],
-  "start_url": "https://haribolo.github.io/pjesme/",
-  "scope": "https://haribolo.github.io/"
+  "start_url": "./"
 }
