@@ -1,0 +1,21 @@
+{
+  "short_name": "Pjesmarica",
+  "app_name": "Vaiṣṇavska pjesmarica",
+  "background_color": "#282e36",
+  "theme_color": "#263238",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "https://haribolo.github.io/pjesme/img/favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://haribolo.github.io/pjesme/img/apple-touch-startup-image.png",
+      "type": "image/png",
+      "sizes": "960x960"
+    }
+  ],
+  "start_url": "https://haribolo.github.io/pjesme/",
+  "scope": "https://haribolo.github.io/pjesme/"
+}
