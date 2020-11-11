@@ -1,6 +1,6 @@
 {
-  "short_name": "Pjesmarica",
-  "app_name": "Vaiṣṇavska pjesmarica",
+  "short_name": "Pjesme Vaiṣṇava",
+  "app_name": "Pjesme Vaiṣṇava",
   "background_color": "#282e36",
   "theme_color": "#263238",
   "display": "standalone",
@@ -17,4 +17,5 @@
     }
   ],
   "start_url": "./"
+	#, "scope": "https://haribolo.github.io/pjesme/"
 }
