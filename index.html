@@ -339,12 +339,8 @@ if (window.localStorage.getItem('darkMode') == "true"){
 					$('html').addClass('darkMode', 500);
 		 }
 }
-//	Vrati veličinu fonta
-var fontSize = window.localStorage.getItem('fontSize');
-if (fontSize > 7 && fontSize < 31){
-        document.body.style.fontSize = fontSize + "px";
-}
-	
+
+
 	
 //	PROMJENA IKONE
 (function() {
@@ -1286,23 +1282,6 @@ window.addEventListener("scroll", () => {
   });
 });
 
-
-//	Povećanje i smanjenje fonta
-var fontSize = parseInt(getComputedStyle(document.body).fontSize.replace("px",""));
-function buttonZoomIn() {
-    if (fontSize < 30) {
-        fontSize += 1;
-        document.body.style.fontSize = fontSize + "px";
-				window.localStorage.setItem('fontSize', fontSize);
-    }
-}
-function buttonZoomOut() {
-    if (fontSize > 8) {
-        fontSize -= 1;
-				document.body.style.fontSize = fontSize + "px";
-				window.localStorage.setItem('fontSize', fontSize);
-    }
-}
 </script>
 
 <script>
@@ -1376,6 +1355,31 @@ function hideTranslation(){
     $(".smisao").addClass("hidden")
     $("body").addClass("translationHidden")
 	}
+}
+
+//	Povećanje i smanjenje fonta
+var fontSize = parseInt(getComputedStyle(document.body).fontSize.replace("px",""));
+function buttonZoomIn() {
+    if (fontSize < 30) {
+        fontSize += 1;
+        document.body.style.fontSize = fontSize + "px";
+				window.localStorage.setItem('fontSize', fontSize);
+    }
+}
+function buttonZoomOut() {
+    if (fontSize > 8) {
+        fontSize -= 1;
+				document.body.style.fontSize = fontSize + "px";
+				window.localStorage.setItem('fontSize', fontSize);
+    }
+}
+	
+	
+	
+//	Vrati veličinu fonta
+var fontSize = window.localStorage.getItem('fontSize');
+if (fontSize > 7 && fontSize < 31){
+        document.body.style.fontSize = fontSize + "px";
 }
 </script>
 
