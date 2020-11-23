@@ -314,7 +314,7 @@ h1:target {
 }
 	
 /*Share: Kopiraj link*/
-.copy-notification {
+.messageNotification {
 		color: #ffffff;
 		background-color: rgba(0,0,0,0.8);
 		padding: 20px;
@@ -1301,9 +1301,9 @@ function CopyToClipboard(value, showNotification, notificationText) {
 				notificationText = "Copied to clipboard";
 		}
 
-		var notificationTag = $("div.copy-notification");
+		var notificationTag = $("div.messageNotification");
 		if (showNotification && notificationTag.length == 0) {
-				notificationTag = $("<div/>", { "class": "copy-notification", text: notificationText });
+				notificationTag = $("<div/>", { "class": "messageNotification", text: notificationText });
 				$("body").append(notificationTag);
 
 				notificationTag.fadeIn("slow", function () {
@@ -1314,6 +1314,29 @@ function CopyToClipboard(value, showNotification, notificationText) {
 						}, 1000);
 				});
 		}
+}
+	
+function notification(notificationText, notificationTimeout) {
+	if (typeof notificationText === 'undefined') {
+		notificationText = "Default text.";
+	}
+	if (!(notificationTimeout > 50)){
+		notificationTimeout == 1000;
+	}
+
+	var notificationTag = $("div.messageNotification");
+	if (notificationTag.length == 0) {
+		notificationTag = $("<div/>", { "class": "messageNotification", text: notificationText });
+		$("body").append(notificationTag);
+
+		notificationTag.fadeIn("slow", function () {
+				setTimeout(function () {
+						notificationTag.fadeOut("slow", function () {
+								notificationTag.remove();
+						});
+				}, notificationTimeout);
+		});
+	}
 }
 //const buttonShareButton = document.querySelector('.buttonShare-button');
 //buttonShareButton.addEventListener('click', event => {
@@ -1407,6 +1430,7 @@ document.addEventListener("keydown", function(event) {
 
 </script>
 
+<!--
 <script>
 	if (navigator.serviceWorker) {
 	  navigator.serviceWorker.register('./sw.js').then(function(registration) {
@@ -1416,7 +1440,40 @@ document.addEventListener("keydown", function(event) {
 	  });
 	}
 </script>
-
+-->
+<script>
+			window.isUpdateAvailable = new Promise(function(resolve, reject) {
+				if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
+					// register service worker file
+					navigator.serviceWorker.register('/sw.js')
+						.then(reg => {
+							reg.onupdatefound = () => {
+								const installingWorker = reg.installing;
+								installingWorker.onstatechange = () => {
+									switch (installingWorker.state) {
+										case 'installed':
+											if (navigator.serviceWorker.controller) {
+												// new update available
+												resolve(true);
+											} else {
+												// no update available
+												resolve(false);
+											}
+											break;
+									}
+								};
+							};
+						})
+						.catch(err => console.error('[SW ERROR]', err));
+				}
+			});
+			// listen to the service worker promise
+			window['isUpdateAvailable']
+			.then(isAvailable => {
+				if (isAvailable) {
+					notification("Nova verzija dostupna. Molimo osvježite.", 5000);
+				}
+			});</script>
 </body>
 <!-- /wp:html -->
 </html>
