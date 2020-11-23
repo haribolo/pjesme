@@ -1,5 +1,5 @@
 (function() {
-var CACHE_VERSION = 20201121.7;
+var CACHE_VERSION = 20201121.8;
 var CURRENT_CACHES = {
   prefetch: 'haribol-v' + CACHE_VERSION
 };
@@ -16,7 +16,31 @@ self.addEventListener('install', function(event) {
   var now = Date.now();
   console.log('Handling install event. Resources to prefetch:', urlsToPrefetch);
 
-  event.waitUntil(
+// event.waitUntil(
+//   caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
+//     var cachePromises = urlsToPrefetch.map(function(urlToPrefetch) {
+//       var url = new URL(urlToPrefetch, location.href);
+//       url.search += (url.search ? '&' : '?') + 'cache-bust=' + now;
+//       var request = new Request(url, {mode: 'cors'});
+//       return fetch(request).then(function(response) {
+//         if (response.status >= 400) {
+//           throw new Error('request for ' + urlToPrefetch +
+//             ' failed with status ' + response.statusText);
+//         }
+//         return cache.put(urlToPrefetch, response);
+//       }).catch(function(error) {
+//         console.error('Not caching ' + urlToPrefetch + ' due to ' + error);
+//       });
+//     });
+//
+//     return Promise.all(cachePromises).then(function() {
+//       console.log('Pre-fetching complete.');
+//     });
+//   }).catch(function(error) {
+//     console.error('Pre-fetching failed:', error);
+//   })
+// );
+event.waitUntil(
     caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
       var cachePromises = urlsToPrefetch.map(function(urlToPrefetch) {
         var url = new URL(urlToPrefetch, location.href);
@@ -35,11 +59,13 @@ self.addEventListener('install', function(event) {
 
       return Promise.all(cachePromises).then(function() {
         console.log('Pre-fetching complete.');
+        if (self.skipWaiting) {
+        self.skipWaiting();
+	}
       });
     }).catch(function(error) {
       console.error('Pre-fetching failed:', error);
     })
-  );
 });
 
 self.addEventListener('activate', function(event) {
