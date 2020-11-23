@@ -47,6 +47,7 @@ body {
   padding: 1em 2em;
 	line-height: 1.5;
 	font-size: 16px;
+	transition: font-size .18s;
 }
 html.centarTekst {
 	text-align: center;
@@ -423,10 +424,10 @@ document.getElementById('hiddenVideo').play();
 		<span onclick="open"><svg class="menuIcon mainMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124"><path d="M112 6H12C5.4 6 0 11.4 0 18s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 94H12c-6.6 0-12 5.4-12 12s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"/></svg></span>
 </div>
 <div class="menuIconHolder buttonZoomIn noselect hand">
-		<span onclick="buttonZoomIn()"><svg class="menuIcon menuZoomIn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2S130.56 51.2 230.4 51.2s179.2 79.36 179.2 179.2-81.92 179.2-179.2 179.2z"/><path d="M332.8 204.8H256V128c0-15.36-10.24-25.6-25.6-25.6-15.36 0-25.6 12.8-25.6 25.6v76.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h76.8v76.8c0 15.36 10.24 25.6 25.6 25.6 15.36 0 25.6-10.24 25.6-25.6V256h76.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></svg></span>
+		<span onclick="zoom('in')"><svg class="menuIcon menuZoomIn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2S130.56 51.2 230.4 51.2s179.2 79.36 179.2 179.2-81.92 179.2-179.2 179.2z"/><path d="M332.8 204.8H256V128c0-15.36-10.24-25.6-25.6-25.6-15.36 0-25.6 12.8-25.6 25.6v76.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h76.8v76.8c0 15.36 10.24 25.6 25.6 25.6 15.36 0 25.6-10.24 25.6-25.6V256h76.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></svg></span>
 </div>
 <div class="menuIconHolder buttonZoomOut noselect hand">
-		<span onclick="buttonZoomOut()"><svg class="menuIcon menuZoomOut" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 512"><defs><style>.fil0{fill:#000;fill-rule:nonzero}</style></defs><g id="Layer_x0020_1"><path class="fil0" d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2 0-99.84 79.36-179.2 179.2-179.2 99.84 0 179.2 79.36 179.2 179.2 0 99.84-81.92 179.2-179.2 179.2z" id="_2236117764000"/><path class="fil0" d="M332.8 204.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h204.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></g></svg></span>
+		<span onclick="zoom('out')"><svg class="menuIcon menuZoomOut" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 512"><defs><style>.fil0{fill:#000;fill-rule:nonzero}</style></defs><g id="Layer_x0020_1"><path class="fil0" d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2 0-99.84 79.36-179.2 179.2-179.2 99.84 0 179.2 79.36 179.2 179.2 0 99.84-81.92 179.2-179.2 179.2z" id="_2236117764000"/><path class="fil0" d="M332.8 204.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h204.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></g></svg></span>
 </div>
 <div class="menuIconHolder buttonHideTranslation noselect hand">
 		<span onclick="hideTranslation()" class=buttonShare-button><svg class="menuIcon menuHideTranslation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M139 137h-7l-12 60h31zM381 257c7 17 15 31 25 43 10-12 19-26 26-43h-51z"/><path d="M467 91H281l39 312c0 12-3 24-12 34l-65 75h224c25 0 45-20 45-45V137c0-25-20-46-45-46zm0 166h-4c-9 27-22 49-36 66l34 27a15 15 0 11-18 24l-37-30-36 30a15 15 0 11-18-24l33-27c-14-17-26-39-35-66h-4a15 15 0 110-30h45v-15a15 15 0 1130 0v15h46a15 15 0 110 30z"/><path d="M244 39c-3-22-22-39-44-39H45C20 0 0 20 0 45v332c0 25 20 45 45 45h237c4-5 8-8 8-15L244 39zm-60 248c-8 1-16-4-18-12l-9-48h-43l-9 48c-2 8-10 13-18 12-8-2-13-10-12-18l30-150c2-7 8-12 15-12h31c7 0 13 5 15 12l30 150c1 8-4 16-12 18zM175 452l3 21c2 13 11 27 26 34l50-55h-79z"/></svg></span>
@@ -798,11 +799,11 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	<p class=stih>(4)<br />rūpa-raghunātha-pade hoibe ākuti<br />kabe hāma bujhabo se jugala-pīriti</p>
 	<p class=stih>(5)<br />rūpa-raghunātha-pade rahu mora āśa<br />prārthanā koroye sadā narottama-dāsa</p>
 	<p class="smisaoNaslov">SMISAO</p>
-	<p class="smisao">Ovu pjesmu je pjevao Narottama dasa Thakura, veliki bhakta i acarya u Gaudiya Vaisnava-sampradayi, učeničkom nasljeđu koje silazi od Gospodina Caitanye. Narottama dasa Thakura je napisao mnoge pjesme koje su priznate kao vjerodostojne od svih Vaisnava. Pjevao je ove pjesme na jednostavnom Bengali jeziku, ali je poruka i duboki smisao njegovih pjesama veoma značajan.</p>
-	<p class="smisao">U ovoj pjesmi on kaže, ‘gauragga’ bolite habe pulaka carira. Savršenstvo pjevanja je dostigao onaj tko, čim počne pjevati ime Gospodina Gauragge, koji je uveo ovaj sagkirtana pokret, odjednom osjeti drhtanje tijela. Ove ne treba glumiti i Narottama dasa Thakura pita, „Kada će taj povoljan trenutak stići do nas da drhtimo čim zapjevamo Gospodinovo ime?“ A nakon drhtanja - ‘hari hari’ bolite nayane ba ‘be nira, „Dok pjevamo Hare Krsna, suze će se pojaviti u očima.“</p>
-	<p class="smisao">Zatim kaže, ara kabe nitai-cander koruna hoibe. Svi mi molimo za milost Gospodina Nityanande. Smatra se da je Nityananda izvorni duhovni učitelj, tako možemo prići Gauraggi, Gospodinu Caitanyi, milošću Gospodina Nityanande. Koji je simptom osobe koja je dostigla bezuzročnu milost Gospodina Nityanande? Narottama dasa Thakura kaže da je simptom onoga tko je stvarno primio bezuzročnu milost Gospodina Nityanande taj da više nema materijalne želje. Ara kabe nitai-cander koruna hoibe, samsara-basana mora kabe tuccha ha ‘be. Samsara-basana znači „želja za materijalnim uživanjem“, a Narottama dasa se pita, kad će biti beznačajna. Dok god imamo tijelo, moramo prihvaćati mnoge materijalne stvari, ali ne u duhu uživanja, nego da bismo održali dušu i tijelo zajedno.“</p>
-	<p class="smisao">Narottama dasa dalje kaže, rupa-raghunatha-pade hoibe akuti: „Kad ću biti željan proučavanja knjiga koje su ostavili šestorica Goswamija?“ Akuti znači „žudnja“. Rupa Goswami je otac predanog služenja pa je napisao knjigu Bhakti-rasamrta-sindhu, u kojoj je dao fine upute za predano služenje. O njima se govori i u Caitanya-caritamrti i drugim knjiga-ma, a mi smo dali sažetak ovih uputa u našoj knjizi „Učenja Gospodina Caitanye“. Transcendentalnu ljubav između Radhe i Krsne treba shvatiti kroz učenja šestorice Goswamija. Narottama dasa Thakura nas upućuje da ne pokušavamo vlastitim nastojanjem razumjeti transcendentalni odnos ljubavi između Radhe i Krsne. Treba pokušati shvatiti ovaj yugala-piriti, transcendentalnu ljubav, prema uputama Goswamija.</p>
-	<p class="smisao">Dokle god je um previše zaokupljen materijalističkim stvarima, osoba ne može ući u kraljevstvo Vrndavana. Narottama dasa Thakura ipak kaže, visaya chariya kabe suddha ha ‘be mana kabe hama herabo cri-vrndavana: „Kad je um potpuno pročišćen, oslobođen materijalnih briga i želja, tada ću biti sposoban razumjeti Vrndavan i razmjenu ljubavi između Radhe i Krsne, a moj duhovni život će postati uspješan.“</p>
+	<p class=smisao>Ovu pjesmu je pjevao Narottama dasa Thakura, veliki bhakta i acarya u Gaudiya Vaisnava-sampradayi, učeničkom nasljeđu koje silazi od Gospodina Caitanye. Narottama dasa Thakura je napisao mnoge pjesme koje su priznate kao vjerodostojne od svih Vaisnava. Pjevao je ove pjesme na jednostavnom Bengali jeziku, ali je poruka i duboki smisao njegovih pjesama veoma značajan.</p>
+	<p class=smisao>U ovoj pjesmi on kaže, ‘gauragga’ bolite habe pulaka carira. Savršenstvo pjevanja je dostigao onaj tko, čim počne pjevati ime Gospodina Gauragge, koji je uveo ovaj sagkirtana pokret, odjednom osjeti drhtanje tijela. Ove ne treba glumiti i Narottama dasa Thakura pita, „Kada će taj povoljan trenutak stići do nas da drhtimo čim zapjevamo Gospodinovo ime?“ A nakon drhtanja - ‘hari hari’ bolite nayane ba ‘be nira, „Dok pjevamo Hare Krsna, suze će se pojaviti u očima.“</p>
+	<p class=smisao>Zatim kaže, ara kabe nitai-cander koruna hoibe. Svi mi molimo za milost Gospodina Nityanande. Smatra se da je Nityananda izvorni duhovni učitelj, tako možemo prići Gauraggi, Gospodinu Caitanyi, milošću Gospodina Nityanande. Koji je simptom osobe koja je dostigla bezuzročnu milost Gospodina Nityanande? Narottama dasa Thakura kaže da je simptom onoga tko je stvarno primio bezuzročnu milost Gospodina Nityanande taj da više nema materijalne želje. Ara kabe nitai-cander koruna hoibe, samsara-basana mora kabe tuccha ha ‘be. Samsara-basana znači „želja za materijalnim uživanjem“, a Narottama dasa se pita, kad će biti beznačajna. Dok god imamo tijelo, moramo prihvaćati mnoge materijalne stvari, ali ne u duhu uživanja, nego da bismo održali dušu i tijelo zajedno.“</p>
+	<p class=smisao>Narottama dasa dalje kaže, rupa-raghunatha-pade hoibe akuti: „Kad ću biti željan proučavanja knjiga koje su ostavili šestorica Goswamija?“ Akuti znači „žudnja“. Rupa Goswami je otac predanog služenja pa je napisao knjigu Bhakti-rasamrta-sindhu, u kojoj je dao fine upute za predano služenje. O njima se govori i u Caitanya-caritamrti i drugim knjiga-ma, a mi smo dali sažetak ovih uputa u našoj knjizi „Učenja Gospodina Caitanye“. Transcendentalnu ljubav između Radhe i Krsne treba shvatiti kroz učenja šestorice Goswamija. Narottama dasa Thakura nas upućuje da ne pokušavamo vlastitim nastojanjem razumjeti transcendentalni odnos ljubavi između Radhe i Krsne. Treba pokušati shvatiti ovaj yugala-piriti, transcendentalnu ljubav, prema uputama Goswamija.</p>
+	<p class=smisao>Dokle god je um previše zaokupljen materijalističkim stvarima, osoba ne može ući u kraljevstvo Vrndavana. Narottama dasa Thakura ipak kaže, visaya chariya kabe suddha ha ‘be mana kabe hama herabo cri-vrndavana: „Kad je um potpuno pročišćen, oslobođen materijalnih briga i želja, tada ću biti sposoban razumjeti Vrndavan i razmjenu ljubavi između Radhe i Krsne, a moj duhovni život će postati uspješan.“</p>
 	<p class="smisaoAutor">Njegova Božanska milost A.C. Bhkativedanta Swami Prabhupada</p>
 </song>
 
@@ -974,11 +975,11 @@ Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare."<br /></p>
 	<p class=prijevod>O Śrinivasa Acārya, nasljedniče šestorice Goswamija! Molim Te, budi milostiv prema meni. Narottama dasa je uvijek željan društva Rāmacandre Cakravartija.</p>
 	<p class=smisao>Ovo je pjesma koju je spjevao Narottama das Thakura. On moli se Gospodinu Caitanyi: "Moj dragi Gospodine, molim Te budi milostiv prema meni, jer tko može biti milostiviji od Tvog Gospodstva u sva tri svijeta? Uistinu, to je činjenica. Ne samo Narottama das Thakur već se i Rupa Gosvami također molio Gospodinu Caitanyi na takav način. Kada su se Gospodin Caitanya i Rupa Gosvami prvi puta susreli u Prayagu (Allahabadu), Srila Rupa Gosvami je rekao: "Moj dragi Gospodine, Ti si najmilostiviji od svih inkarnacija jer dijeliš ljubav prema Krishni, svjesnost Krishne." Kada je Krishna osobno bio prisutan jednostavno je tražio od nas da se predamo, ali Sebe nije davao tako lako. Postavio je uvjet: "Prije svega, predaj se." Ali ova inkarnacija, Gospodin Caitanya, iako Sam Krishna, ne pravi takve uvjete. On jednostavno daje: "Uzmite ljubav prema Krishni." Zbog toga je Gospodin Caitanya prepoznat kao najmilostivija inkarnacija. Narottama das Thakur kaže: "Molim Te budi milostiv prema meni. Vidjevši pale duše ovog doba, postao Si tako velikodušan i vrlo samilostan prema njima, ali znaj također da sam ja najpaliji. Nitko nije paliji od mene." Patita-pavana-hetu tava avatara "Pojavio Si se samo da izbaviš uvjetovane, pale duše, ali uvjeravam Te da nećeš naći paliju dušu od mene. Stoga je moja molba primarna."</p>
 	<p class=smisao>Potom, on moli se Gospodinu Nityanandi. On kaže: "Ha ha prabhu Nityananda premananda sukhi, Moj dragi Gospodine Nityananda, Ti si uvijek radostan u duhovnom blaženstvu. Pošto uvijek izgledaš jako sretan, prišao sam ti jer sam najnesretniji. Ako me samo ljubazno pogledaš i ja mogu postati sretan."</p>
-<p class=smisao>Potom se moli Advaita prabhu-u: "Doya koro Sita-pati Advaita Gosai."  Supruga Advaita prabhua zvala se Sita, pa su ga stoga ponekad zvali Sita-pati. Narottam das Thakur se zato moli: "Dragi moj Advaita prabhu, mužu Site, ti si tako ljubazan. Molim te, budi ljubazan i prema meni. Ako si ti ljubazan prema meni, prirodno će i Gospodin Caitanya i Nityananda također biti ljubazni prema meni." Ustvari, Advaita prabhu je pozvao Gospodina Caitanyu da siđe. Kada je Advaita prabhu vidio da su sve pale duše samo zaokupljene zadovoljavanjem osjetila, ne shvaćajući svjesnost Krishne, osjetio je veliku samilost prema palim dušama. Istovremeno se osjećao nesposobnim izbaviti ih i stoga se molio Gospodinu Krishni: "Molim Te, dođi osobno. Bez Tvoga osobnog prisustva nije moguće izbaviti ove pale duše." Tako se zbog njegova poziva Gospodin Caitanya pojavio.
-Prirodno, Narottam das Thakur se moli Advaita prabhu-u: "Ako si ti ljubazan prema meni, prirodno će i Gospodin Caitanya i Nityananda također biti ljubazni prema meni." </p>
+	<p class=smisao>Potom se moli Advaita prabhu-u: "Doya koro Sita-pati Advaita Gosai."  Supruga Advaita prabhua zvala se Sita, pa su ga stoga ponekad zvali Sita-pati. Narottam das Thakur se zato moli: "Dragi moj Advaita prabhu, mužu Site, ti si tako ljubazan. Molim te, budi ljubazan i prema meni. Ako si ti ljubazan prema meni, prirodno će i Gospodin Caitanya i Nityananda također biti ljubazni prema meni." Ustvari, Advaita prabhu je pozvao Gospodina Caitanyu da siđe. Kada je Advaita prabhu vidio da su sve pale duše samo zaokupljene zadovoljavanjem osjetila, ne shvaćajući svjesnost Krishne, osjetio je veliku samilost prema palim dušama. Istovremeno se osjećao nesposobnim izbaviti ih i stoga se molio Gospodinu Krishni: "Molim Te, dođi osobno. Bez Tvoga osobnog prisustva nije moguće izbaviti ove pale duše." Tako se zbog njegova poziva Gospodin Caitanya pojavio.
+	Prirodno, Narottam das Thakur se moli Advaita prabhu-u: "Ako si ti ljubazan prema meni, prirodno će i Gospodin Caitanya i Nityananda također biti ljubazni prema meni." </p>
 	<p class=smisao>Potom, on moli se gosvamijima: "Ha ha Svarup, Sanatana, Rupa, Raghunatha." Svarupa se odnosi na Svarupa Damodara, osobnog tajnika Gospodina Caitanye. On je uvijek bio uz Caitanyu Mahaprabhua i odmah bi napravio što god bi On poželio. Dvojica osobnih slugu, Svarupa Damodara i Govinda, uvijek su bili uz Gospodina Caitanyu. Zbog toga se Narottama das Thakura također moli Svarupi Damodari, a potom i šestorici gosvamija, učenicima Gospodina Caitanye: Sri Rupi, Sri Sanatani, Sri Batti Raghunathi, Sri Gopali Batti, Sri Jivi i Raghunathi Dasi. Ovih šest gosvamija su izravno upućeni od Gospodina Caitanye da prošire ovaj pokret svjesnosti Krishne. Narottama das Thakur također se moli za njihovu milost.</p>
 	<p class=smisao>Nakon šestorice gosvamija sljedeći acarya bio je Srinivas acarya. Ustvari, Narottam das Thakur je u učeničkom slijedu odmah nakon Srinivase acarye i bio je gotovo njegov istovremenik, a njegov bliski prijatelj bio je Ramacandra Cakravarti. Stoga se on moli: "Uvijek žudim za društvom Ramacandre."<br>
-On žudi za društvom bhakta. Cijeli proces je u tome da se moramo uvijek moliti za milost nadređenih acarya i biti u društvu čistih bhakta. Tako će nam biti lakše napredovati u svjesnosti Krishne i primiti milost Gospodina Caitanye i Gospodina Krishne. </p>
+	On žudi za društvom bhakta. Cijeli proces je u tome da se moramo uvijek moliti za milost nadređenih acarya i biti u društvu čistih bhakta. Tako će nam biti lakše napredovati u svjesnosti Krishne i primiti milost Gospodina Caitanye i Gospodina Krishne. </p>
 	<p class=smisao>Ovo je suština i bit ove pjesme koju je spjevao Narottama das Thakura.</p>
 </song>
 
@@ -1358,29 +1359,59 @@ function hideTranslation(){
 }
 
 //	Povećanje i smanjenje fonta
-var fontSize = parseInt(getComputedStyle(document.body).fontSize.replace("px",""));
-function buttonZoomIn() {
-    if (fontSize < 30) {
-        fontSize += 1;
-        document.body.style.fontSize = fontSize + "px";
-				window.localStorage.setItem('fontSize', fontSize);
-    }
-}
-function buttonZoomOut() {
-    if (fontSize > 8) {
-        fontSize -= 1;
-				document.body.style.fontSize = fontSize + "px";
-				window.localStorage.setItem('fontSize', fontSize);
-    }
+
+function pozicijaPostavi(){
 }
 	
 	
 	
-//	Vrati veličinu fonta
+	
+	
+var pozicijaPostotak
+	
+function pozicijaOdVrha(){
+	var trenutnaPozicija = $(window).scrollTop(); //trenutna pozicija
+	var visinaHtml = $(document).height(); // visina HTML dokumenta
+	pozicijaPostotak = trenutnaPozicija / visinaHtml * 100;
+}
+	
+function vratiPozicijuOdVrha(){
+	$(window).scrollTop(pozicijaPostotak / 100 * $(document).height());
+}
+	
+	
+function zoom(mukunda) {
+	pozicijaOdVrha();
+	var fontSize = parseInt(getComputedStyle(document.body).fontSize.replace("px",""));
+	if (mukunda == "in"){
+		fontSize += 2;
+	} else {
+		fontSize -= 2;
+	}
+	if (fontSize +2 < 30 && fontSize -2 > 6){
+		document.body.style.fontSize = fontSize + "px";
+		window.localStorage.setItem('fontSize', fontSize);
+		vratiPozicijuOdVrha();
+	}
+}
+
+//vrati veličinu fonta
 var fontSize = window.localStorage.getItem('fontSize');
-if (fontSize > 7 && fontSize < 31){
-        document.body.style.fontSize = fontSize + "px";
+if (fontSize > 6 && fontSize < 32){
+	document.body.style.fontSize = fontSize + "px";
 }
+
+
+
+// na pritisak tipke tipkovnice
+document.addEventListener("keydown", function(event) {
+	if (event.which == 107) {
+		zoom("in");
+	} else if (event.which == 109) {
+		zoom("out");
+	}
+})
+
 </script>
 
 <script>
