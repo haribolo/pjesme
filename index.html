@@ -1445,7 +1445,7 @@ document.addEventListener("keydown", function(event) {
 			window.isUpdateAvailable = new Promise(function(resolve, reject) {
 				if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
 					// register service worker file
-					navigator.serviceWorker.register('/sw.js')
+					navigator.serviceWorker.register('./sw.js')
 						.then(reg => {
 							reg.onupdatefound = () => {
 								const installingWorker = reg.installing;
