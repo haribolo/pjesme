@@ -47,7 +47,7 @@ body {
   padding: 1em 2em;
 	line-height: 1.5;
 	font-size: 16px;
-	transition: font-size .18s;
+/*	transition: font-size .18s;*/
 }
 html.centarTekst {
 	text-align: center;
@@ -1258,7 +1258,7 @@ window.addEventListener("scroll", () => {
     // down
     body.classList.remove(scrollUp);
     body.classList.add(scrollDown);
-  } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+  } else if (currentScroll < lastScroll - 7 && body.classList.contains(scrollDown)) {
     // up
     body.classList.remove(scrollDown);
     body.classList.add(scrollUp);
@@ -1346,6 +1346,8 @@ function shareDialog(){
 //      console.log('Link copied!');
   }
 }
+	
+// sakrivanje prijevoda
 function hideTranslation(){
 	if ($(".prijevod").hasClass("hidden")) {
 		$(".prijevod").removeClass("hidden")
@@ -1360,26 +1362,17 @@ function hideTranslation(){
 
 //	Povećanje i smanjenje fonta
 
-function pozicijaPostavi(){
-}
-	
-	
-	
-	
-	
-var pozicijaPostotak
-	
+var pozicijaPostotak;
 function pozicijaOdVrha(){
 	var trenutnaPozicija = $(window).scrollTop(); //trenutna pozicija
 	var visinaHtml = $(document).height(); // visina HTML dokumenta
 	pozicijaPostotak = trenutnaPozicija / visinaHtml * 100;
 }
-	
 function vratiPozicijuOdVrha(){
 	$(window).scrollTop(pozicijaPostotak / 100 * $(document).height());
 }
 	
-	
+// zumiranje teksta
 function zoom(mukunda) {
 	pozicijaOdVrha();
 	var fontSize = parseInt(getComputedStyle(document.body).fontSize.replace("px",""));
