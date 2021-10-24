@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- 2020-11-23 -->
 <html class="html" lang="en-US">
 <head>
 	<meta charset="UTF-8">
@@ -17,7 +16,7 @@
 	<meta name="description" content="Vedska poezija velikih acarya u digitalnom izdanju sa hrvatskim prijevodima." />
 	<meta property="og:description" content="Vedska poezija velikih acarya u digitalnom izdanju sa hrvatskim prijevodima." />
 	<meta name="twitter:description" content="Vedska poezija velikih acarya u digitalnom izdanju sa hrvatskim prijevodima." />
-	<meta property="og:image" content="./img/Krishna-Vrindavan_tdqyrr.jpg" />
+	<meta property="og:image" content="https://haribolo.github.io/pjesme/img/Krishna-Vrindavan_tdqyrr.jpg />
 	<meta property="og:image:width" content="1520" />
 	<meta property="og:image:height" content="850" />
 	<meta name="twitter:card" content="summary" />
@@ -27,6 +26,38 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<link rel="manifest" href="./manifest.json">
+<script>
+window.addEventListener('touchstart', function onFirstTouch() {
+document.getElementById('hiddenVideo').play();
+	
+  //  set some global variable
+//  window.USER_IS_TOUCHING = true;
+
+  // or set your app's state however you normally would
+//  myFrameworkOfChoice.dispatchEvent('USER_IS_TOUCHING', true);
+
+  // we only need to know once that a human touched the screen, so we can stop listening now
+  window.removeEventListener('touchstart', onFirstTouch, false);
+     console.log('Screen should stay on from now on.');
+//}, false);
+//	
+//window.addEventListener('touchstart', function onInactivity() {
+//			window.UserTouching = true;
+//	setTimeout(function(){ 
+//		if (window.UserTouching == true){
+//			body.classList.remove(scrollUp);
+//			body.classList.add(scrollDown);
+//			window.UserTouching = false;
+//		} else {
+//		} 
+//	}, 3000);
+}, false);
+	
+		
+</script>
+
+
+
 
 <style>
 /*	Sakrivanje ostatak WordPressa */
@@ -359,92 +390,49 @@ if (window.localStorage.getItem('darkMode') == "true"){
 <body id=web lang=hr>
     
 
-<svg class="hidden">
-  <defs>
-    <symbol id="buttonShare-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-buttonShare"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></symbol>
-    
-    <symbol id="facebook" viewBox="0 0 24 24" fill="#3b5998" stroke="#3b5998" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></symbol>
-    
-    <symbol id="twitter" viewBox="0 0 24 24" fill="#1da1f2" stroke="#1da1f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></symbol>
-    
-    <symbol id="email" viewBox="0 0 24 24" fill="#777" stroke="#fafafa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></symbol>
-    
-    <symbol id="linkedin" viewBox="0 0 24 24" fill="#0077B5" stroke="#0077B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></symbol>
-    
-    <symbol id="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></symbol>
-  </defs>
-</svg>
-	
+<div class=tech>
 	
 <video id="hiddenVideo" playsinline autoplay loop muted style="width:1px;height:1px;position:fixed;top:0px;right:0px;">
 <source src="data:video/mp4;base64, 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">
 
   <source src="data:video/webm;base64, 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" type="video/webm">
 </video>
-<script>
-window.addEventListener('touchstart', function onFirstTouch() {
-document.getElementById('hiddenVideo').play();
-	
-  //  set some global variable
-//  window.USER_IS_TOUCHING = true;
-
-  // or set your app's state however you normally would
-//  myFrameworkOfChoice.dispatchEvent('USER_IS_TOUCHING', true);
-
-  // we only need to know once that a human touched the screen, so we can stop listening now
-  window.removeEventListener('touchstart', onFirstTouch, false);
-//}, false);
-//	
-//window.addEventListener('touchstart', function onInactivity() {
-//			window.UserTouching = true;
-//	setTimeout(function(){ 
-//		if (window.UserTouching == true){
-//			body.classList.remove(scrollUp);
-//			body.classList.add(scrollDown);
-//			window.UserTouching = false;
-//		} else {
-//		} 
-//	}, 3000);
-}, false);
-	
-		
-</script>
-<article>
-	<div class=menu>
-<div class="menuIconHolder buttonDarkMode noselect hand">
-<!--
-	<input id="darkMode" type="checkbox" onclick="document.documentElement.classList.toggle('darkMode')">	
-	<label for="darkMode">Tamni prikaz</label><br>
-	<input id="centarTekst" type="checkbox" onclick="document.documentElement.classList.toggle('centarTekst')">	
-	<label for="centarTekst">Centriraj tekst</label>
--->
-		<span onclick="$('html').toggleClass('darkMode', 500); window.localStorage.setItem('darkMode', $('html').hasClass('darkMode'));"><svg class="menuIcon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 112.88"><path d="M14.29 0h94.3c7.86 0 14.29 6.43 14.29 14.29v84.3c0 7.86-6.43 14.29-14.29 14.29h-94.3A14.33 14.33 0 010 98.59v-84.3C0 6.43 6.43 0 14.29 0zm47.07 24.87a25.74 25.74 0 0012.88 48.05c6.75 0 12.9-2.6 17.49-6.85 2.28-2.11 4.89-.57 4.01 1.94a35.37 35.37 0 01-68.79-11.65 35.3 35.3 0 0133.1-35.23c3.42-.2 4.3 2.01 1.31 3.74z" fill-rule="evenodd" clip-rule="evenodd"/></svg></span>
-</div>
-<div class="menuIconHolder buttonMenu noselect hand">
-		<span onclick="open"><svg class="menuIcon mainMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124"><path d="M112 6H12C5.4 6 0 11.4 0 18s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 94H12c-6.6 0-12 5.4-12 12s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"/></svg></span>
-</div>
-<div class="menuIconHolder buttonZoomIn noselect hand">
-		<span onclick="pozicijaOdVrha();zoom('in');vratiPozicijuOdVrha();"><svg class="menuIcon menuZoomIn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2S130.56 51.2 230.4 51.2s179.2 79.36 179.2 179.2-81.92 179.2-179.2 179.2z"/><path d="M332.8 204.8H256V128c0-15.36-10.24-25.6-25.6-25.6-15.36 0-25.6 12.8-25.6 25.6v76.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h76.8v76.8c0 15.36 10.24 25.6 25.6 25.6 15.36 0 25.6-10.24 25.6-25.6V256h76.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></svg></span>
-</div>
-<div class="menuIconHolder buttonZoomOut noselect hand">
-		<span onclick="pozicijaOdVrha();zoom('out');vratiPozicijuOdVrha();"><svg class="menuIcon menuZoomOut" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 512"><defs><style>.fil0{fill:#000;fill-rule:nonzero}</style></defs><g id="Layer_x0020_1"><path class="fil0" d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2 0-99.84 79.36-179.2 179.2-179.2 99.84 0 179.2 79.36 179.2 179.2 0 99.84-81.92 179.2-179.2 179.2z" id="_2236117764000"/><path class="fil0" d="M332.8 204.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h204.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></g></svg></span>
-</div>
-<div class="menuIconHolder buttonHideTranslation noselect hand">
-		<span onclick="hideTranslation()" class=buttonShare-button><svg class="menuIcon menuHideTranslation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M139 137h-7l-12 60h31zM381 257c7 17 15 31 25 43 10-12 19-26 26-43h-51z"/><path d="M467 91H281l39 312c0 12-3 24-12 34l-65 75h224c25 0 45-20 45-45V137c0-25-20-46-45-46zm0 166h-4c-9 27-22 49-36 66l34 27a15 15 0 11-18 24l-37-30-36 30a15 15 0 11-18-24l33-27c-14-17-26-39-35-66h-4a15 15 0 110-30h45v-15a15 15 0 1130 0v15h46a15 15 0 110 30z"/><path d="M244 39c-3-22-22-39-44-39H45C20 0 0 20 0 45v332c0 25 20 45 45 45h237c4-5 8-8 8-15L244 39zm-60 248c-8 1-16-4-18-12l-9-48h-43l-9 48c-2 8-10 13-18 12-8-2-13-10-12-18l30-150c2-7 8-12 15-12h31c7 0 13 5 15 12l30 150c1 8-4 16-12 18zM175 452l3 21c2 13 11 27 26 34l50-55h-79z"/></svg></span>
-</div>
-<div class="menuIconHolder buttonShare noselect hand">
-		<span onclick="shareDialog()" class=buttonShare-button><svg class="menuIcon menuShare" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.7 426.7"><path d="M352 256c-24 0-45.1 11.6-58.8 29.2l-144.4-55.6c.1-1.8.5-3.7.5-5.6 0-3.6-.5-7-1-10.5l148-68.3A74.2 74.2 0 00426.7 96a74.8 74.8 0 00-149.4 0c0 3.6.6 7 1 10.5l-148 68.3A74.2 74.2 0 000 224a74.3 74.3 0 00133.5 45.5L277.9 325c-.1 2-.6 3.7-.6 5.7a74.8 74.8 0 00149.4 0A74.8 74.8 0 00352 256z"/></svg></span>
-</div>
+<div class=menu>
+		<div class="menuIconHolder buttonDarkMode noselect hand">
+		<!--
+			<input id="darkMode" type="checkbox" onclick="document.documentElement.classList.toggle('darkMode')">	
+			<label for="darkMode">Tamni prikaz</label><br>
+			<input id="centarTekst" type="checkbox" onclick="document.documentElement.classList.toggle('centarTekst')">	
+			<label for="centarTekst">Centriraj tekst</label>
+		-->
+				<span onclick="$('html').toggleClass('darkMode', 500); window.localStorage.setItem('darkMode', $('html').hasClass('darkMode'));"><svg class="menuIcon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 112.88"><path d="M14.29 0h94.3c7.86 0 14.29 6.43 14.29 14.29v84.3c0 7.86-6.43 14.29-14.29 14.29h-94.3A14.33 14.33 0 010 98.59v-84.3C0 6.43 6.43 0 14.29 0zm47.07 24.87a25.74 25.74 0 0012.88 48.05c6.75 0 12.9-2.6 17.49-6.85 2.28-2.11 4.89-.57 4.01 1.94a35.37 35.37 0 01-68.79-11.65 35.3 35.3 0 0133.1-35.23c3.42-.2 4.3 2.01 1.31 3.74z" fill-rule="evenodd" clip-rule="evenodd"/></svg></span>
+		</div>
+		<div class="menuIconHolder buttonMenu noselect hand">
+				<span onclick="open"><svg class="menuIcon mainMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124"><path d="M112 6H12C5.4 6 0 11.4 0 18s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 94H12c-6.6 0-12 5.4-12 12s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"/></svg></span>
+		</div>
+		<div class="menuIconHolder buttonZoomIn noselect hand">
+				<span onclick="pozicijaOdVrha();zoom('in');vratiPozicijuOdVrha();"><svg class="menuIcon menuZoomIn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2S130.56 51.2 230.4 51.2s179.2 79.36 179.2 179.2-81.92 179.2-179.2 179.2z"/><path d="M332.8 204.8H256V128c0-15.36-10.24-25.6-25.6-25.6-15.36 0-25.6 12.8-25.6 25.6v76.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h76.8v76.8c0 15.36 10.24 25.6 25.6 25.6 15.36 0 25.6-10.24 25.6-25.6V256h76.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></svg></span>
+		</div>
+		<div class="menuIconHolder buttonZoomOut noselect hand">
+				<span onclick="pozicijaOdVrha();zoom('out');vratiPozicijuOdVrha();"><svg class="menuIcon menuZoomOut" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 512"><defs><style>.fil0{fill:#000;fill-rule:nonzero}</style></defs><g id="Layer_x0020_1"><path class="fil0" d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2 0-99.84 79.36-179.2 179.2-179.2 99.84 0 179.2 79.36 179.2 179.2 0 99.84-81.92 179.2-179.2 179.2z" id="_2236117764000"/><path class="fil0" d="M332.8 204.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h204.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></g></svg></span>
+		</div>
+		<div class="menuIconHolder buttonHideTranslation noselect hand">
+				<span onclick="hideTranslation()" class=buttonShare-button><svg class="menuIcon menuHideTranslation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M139 137h-7l-12 60h31zM381 257c7 17 15 31 25 43 10-12 19-26 26-43h-51z"/><path d="M467 91H281l39 312c0 12-3 24-12 34l-65 75h224c25 0 45-20 45-45V137c0-25-20-46-45-46zm0 166h-4c-9 27-22 49-36 66l34 27a15 15 0 11-18 24l-37-30-36 30a15 15 0 11-18-24l33-27c-14-17-26-39-35-66h-4a15 15 0 110-30h45v-15a15 15 0 1130 0v15h46a15 15 0 110 30z"/><path d="M244 39c-3-22-22-39-44-39H45C20 0 0 20 0 45v332c0 25 20 45 45 45h237c4-5 8-8 8-15L244 39zm-60 248c-8 1-16-4-18-12l-9-48h-43l-9 48c-2 8-10 13-18 12-8-2-13-10-12-18l30-150c2-7 8-12 15-12h31c7 0 13 5 15 12l30 150c1 8-4 16-12 18zM175 452l3 21c2 13 11 27 26 34l50-55h-79z"/></svg></span>
+		</div>
+		<div class="menuIconHolder buttonShare noselect hand">
+				<span onclick="shareDialog()" class=buttonShare-button><svg class="menuIcon menuShare" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.7 426.7"><path d="M352 256c-24 0-45.1 11.6-58.8 29.2l-144.4-55.6c.1-1.8.5-3.7.5-5.6 0-3.6-.5-7-1-10.5l148-68.3A74.2 74.2 0 00426.7 96a74.8 74.8 0 00-149.4 0c0 3.6.6 7 1 10.5l-148 68.3A74.2 74.2 0 000 224a74.3 74.3 0 00133.5 45.5L277.9 325c-.1 2-.6 3.7-.6 5.7a74.8 74.8 0 00149.4 0A74.8 74.8 0 00352 256z"/></svg></span>
+		</div>
 
 	</div>
-<!--
-<div class=topGradient></div>
-<div class=bottomGradient></div>
--->
+</div>
+
 	
+
+
+
+<article>
+<div class=songs>   
 <h1 class=title>Pjesme Vaiṣṇava</h1>
-    
-<div class="songs">   
     
     
 <song id=prabhupadapranati>
@@ -452,7 +440,7 @@ document.getElementById('hiddenVideo').play();
 	<p class=autor>Śrīla Prabhupāda</p>
 	<p class=stih>(1)</br>
 	nama om viṣṇu-pādāya kṛṣṇa-preṣṭhāya bhū-tale<br />śrīmate bhaktivedānta-svāmin iti nāmine</p>
-	<p class=prijevod>Odajem svoje ponizno poštovanje Njegovoj Božanskoj milosti A.C.Bhaktivedanti Swamiju Prabhupadi, koji je veoma drag Gospodinu Kṛṣṇi jer je uzeo utočište Njegovih lotosolikih stopala.</p>
+	<p class=prijevod>Odajem ponizno poštovanje Njegovoj Božanskoj milosti A.C.Bhaktivedanti Swamiju Prabhupadi, koji je veoma drag Gospodinu Kṛṣṇi jer je uzeo utočište Njegovih lotosolikih stopala.</p>
 	<p class=stih>(2)</br>
 	namas te sārasvate deve gaura-vāṇī-pracāriṇe<br />nirviśeṣa-śūnyavādi-pāścātya-deśa-tāriṇe</p>
 	<p class=prijevod>Ponizno poštovanje tebi, o duhovni učitelju, slugo Sarasvati Goswamija. Ti milostivo propovjedaš poruku Gospodina Caitanyadeve i oslobađaš zapadne zemlje koje su pune impersionalizma i voidizma.</p>
@@ -472,12 +460,12 @@ document.getElementById('hiddenVideo').play();
 	<h2>CC Madhya 19.53</h2>
 	<!--<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>-->
 	<p class=stih>(1)<br />
-		namo mahā-vadānyāya<br />
+	namo mahā-vadānyāya<br />
 	kṛṣṇa-prema-pradāya te<br />
 	kṛṣṇāya kṛṣṇa-caitanya-<br />
 	nāmne gaura-tviṣe namaḥ<br />
 	</p>
-	<p class=prijevod>O najvelikodušnija inkarnacijo! Sam si Kṛṣṇa koji se pojavio kao Śrī Kṛṣṇa Caitanya. Poprimio si zlatnu boju Śrīmatī Rādhāraṇī i milostivo dijeliš čistu ljubav prema Kṛṣṇi. Odajem Ti svoje dužno poštovanje.</p>
+	<p class=prijevod>O najvelikodušnija inkarnacijo! Sam si Kṛṣṇa koji se pojavio kao Śrī Kṛṣṇa Caitanya. Poprimio si zlatnu boju Śrīmatī Rādhāraṇī i milostivo dijeliš čistu ljubav prema Kṛṣṇi. Odajem Ti ponizno poštovanje.</p>
 </song>
 
 
@@ -499,7 +487,7 @@ document.getElementById('hiddenVideo').play();
 	jagad-dhitāya kṛṣṇāya<br />
 	govindāya namo namaḥ<br />
 	</p>
-	<p class=prijevod>Odajem svoje ponizno poštovanje Gospodinu koji je obožavano Božanstvo brāhmana,  dobronamjerniku krava, brāhmana i cijeloga svemira. Iznova i iznova odajem poštovanje Božanskoj Osobi poznatoj kao Kṛṣṇa i Govinda.</p>
+	<p class=prijevod>Odajem ponizno poštovanje Gospodinu koji je obožavano Božanstvo brāhmana,  dobronamjerniku krava, brāhmana i cijeloga svemira. Iznova i iznova odajem poštovanje Božanskoj Osobi poznatoj kao Kṛṣṇa i Govinda.</p>
 </song>
 
 
@@ -527,7 +515,7 @@ document.getElementById('hiddenVideo').play();
 	swa-prasād-anna dilo bhāi<br />
 	sei annāmṛta pāo, rādhā-kṛṣṇa-guṇa gāo,<br />
 	preme ḍāko caitanya-nitāi</p>
-	<p class=prijevod>Ali Ti dragi Kṛṣṇa si vrlo ljubazan prema nama te si nam dao tako ukusan prasādam samo da bi mogli obuzdati jezik. Sada prihvatimo ovaj prasādam do punog zadovoljstva slaveći Vaša Gospodstva - Rādhu i Kṛṣṇu - i s ljubavlju prizivajmo pomoć Gospodina Caitanye i Nityānande.</p>
+	<p class=prijevod>Ali Ti dragi Kṛṣṇa si vrlo ljubazan prema nama te si nam dao tako ukusan prasādam samo da bi mogli obuzdati jezik. Sada prihvatimo ovaj prasādam do punog zadovoljstva slaveći Vaša Gospodstva - Rādhu i Kṛṣṇu - i s ljubavlju prizivajmo pomoć Gospodina Caitanye i Gospodina Nityānande.</p>
 </song>
 
 
@@ -542,7 +530,7 @@ document.getElementById('hiddenVideo').play();
 	<p class=stih>(1)</br>
 	(jaya) śrī-kṛṣṇa-caitanya prabhu-nityānanda <br>
 	śrī-advaita gadādhara śrīvāsādi-gaura-bhakta-vṛnda</p>
-	<p class=prijevod>Odajem svoje ponizno poštovanje Śrī Kṛṣṇi Caitanyi, Prabhuu Nityānandi, Śrī-Advaiti, Gadādhari, Śrīvāsi i svim ostalim bhaktama Gospodina Caitanye.</p>
+	<p class=prijevod>Odajem ponizno poštovanje Śrī Kṛṣṇi Caitanyi, Prabhuu Nityānandi, Śrī-Advaiti, Gadādhari, Śrīvāsi i svim ostalim bhaktama Gospodina Caitanye.</p>
 </song>
 
 
@@ -593,7 +581,7 @@ namas te narasimhāya</br>
 prahlādāhlāda-dāyine</br>
 hiraṇyakaśipor vakṣaḥ-</br>
 śilā-ṭańka-nakhālaye</p>
-	<p class=prijevod>Odajem svoje poštovanje Gospodinu Nṛsimhi, koji bhaktama poput Prahlāde podaruje zadovoljstvo i čiji su nokti poput dlijetā na kamenolikim grudima demona Hiraṇyakaśipua.</p>
+	<p class=prijevod>Odajem poštovanje Gospodinu Nṛsimhi, koji bhaktama poput Prahlāde podaruje zadovoljstvo i čiji su nokti poput dlijetā na kamenolikim grudima demona Hiraṇyakaśipua.</p>
 	<p class=stih>(2)</br>
 ito nṛsimhaḥ parato nṛsimho</br>
 yato yato yāmi tato nṛsimhaḥ</br>
@@ -673,13 +661,13 @@ lasat-kuṇḍalam gokule bhrājamanam</br>
 yaśodā-bhiyolūkhalād dhāvamānam</br>
 parāmṛṣṭam atyantato drutya gopyā
 </p>
-<p class=prijevod>Svevišnjem Gospodinu — čije vječno tijelo, puno znanja i blaženstva sija u Gokuli — odajem svoje ponizno poštovanje. Njegove naušnice su se njihale dok je žurno bježao od drvenog žrvnja u strahu od svoje majke Yaśode, koja ga je, nakon jurnjave, konačno sustigla i uhvatila.</p>
+<p class=prijevod>Svevišnjem Gospodinu — čije vječno tijelo, puno znanja i blaženstva sija u Gokuli — odajem ponizno poštovanje. Njegove naušnice su se njihale dok je žurno bježao od drvenog žrvnja u strahu od svoje majke Yaśode, koja ga je, nakon jurnjave, konačno sustigla i uhvatila.</p>
 <p class=stih>(2)</br>
 rudantam muhur netra-yugmam mṛjantam</br>
 karāmbhoja-yugmena sātańka-netram</br>
 muhuḥ śvāsa-kampa-trirekhāńka-kaṇṭha-</br>
 sthita-graivam dāmodaram bhakti-baddham</p>
-<p class=prijevod>Uhvaćen, rasplakao se i lotosolikim rukama stao neprestano trljati oči koje su bile pune straha, a oko Njegova vrata s tri crte, baš poput onih na školjki, uslijed drhtanja i brzog disanja, tresla se ogrlica. Tom Damodari, koji može biti vezan samo s bhakti, odajem svoje ponizno poštovanje.</p>
+<p class=prijevod>Uhvaćen, rasplakao se i lotosolikim rukama stao neprestano trljati oči koje su bile pune straha, a oko Njegova vrata s tri crte, baš poput onih na školjki, uslijed drhtanja i brzog disanja, tresla se ogrlica. Tom Damodari, koji može biti vezan samo s bhakti, odajem ponizno poštovanje.</p>
 <p class=stih>(3)</br>
 itīdṛk sva-līlābhir ānanda-kuṇḍe</br>
 sva-ghoṣam nimajjantam ākhyāpayantam</br>
@@ -715,7 +703,7 @@ namas te ‘stu dāmne sphurad-dīpti-dhāmne</br>
 tvadīyodarāyātha viśvasya dhāmne</br>
 namo rādhikāyai tvadīya-priyāyai</br>
 namo ‘nanta-līlāya devāya tubhyam</p>
-<p class=prijevod>Odajem svoje ponizno poštovanje blistavo sjajnom konopcu kojim je svezan Tvoj trbuščić. Potom odajem svoje ponizno poštovanje Tvom trbuščiću, prebivalištu cijeloga svemira. Ponizno se klanjam Tvojoj najvoljenijoj Shrimáti Rādhiki i odajem svo poštovanje Tebi, Svevišnjem Gospodinu, koji provodi beskrajne zabave.</p>
+<p class=prijevod>Odajem ponizno poštovanje blistavo sjajnom konopcu kojim je svezan Tvoj trbuščić. Potom odajem ponizno poštovanje Tvom trbuščiću, prebivalištu cijeloga svemira. Ponizno se klanjam Tvojoj najvoljenijoj Shrimáti Rādhiki i odajem svo poštovanje Tebi, Svevišnjem Gospodinu, koji provodi beskrajne zabave.</p>
 </song>
 
 
@@ -872,7 +860,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	<p class=stih>(1)<br />mānasa, deho, geho, jo kichu mor<br />arpilū tuwā pade, nanda-kiśor!</p>
 	<p class=prijevod>O mladoliki Nandin sine, um, tijelo i obitelj, sve što <br />može biti moje, predao sam Tvojim lotosovim stopalima.</p>
 	<p class=stih>(2)<br />sampade vipade, jīvane-maraṇe<br />dāy mama gelā, tuwā o-pada baraṇe</p>
-	<p class=prijevod>U sreći ili nesreći, u životu ili smrti, sve su moje teškoće nestale kada sam izabrao Tvoja stopala kao svoje jedino utočište.</p>
+	<p class=prijevod>U sreći ili nesreći, u životu ili smrti, sve su teškoće nestale kada sam izabrao Tvoja stopala kao jedino utočište.</p>
 	<p class=stih>(3)<br />mārobi rākhobi-jo icchā tohārā<br />nitya-dāsa prati tuwā adhikārā</p>
 	<p class=prijevod>Pogubi me ili me zaštiti kako Ti želiš, jer Ti si gospodar svog vječnog sluge.</p>
 	<p class=stih>(4)<br />janmāobi moe icchā jadi tor<br />bhakta-gṛhe jani janma hau mor</p>
@@ -971,7 +959,7 @@ Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare."<br /></p>
 	<p class=stih>(6)<br />yaśodā-nandana, kaṁsa-nisūdana,<br />nikuñja-rāsa-vilāsī<br />kadamba-kānana, rāsa-parāyaṇa,<br />bṛnda-vipina-nivāsī</p>
 	<p class=prijevod>Sin je majke Yashode i ubojica Kamse. On provodi različite ljubavne zabave u šumama Vraje, poput rasa plesa u kadamba šumi i voli boraviti u njima.</p>
 	<p class=stih>(7)<br />ānanda-vardhana, prema-niketana,<br />phula-śara-jojaka kāma<br />gopāṅganā-gaṇa, citta-vinodana,<br />samasta-guṇa-gaṇa-dhāma</p>
-	<p class=prijevod>On povećava zanos Svojih bhakta i spremište je sve ljubavi.Transcendentalni je Kupid koji koristi svoje cvjetne strelice kako bi povećao ljubavne želje gopija. Zadovoljstvo je srca gopija i boravište svih prekrasnih osobina.</p>
+	<p class=prijevod>On povećava zanos Svojih bhakta i spremište je sve ljubavi. Transcendentalni je Kupid koji koristi svoje cvjetne strelice kako bi povećao ljubavne želje gopija. Zadovoljstvo je srca gopija i boravište svih prekrasnih osobina.</p>
 	<p class=stih>(8)<br />jāmuna-jīvana, keli-parāyaṇa,<br />mānasa-candra-cakora<br />nāma-sudhā-rasa, gāo kṛṣṇa-jaśa<br />rākho vacana mana mora</p>
 	<p class=prijevod>Život je rijeke Yamune i uvijek je zaokupljen ljubavnim zabavama. Mjesec je umova gopija koji su poput cakora ptica, koje su aktivne samo za mjesečine. O ume, pokori se ovim riječima i pjevaj slave Śri Kṛṣṇe u obliku ovih svetih imena, koja su puna nektara.</p>
 </song>
@@ -1129,49 +1117,49 @@ harer-nāmaiva kevalam</p>
 trāṇāya kāruṇya-ghanāghanatvam<br />
 prāptasya kalyāṇa-guṇārṇavasya<br />
 vande guroḥ śrī-caraṇāravindam</p>
-	<p class=prijevod>Duhovni učitelj prima blagoslove iz oceana milosti. Baš kao što oblak izlijeva vodu na šumski požar i time ga gasi, tako duhovni učitelj izbavlja ovaj svijet koji more materijalne patnje, gaseći razbuktalu vatru materijalnog postojanja. Odajem svoje ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja koji je ocean povoljnih odlika.</p>
+	<p class=prijevod>Duhovni učitelj prima blagoslove iz oceana milosti. Baš kao što oblak izlijeva vodu na šumski požar i time ga gasi, tako duhovni učitelj izbavlja ovaj svijet koji more materijalne patnje, gaseći razbuktalu vatru materijalnog postojanja. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja koji je ocean povoljnih odlika.</p>
 	<p class=stih>(2)<br />
 	mahāprabhoḥ kīrtana-nṛtya-gīta-<br />
 vāditra-mādyan-manaso rasena<br />
 romāñca -kampāśru-tarańga-bhājo<br />
 vande guroḥ śrī-caraṇāravindam</p>
-	<p class=prijevod>Dok pjeva Sveto Ime, pleše u zanosu, pjeva i svira glazbene instrumente, duhovni učitelj se uvijek raduje saṅkīrtana pokretu Gospodina Caitanye Mahāprabhua. Budući da u svom umu uživa u dražima čiste predanosti, ponekad mu se koža ježi, osjeća drhtanje tijela, a suze u valovima teku iz njegovih očiju. Odajem svoje ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+	<p class=prijevod>Dok pjeva Sveto Ime, pleše u zanosu, pjeva i svira glazbene instrumente, duhovni učitelj se uvijek raduje saṅkīrtana pokretu Gospodina Caitanye Mahāprabhua. Budući da u svom umu uživa u dražima čiste predanosti, ponekad mu se koža ježi, osjeća drhtanje tijela, a suze u valovima teku iz njegovih očiju. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
 	<p class=stih>(3)<br />
 	śrī-vigrahārādhana-nitya-nānā-<br />
 śṛńgāra-tan-mandira-mārjanādau<br />
 yuktasya bhaktāmś ca niyuñjato 'pi<br />
 vande guroḥ śrī-caraṇāravindam</p>
-	<p class=prijevod>Duhovni je učitelj neprestano zaokupljen hramskim obožavanjem Śri-Śri-Rādhe i Kṛṣṇe. On i svoje učenike zaokuplja takvim obožavanjem. Oni odijevaju Božanstva u predivnu odjeću i ukrašavaju ih nakitom, čiste Njihov hram i obožavaju Gospodina na druge slične načine. Odajem svoje ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+	<p class=prijevod>Duhovni je učitelj neprestano zaokupljen hramskim obožavanjem Śri-Śri-Rādhe i Kṛṣṇe. On i svoje učenike zaokuplja takvim obožavanjem. Oni odijevaju Božanstva u predivnu odjeću i ukrašavaju ih nakitom, čiste Njihov hram i obožavaju Gospodina na druge slične načine. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
 	<p class=stih>(4)<br />
 	catur-vidha-śrī-bhagavat-prasāda-<br />
 svādv-anna-tṛptān hari-bhakta-sańghān<br />
 kṛtvaiva tṛptim bhajataḥ sadaiva<br />
 vande guroḥ śrī-caraṇāravindam</p>
-	<p class=prijevod>Duhovni učitelj stalno nudi Kṛṣṇi četiri vrste ukusne hrane (onu koja se liže, žvače, pije i siše). Kad duhovni učitelj vidi da su bhakte zadovoljni dok jedu bhagavat-prāsādam, i on je zadovoljan. Odajem svoje ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+	<p class=prijevod>Duhovni učitelj stalno nudi Kṛṣṇi četiri vrste ukusne hrane (onu koja se liže, žvače, pije i siše). Kad duhovni učitelj vidi da su bhakte zadovoljni dok jedu bhagavat-prāsādam, i on je zadovoljan. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
 	<p class=stih>(5)<br />
 	śrī-rādhikā-mādhavayor apāra-<br />
 mādhurya-līlā guṇa-rūpa-nāmnām<br />
 prati-kṣaṇāsvādana-lolupasya<br />
 vande guroḥ śrī-caraṇāravindam</p>
-	<p class=prijevod>Duhovni učitelj uvijek žarko želi slušati i pjevati o neograničenim ljubavnim zabavama Rādhike i Mādhave, i o Njihovim osobinama, imenima i oblicima. Duhovni učitelj teži da u svakom trenutku uživa u tome. Odajem svoje ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+	<p class=prijevod>Duhovni učitelj uvijek žarko želi slušati i pjevati o neograničenim ljubavnim zabavama Rādhike i Mādhave, i o Njihovim osobinama, imenima i oblicima. Duhovni učitelj teži da u svakom trenutku uživa u tome. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
 	<p class=stih>(6)<br />
 	nikuñja-yūno rati-keli-siddhyai<br />
 yā yālibhir yuktir apekṣaṇīyā<br />
 tatrāti-dākṣyād ati-vallabhasya<br />
 vande guroḥ śrī-caraṇāravindam</p>
-	<p class=prijevod>Duhovni učitelj je vrlo drag, jer vješto pomaže gopījama koje u različita vremena stvaraju razne aranžmane kako bi ljubavne zabave Rādhe i Kṛṣṇe u gajevima Vṛndāvane bile savršene. Odajem svoje ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+	<p class=prijevod>Duhovni učitelj je vrlo drag, jer vješto pomaže gopījama koje u različita vremena stvaraju razne aranžmane kako bi ljubavne zabave Rādhe i Kṛṣṇe u gajevima Vṛndāvane bile savršene. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
 	<p class=stih>(7)<br />
 	sākṣād-dharitvena samasta-śāstrair<br />
 uktas tathā bhāvyata eva sadbhiḥ<br />
 kintu prabhor yaḥ priya eva tasya<br />
 vande guroḥ śrī-caraṇāravindam</p>
-	<p class=prijevod>Duhovnog učitelja treba poštovati baš poput samog Svevišnjeg Gospodina, jer je on Gospodinov najpovjerljiviji sluga. To potvrđuju svi razotkriveni sveti spisi i to slijede svi autoriteti. Stoga odajem svoje ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja koji je vjerodostojan predstavnik Śri Harija (Kṛṣṇe).</p>
+	<p class=prijevod>Duhovnog učitelja treba poštovati baš poput samog Svevišnjeg Gospodina, jer je on Gospodinov najpovjerljiviji sluga. To potvrđuju svi razotkriveni sveti spisi i to slijede svi autoriteti. Stoga odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja koji je vjerodostojan predstavnik Śri Harija (Kṛṣṇe).</p>
 	<p class=stih>(8)<br />
 	yasya prasādād bhagavat-prasādo<br />
 yasyāprasādān na gatiḥ kuto 'pi<br />
 dhyāyan stuvams tasya yaśas tri-sandhyam<br />
 vande guroḥ śrī-caraṇāravindam</p>
-	<p class=prijevod>Milošću duhovnog učitelja osoba dobiva Kṛṣṇin blagoslov. Bez milosti duhovnog učitelja ne možemo ni malo napredovati. Stoga se uvijek trebam sjećati i slaviti takvog duhovnog učitelja. Najmanje tri puta dnevno trebam odavati svoje ponizno poštovanje njegovim lotosolikim stopalima.</p>
+	<p class=prijevod>Milošću duhovnog učitelja osoba dobiva Kṛṣṇin blagoslov. Bez milosti duhovnog učitelja ne možemo ni malo napredovati. Stoga se uvijek trebam sjećati i slaviti takvog duhovnog učitelja. Najmanje tri puta dnevno trebam odavati ponizno poštovanje njegovim lotosolikim stopalima.</p>
 </song>
 
 
@@ -1485,61 +1473,79 @@ window.onload = function() {
 .menuIcon{
 	font-size: 16px;
 }
-.scroll-down .buttonDarkMode{
+.menuIconHolder{
+  transform: none;
+  transition: transform 0.4s;
+}
+.scroll-down.buttonDarkMode{
   transform: translate3d(0, -200%, 0);
   transition: transform 0.7s;
 }
-.scroll-down .buttonMenu{
+.scroll-down.buttonMenu{
   transform: translate3d(0, -200%, 0);
   transition: transform 0.4s;
 }
-.scroll-down .buttonZoomOut {
+.scroll-down.buttonZoomOut {
   transform: translate3d(0, 200%, 0);
   transition: transform 0.3s;
 }
-.scroll-down .buttonZoomIn {
+.scroll-down.buttonZoomIn {
   transform: translate3d(0, 400%, 0);
   transition: transform .6s;
 }
-.scroll-down .buttonShare {
+.scroll-down.buttonShare {
   transform: translate3d(0, 200%, 0);
   transition: transform 0.8s;
 }
-.scroll-down .buttonHideTranslation {
+.scroll-down.buttonHideTranslation {
   transform: translate3d(0, 400%, 0);
   transition: transform 0.8s;
 }
-.scroll-up .buttonDarkMode,  .scroll-up .buttonMenu, .scroll-up .buttonZoomIn, .scroll-up .buttonZoomOut, .scroll-up .buttonShare, .scroll-up .buttonHideTranslation {
+.scroll-up.buttonDarkMode,  .scroll-up.buttonMenu, .scroll-up.buttonZoomIn, .scroll-up.buttonZoomOut, .scroll-up.buttonShare, .scroll-up.buttonHideTranslation {
   transform: none;
   transition: transform 0.4s;
 }
 </style>
+
+
+
 <script>
-//Gumbi: sakrivanje i prikazivanje po skrolanju
-const body = document.body;
-const scrollUp = "scroll-up";
-const scrollDown = "scroll-down";
-let lastScroll = 0;
-
-
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
-  if (currentScroll <= 0) {
-    body.classList.remove(scrollUp);
-    return;
-  }
-  
-  if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
-    // down
-    body.classList.remove(scrollUp);
-    body.classList.add(scrollDown);
-  } else if (currentScroll < lastScroll - 7 && body.classList.contains(scrollDown)) {
-    // up
-    body.classList.remove(scrollDown);
-    body.classList.add(scrollUp);
-  }
-  lastScroll = currentScroll;
+//Sakrivanje i prikazivanje gumbicha
+$(function() {
+  $('article').click(function() {
+    $( ".menuIconHolder" ).toggleClass( "scroll-down" )
+  });
 });
+
+
+
+
+
+//Gumbi: sakrivanje i prikazivanje po skrolanju
+	//const body = document.body;
+	//const scrollUp = "scroll-up";
+	//const scrollDown = "scroll-down";
+	//let lastScroll = 0;
+	//
+	//
+	//window.addEventListener("scroll", () => {
+	//  const currentScroll = window.pageYOffset;
+	//  if (currentScroll <= 0) {
+	//    body.classList.remove(scrollUp);
+	//    return;
+	//  }
+	//  
+	//  if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+	//    // down
+	//    body.classList.remove(scrollUp);
+	//    body.classList.add(scrollDown);
+	//  } else if (currentScroll < lastScroll - 7 && body.classList.contains(scrollDown)) {
+	//    // up
+	//    body.classList.remove(scrollDown);
+	//    body.classList.add(scrollUp);
+	//  }
+	//  lastScroll = currentScroll;
+	//});
 	
 
 //	Sadržaj: ukloni #... na anchor
@@ -1751,5 +1757,5 @@ document.addEventListener("keydown", function(event) {
 				}
 			});</script>
 </body>
-<!-- /wp:html -->
+
 </html>
