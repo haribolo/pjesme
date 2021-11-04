@@ -1662,10 +1662,10 @@ var pozicijaPostotak;
 function pozicijaOdVrha(){
 	var trenutnaPozicija = $(window).scrollTop(); //trenutna pozicija
 	var visinaHtml = $(document).height(); // visina HTML dokumenta
-	pozicijaPostotak = trenutnaPozicija / visinaHtml * 100;
+	pozicijaPostotak = Math.round(trenutnaPozicija / visinaHtml * 100);
 }
 function vratiPozicijuOdVrha(){
-	$(window).scrollTop(pozicijaPostotak / 100 * $(document).height());
+	$(window).scrollTop(Math.round(pozicijaPostotak / 100 * $(document).height()));
 }
 	
 // zumiranje teksta
@@ -1679,8 +1679,6 @@ function zoom(mukunda) {
 	
 // sakrivanje prijevoda
 function toggleTranslation(){
-	var trenutnaPozicija = $(window).scrollTop();
-	console.log("Trenutna prije akcije: " && trenutnaPozicija);
 	if ($(".prijevod").hasClass("hidden")) {
 		$(".prijevod").removeClass("hidden")
 		$(".smisao").removeClass("hidden")
@@ -1690,8 +1688,6 @@ function toggleTranslation(){
 		$(".smisao").addClass("hidden")
 		$("body").addClass("translationHidden")
 	}
-	$(window).scrollTop(trenutnaPozicija);
-	console.log("Trenutna poslije akcije: " && trenutnaPozicija);
 }
 
 //vrati veličinu fonta
