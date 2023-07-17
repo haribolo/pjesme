@@ -1,11 +1,14 @@
 (function() {
-var CACHE_VERSION = 20221015.28;
+var CACHE_VERSION = 20230717.29;
 var CURRENT_CACHES = {
   prefetch: 'haribol-v' + CACHE_VERSION
 };
 
   var urlsToPrefetch = [
 './',
+'./fonts/noto-serif-latin-400-italic.woff2',
+'./fonts/noto-serif-latin-400-normal.woff2',
+'./fonts/noto-serif-latin-600-normal.woff2',
 './img/favicon.png',
 './img/android-startup.png',
 './img/apple-touch-icon.png',
