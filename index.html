@@ -26,9 +26,41 @@
 	<meta property="og:type" content="article" >
 	<meta property="og:url" content="https://haribolo.github.io/pjesme/" >
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap&subset=latin-ext" rel="stylesheet"> -->
+	<style>
+		/* latin-400-normal */
+		@font-face {
+		    font-family: 'Noto Serif';
+		    font-style: normal;
+		    font-weight: 400;
+		    font-stretch: 100%;
+		    font-display: swap;
+		    src: url('../fonts/noto-serif-latin-400-normal.woff2') format('woff2');
+		    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* latin-400-italic */
+		@font-face {
+		    font-family: 'Noto Serif';
+		    font-style: italic;
+		    font-weight: 400;
+		    font-stretch: 100%;
+		    font-display: swap;
+		    src: url('../fonts/noto-serif-latin-400-italic.woff2') format('woff2');
+		    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* latin-600-normal */
+		@font-face {
+		    font-family: 'Noto Serif';
+		    font-style: normal;
+		    font-weight: 600;
+		    font-stretch: 100%;
+		    font-display: swap;
+		    src: url('../fonts/noto-serif-latin-600-normal.woff2') format('woff2');
+		    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+</style>
 
 	<title>Pjesme Vaiṣṇava</title>
 	<script>
@@ -83,8 +115,11 @@
 	  padding: 1em 2em;
 		line-height: 1.5;
 		font-size: 16px;
-		font-family: 'Noto Serif', sans-serif;
 	/*	transition: font-size .18s;*/
+	}
+	html, body, p, h1, h2, h3{
+
+		font-family: 'Noto Serif', sans-serif;
 	}
 	html.centarTekst {
 		text-align: center;
@@ -139,6 +174,34 @@
 	    margin: 0 0 .5em 0;
 		text-align: center;
 	}
+	
+
+	.showAllSongs {
+		box-shadow: 0px 10px 14px -7px #353434;
+		background: linear-gradient(to bottom, #a0a69e 5%, #b3b3b3 100%);
+		background-color: #bcbcbc;
+		border-radius: 4px;
+		border: 1px solid #5c5c5c;
+		display: inline-block;
+		cursor: pointer;
+		color: #ffffff;
+		/*font-family: Arial;*/
+		/* font-size: 13px; */	margin: 25px auto;
+	display: block;
+		font-weight: bold;
+		padding: 6px 12px;
+		text-decoration: none;
+		text-shadow: 0px 1px 0px #4c4b4b;
+	}
+	.showAllSongs:hover {
+		background:linear-gradient(to bottom, #b3b3b3 5%, #a0a69e 100%);
+		background-color:#b3b3b3;
+	}
+	.showAllSongs:active {
+		position:relative;
+		top:1px;
+	}
+
 	.songs{
 		max-width: 95% !important;
 	}
@@ -1316,11 +1379,18 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 	</song>
     
 </div>
+
+
+
+<button class="showAllSongs" >Sve pjesme</button>
+
 </article>
 
 
 <script>
-//	Izrada Sadržaja
+
+
+//	Sadržaja: Izrada sadržaja
 var ToC =
   "<div class='tocBack closed'>" +
   "<div class='tocClose noselect hand' onclick='close()'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 348.33 348.33'><path d='M336.56 68.61L231.02 174.16l105.54 105.55a40.2 40.2 0 01-56.83 56.85L174.17 231 68.6 336.56a40.06 40.06 0 01-28.42 11.77 40.2 40.2 0 01-28.41-68.62l105.54-105.55L11.77 68.61A40.2 40.2 0 0168.6 11.77l105.57 105.55L279.72 11.77a40.2 40.2 0 0156.84 56.84z'/></svg></div>" +
@@ -1330,30 +1400,52 @@ var ToC =
 
 var newLine, el, title, link;
 
-$("article song").each(function() {
+	$("article song").each(function() {
+		el = $(this);
+		//  title = el.text();
+		title =  $(this).find("h1").text();
+		if ( el.attr("id")) {
+			link = "#" + el.attr("id");
 
-  el = $(this);
-//  title = el.text();
-	title =  $(this).find("h1").text();
-    if ( el.attr("id")) {
-  link = "#" + el.attr("id");
-
-  newLine =
-    "<li>" +
-      "<a class='tocLink' href='" + link + "'>" +
-        title +
-      "</a>" +
-    "</li>";
-
-  ToC += newLine;
-}
-});
+			newLine =
+			"<li>" +
+			"<a class='tocLink' href='" + link + "'>" +
+			title +
+			"</a>" +
+			"</li>";
+			ToC += newLine;
+		}
+	});
 
 ToC +=
    "</ul>" +
   "</nav></div>";
 
 $("body").prepend(ToC);  
+
+
+
+
+// Sadržaj: Kod odabira pjesme, sakrij sve ostale
+$('.tocLink').bind('click', function() {
+	$('song').show();
+	var id = $(this).attr('href'); 
+	// id = id.replace("#", "");
+	// alert(id);
+	$('song').not(id).hide();
+	$('.showAllSongs').show();
+})
+
+// Sve pjesme gumb
+$('.showAllSongs').bind('click', function() {
+	$('song').show();
+	$('.showAllSongs').hide();
+	window.scrollTo(0, 0);
+
+})
+
+
+
 
 //Sadržaj: zatvaranje po odabiru; ostale stvari
 var open = function() {
@@ -1432,24 +1524,14 @@ window.onload = function() {
 
 
 <script>
-	//Sakrivanje i prikazivanje gumbicha
+	//Gumbi: sakrivanje i prikazivanje po dodiru
 	$(function() {
-		// $('div:not(.menu)').click(function() {
-		// 	$( ".menuIconHolder" ).toggleClass( "scroll-down" )
-		// });
-		// $('body').click(function() {
-		// 	$( ".menuIconHolder" ).toggleClass( "scroll-down" )
-		// });
-
 		$('article').click(function(e) {                    
 		if(!$(e.target).hasClass('menuIconHolder') ){
 			$( ".menuIconHolder" ).toggleClass( "scroll-down" );                
 		}
 		}); 
 	});
-
-
-
 
 
 //Gumbi: sakrivanje i prikazivanje po skrolanju
@@ -1495,9 +1577,7 @@ window.onload = function() {
   });
 });
 
-</script>
 
-<script>
 //	Share: Kopiraj link
 function CopyToClipboard(value, showNotification, notificationText) {
 		var $temp = $("<input>");
@@ -1635,51 +1715,40 @@ document.addEventListener("keydown", function(event) {
 
 </script>
 
-		<!--
-		<script>
-			if (navigator.serviceWorker) {
-			  navigator.serviceWorker.register('./sw.js').then(function(registration) {
-			    console.log('ServiceWorker registration successful with scope:',  registration.scope);
-			  }).catch(function(error) {
-			    console.log('ServiceWorker registration failed:', error);
-			  });
-			}
-		</script>
-		-->
-		<script>
-			window.isUpdateAvailable = new Promise(function(resolve, reject) {
-				if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
-					// register service worker file
-					navigator.serviceWorker.register('./sw.js')
-						.then(reg => {
-							reg.onupdatefound = () => {
-								const installingWorker = reg.installing;
-								installingWorker.onstatechange = () => {
-									switch (installingWorker.state) {
-										case 'installed':
-											if (navigator.serviceWorker.controller) {
-												// new update available
-												resolve(true);
-											} else {
-												// no update available
-												resolve(false);
-											}
-											break;
-									}
-								};
-							};
-						})
-						.catch(err => console.error('[SW ERROR]', err));
-				}
-			});
-			// listen to the service worker promise
-			window['isUpdateAvailable']
-			.then(isAvailable => {
-				if (isAvailable) {
-					notification("Nova verzija dostupna. Molimo osvježite.", 12000);
-				}
-			});
-		</script>
+
+<script>
+	window.isUpdateAvailable = new Promise(function(resolve, reject) {
+		if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
+		// register service worker file
+		navigator.serviceWorker.register('./sw.js')
+			.then(reg => {
+				reg.onupdatefound = () => {
+					const installingWorker = reg.installing;
+					installingWorker.onstatechange = () => {
+						switch (installingWorker.state) {
+						case 'installed':
+						if (navigator.serviceWorker.controller) {
+							// new update available
+							resolve(true);
+						} else {
+							// no update available
+							resolve(false);
+						}
+						break;}
+					};
+				};
+			})
+			.catch(err => console.error('[SW ERROR]', err));
+		}
+	});
+	// listen to the service worker promise
+	window['isUpdateAvailable']
+	.then(isAvailable => {
+		if (isAvailable) {
+			notification("Nova verzija dostupna. Molimo osvježite.", 12000);
+		}
+	});
+</script>
 </body>
 
 </html>
