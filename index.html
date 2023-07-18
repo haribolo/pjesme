@@ -253,9 +253,10 @@
 			margin: 0 !important;
 	    }
 	    article {
-			max-width: 95vw !important;
-			padding: .5em !important;
+			max-width: 100vw !important;
+			padding: 0.5em !important;
 			margin: 0 !important;
+			border-radius: 0;
 	    }
 	}
 	  
@@ -1435,6 +1436,7 @@ $('.tocLink').bind('click', function() {
 	// id = id.replace("#", "");
 	// alert(id);
 	$('song').not(id).hide();
+	$('h1.title').hide();
 	$('.showAllSongs').show();
 })
 
@@ -1442,6 +1444,7 @@ $('.tocLink').bind('click', function() {
 $('.showAllSongs').bind('click', function() {
 	$('song').show();
 	$('.showAllSongs').hide();
+	$('h1.title').show();
 	window.scrollTo(0, 0);
 
 })
@@ -1633,22 +1636,8 @@ function notification(notificationText, notificationTimeout) {
 		});
 	}
 }
-//const buttonShareButton = document.querySelector('.buttonShare-button');
-//buttonShareButton.addEventListener('click', event => {
-//  if (navigator.buttonShare) {
-//    navigator.buttonShare({
-//      title: $("h1.title").text(),
-//      url: window.location.href
-//    }).then(() => {
-//      console.log('Thanks for sharing!');
-//    })
-//    .catch(console.error);
-//  } else {
-////    buttonShareDialog.classList.add('is-open');
-//		CopyToClipboard(window.location.href, true, "Link kopiran!");
-//      console.log('Link copied!');
-//  }
-//});
+
+
 function shareDialog(){
 	  if (navigator.share) {
     navigator.share({
