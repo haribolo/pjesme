@@ -195,6 +195,7 @@
 		text-shadow:0px 1px 0px #ffffff;
 		display: block !important;
 		margin: 20px auto;
+		user-select: none;
 	}
 	.showAllSongs:hover {
 		background-color:#f6f6f6;
@@ -361,6 +362,9 @@
 	/*	bottom: -120vh !important;*/
 			 transition: top .2s;
 	}
+	.tocLink{
+		user-select: none;
+	}
 	.toc h1{
 		margin: 0;
 	}
@@ -398,6 +402,7 @@
 	}
 	.TOC li {
 	  margin: 0 0 0.25em 0;
+	  color: #747474;
 	}
 	.TOC a {
 	  text-decoration: none;
@@ -1391,7 +1396,7 @@ var ToC =
   "<div class='tocClose noselect hand' onclick='close()'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 348.33 348.33'><path d='M336.56 68.61L231.02 174.16l105.54 105.55a40.2 40.2 0 01-56.83 56.85L174.17 231 68.6 336.56a40.06 40.06 0 01-28.42 11.77 40.2 40.2 0 01-28.41-68.62l105.54-105.55L11.77 68.61A40.2 40.2 0 0168.6 11.77l105.57 105.55L279.72 11.77a40.2 40.2 0 0156.84 56.84z'/></svg></div>" +
 "<nav role='navigation' class='TOC' id='TOC'>" +
     "<h1 class='left'>Sadržaj:</h1>" +
-    "<ul>";
+    "<ol>";
 
 var newLine, el, title, link;
 
@@ -1413,7 +1418,7 @@ var newLine, el, title, link;
 	});
 
 ToC +=
-   "</ul>" +
+   "</ol>" +
   "</nav></div>";
 
 $("body").prepend(ToC);  
