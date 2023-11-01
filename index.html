@@ -25,6 +25,7 @@
 	<meta property="og:title" content="Pjesmarica u slavu Gospodina Kṛṣṇe" >
 	<meta property="og:type" content="article" >
 	<meta property="og:url" content="https://haribolo.github.io/pjesme/" >
+	<meta property="allChars" content="0123456789ABCDEGHIJKLMNOPRSTUVYZabcćčdḍefghḥijklmḿṁnṅṇoprṛsṣtṭuvwxyzáñĀāạ̄ćČčđīńŚśŠšūŽžḍḥḿṅṇṛṣṬṭ">
 
 <!-- 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,15 +98,32 @@
 
 
 	<style>
-	/*	Sakrivanje ostatak WordPressa */
-	#footer, #site-header {
-		display: none !important
-	}
 	/*	Osnovni stil */
 	html, body {
 		color: #222;
 		height: 100%;
 	}
+	  
+	/*Dark mode*/
+	html{
+		transition:all .2s;
+		filter: invert(0%) contrast(0.85);
+	}
+
+	html.darkMode {
+		-webkit-filter: invert(100%) contrast(0.85);
+		filter: invert(100%) contrast(0.85);
+		transition:all .2s;
+	}
+	html.darkMode img, html.darkMode div.thematicIcon{
+		-webkit-filter: invert(100%) !important;
+		filter: invert(100%) !important;
+	}
+	html.darkMode  {
+		-webkit-filter: invert(100%);
+		filter: invert(100%);
+	}
+
 	html {
 		margin: 0;
 		padding: 0;
@@ -117,6 +135,7 @@
 		font-size: 16px;
 		/*	transition: font-size .18s;*/
 	}
+	
 	html, body, p, h1, h2, h3{
 
 		font-family: 'Noto Serif', sans-serif;
@@ -261,21 +280,6 @@
 			margin: 0 !important;
 			border-radius: 0;
 	    }
-	}
-	  
-	/*Dark mode*/
-	html{
-		transition:all .2s;
-		filter: invert(0%) contrast(0.85);
-	}
-	html.darkMode {
-		-webkit-filter: invert(100%) contrast(0.85);
-		filter: invert(100%) contrast(0.85);
-		transition:all .2s;
-	}
-	html.darkMode img {
-		-webkit-filter: invert(100%);
-		filter: invert(100%);
 	}
 		
 		
@@ -777,6 +781,52 @@
 <h1 class="pjesmaNaslov">Śrī Dāmodarạ̄ṣṭaka</h1>
 
 <p class="autor">Parāśara Muni</p>
+
+<!-- <img src=img/yasoda_damodar.jpg class=thematicCover alt="Mother Yasoda chasing Damodara" loading=lazy> -->
+<div class=thematicIcon></div>
+<style type="text/css">
+	img.thematicCover {
+	max-width: 100%;
+	border-radius: 10px;
+	width: 50vh;
+	height: 50vh;
+	margin: 0 auto;
+	display: block;
+	object-fit: cover;
+	object-position: bottom;
+}
+.thematicIcon {
+	position: relative;
+	max-width: 100%;
+	border-radius: 10px;
+	width: 50vh;
+	height: 50vh;
+	margin: 0 auto 10px;
+	display: block;
+	background-image: url(img/yasoda_damodar.jpg);
+	background-position: bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: inset 0 0 100px #000000b3;
+	transition: width .2s, height .2s, background-position .2s;
+}
+.thematicIcon.stick {
+	position: sticky;
+	top: 10px;
+	width: 100%;
+	height: 40vh;
+	background-position-y: 84%;
+	outline: 10px solid white;
+	transition: width .2s, height .2s, background-position .2s;
+}
+</style>
+<script>
+	$('.thematicIcon').bind('click', function() {
+		$(this).toggleClass('stick');
+
+	})
+</script>
+
 
 <p class="stih">(1)<br />
 namāmīśvaram sac-cid-ānanda-rūpam<br />
@@ -1526,13 +1576,16 @@ window.onload = function() {
 
 
 <script>
-	//Gumbi: sakrivanje i prikazivanje po dodiru
+	// Gumbi: sakrivanje i prikazivanje po dodiru
 	$(function() {
-		$('article').click(function(e) {                    
-		if(!$(e.target).hasClass('menuIconHolder') ){
-			$( ".menuIconHolder" ).toggleClass( "scroll-down" );                
-		}
+		$('article').click(function(e) {
+			if(!$(e.target).hasClass('menuIconHolder') ){
+				$( ".menuIconHolder" ).toggleClass( "scroll-down" );                
+			}
 		}); 
+		$("article div.thematicIcon").click(function(e) {
+			e.stopPropagation();
+		});
 	});
 
 
