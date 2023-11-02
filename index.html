@@ -212,7 +212,7 @@
 		padding:6px 24px;
 		text-decoration:none;
 		text-shadow:0px 1px 0px #ffffff;
-		display: block !important;
+		display: block;
 		margin: 20px auto;
 		user-select: none;
 	}
@@ -780,12 +780,13 @@
 <song id="damodarastaka">
 <h1 class="pjesmaNaslov">Śrī Dāmodarạ̄ṣṭaka</h1>
 
-<p class="autor">Parāśara Muni</p>
+<p class="autor">Satyavrata muni</p>
 
 <!-- <img src=img/yasoda_damodar.jpg class=thematicCover alt="Mother Yasoda chasing Damodara" loading=lazy> -->
 <div class=thematicIcon></div>
 <style type="text/css">
-	img.thematicCover {
+
+img.thematicCover {
 	max-width: 100%;
 	border-radius: 10px;
 	width: 50vh;
@@ -810,19 +811,62 @@
 	box-shadow: inset 0 0 100px #000000b3;
 	transition: width .2s, height .2s, background-position .2s;
 }
-.thematicIcon.stick {
-	position: sticky;
-	top: 10px;
-	width: 100%;
-	height: 40vh;
-	background-position-y: 84%;
-	outline: 10px solid white;
-	transition: width .2s, height .2s, background-position .2s;
+
+@media screen and (orientation:portrait) { 
+	html.stick .thematicIcon {
+		position: sticky;
+		top: 10px;
+		width: 100%;
+		height: 40vh;
+		background-position-y: 84%;
+		outline: 10px solid white;
+		transition: width .2s, height .2s, background-position .2s;
+	}
 }
+@media screen and (orientation:landscape) { 
+	html.stick .thematicIcon {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 50vw;
+		height: 100vh;
+		border-radius: 0;
+	}
+	html.stick article {
+		margin: 0;
+		border-radius: 20px;
+		max-width: calc(50vw - 2em);
+		padding: 1em;
+		right: 0;
+		position: absolute;
+		border-radius: 0;
+	}
+	html.stick body {
+		margin: 0;
+		padding: 0;
+	}
+}
+.tech {
+	z-index: 20;
+	position: absolute;
+}
+/*@media screen and (min-width: 580px)  {
+	html.stick .thematicIcon {
+		position: sticky;
+		top: 10px;
+		width: 100%;
+		height: 0;
+		background-position-y: 84%;
+		outline: 10px solid white;
+		transition: width .2s, height .2s, background-position .2s;
+		padding-bottom: 70%;
+		min-height: 20%;
+	}
+}*/
 </style>
 <script>
 	$('.thematicIcon').bind('click', function() {
-		$(this).toggleClass('stick');
+		$('html').toggleClass('stick');
 
 	})
 </script>
@@ -882,7 +926,7 @@ manasy āvirāstām alam lakṣa-lābhaih</p>
 namo deva dāmodarānanta viṣṇo<br />
 prasīda prabho duḥkha-jālābdhi-magnam<br />
 kṛpā-dṛṣṭi-vṛṣṭyāti-dīnam batānu<br />
-ṛhāṇeṣa mām ajñam edhy akṣi-dṛśyah</p>
+gṛhāṇeṣa mām ajñam edhy akṣi-dṛśyah</p>
 
 <p class="rijecporijec prijevod"><strong>namaḥ</strong>&nbsp;—&nbsp;Klanjam Ti se; <strong>deva</strong>&nbsp;—&nbsp;o Svevišnji; <strong>damodara</strong>&nbsp;—&nbsp;o Damodara; <strong>ananta</strong>&nbsp;—&nbsp;o Neograničeni; <strong>vishno</strong>&nbsp;—&nbsp;o Sveprisutni; <strong>prasida</strong>&nbsp;—&nbsp;budi milostiv; <strong>prabho</strong>&nbsp;—&nbsp;o Svemogući; <strong>duhkha‑jala‑abdhi‑magnam</strong>&nbsp;—&nbsp;utapam se u oceanu tuge; <strong>kripa‑drishti‑vrishtya</strong>&nbsp;—&nbsp;Svojim milosrdnim pogledima; <strong>ati‑dinam</strong>&nbsp;—&nbsp;krajnje jadan; <strong>anugrihana</strong>&nbsp;—&nbsp;blagoslovi me; <strong>isha</strong>&nbsp;—&nbsp;o Vrhovno neovisni; <strong>mam</strong>&nbsp;—&nbsp;mene; <strong>ajñam</strong>&nbsp;—&nbsp;neuki; <strong>edhi</strong>&nbsp;—&nbsp;pojaviti; <strong>akshi‑drisyah</strong>&nbsp;—&nbsp;pred mojim očima.</p>
 
@@ -1492,6 +1536,7 @@ $('.showAllSongs').bind('click', function() {
 	$('song').show();
 	$('.showAllSongs').hide();
 	$('h1.title').show();
+	$('html').removeClass('stick');
 	window.scrollTo(0, 0);
 
 })
@@ -1522,6 +1567,8 @@ function eventWindowLoaded(){
 }
 
 window.onload = function() {
+
+	$('.showAllSongs').hide();
 	 var anchors = document.getElementsByTagName('a');
 	 for(var i = 0; i < anchors.length; i++) {
 			 var anchor = anchors[i];
