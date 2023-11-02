@@ -10,6 +10,7 @@ var CURRENT_CACHES = {
 './fonts/noto-serif-latin-400-normal.woff2',
 './fonts/noto-serif-latin-600-normal.woff2',
 './img/favicon.png',
+'./img/yasoda_damodar.jpg',
 './img/android-startup.png',
 './img/apple-touch-icon.png',
 './img/apple-touch-startup-image.png'
