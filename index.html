@@ -107,7 +107,7 @@
 const changeUI = (status = 'acquired') => {
 	const acquired = status === 'acquired' ? true : false;
 	console.log(`Wake Lock ${acquired ? 'is active!' : 'has been released.'}`);
-	acquired ? $('#wakelockframe').addClass('show') : $('#wakelockframe').removeClass('show');
+	// acquired ? $('#wakelockframe').addClass('show') : $('#wakelockframe').removeClass('show');
 }
 
 // test support
@@ -159,41 +159,29 @@ if (isSupported) {
 
 
 
-if (window.screen.orientation) {
-  window.screen.orientation.addEventListener('change', function() {
-    let orientation = window.screen.orientation.type.split('-')[0];
-    if (orientation === 'landscape') {
-      // Set view to landscape or perform any other adjustments
-    } else if (orientation === 'portrait') {
-      // Set view to portrait or perform other adjustments
-    }
-  });
 
-  // You can also use the lock method if needed
-  // window.screen.orientation.lock('portrait');
-}
 	</script>
 
-<div id=wakelockframe></div>
+<!-- <div id=wakelockframe></div>
 <style type="text/css">
-div#wakelockframe {
-	width: 100vw;
-	height: 100vh;
-	color: rgba(255,255,255,0);
-	position: fixed;
-	top: 0;
-	left: 0;
-	box-shadow: inset 0 0 60px 0px #ef49cf8a;
-	outline: 108px solid #ef49cf47;
-	pointer-events: none;
-	display: none;
-	border-radius: 20px;
-	margin: 0px;
-}
-div#wakelockframe.show {
-	display: block;
-}
-</style>
+	div#wakelockframe {
+		width: 100vw;
+		height: 100vh;
+		color: rgba(255,255,255,0);
+		position: fixed;
+		top: 0;
+		left: 0;
+		box-shadow: inset 0 0 60px 0px #ef49cf8a;
+		outline: 108px solid #ef49cf47;
+		pointer-events: none;
+		display: none;
+		border-radius: 20px;
+		margin: 0px;
+	}
+	div#wakelockframe.show {
+		display: block;
+	}
+</style> -->
 
 	<style>
 	/*	Osnovni stil */
