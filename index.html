@@ -108,6 +108,7 @@ const changeUI = (status = 'acquired') => {
 	const acquired = status === 'acquired' ? true : false;
 	console.log(`Wake Lock ${acquired ? 'is active!' : 'has been released.'}`);
 	// acquired ? $('#wakelockframe').addClass('show') : $('#wakelockframe').removeClass('show');
+	acquired ? $('body').addClass('wakelocked') : $('body').removeClass('wakelocked');
 }
 
 // test support
