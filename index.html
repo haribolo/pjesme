@@ -271,6 +271,21 @@ if (isSupported) {
 		margin-top: 4em;
 		max-width: 70%;
 	}
+	hr {
+		border: none;
+		height: .1em;
+		background-image: linear-gradient(to right, #f0f0f000, #8f8f8f, #f0f0f000);
+	}
+	hr::after {
+		content: '§';
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(60deg);
+		transform-origin: 50% 50%;
+		padding: 1rem;
+		background-color: white;
+	}
 		
 	/*Tipografija*/
 	h1 {
@@ -287,28 +302,40 @@ if (isSupported) {
 
 
 	.showAllSongs {
-		box-shadow:inset 0px 1px 0px 0px #ffffff;
-		background-color:#ffffff;
-		border-radius:6px;
-		border:1px solid #b1b1b1
-		cursor:pointer;
-		color:#666666;
-		font-family:Arial;
-		font-size:15px;
-		font-weight:bold;
-		padding:6px 24px;
-		text-decoration:none;
-		text-shadow:0px 1px 0px #ffffff;
-		display: block;
-		margin: 20px auto;
+		box-shadow: 0 0 2px 0px #00000094;
+		background-color: #f5f5f5;
+		border-radius: 6px;
+		border: 2px solid #717171;
+		color: #666666;
+		font-family: Arial;
+		font-size: 15px;
+		font-weight: bold;
+		padding: 6px 24px;
+		text-decoration: none;
+		margin: 30px auto;
 		user-select: none;
+		z-index: 2;
+		position: relative;
+		text-transform: uppercase;
+		letter-spacing: .11rem;
+		cursor: pointer;
+		transition: .1s;
+		display: block;
 	}
 	.showAllSongs:hover {
-		background-color:#f6f6f6;
+		background-color: #ffffff;
+		box-shadow: 0 0 9px 0px #000000;
+		transform-origin: center center;
+		padding: 8px 26px;
+		margin: 28px auto;
 	}
 	.showAllSongs:active {
-		position:relative;
-		top:1px;
+		position: relative;
+		box-shadow: 0 0 0px 0px #00000000;
+		padding: 4px 18px;
+		margin: 32px auto;
+		border: 2px solid #717171;
+		background-color: #cecece;
 	}
 
 	.songs{
@@ -453,14 +480,20 @@ if (isSupported) {
 	/*	bottom: -120vh !important;*/
 			 transition: top .2s;
 	}
+	@media only screen and (max-width: 580px) {
+		.tocBack{
+			padding: .5rem;
+		}
+	}
 	.tocLink{
 		user-select: none;
 	}
-	.toc h1{
-		margin: 0;
+	.TOC h1{
+		margin: 1em 0 0 0;
 	}
-	.toc{
+	.TOC{
 		position: static;
+		line-height: 1;
 	}
 	.tocClose{
 		display: block;
@@ -492,8 +525,11 @@ if (isSupported) {
 	  padding: 0;
 	}
 	.TOC li {
-	  margin: 0 0 0.25em 0;
+	  margin: 0 0 0.35em 0;
 	  color: #747474;
+	  text-wrap: balance;
+	  padding-right: 20px;
+	  padding-left: 5px;
 	}
 	.TOC a {
 	  text-decoration: none;
@@ -653,7 +689,7 @@ if (isSupported) {
 			vande guroḥ śrī-caraṇāravindam</p>
 		<p class=prijevod>Milošću duhovnog učitelja osoba dobiva Kṛṣṇin blagoslov. Bez milosti duhovnog učitelja ne možemo ni malo napredovati. Stoga se uvijek trebam sjećati i slaviti takvog duhovnog učitelja. Najmanje tri puta dnevno trebam odavati ponizno poštovanje njegovim lotosolikim stopalima.</p>
 		<hr>
-		<button class="backtotoc hidden">Sadržaj</button>
+		
 	</song>
 
 
@@ -667,7 +703,7 @@ if (isSupported) {
 		namas te sārasvate deve gaura-vāṇī-pracāriṇe<br>nirviśeṣa-śūnyavādi-pāścātya-deśa-tāriṇe</p>
 		<p class=prijevod>Ponizno poštovanje tebi, o duhovni učitelju, slugo Sārasvati Goswamija. Ti milostivo propovjedaš poruku Gospodina Caitanyadeve i oslobađaš zapadne zemlje koje su pune impersionalizma i voidizma.</p>
 		<hr>
-		<button class="backtotoc hidden">Sadržaj</button>
+		
 	</song>
 
 
@@ -679,7 +715,7 @@ if (isSupported) {
 		śrī-advaita gadādhara śrīvāsādi-gaura-bhakta-vṛnda</p>
 		<p class=prijevod>Odajem ponizno poštovanje Śrī Kṛṣṇi Caitanyi, Prabhuu Nityānandi, Śrī-Advaiti, Gadādhari, Śrīvāsi i svim ostalim bhaktama Gospodina Caitanye.</p>
 		<hr>
-		<button class="backtotoc hidden">Sadržaj</button>
+		
 	</song>
 
 
@@ -690,7 +726,7 @@ if (isSupported) {
 		hare rāma hare rāma rāma rāma hare hare</p>
 		<p class=prijevod>O Kṛṣṇa, O Kṛṣṇina Energijo, molim da me uključite u svoju službu.</p>
 		<hr>
-		<button class="backtotoc hidden">Sadržaj</button>
+		
 	</song>
 
 
@@ -716,7 +752,7 @@ if (isSupported) {
 	<p class=prijevod>Čudesno oštrim noktima, na Tvojim lotosolikim rukama, rastrgao si tijelo demona Hiraṇyakaśipua, baš kao osu.
 		O Keśava, Gospodine Hari koji si uzeo oblik polučovjeka‑polulava, o gospodaru svemira, sva slava Tebi!</p>
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
 
 
@@ -732,7 +768,7 @@ if (isSupported) {
 		yāmuna-tīra-vana-cārī</p>
 	<p class=prijevod>Voljeni je sin majke Yaśode, izvor je zadovoljstva stanovnika Vraje i boravi u šumama duž obala rijeke Yāmune.</p>
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
 
 
@@ -778,14 +814,14 @@ if (isSupported) {
 	</p>
 	<p class=prijevod>Obilaženjem oko Śrīmatī Tulasī Devī svakim se korakom uništavaju svi grijesi koje smo počinili pa čak i grijeh ubijanja brahmana.</p>
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
 
 
 
 
 <song id=gauraarotik>
-	<h1 class=pjesmaNaslov>Arati Kirtana (Gaura Arotik)</h1>
+	<h1 class=pjesmaNaslov>Ārati Kīrtana (Gaura Ārotik)</h1>
 	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
 	<p class=stih>(1)<br>
 		(kiba) jaya jaya gorācāńder āratiko śobhā<br>
@@ -820,7 +856,7 @@ if (isSupported) {
 		bhakativinoda dekhe gorāra sampada</p>
 	<p class=prijevod>Dok se glasovi Šive, Šukadeve i Narade guše u zanosu duhovne ljubavi, Bhaktivinoda Thakura promatra obilja Gospodina Gaurange.</p>
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
 
 
@@ -860,7 +896,7 @@ if (isSupported) {
 	<p class=prijevod>Naš duhovni učitelj je ocean milosti, prijatelj siromašnih i gospodar i učitelj bhakta. O gospodaru, budi milostiv prema meni! Daruj mi sjenu svojih lotosovih stopala. Neka se tvoja slava proširi u sva tri svijeta! </p>
 	
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
     
     
@@ -914,7 +950,7 @@ img.thematicCover {
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 50vw;
+		width: 45vw;
 		height: 100vh;
 		border-radius: 0;
 		z-index: 1;
@@ -922,7 +958,8 @@ img.thematicCover {
 	html.stick article {
 		margin: 0;
 		border-radius: 20px;
-		max-width: calc(50vw - 2em);
+		max-width: calc(55vw - 2em);
+		width: calc(55vw - 2em);
 		padding: 1em;
 		right: 0;
 		position: absolute;
@@ -1042,7 +1079,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
     
     
@@ -1077,7 +1114,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	<p class=prijevod>Želja i velika čežnja Govinda dāse je biti uključen u devet procesa bhakti: <br>
 	da sluša i pjeva o slavama Gospodina Harija; da se neprestano sjeća na Njega; da Mu upućuje molitve; da služi Gospodinova lotosolika stopala; da Mu služi kao sluga; da Ga obožava cvijećem, mirisnim štapićima i drugim stvarima; da Mu služi kao prijatelj te da potpuno preda samog sebe Gospodinu.</p>
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
 
 
@@ -1111,7 +1148,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	narottama loilo śaraṇa<br>
 	<p class=prijevod>Nemogućnost da je vidim nalikuje dozi snažnog otrova pa ću patiti do kraja svog života. Narottama dāsa Ṭhākura kaže: “Molim te, daj mi svoju milost i sjenu svojih lotosolikih stopala.”</p>
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
 
 
@@ -1135,7 +1172,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	<p class=prijevod>Lotosolika stopala Gospodina Nityānande nisu opsjena, već stvarnost. Onaj tko se zaokupi transcendentalnim služenjem Nityānandi s ljubavlju isto tako je transcendentalan. Uvijek pokušaj uhvatiti lotosolika stopala Gospodina Nityānande. Ovaj je Narottama dāsa vrlo nesretan, pa se zato moli Gospodinu Nityānandi kako bi postao sretan. Dragi moj Gospodine, molim Te, drži me uza Svoja stopala.</p>
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
 
 
@@ -1160,7 +1197,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
 
 
@@ -1188,7 +1225,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	<p class="smisao autor">Njegova Božanska milost A.C. Bhkativedanta Swami Prabhupada</p>
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 </song>
 
 
@@ -1216,7 +1253,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	<p class=prijevod>Ṭhākura Bhaktivinoda kaže: „O Kana, molim Te, čuj me!  O gospodaru Rādhe, Ti si moj život i duša!“</p>
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 
 </song>
 
@@ -1242,7 +1279,7 @@ Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare."<br></p>
 	<p class=prijevod>Śri Bhaktivinoda Thakura kaže: "Prihvativši ovu maha-mantru, padam pred Gospodinova lotosolika stopala."</p>
 	
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 
 	
 </song>
@@ -1272,7 +1309,7 @@ Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare."<br></p>
 	<p class=prijevod>O Gopīnātha, iako sam najgrešniji od grešnika, ipak iščekujem Tvoju milost, jer brojni su demoni dostigli Tvoja lotosolika stopala.</p>
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 
 
 </song>
@@ -1302,7 +1339,7 @@ Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare."<br></p>
 	<p class=stih>(8)<br>jāmuna-jīvana, keli-parāyaṇa,<br>mānasa-candra-cakora<br>nāma-sudhā-rasa, gāo kṛṣṇa-jaśa<br>rākho vacana mana mora</p>
 	<p class=prijevod>Život je rijeke Yamune i uvijek je zaokupljen ljubavnim zabavama. Mjesec je umova gopija koji su poput cakora ptica, koje su aktivne samo za mjesečine. O ume, pokori se ovim riječima i pjevaj slave Śri Kṛṣṇe u obliku ovih svetih imena, koja su puna nektara.</p>
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 
 </song>
 
@@ -1337,7 +1374,7 @@ Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare."<br></p>
 	<p class=smisao>Ovo je suština i bit ove pjesme koju je spjevao Narottama das Thakura.</p>
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 
 
 </song>
@@ -1360,7 +1397,7 @@ Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare."<br></p>
 <p class=prijevod>Narottama das kaže da su vječne zabave Radhe i Krishne iz dana u dan sve punije transcendentalnoga blaženstva. Stoga, sjećajmo ih se stalno i tako postanimo sretni čak i u ovom materijalnom svijetu.</p>
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 
 </song>
 
@@ -1415,7 +1452,7 @@ harer-nāmaiva kevalam</p>
 
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 
 
 </song>
@@ -1484,7 +1521,7 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 	<p class=prijevod>Remembering the lotus feet of Lord Nityananda's consort, Sri Jahnava Devi, this very fallen and lowly servant of Krsna sings the sankirtana of the holy name.</p>
 
 <hr>
-<button class="backtotoc hidden">Sadržaj</button>
+
 
 
 </song>
@@ -1505,7 +1542,7 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 		<p class="rijecporijec prijevod"><strong>vande</strong>&nbsp;—&nbsp;odajem ponizno poštovanje; <strong>śrī-kṛṣṇa-caitanya</strong>&nbsp;—&nbsp;Gospodinu Śrī Kṛṣṇa Caitanyi; <strong>nityānandau</strong>&nbsp;—&nbsp;i Gospodinu Nityānandi; <strong>saha-uditau</strong>&nbsp;—&nbsp;istovremeno uzdignuti; <strong>gauḍa-udaye</strong>&nbsp;—&nbsp;na istočnom horizontu Gauḍe; <strong>puṣpavantau</strong>&nbsp;—&nbsp;unce i mesec zajedno; <strong>citrau</strong>&nbsp;—&nbsp;čudesan; <strong>śam-dau</strong>&nbsp;—&nbsp;odarili blagoslov; <strong>tamaḥ-nudau</strong>&nbsp;—&nbsp;raspršujući tamu.</p>
 		<p class=prijevod>Odajem ponizno poštovanje Gospodinu Śrī Kṛṣṇa Caitanyi i Gospodinu Nityānandi, koji su baš poput sunca i mjeseca. Istovremeno su se pojavili na horizontu Gauḍe kako bi raspršili tamu neznanja i na takav čudesan način podarili svima blagoslov.</p>
 		<hr>
-		<button class="backtotoc hidden">Sadržaj</button>
+		
 	</song>
 
 
@@ -1521,7 +1558,7 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 		</p>
 		<p class=prijevod>O najvelikodušnija inkarnacijo! Sam si Kṛṣṇa koji se pojavio kao Śrī Kṛṣṇa Caitanya. Poprimio si zlatnu boju Śrīmatī Rādhāraṇī i milostivo dijeliš čistu ljubav prema Kṛṣṇi. Odajem Ti ponizno poštovanje.</p>
 		<hr>
-		<button class="backtotoc hidden">Sadržaj</button>
+		
 	</song>
 
 	<song id=molitvagospodinukrishni>
@@ -1536,7 +1573,7 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 		</p>
 		<p class=prijevod>Odajem ponizno poštovanje Gospodinu koji je obožavano Božanstvo brāhmana; dobronamjerniku krava, brāhmana i cijeloga svemira. Iznova i iznova odajem poštovanje Božanskoj Osobi poznatoj kao Kṛṣṇa i Govinda.</p>
 		<hr>
-		<button class="backtotoc hidden">Sadržaj</button>
+		
 	</song>
 
 	<song id=prasadasevaya>
@@ -1557,14 +1594,14 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 		preme ḍāko caitanya-nitāi</p>
 		<p class=prijevod>Ali Ti dragi Kṛṣṇa si vrlo ljubazan prema nama te si nam dao tako ukusan prasādam samo da bi mogli obuzdati jezik. Sada prihvatimo ovaj prasādam do punog zadovoljstva slaveći Vaša Gospodstva - Rādhu i Kṛṣṇu - i s ljubavlju prizivajmo pomoć Gospodina Caitanye i Gospodina Nityānande.</p>
 		<hr>
-		<button class="backtotoc hidden">Sadržaj</button>
+		
 	</song>
     
 </div>
 
 
 
-<button class="showAllSongs" >Sve pjesme</button>
+<button class="showAllSongs" style="display:block;">Sve pjesme</button>
 
 </article>
 
