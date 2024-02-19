@@ -4,7 +4,7 @@
   "background_color": "#282e36",
   "theme_color": "#263238",
   "display": "standalone",
-  "orientation": "any"
+  "orientation": "any",
   "icons": [
     {
       "src": "https://haribolo.github.io/pjesme/img/favicon.png",
