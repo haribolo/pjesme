@@ -100,10 +100,7 @@
 
 
 
-		//Wake lock API
-
-
-
+//Wake lock
 const changeUI = (status = 'acquired') => {
 	const acquired = status === 'acquired' ? true : false;
 	console.log(`Wake Lock ${acquired ? 'is active!' : 'has been released.'}`);
@@ -185,47 +182,76 @@ if (isSupported) {
 </style> -->
 
 	<style>
-	/*	Osnovni stil */
+
+
+
 	html, body {
-		color: #222;
-		height: 100%;
+		color: #c4c7c5;
+		background-color: #202124;
 	}
-	  
-	/*Dark mode*/
-	html{
-		transition:all .2s;
-		filter: invert(0%) contrast(0.85);
+	.prijevod{
+		color: #9aa0a6;
+	}
+	.tocBack{
+		background-color: #181e24;
+	}
+	html img, html div.thematicIcon{
+		
+	}
+	song {
+		background: #292a2d;
+		filter: drop-shadow(0px 0px 4px #161718);
+	}
+	.menuIcon path, .tocClose path {
+		fill: #a8c7fa;
+	}
+	hr::after {
+		background-color: #1f2831;
+	}
+	@media (prefers-color-scheme: dark) {
+		img {
+		filter: brightness(.8) contrast(1.2);
+		}
+	}
+	@media screen and (prefers-color-scheme: light){
+		html, body {
+			color: #222;
+		}
+		body {
+			background: #eef4f7;
+		}
+		html {
+			transition:all .2s;
+			filter: invert(0%) contrast(0.85);
+		}
+		song {
+			background: #eef4f7;
+		}
 	}
 
-	html.darkMode {
-		-webkit-filter: invert(100%) contrast(0.85);
-		filter: invert(100%) contrast(0.85);
-		transition:all .2s;
+	song {
+		max-width: 50em;
+		padding: 3em 2em;
+		margin: 1em auto;
+		border-radius: 20px;
+		display: block;
 	}
-	html.darkMode img, html.darkMode div.thematicIcon{
-		-webkit-filter: invert(100%) !important;
-		filter: invert(100%) !important;
-	}
-	html.darkMode  {
-		-webkit-filter: invert(100%);
-		filter: invert(100%);
-	}
-
 	html {
 		margin: 0;
 		padding: 0;
+		height: 100%;
+		transition:all .2s;
 	}
 	body {
-		background: #d6d6d6;
 		padding: 1em 2em;
 		line-height: 1.5;
 		font-size: 16px;
-		/*	transition: font-size .18s;*/
+		height: 100%;
 	}
 	
 	html, body, p, h1, h2, h3{
 
-		font-family: 'Noto Serif', sans-serif;
+		font-family: 'Noto Serif', Georgia, serif;
 	}
 	html.centarTekst {
 		text-align: center;
@@ -234,13 +260,6 @@ if (isSupported) {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	article {
-		max-width: 50em;
-		background: white;
-		padding: 2em;
-		margin: 1em auto;
-		border-radius: 20px;
-	}  
 
 	.menuIconHolder {
 		z-index: 200 !important;
@@ -267,7 +286,10 @@ if (isSupported) {
 		
 		
 	/*RAZMAK IZMEĐU PJESAMA*/
-	hr{
+	song hr{
+		display: none;
+	}
+	/*hr{
 		margin-top: 4em;
 		max-width: 70%;
 	}
@@ -284,14 +306,13 @@ if (isSupported) {
 		transform: translate(-50%, -50%) rotate(60deg);
 		transform-origin: 50% 50%;
 		padding: 1rem;
-		background-color: white;
-	}
+	}*/
 		
 	/*Tipografija*/
 	h1 {
 		text-align: center !important;
 	    font-size: 1.5em;
-	    margin: 3em 0 0 0;
+	    /*margin: 3em 0 0 0;*/
 	}
 	h2 {
 	    font-size:1.2em;
@@ -353,7 +374,6 @@ if (isSupported) {
 		text-align: center;
 	}
 	.prijevod{
-		color: #747474;
 		text-align: justify;
 	  text-justify: inter-character;
 	}
@@ -363,14 +383,13 @@ if (isSupported) {
 		margin-block-end: .5em;
 	}
 
-
 	.songs{
 		max-width: 90%;
 		margin: 0 auto;
 	}
 	h1.title{
 		font-size: 2em;
-		margin: 40px  0 0 0;
+		margin: 3em 0 2em 0;
 		text-align: center;
 	}
 		h1.left{
@@ -384,18 +403,18 @@ if (isSupported) {
 		
 	/* Responsive */
 	@media only screen and (max-width: 580px) {
-	    body{
+		body{
 			padding: 0 !important;
 			margin: 0 !important;
-	    }
-	    article {
+		}
+		song {
 			max-width: 100vw !important;
 			padding: 0.5em !important;
-			margin: 0 !important;
-			border-radius: 0;
-	    }
+			margin: 1em 0 !important;
+			border-radius: 11px;
+		}
 	}
-		
+
 		
 		
 	/*	Gumbi */
@@ -419,44 +438,44 @@ if (isSupported) {
 		background-color: transparent;
 	}
 	.buttonMenu {
-	  position: fixed;
-	  left: 20px;
-	  top: 20px;
-	/*  padding: .5rem 1rem;*/
-	/*  background-color: #ddd;*/
-	  background-color: transparent;
+		position: fixed;
+		left: 20px;
+		top: 20px;
+		/*  padding: .5rem 1rem;*/
+		/*  background-color: #ddd;*/
+		background-color: transparent;
 	}
 	.buttonZoomIn {
-	  position: fixed;
-	  right: 20px;
-	  bottom: calc(20px + 30px + 20px);
-	/*  padding: .5rem 1rem;*/
-	/*  background-color: #ddd;*/
-	  background-color: transparent;
+		position: fixed;
+		right: 20px;
+		bottom: calc(20px + 30px + 20px);
+		/*  padding: .5rem 1rem;*/
+		/*  background-color: #ddd;*/
+		background-color: transparent;
 	}
 	.buttonZoomOut {
-	  position: fixed;
-	  right: 20px;
-	  bottom: 20px;
-	/*  padding: .5rem 1rem;*/
-	/*  background-color: #ddd;*/
-	  background-color: transparent;
+		position: fixed;
+		right: 20px;
+		bottom: 20px;
+		/*  padding: .5rem 1rem;*/
+		/*  background-color: #ddd;*/
+		background-color: transparent;
 	}
 	.buttonShare {
-	  position: fixed;
-	  left: 20px;
-	  bottom: 20px;
-	/*  padding: .5rem 1rem;*/
-	/*  background-color: #ddd;*/
-	  background-color: transparent;
+		position: fixed;
+		left: 20px;
+		bottom: 20px;
+		/*  padding: .5rem 1rem;*/
+		/*  background-color: #ddd;*/
+		background-color: transparent;
 	}
 	.buttonHideTranslation {
-	  position: fixed;
-	  left: 20px;
-	  bottom:  calc(20px + 30px + 20px);
-	/*  padding: .5rem 1rem;*/
-	/*  background-color: #ddd;*/
-	  background-color: transparent;
+		position: fixed;
+		left: 20px;
+		bottom:  calc(20px + 30px + 20px);
+		/*  padding: .5rem 1rem;*/
+		/*  background-color: #ddd;*/
+		background-color: transparent;
 	}
 
 
@@ -468,7 +487,6 @@ if (isSupported) {
 		bottom: 0;
 		width: 100%;
 		padding: 2rem 2rem;
-		background-color: #ddd;
 		display: block;
 		z-index: 3000;
 		overflow-y:scroll;
@@ -526,15 +544,19 @@ if (isSupported) {
 	}
 	.TOC li {
 	  margin: 0 0 0.35em 0;
-	  color: #747474;
 	  text-wrap: balance;
 	  padding-right: 20px;
 	  padding-left: 5px;
 	}
 	.TOC a {
-	  text-decoration: none;
-	  line-height: 1.6;
+		text-decoration: none;
+		line-height: 1.6;
 	}
+	.TOC a:link {
+		color:inherit;
+	}
+
+
 	.TOC a:hover, .TOC a:active {
 	  text-decoration: underline;
 	}
@@ -570,12 +592,12 @@ if (isSupported) {
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script>
-	//Vrati darkMode ako je bio aktivan zadnjeg puta
-	if (window.localStorage.getItem('darkMode') == "true"){
-			 if ($('html').hasClass('darkMode') == false){
-						$('html').addClass('darkMode', 500);
-			 }
-	}
+	// //Vrati darkMode ako je bio aktivan zadnjeg puta
+	// if (window.localStorage.getItem('darkMode') == "true"){
+	// 		 if ($('html').hasClass('darkMode') == false){
+	// 					$('html').addClass('darkMode', 500);
+	// 		 }
+	// }
 
 		
 	//	PROMJENA IKONE
@@ -1569,9 +1591,20 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 		namo brahmaṇya-devāya<br>
 		go-brāhmaṇa-hitāya ca<br>
 		jagad-dhitāya kṛṣṇāya<br>
-		govindāya namo namaḥ<br>
+		govindāya namo namaḥ
 		</p>
 		<p class=prijevod>Odajem ponizno poštovanje Gospodinu koji je obožavano Božanstvo brāhmana; dobronamjerniku krava, brāhmana i cijeloga svemira. Iznova i iznova odajem poštovanje Božanskoj Osobi poznatoj kao Kṛṣṇa i Govinda.</p>
+		<hr>
+		
+	</song>
+
+	<song id=vaisnavapranama>
+		<h1 class=pjesmaNaslov>Molitva Gospodinu Kṛṣṇi</h1>
+		<p class=stih>(1)<br>
+		vāñchā-kalpatarubhyaś ca kṛpā-sindhubhya eva ca<br>
+		patitānāṁ pāvanebhyo vaiṣṇavebhyo namo namaḥ
+		</p>
+		<p class=prijevod>Odajem poštovanje svim Vaiṣṇavama, bhaktama Gospodina. Oni su poput drveća želja koji mogu ispuniti svačije želje i puni su suosjećanja za pale, uvjetovane, duše.</p>
 		<hr>
 		
 	</song>
@@ -1580,6 +1613,15 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 		<h1 class=pjesmaNaslov>Prasāda Sevāya</h1>
 		<!--<h2>CC Madhya 13.77</h2>-->
 		<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>
+
+		<p class=stih>
+		mahā-prasāde govinde<br>
+		nāma-brahmaṇi vaiṣṇave<br>
+		svalpa-puṇyavatāḿ rājan<br>
+		viśvāso naiva jāyate<br>
+		(Mahābhārata, Skanda Purāṇa)</p>
+		<p class=prijevod>O kralju, za one koji su prikupli vrlo malo pobožnih djela, njihova vjera u mahā-prasādu, u Śrī Govindu, u Sveto Ime te u Vaiṣṇavu nikada se ne rađa.</p>
+
 		<p class=stih>(1)<br>
 		(bhāi-re!) śarīra abidyā-jāl, joḍendriya tāhe kāl,<br>
 		jīve phele viṣaya-sāgore<br>
