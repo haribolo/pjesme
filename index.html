@@ -188,50 +188,24 @@ if (isSupported) {
 
 
 
-	html, body, .tocBack {
-		color: #c4c7c5;
-		background-color: #202124;
-	}
-	.prijevod{
-		color: #9aa0a6;
-	}
-	html img, html div.thematicIcon{
-		
-	}
-	song {
-		background: #292a2d;
-		filter: drop-shadow(0px 3px 3px #161718);
-	}
-	.menuIcon path, .tocClose path {
-		fill: #9f752e;
-	}
-	hr::after {
-		background-color: #1f2831;
-	}
+	html, body, .tocBack {color: #c4c7c5;background-color: #202124;}
+	.prijevod{color: #9aa0a6;}
+	song {background: #292a2d;}
+	.menuIcon path, .tocClose path {fill: #9f752e;}
+	hr::after {background-color: #1f2831;}
 	@media (prefers-color-scheme: dark) {
-		img {
-			filter: brightness(.8) contrast(1.2);
-		}
+		img {filter: brightness(.8) contrast(1.2);}
 	}
-	::-webkit-scrollbar-thumb {
-		background-color:#9aa0a6;
-	}
+	::-webkit-scrollbar-thumb {background-color:#9aa0a6;}
 	@media screen and (prefers-color-scheme: light){
-		html, body {
-			color: #222;
-		}
-		body {
-			background: #eef4f7;
-		}
-		html {
+	html, body, .tocBack {color: #444746; background: #eef4f7;}
+	.prijevod{color: #1f1f1f;}
+	song {background: #eef4f7;}
+	}
+html {
 			transition:all .2s;
 			filter: invert(0%) contrast(0.85);
 		}
-		song {
-			background: #eef4f7;
-		}
-	}
-
 	song {
 		max-width: 50em;
 		padding: 3em 2em;
@@ -239,6 +213,7 @@ if (isSupported) {
 		border-radius: 20px;
 		display: block;
 	}
+	song {filter:drop-shadow(0px 3px 3px #161718);}
 	html {
 		margin: 0;
 		padding: 0;
@@ -518,7 +493,7 @@ if (isSupported) {
 	/*	bottom: -120vh !important;*/
 			 transition: top .2s;
 	}
-	@media only screen and (max-width: 580px) {
+	@media only screen and (max-width: 50em) {
 		.tocBack{
 			padding: .5rem;
 			width: 88%;
