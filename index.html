@@ -188,24 +188,26 @@ if (isSupported) {
 
 
 
-	html, body, .tocBack {color: #c4c7c5;background-color: #1b1c1e;}
+	html, body, .tocBack {color: #c4c7c5; background-color: #202124;}
 	.prijevod{color: #9aa0a6;}
-	song {background: #27282b;}
-	@media (prefers-color-scheme: dark) {
-		img {filter: brightness(.8) contrast(1.2);}
-	}
+	song {background: #292a2d;filter:drop-shadow(0px 3px 3px #161718);}
+	.tocBack {filter: drop-shadow(2px 4px 16px #161718);}
+	.menuIcon path, .tocClose path {fill: #9f752e;}
 	::-webkit-scrollbar-thumb {background-color:#9aa0a6;}
 	@media screen and (prefers-color-scheme: light){
 		html, body, .tocBack {color: #444746; background: #eef4f7;}
 		.prijevod{color: #1f1f1f;}
-		song {background: #eef4f7;}
+		song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
+		.tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
 	}
-	
-	.menuIcon path, .tocClose path {fill: #9f752e;}
+
 	hr::after {background-color: #1f2831;}
+	@media (prefers-color-scheme: dark) {
+/*		img {filter: brightness(.8) contrast(1.2);}*/
+	}
 	html {
 		transition:all .2s;
-		filter: invert(0%) contrast(0.85);
+		/*			filter: invert(0%) contrast(0.85);*/
 	}
 	song {
 		max-width: 50em;
@@ -214,7 +216,6 @@ if (isSupported) {
 		border-radius: 20px;
 		display: block;
 	}
-	song {filter:drop-shadow(0px 3px 3px #161718);}
 	html {
 		margin: 0;
 		padding: 0;
@@ -485,7 +486,6 @@ if (isSupported) {
 		overscroll-behavior: contain;
 		transition: top .2s;
 		margin: 0 auto;
-		filter: drop-shadow(2px 4px 16px black);
 		border-radius: 20px 20px 0 0;
 		max-width: 800px;
 	}
