@@ -188,24 +188,25 @@ if (isSupported) {
 
 
 
-	html, body, .tocBack {color: #c4c7c5;background-color: #202124;}
+	html, body, .tocBack {color: #c4c7c5;background-color: #1b1c1e;}
 	.prijevod{color: #9aa0a6;}
-	song {background: #292a2d;}
-	.menuIcon path, .tocClose path {fill: #9f752e;}
-	hr::after {background-color: #1f2831;}
+	song {background: #27282b;}
 	@media (prefers-color-scheme: dark) {
 		img {filter: brightness(.8) contrast(1.2);}
 	}
 	::-webkit-scrollbar-thumb {background-color:#9aa0a6;}
 	@media screen and (prefers-color-scheme: light){
-	html, body, .tocBack {color: #444746; background: #eef4f7;}
-	.prijevod{color: #1f1f1f;}
-	song {background: #eef4f7;}
+		html, body, .tocBack {color: #444746; background: #eef4f7;}
+		.prijevod{color: #1f1f1f;}
+		song {background: #eef4f7;}
 	}
-html {
-			transition:all .2s;
-			filter: invert(0%) contrast(0.85);
-		}
+	
+	.menuIcon path, .tocClose path {fill: #9f752e;}
+	hr::after {background-color: #1f2831;}
+	html {
+		transition:all .2s;
+		filter: invert(0%) contrast(0.85);
+	}
 	song {
 		max-width: 50em;
 		padding: 3em 2em;
