@@ -591,7 +591,7 @@ if (isSupported) {
 		text-decoration: none;
 		line-height: 1.6;
 	}
-	.TOC a:link {
+	.TOC a:link, .TOC a:visited {
 		color:inherit;
 	}
 
@@ -1739,6 +1739,7 @@ $('.tocLink').bind('click', function() {
 	$('song').not(id).hide();
 	$('h1.title').hide();
 	$('.showAllSongs').show();
+	closeTOC();
 })
 
 // Sve pjesme gumb
@@ -1764,16 +1765,16 @@ document.querySelector('.buttonMenu').onclick = open;
 window.addEventListener("load", eventWindowLoaded, false);
 
 function eventWindowLoaded(){
-    var close = function() {
+    var closeTOC = function() {
         $('.tocBack').addClass( "closed" );
         $('body').removeClass( "noscroll" );
     }
-	document.querySelector('.tocClose').onclick = close;
-	document.querySelector('.tocBackOverlay').onclick = close;
-//		 document.getElementById("TOC").querySelectorAll(".tocLink").onclick = close;
-//	document.querySelectorAll('.tocLink').onclick = close;
-//    document.querySelector('.tocLink').onclick = close;
-//    document.getElementById("tocClose").onclick = close;
+	document.querySelector('.tocClose').onclick = closeTOC;
+	document.querySelector('.tocBackOverlay').onclick = closeTOC;
+//		 document.getElementById("TOC").querySelectorAll(".tocLink").onclick = closeTOC;
+//	document.querySelectorAll('.tocLink').onclick = closeTOC;
+//    document.querySelector('.tocLink').onclick = closeTOC;
+//    document.getElementById("tocClose").onclick = closeTOC;
 
 }
 
