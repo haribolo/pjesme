@@ -1,11 +1,12 @@
 (function() {
-var CACHE_VERSION = 2.3;
+var CACHE_VERSION = 2.4;
 var CURRENT_CACHES = {
   prefetch: 'haribol-v' + CACHE_VERSION
 };
 
   var urlsToPrefetch = [
 './',
+'./jquery.min.js',
 './fonts/noto-serif-latin-400-italic.woff2',
 './fonts/noto-serif-latin-400-normal.woff2',
 './fonts/noto-serif-latin-600-normal.woff2',
