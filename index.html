@@ -79,6 +79,10 @@
 			document.removeEventListener('touchstart', enableNoSleep, false);
 			noSleep.enable();
 		}, false);
+		document.addEventListener('click', function enableNoSleepClick() {
+			document.removeEventListener('click', enableNoSleepClick, false);
+			noSleep.enable();
+		}, false);
 
 		////Wake Lock, replaced by NoSleep JS
 		//	const changeUI = (status = 'acquired') => {
