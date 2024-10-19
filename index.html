@@ -70,92 +70,69 @@
 
 
 
-
+	<script type='module' src='./nosleep.min.js'></script>
 	<script>
-		//Ekran upaljen
-//		window.addEventListener('touchstart', function onFirstTouch() {
-//		document.getElementById('hiddenVideo').play();
-//			
-//		  //  set some global variable
-//		//  window.USER_IS_TOUCHING = true;
-//
-//		  // or set your app's state however you normally would
-//		//  myFrameworkOfChoice.dispatchEvent('USER_IS_TOUCHING', true);
-//
-//		  // we only need to know once that a human touched the screen, so we can stop listening now
-//		  window.removeEventListener('touchstart', onFirstTouch, false);
-//		     console.log('Screen should stay on from now on.');
-//		//}, false);
-//		//	
-//		//window.addEventListener('touchstart', function onInactivity() {
-//		//			window.UserTouching = true;
-//		//	setTimeout(function(){ 
-//		//		if (window.UserTouching == true){
-//		//			body.classList.remove(scrollUp);
-//		//			body.classList.add(scrollDown);
-//		//			window.UserTouching = false;
-//		//		} else {
-//		//		} 
-//		//	}, 3000);
-//		}, false);
+		import NoSleep from 'nosleep.min.js';
+		var noSleep = new NoSleep();
 		
+		document.addEventListener('touchstart', function enableNoSleep() {
+			document.removeEventListener('touchstart', enableNoSleep, false);
+			noSleep.enable();
+		}, false);
 
-
-
-
-//Wake lock
-const changeUI = (status = 'acquired') => {
-	const acquired = status === 'acquired' ? true : false;
-	console.log(`Wake Lock ${acquired ? 'is active!' : 'has been released.'}`);
-	// acquired ? $('#wakelockframe').addClass('show') : $('#wakelockframe').removeClass('show');
-	acquired ? $('body').addClass('wakelocked') : $('body').removeClass('wakelocked');
-}
-
-// test support
-let isSupported = false;
-if ('wakeLock' in navigator) {
-	isSupported = true;
-	console.log('Screen Wake Lock API supported');
-} else {
-	wakeButton.disabled = true;
-	console.log('Wake lock is not supported by this browser.');
-}
-
-if (isSupported) {
-	let wakeLock = null;
-	const requestWakeLock = async () => {
-		try {
-			wakeLock = await navigator.wakeLock.request('screen');
-
-			changeUI();
-			wakeLock.onrelease = function(ev) {
-				console.log(ev);
-			}
-			wakeLock.addEventListener('release', () => {
-				// if wake lock is released by something else
-				changeUI('released');
-			});
-
-		} catch (err) {
-		// if wake lock request fails - usually system related, such as battery
-
-		}
-	} 
-
-	window.addEventListener('touchstart', function onFirstTouch() {
-		requestWakeLock();
-		window.removeEventListener('touchstart', onFirstTouch, false);
-		console.log('Screen should stay on from now on.');
-	}, false);
-
-	const handleVisibilityChange = () => {
-		if (wakeLock !== null && document.visibilityState === 'visible') {
-			requestWakeLock();
-			console.log('Wake Lock active back again.');
-		}
-	}
-	document.addEventListener('visibilitychange', handleVisibilityChange);
-}
+		////Wake Lock, replaced by NoSleep JS
+		//	const changeUI = (status = 'acquired') => {
+		//		const acquired = status === 'acquired' ? true : false;
+		//		console.log(`Wake Lock ${acquired ? 'is active!' : 'has been released.'}`);
+		//		// acquired ? $('#wakelockframe').addClass('show') : $('#wakelockframe').removeClass('show');
+		//		acquired ? $('body').addClass('wakelocked') : $('body').removeClass('wakelocked');
+		//	}
+		//
+		//	// Check support for WakeLock
+		//	let isSupported = false;
+		//	if ('wakeLock' in navigator) {
+		//		isSupported = true;
+		//		console.log('Screen Wake Lock API supported');
+		//	} else {
+		//		wakeButton.disabled = true;
+		//		console.log('Wake lock is not supported by this browser.');
+		//	}
+		//	// If supported
+		//	if (isSupported) {
+		//		let wakeLock = null;
+		//		const requestWakeLock = async () => {
+		//			try {
+		//				wakeLock = await navigator.wakeLock.request('screen');
+		//
+		//				changeUI();
+		//				wakeLock.onrelease = function(ev) {
+		//					console.log(ev);
+		//				}
+		//				wakeLock.addEventListener('release', () => {
+		//					// if wake lock is released by something else
+		//					changeUI('released');
+		//				});
+		//
+		//			} catch (err) {
+		//			// if wake lock request fails - usually system related, such as battery
+		//
+		//			}
+		//		} 
+		//
+		//		window.addEventListener('touchstart', function onFirstTouch() {
+		//			requestWakeLock();
+		//			window.removeEventListener('touchstart', onFirstTouch, false);
+		//			console.log('Screen should stay on from now on.');
+		//		}, false);
+		//
+		//		const handleVisibilityChange = () => {
+		//			if (wakeLock !== null && document.visibilityState === 'visible') {
+		//				requestWakeLock();
+		//				console.log('Wake Lock active back again.');
+		//			}
+		//		}
+		//		document.addEventListener('visibilitychange', handleVisibilityChange);
+		//	}
 
 
 
@@ -163,51 +140,24 @@ if (isSupported) {
 
 	</script>
 
-<!-- <div id=wakelockframe></div>
-<style type="text/css">
-	div#wakelockframe {
-		width: 100vw;
-		height: 100vh;
-		color: rgba(255,255,255,0);
-		position: fixed;
-		top: 0;
-		left: 0;
-		box-shadow: inset 0 0 60px 0px #ef49cf8a;
-		outline: 108px solid #ef49cf47;
-		pointer-events: none;
-		display: none;
-		border-radius: 20px;
-		margin: 0px;
-	}
-	div#wakelockframe.show {
-		display: block;
-	}
-</style> -->
-
 	<style>
+		html, body, .tocBack, html.darkMode, .darkMode body, .darkMode .tocBack {color: #c4c7c5; background-color: #202124;}
+		.prijevod, .darkMode .prijevod{color: #9aa0a6;}
+		song, .darkMode song {background: #292a2d;filter:drop-shadow(0px 3px 3px #161718);}
+		.tocBack, .darkMode .tocBack {filter: drop-shadow(2px 4px 16px #161718);}
+		.menuIcon path, .tocClose path, .darkMode .menuIcon path, .darkMode .tocClose path {fill: #9f752e;}
+		
 
-
-
-	html, body, .tocBack, html.darkMode, .darkMode body, .darkMode .tocBack {color: #c4c7c5; background-color: #202124;}
-	.prijevod, .darkMode .prijevod{color: #9aa0a6;}
-	song, .darkMode song {background: #292a2d;filter:drop-shadow(0px 3px 3px #161718);}
-	.tocBack, .darkMode .tocBack {filter: drop-shadow(2px 4px 16px #161718);}
-	.menuIcon path, .tocClose path, .darkMode .menuIcon path, .darkMode .tocClose path {fill: #9f752e;}
-	
-
-	@media screen and (prefers-color-scheme: light){
-		html, body, .tocBack {color: #444746; background: #eef4f7;}
-		.prijevod{color: #1f1f1f;}
-		song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
-		.tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
-	}
-		html.lightMode, .lightMode body, .lightMode .tocBack {color: #444746; background: #eef4f7;}
-		.lightMode .prijevod{color: #1f1f1f;}
-		.lightMode song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
-		.lightMode .tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
-
-
-
+		@media screen and (prefers-color-scheme: light){
+			html, body, .tocBack {color: #444746; background: #eef4f7;}
+			.prijevod{color: #1f1f1f;}
+			song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
+			.tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
+		}
+			html.lightMode, .lightMode body, .lightMode .tocBack {color: #444746; background: #eef4f7;}
+			.lightMode .prijevod{color: #1f1f1f;}
+			.lightMode song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
+			.lightMode .tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
 
 ::-webkit-scrollbar-thumb {background-color:#9aa0a6;}
 	.tocBackOverlay {
