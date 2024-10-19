@@ -1,5 +1,5 @@
 (function() {
-var CACHE_VERSION = 2.5;
+var CACHE_VERSION = 2.6;
 var CURRENT_CACHES = {
   prefetch: 'haribol-v' + CACHE_VERSION
 };
@@ -11,6 +11,7 @@ var CURRENT_CACHES = {
 './fonts/noto-serif-latin-400-normal.woff2',
 './fonts/noto-serif-latin-600-normal.woff2',
 './img/favicon.png',
+'./dist/NoSleep.min.js',
 './img/yasoda_damodar.jpg',
 './img/android-startup.png',
 './img/apple-touch-icon.png',
