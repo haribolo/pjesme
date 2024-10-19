@@ -72,6 +72,8 @@
 
 	<script type='module' src='./dist/nosleep.min.js'></script>
 	<script>
+		
+		import NoSleep from './dist/nosleep.min.js';
 		var noSleep = new NoSleep();
 		document.addEventListener('touchstart', function enableNoSleep() {
 			document.removeEventListener('touchstart', enableNoSleep, false);
