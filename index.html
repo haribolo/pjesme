@@ -30,9 +30,6 @@
 	<meta http-equiv='expires' content='0'> 
 	<meta http-equiv='pragma' content='no-cache'>
 
-<!-- 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap&subset=latin-ext" rel="stylesheet"> -->
 	<style>
 		/* latin-400-normal */
 		@font-face {
@@ -72,17 +69,33 @@
 
 	<script src='./dist/NoSleep.min.js'></script>
 	<script>
+	var noSleep = new NoSleep();
+	var wakeLockEnabled = false;
+	var toggleEl = document.querySelector("#toggle");
+	toggleEl.addEventListener('click', function() {
+		if (!wakeLockEnabled) {
+			noSleep.enable(); // keep the screen on!
+			wakeLockEnabled = true;
+			toggleEl.value = "Wake Lock is enabled";
+			document.body.style.backgroundColor = "#262626";
+		} else {
+			noSleep.disable(); // let the screen turn off.
+			wakeLockEnabled = false;
+			toggleEl.value = "Wake Lock is disabled";
+			document.body.style.backgroundColor = "";
+		}
+	}, false);
 		
 		// import NoSleep from './dist/NoSleep.min.js';
-		var noSleep = new NoSleep();
-		document.addEventListener('touchstart', function enableNoSleep() {
-			document.removeEventListener('touchstart', enableNoSleep, false);
-			noSleep.enable();
-		}, false);
-		document.addEventListener('click', function enableNoSleepClick() {
-			document.removeEventListener('click', enableNoSleepClick, false);
-			noSleep.enable();
-		}, false);
+//		var noSleep = new NoSleep();
+//		document.addEventListener('touchstart', function enableNoSleep() {
+//			document.removeEventListener('touchstart', enableNoSleep, false);
+//			noSleep.enable();
+//		}, false);
+//		document.addEventListener('click', function enableNoSleepClick() {
+//			document.removeEventListener('click', enableNoSleepClick, false);
+//			noSleep.enable();
+//		}, false);
 
 		////Wake Lock, replaced by NoSleep JS
 		//	const changeUI = (status = 'acquired') => {
