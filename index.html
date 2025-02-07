@@ -1906,7 +1906,85 @@ document.addEventListener("keydown", function(event) {
 })
 
 </script>
+<script>
+	var noSleep = new NoSleep();
+	document.body.addEventListener('click', function() {
+	if (!wakeLockEnabled) {
+	  noSleep.enable(); // keep the screen on!
+	  wakeLockEnabled = true;
+	}
+	}, false);
+	
+	// import NoSleep from './dist/NoSleep.min.js';
+//		var noSleep = new NoSleep();
+//		document.addEventListener('touchstart', function enableNoSleep() {
+//			document.removeEventListener('touchstart', enableNoSleep, false);
+//			noSleep.enable();
+//		}, false);
+//		document.addEventListener('click', function enableNoSleepClick() {
+//			document.removeEventListener('click', enableNoSleepClick, false);
+//			noSleep.enable();
+//		}, false);
 
+////Wake Lock, replaced by NoSleep JS
+//	const changeUI = (status = 'acquired') => {
+//		const acquired = status === 'acquired' ? true : false;
+//		console.log(`Wake Lock ${acquired ? 'is active!' : 'has been released.'}`);
+//		// acquired ? $('#wakelockframe').addClass('show') : $('#wakelockframe').removeClass('show');
+//		acquired ? $('body').addClass('wakelocked') : $('body').removeClass('wakelocked');
+//	}
+//
+//	// Check support for WakeLock
+//	let isSupported = false;
+//	if ('wakeLock' in navigator) {
+//		isSupported = true;
+//		console.log('Screen Wake Lock API supported');
+//	} else {
+//		wakeButton.disabled = true;
+//		console.log('Wake lock is not supported by this browser.');
+//	}
+//	// If supported
+//	if (isSupported) {
+//		let wakeLock = null;
+//		const requestWakeLock = async () => {
+//			try {
+//				wakeLock = await navigator.wakeLock.request('screen');
+//
+//				changeUI();
+//				wakeLock.onrelease = function(ev) {
+//					console.log(ev);
+//				}
+//				wakeLock.addEventListener('release', () => {
+//					// if wake lock is released by something else
+//					changeUI('released');
+//				});
+//
+//			} catch (err) {
+//			// if wake lock request fails - usually system related, such as battery
+//
+//			}
+//		} 
+//
+//		window.addEventListener('touchstart', function onFirstTouch() {
+//			requestWakeLock();
+//			window.removeEventListener('touchstart', onFirstTouch, false);
+//			console.log('Screen should stay on from now on.');
+//		}, false);
+//
+//		const handleVisibilityChange = () => {
+//			if (wakeLock !== null && document.visibilityState === 'visible') {
+//				requestWakeLock();
+//				console.log('Wake Lock active back again.');
+//			}
+//		}
+//		document.addEventListener('visibilitychange', handleVisibilityChange);
+//	}
+
+
+
+
+
+</script>
 
 <script>
 	window.isUpdateAvailable = new Promise(function(resolve, reject) {
@@ -1942,85 +2020,7 @@ document.addEventListener("keydown", function(event) {
 	});
 </script>
 
-	<script>
-		var noSleep = new NoSleep();
-		document.body.addEventListener('click', function() {
-		if (!wakeLockEnabled) {
-		  noSleep.enable(); // keep the screen on!
-		  wakeLockEnabled = true;
-		}
-		}, false);
-		
-		// import NoSleep from './dist/NoSleep.min.js';
-//		var noSleep = new NoSleep();
-//		document.addEventListener('touchstart', function enableNoSleep() {
-//			document.removeEventListener('touchstart', enableNoSleep, false);
-//			noSleep.enable();
-//		}, false);
-//		document.addEventListener('click', function enableNoSleepClick() {
-//			document.removeEventListener('click', enableNoSleepClick, false);
-//			noSleep.enable();
-//		}, false);
-
-		////Wake Lock, replaced by NoSleep JS
-		//	const changeUI = (status = 'acquired') => {
-		//		const acquired = status === 'acquired' ? true : false;
-		//		console.log(`Wake Lock ${acquired ? 'is active!' : 'has been released.'}`);
-		//		// acquired ? $('#wakelockframe').addClass('show') : $('#wakelockframe').removeClass('show');
-		//		acquired ? $('body').addClass('wakelocked') : $('body').removeClass('wakelocked');
-		//	}
-		//
-		//	// Check support for WakeLock
-		//	let isSupported = false;
-		//	if ('wakeLock' in navigator) {
-		//		isSupported = true;
-		//		console.log('Screen Wake Lock API supported');
-		//	} else {
-		//		wakeButton.disabled = true;
-		//		console.log('Wake lock is not supported by this browser.');
-		//	}
-		//	// If supported
-		//	if (isSupported) {
-		//		let wakeLock = null;
-		//		const requestWakeLock = async () => {
-		//			try {
-		//				wakeLock = await navigator.wakeLock.request('screen');
-		//
-		//				changeUI();
-		//				wakeLock.onrelease = function(ev) {
-		//					console.log(ev);
-		//				}
-		//				wakeLock.addEventListener('release', () => {
-		//					// if wake lock is released by something else
-		//					changeUI('released');
-		//				});
-		//
-		//			} catch (err) {
-		//			// if wake lock request fails - usually system related, such as battery
-		//
-		//			}
-		//		} 
-		//
-		//		window.addEventListener('touchstart', function onFirstTouch() {
-		//			requestWakeLock();
-		//			window.removeEventListener('touchstart', onFirstTouch, false);
-		//			console.log('Screen should stay on from now on.');
-		//		}, false);
-		//
-		//		const handleVisibilityChange = () => {
-		//			if (wakeLock !== null && document.visibilityState === 'visible') {
-		//				requestWakeLock();
-		//				console.log('Wake Lock active back again.');
-		//			}
-		//		}
-		//		document.addEventListener('visibilitychange', handleVisibilityChange);
-		//	}
-
-
-
-
-
-	</script>
+	
 </body>
 
 </html>
