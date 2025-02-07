@@ -70,15 +70,12 @@
 	<script src='./dist/NoSleep.min.js'></script>
 	<script>
 		var noSleep = new NoSleep();
-		document.addEventListener('touchstart', function enableNoSleep() {
-			document.removeEventListener('touchstart', enableNoSleep, false);
-			noSleep.enable();
-			document.body.style.backgroundColor = "#262626";
-		}, false);
-		document.addEventListener('click', function enableNoSleepClick() {
-			document.removeEventListener('click', enableNoSleepClick, false);
-			noSleep.enable();
-			document.body.style.backgroundColor = "#262626";
+		var dok = document.querySelector("body");
+		dok.addEventListener('click', function() {
+		if (!wakeLockEnabled) {
+		  noSleep.enable(); // keep the screen on!
+		  wakeLockEnabled = true;
+		}
 		}, false);
 		
 		// import NoSleep from './dist/NoSleep.min.js';
