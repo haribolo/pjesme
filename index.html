@@ -1908,6 +1908,7 @@ document.addEventListener("keydown", function(event) {
 </script>
 <script>
 	var noSleep = new NoSleep();
+	var wakeLockEnabled = false;
 	document.body.addEventListener('click', function() {
 	if (!wakeLockEnabled) {
 	  noSleep.enable(); // keep the screen on!
