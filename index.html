@@ -1912,7 +1912,7 @@ document.addEventListener("keydown", function(event) {
 <script>
 	var noSleep = new NoSleep();
 	var wakeLockEnabled = false;
-	document.body.addEventListener('touchstart', function() {
+	document.body.addEventListener('click', function() {
 	if (!wakeLockEnabled) {
 	  noSleep.enable(); // keep the screen on!
 	  wakeLockEnabled = true;
