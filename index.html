@@ -78,8 +78,11 @@
 		song, .darkMode song {background: #292a2d;filter:drop-shadow(0px 3px 3px #161718);}
 		.tocBack, .darkMode .tocBack {filter: drop-shadow(2px 4px 16px #161718);}
 		.menuIcon path, .tocClose path, .darkMode .menuIcon path, .darkMode .tocClose path {fill: #9f752e;}
-		
-
+		body{
+			margin: 0;
+			//box-shadow: inset 0px 8px 10em #3d3d3d80;
+			transition: box-shadow 3s cubic-bezier(0, 1.07, 0.58, 1);
+		}
 		@media screen and (prefers-color-scheme: light){
 			html, body, .tocBack {color: #444746; background: #eef4f7;}
 			.prijevod{color: #1f1f1f;}
