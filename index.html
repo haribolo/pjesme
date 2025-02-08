@@ -64,11 +64,10 @@
 		}
 	</style>
 	<script src='./dist/NoSleep.min.js'></script>
-	<script src='./sw.js'></script>
+	<script src='/sw.js'></script>
 	
 </head>
 	<title>Pjesme Vaiṣṇava</title>
-	<p>Pjesme Vaiṣṇava</p>
 
 
 	
@@ -1912,6 +1911,12 @@ document.addEventListener("keydown", function(event) {
 	var noSleep = new NoSleep();
 	var wakeLockEnabled = false;
 	document.body.addEventListener('click', function() {
+	if (!wakeLockEnabled) {
+	  noSleep.enable(); // keep the screen on!
+	  wakeLockEnabled = true;
+	}
+	}, false);
+	document.body.addEventListener('touchstart', function() {
 	if (!wakeLockEnabled) {
 	  noSleep.enable(); // keep the screen on!
 	  wakeLockEnabled = true;
