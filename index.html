@@ -75,13 +75,20 @@
 		
 		// import NoSleep from './dist/NoSleep.min.js';
 		var noSleep = new NoSleep();
+		var wakeLockEnabled = false;
 		document.addEventListener('touchstart', function enableNoSleep() {
-			document.removeEventListener('touchstart', enableNoSleep, false);
-			noSleep.enable();
+			if (!wakeLockEnabled) {
+				noSleep.enable();
+				wakeLockEnabled = true;
+				document.removeEventListener('touchstart', enableNoSleep, false);
+			}
 		}, false);
 		document.addEventListener('click', function enableNoSleepClick() {
-			document.removeEventListener('click', enableNoSleepClick, false);
-			noSleep.enable();
+			if (!wakeLockEnabled) {
+				noSleep.enable();
+				wakeLockEnabled = true;
+				document.removeEventListener('touchstart', enableNoSleep, false);
+			}
 		}, false);
 
 		////Wake Lock, replaced by NoSleep JS
