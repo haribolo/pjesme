@@ -583,7 +583,25 @@
 	<h1 class=title>Pjesme Vaiṣṇava</h1>
 
 	<script src='./dist/NoSleep.min.js'></script>
-	<input type="button" id="toggle" value="Ne gasi ekran" style="margin: 0 auto; display: block;" class="showAllSongs"/>
+	<input type="button" id="toggle" value="Upali dipu 🪔" style="display: block; 		box-shadow: 0 0 2px 0px #00000094;
+		background-color: #f5f5f5;
+		border-radius: 6px;
+		border: 2px solid #717171;
+		color: #666666;
+		font-family: Arial;
+		font-size: 15px;
+		font-weight: bold;
+		padding: 6px 24px;
+		text-decoration: none;
+		margin: 60px auto;
+		user-select: none;
+		z-index: 2;
+		position: relative;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: .1s;
+		display: block;
+		bottom: 30px;" class="dipagumb"/>
 	<script>
 		var noSleep = new NoSleep();
 		var wakeLockEnabled = false;
@@ -592,12 +610,12 @@
 		if (!wakeLockEnabled) {
 		  noSleep.enable(); // keep the screen on!
 		  wakeLockEnabled = true;
-		  toggleEl.value = "Wake Lock is enabled";
+		  toggleEl.value = "Dipa upaljena 🪔";
 		  document.body.style.backgroundColor = "#ffffff24";
 		} else {
 		  noSleep.disable(); // let the screen turn off.
 		  wakeLockEnabled = false;
-		  toggleEl.value = "Wake Lock is disabled";
+		  toggleEl.value = "Dipa ugašena";
 		  document.body.style.backgroundColor = "";
 		}
 		}, false);
