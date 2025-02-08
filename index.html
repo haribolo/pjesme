@@ -1767,7 +1767,7 @@ window.onload = function() {
 <script>
 	// Gumbi: sakrivanje i prikazivanje po dodiru
 	$(function() {
-		$('article').click(function(e) {
+		$('article:not(input)').click(function(e) {
 			if(!$(e.target).hasClass('menuIconHolder') ){
 				$( ".menuIconHolder" ).toggleClass( "scroll-down" );                
 			}
