@@ -6,13 +6,16 @@
 	<link rel="manifest" href="./manifest.json">
 	<meta charset="UTF-8">
 	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" >
 	<meta name="description" content="Vedska poezija velikih acarya u digitalnom izdanju sa hrvatskim prijevodima." >
 	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" >
 	<meta name="msapplication-navbutton-color" content="#292f37">
 	<meta name="robots" content="index, follow" >
-	<meta name="theme-color" content="#292f37">
+	<meta name="theme-color" content="#202124">
+	<meta name="theme-color" media="(prefers-color-scheme: light)" content="#dee4e7" />
+	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#202124" />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="Vedska poezija velikih acarya u digitalnom izdanju sa hrvatskim prijevodima." >
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
@@ -29,7 +32,7 @@
 	<meta http-equiv='cache-control' content='no-cache'> 
 	<meta http-equiv='expires' content='0'> 
 	<meta http-equiv='pragma' content='no-cache'>
-
+	<script src='./jquery.min.js'></script>
 <!-- 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap&subset=latin-ext" rel="stylesheet"> -->
@@ -69,28 +72,7 @@
 	<title>Pjesme Vaiṣṇava</title>
 
 
-
-	<script src='./dist/NoSleep.min.js'></script>
 	<script>
-		
-		// import NoSleep from './dist/NoSleep.min.js';
-		var noSleep = new NoSleep();
-		var wakeLockEnabled = false;
-		document.addEventListener('touchstart', function enableNoSleep() {
-			if (!wakeLockEnabled) {
-				noSleep.enable();
-				wakeLockEnabled = true;
-				document.removeEventListener('touchstart', enableNoSleep, false);
-			}
-		}, false);
-		document.addEventListener('click', function enableNoSleepClick() {
-			if (!wakeLockEnabled) {
-				noSleep.enable();
-				wakeLockEnabled = true;
-				document.removeEventListener('touchstart', enableNoSleep, false);
-			}
-		}, false);
-
 		////Wake Lock, replaced by NoSleep JS
 		//	const changeUI = (status = 'acquired') => {
 		//		const acquired = status === 'acquired' ? true : false;
@@ -148,16 +130,91 @@
 
 
 
+// Dark light mode
 
-	</script>
+function themeColorChange() {
+	if ($('html').hasClass('lightMode')) {
+		document.querySelector('meta[name="theme-color"]').setAttribute('content', '#dee4e7');
+	} else {
+		document.querySelector('meta[name="theme-color"]').setAttribute('content', '#202124');
+	}
+};
+
+$(function(){
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+		$('html').addClass( "lightMode" );
+		themeColorChange();
+	} else {
+		$('html').addClass( "darkMode" );
+		
+	}
+});
+
+
+/*const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+const setColorScheme = e => {
+  if (e.matches) {
+    // Dark
+    console.log('Dark mode')
+  } else {
+    // Light
+    console.log('Light mode')
+  }
+}
+setColorScheme(colorSchemeQueryList);
+colorSchemeQueryList.addEventListener('change', setColorScheme);*/
+
+/*window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+	const newColorScheme = event.matches ? "dark" : "light";
+	if (newColorScheme = "dark") {
+		console.log("Good day") ;
+	}
+		document.querySelector('meta[name="theme-color"]').setAttribute('content', '#202124');
+});
+*/
+
+// Check to see if Media-Queries are supported
+
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) { 
+	if (window.matchMedia) { // Check if the dark-mode Media-Query matches
+		if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+				// Dark
+				$('html').removeClass('lightMode');
+				$('html').addClass('darkMode');
+				themeColorChange();
+				console.log('Changed color scheme to dark.');
+			} else {
+				// Light
+				$('html').removeClass('darkMode');
+				$('html').addClass('lightMode');
+				themeColorChange();
+				console.log('Changed color scheme to light.');
+			}
+		} else {
+			// Default (when Media-Queries are not supported)
+		}
+})
+
+</script>
 
 	<style>
-		html, body, .tocBack, html.darkMode, .darkMode body, .darkMode .tocBack {color: #c4c7c5; background-color: #202124;}
+		html, body, .tocBack, html.darkMode, .darkMode body {color: #c4c7c5; background-color: #202124; }
+		.darkMode .tocBack {color: #c4c7c5; background-color: #4b4d5370;}
+		body {margin: 0;}
+		
+		.darkMode .dipa {
+			filter: brightness(1.35);
+		}
+		.lightMode .dipa   {
+			filter: brightness(1.06) contrast(0.95);
+		}
+		
 		.prijevod, .darkMode .prijevod{color: #9aa0a6;}
 		song, .darkMode song {background: #292a2d;filter:drop-shadow(0px 3px 3px #161718);}
 		.tocBack, .darkMode .tocBack {filter: drop-shadow(2px 4px 16px #161718);}
 		.menuIcon path, .tocClose path, .darkMode .menuIcon path, .darkMode .tocClose path {fill: #9f752e;}
-		
+
 
 		@media screen and (prefers-color-scheme: light){
 			html, body, .tocBack {color: #444746; background: #eef4f7;}
@@ -165,7 +222,7 @@
 			song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
 			.tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
 		}
-			html.lightMode, .lightMode body, .lightMode .tocBack {color: #444746; background: #eef4f7;}
+			html.lightMode, .lightMode body, .lightMode .tocBack {color: #444746; background: #dee4e7;}
 			.lightMode .prijevod{color: #1f1f1f;}
 			.lightMode song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
 			.lightMode .tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
@@ -297,7 +354,7 @@
 	
 
 
-	.showAllSongs {
+	/*.showAllSongs {
 		box-shadow: 0 0 2px 0px #00000094;
 		background-color: #f5f5f5;
 		border-radius: 6px;
@@ -333,6 +390,32 @@
 		margin: 62px auto;
 		border: 2px solid #717171;
 		background-color: #cecece;
+	}*/
+	.button {
+		box-shadow: 0 0 2px 0px #000000d6;
+		background-color: #9f752e;
+		border-radius: 6px;
+		border: 0px solid #ffffff;
+		color: #000000ad;
+		font-family: system-ui;
+		font-size: 15px;
+		font-weight: bold;
+		padding: 8px 16px;
+		text-decoration: none;
+		margin: 60px auto;
+		user-select: none;
+		z-index: 2;
+		position: relative;
+		text-transform: uppercase;
+		letter-spacing: 1.5pt;
+		cursor: pointer;
+		transition: .1s;
+		display: block;
+		bottom: 30px;
+		opacity: 60%;
+	}
+	.button:hover {
+		opacity: 100%;
 	}
 
 	.songs{
@@ -426,6 +509,12 @@
 		/*  background-color: #ddd;*/
 		background-color: transparent;
 	}
+	.buttonDipa {
+		position: fixed;
+		right: 20px;
+		top: 70px;
+		background-color: transparent;
+	}
 	@media screen and (prefers-color-scheme: light){
 		.buttonDarkMode {
 			display:none;
@@ -435,40 +524,30 @@
 		position: fixed;
 		left: 20px;
 		top: 20px;
-		/*  padding: .5rem 1rem;*/
-		/*  background-color: #ddd;*/
 		background-color: transparent;
 	}
 	.buttonZoomIn {
 		position: fixed;
 		right: 20px;
 		bottom: calc(20px + 30px + 20px);
-		/*  padding: .5rem 1rem;*/
-		/*  background-color: #ddd;*/
 		background-color: transparent;
 	}
 	.buttonZoomOut {
 		position: fixed;
 		right: 20px;
 		bottom: 20px;
-		/*  padding: .5rem 1rem;*/
-		/*  background-color: #ddd;*/
 		background-color: transparent;
 	}
 	.buttonShare {
 		position: fixed;
 		left: 20px;
 		bottom: 20px;
-		/*  padding: .5rem 1rem;*/
-		/*  background-color: #ddd;*/
 		background-color: transparent;
 	}
 	.buttonHideTranslation {
 		position: fixed;
 		left: 20px;
 		bottom:  calc(20px + 30px + 20px);
-		/*  padding: .5rem 1rem;*/
-		/*  background-color: #ddd;*/
 		background-color: transparent;
 		max-width: 780px;
 	}
@@ -493,7 +572,6 @@
 	}
 	.tocBack.closed{
 		top: 200vh !important;
-	/*	bottom: -120vh !important;*/
 			 transition: top .2s;
 	}
 	@media only screen and (max-width: 50em) {
@@ -574,31 +652,24 @@
 		
 	/*Share: Kopiraj link*/
 	.messageNotification {
-			color: #ffffff;
-			background-color: rgba(0,0,0,0.8);
-			padding: 20px;
-			border-radius: 30px;
-			position: fixed;
-			top: 50%;
-			left: 50%;
-			width: 150px;
-			margin-top: -30px;
-			margin-left: -85px;
-			display: none;
-			text-align:center;
+		color: #ffffff;
+		background-color: rgba(0, 0, 0, 0.9);
+		padding: 20px;
+		border-radius: 30px;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 250px;
+		margin-top: -30px;
+		margin-left: -135px;
+		display: none;
+		text-align: center;
+		user-select: none;
 	}
 	</style>
 
 
-	<script src='./jquery.min.js'></script>
 	<script>
-	// //Vrati darkMode ako je bio aktivan zadnjeg puta
-	// if (window.localStorage.getItem('darkMode') == "true"){
-	// 		 if ($('html').hasClass('darkMode') == false){
-	// 					$('html').addClass('darkMode', 500);
-	// 		 }
-	// }
-
 		
 	//	PROMJENA IKONE
 	(function() {
@@ -613,21 +684,19 @@
 	</script> 
 </head>
 
-<!-- wp:html -->
 <body id=web lang=hr>
-
+	<script src='dist/NoSleep.min.js'></script>
+	<!-- <input type="button" class="button" id="toggleDipa" value="Upali dipu 🪔" /> -->
 <div class=tech>
-	<!-- <video id="hiddenVideo" playsinline autoplay loop muted style="width:1px;height:1px;position:fixed;top:0px;right:0px;"> -->
-		<!-- <source src="data:video/mp4;base64, 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"> -->
-
-		<!-- <source src="data:video/webm;base64, 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" type="video/webm"> -->
-	<!-- </video> -->
 	<div class=menu>
-			<div class="menuIconHolder buttonDarkMode noselect hand" onclick="$('html').toggleClass('lightMode darkMode', 500); window.localStorage.setItem('lightMode', $('html').hasClass('lightMode'));">
+			<div class="menuIconHolder buttonDarkMode noselect hand" onclick="$('html').toggleClass('lightMode darkMode'); window.localStorage.setItem('lightMode', $('html').hasClass('lightMode')); themeColorChange();">
 					<span><svg class="menuIcon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 112.88"><path d="M14.29 0h94.3c7.86 0 14.29 6.43 14.29 14.29v84.3c0 7.86-6.43 14.29-14.29 14.29h-94.3A14.33 14.33 0 010 98.59v-84.3C0 6.43 6.43 0 14.29 0zm47.07 24.87a25.74 25.74 0 0012.88 48.05c6.75 0 12.9-2.6 17.49-6.85 2.28-2.11 4.89-.57 4.01 1.94a35.37 35.37 0 01-68.79-11.65 35.3 35.3 0 0133.1-35.23c3.42-.2 4.3 2.01 1.31 3.74z" fill-rule="evenodd" clip-rule="evenodd"/></svg></span>
 			</div>
-			<div class="menuIconHolder buttonLightMode noselect hand" onclick="$('html').toggleClass('lightMode darkMode', 500); window.localStorage.setItem('lightMode', $('html').hasClass('lightMode'));">
+			<div class="menuIconHolder buttonLightMode noselect hand" onclick="$('html').toggleClass('lightMode darkMode'); window.localStorage.setItem('lightMode', $('html').hasClass('lightMode')); themeColorChange();">
 					<span><svg class="menuIcon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 112.88"><path d="M14.29 0h94.3c7.86 0 14.29 6.43 14.29 14.29v84.3c0 7.86-6.43 14.29-14.29 14.29h-94.3A14.33 14.33 0 010 98.59v-84.3C0 6.43 6.43 0 14.29 0zm47.07 24.87a25.74 25.74 0 0012.88 48.05c6.75 0 12.9-2.6 17.49-6.85 2.28-2.11 4.89-.57 4.01 1.94a35.37 35.37 0 01-68.79-11.65 35.3 35.3 0 0133.1-35.23c3.42-.2 4.3 2.01 1.31 3.74z" fill-rule="evenodd" clip-rule="evenodd"/></svg></span>
+			</div>
+			<div class="menuIconHolder buttonDipa noselect hand" id="toggleDipa">
+					<span><svg  class="menuIcon" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 2708 2486" fill-rule="evenodd" clip-rule="evenodd"><path d="M2406 2486H301A302 302 0 0 1 0 2185V301C0 136 136 0 301 0h2105c166 0 301 136 301 301l1 1884c0 166-136 301-302 301zm-1052-317c-223 0-447-58-618-161-222-134-362-338-362-510 0-74 62-158 217-223h1l6-3 6-2 6-3 5-2 7-2 5-2h1l6-3 7-2 4-2 9-3 5-1 8-3 6-2 7-2 6-2 9-3 5-1 10-3 5-1 10-3 4-1 11-3 4-1 12-3 3-1 13-3h4l13-3 1-1h1l15-3h1l16-3 2-1 15-3h2l16-3h2l17-3h1l18-3 18-3h1l19-3h1l18-2h1l15-2 7 13 1 1v1h1v2h1v2h1v1l1 1v1l1 1v1h1v2h1v1l1 1v1h1v2h1v1l1 1v1h1v1l1 1v1h1v1l1 1v1l1 1v1h1v1l1 1v1h1v1l1 1v1l23 31-39 3h-1l-13 1-2 1-13 1-13 1h-1l-13 2h-1l-11 1-2 1h-3l-7 1h-1l-5 1h-2l-7 1h-3l-10 2h-2l-7 1h-2l-5 1-7 1-7 1-7 1h-1l-5 1-4 1-9 1-4 1-5 1-7 1-6 1-7 2-6 1-7 1-5 1-3 1-17 4-6 1c-53 12-99 26-137 43-79 35-123 80-123 135 0 71 105 142 278 180 176 39 442-64 579-241a16 16 0 0 1 26 0c136 177 402 280 579 241 172-38 278-109 278-180 0-55-44-100-123-135-38-17-84-31-137-43l-6-1-18-4-3-1-5-1-6-1-7-1-6-2-6-1h-1l-7-1-5-1-3-1-10-1-4-1-5-1-7-1-7-1-7-1-6-1h-2l-7-1h-2l-9-2h-4l-7-1h-2l-5-1h-1l-7-1h-3l-2-1-10-1h-1l-14-2h-1l-12-1h-1l-13-1-2-1-13-1-39-3 22-31v-1h1v-1h1v-2h1v-1l1-1v-1h1v-1l1-1v-1l1-1v-1h1v-1l1-1v-1h1v-1l1-1v-1h1v-2h1v-1l1-1v-1l1-1v-1h1v-2h1v-1l1-1v-1l1-1v-1l1-1v-1h1v-1l7-13 15 2h1l19 2h1l18 3h1l18 3h1l17 3h2l16 3h3l15 3h2l16 3 2 1 15 3h2l14 3h1l2 1 13 3h3l13 3 4 1 11 3 4 1 11 3 4 1 11 3 4 1 10 3 5 1 9 3 6 2 7 2 6 2 8 3 6 1 8 3 4 2 7 2 7 3 5 2h1l7 2 5 2 5 3 6 2 7 3c155 65 217 149 217 223 0 172-139 376-362 510a1228 1228 0 0 1-617 161zm14-1844c99 153 172 272 252 428 83 162 71 325 12 431-54 97-131 142-278 145-148-3-224-48-278-145a463 463 0 0 1 12-431c79-156 153-275 252-428 3-5 8-8 14-8s10 3 14 8zm-14 929c72-1 115-44 143-94 31-55 10-153-34-237-38-76-47-97-94-170a18 18 0 0 0-30 0c-47 73-56 94-95 170-43 84-64 182-34 237 28 50 72 93 144 94z"/></svg></span>
 			</div>
 			<div class="menuIconHolder buttonMenu noselect hand" onclick="open">
 					<span><svg class="menuIcon mainMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124"><path d="M112 6H12C5.4 6 0 11.4 0 18s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 94H12c-6.6 0-12 5.4-12 12s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"/></svg></span>
@@ -658,7 +727,7 @@
 	}</style>
 </div>
 
-<article>
+<article style="transition-duration: .1s;">
 	<div class=songs>   
 	<h1 class=title>Pjesme Vaiṣṇava</h1>
 
@@ -1646,7 +1715,8 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 
 
 
-<button class="showAllSongs" style="display:block;">Sve pjesme</button>
+<button class="button showAllSongs" style="display:block;">Sve pjesme</button>
+
 
 </article>
 
@@ -1658,7 +1728,7 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 var ToC =
   "<div class='tocBackOverlay noselect' onclick='close()'>" + 
   "<div class='tocBack closed'>" +
-  "<div class='tocClose noselect hand' onclick='close()'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 348.33 348.33'><path d='M336.56 68.61L231.02 174.16l105.54 105.55a40.2 40.2 0 01-56.83 56.85L174.17 231 68.6 336.56a40.06 40.06 0 01-28.42 11.77 40.2 40.2 0 01-28.41-68.62l105.54-105.55L11.77 68.61A40.2 40.2 0 0168.6 11.77l105.57 105.55L279.72 11.77a40.2 40.2 0 0156.84 56.84z'/></svg></div>" +
+  "<div class='tocClose noselect hand menuIcon ' onclick='close()'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 348.33 348.33'><path d='M336.56 68.61L231.02 174.16l105.54 105.55a40.2 40.2 0 01-56.83 56.85L174.17 231 68.6 336.56a40.06 40.06 0 01-28.42 11.77 40.2 40.2 0 01-28.41-68.62l105.54-105.55L11.77 68.61A40.2 40.2 0 0168.6 11.77l105.57 105.55L279.72 11.77a40.2 40.2 0 0156.84 56.84z'/></svg></div>" +
     "<h1 class='left'>Sadržaj:</h1>" +
 "<nav role='navigation' class='TOC' id='TOC'>" +
     "<ol>";
@@ -1691,6 +1761,34 @@ $("body").prepend(ToC);
 
 
 
+
+
+
+
+//Sadržaj: zatvaranje po odabiru; ostale stvari
+var open = function() {
+	 $('.tocBack').removeClass( "closed" );
+	 $('body').addClass( "noscroll" );
+}
+document.querySelector('.buttonMenu').onclick = open;
+
+
+function closeTOC() {
+	$('.tocBack').addClass( "closed" );
+	$('body').removeClass( "noscroll" );
+}
+
+window.addEventListener("load", eventWindowLoaded, false);
+function eventWindowLoaded(){
+	document.querySelector('.tocClose').onclick = closeTOC();
+	document.querySelector('.tocBackOverlay').onclick = closeTOC();
+//		 document.getElementById("TOC").querySelectorAll(".tocLink").onclick = closeTOC;
+//	document.querySelectorAll('.tocLink').onclick = closeTOC;
+//    document.querySelector('.tocLink').onclick = closeTOC;
+//    document.getElementById("tocClose").onclick = closeTOC;
+
+}
+
 // Sadržaj: Kod odabira pjesme, sakrij sve ostale
 $('.tocLink').bind('click', function() {
 	$('song').show();
@@ -1703,41 +1801,9 @@ $('.tocLink').bind('click', function() {
 	closeTOC();
 })
 
-// Sve pjesme gumb
-$('.showAllSongs').bind('click', function() {
-	$('song').show();
-	$('.showAllSongs').hide();
-	$('h1.title').show();
-	$('html').removeClass('stick');
-	window.scrollTo(0, 0);
-
+$('.tocClose').bind('click', function() {
+	closeTOC();
 })
-
-
-
-
-//Sadržaj: zatvaranje po odabiru; ostale stvari
-var open = function() {
-	 $('.tocBack').removeClass( "closed" );
-	 $('body').addClass( "noscroll" );
-}
-document.querySelector('.buttonMenu').onclick = open;
-
-window.addEventListener("load", eventWindowLoaded, false);
-
-function eventWindowLoaded(){
-    var closeTOC = function() {
-        $('.tocBack').addClass( "closed" );
-        $('body').removeClass( "noscroll" );
-    }
-	document.querySelector('.tocClose').onclick = closeTOC;
-	document.querySelector('.tocBackOverlay').onclick = closeTOC;
-//		 document.getElementById("TOC").querySelectorAll(".tocLink").onclick = closeTOC;
-//	document.querySelectorAll('.tocLink').onclick = closeTOC;
-//    document.querySelector('.tocLink').onclick = closeTOC;
-//    document.getElementById("tocClose").onclick = closeTOC;
-
-}
 
 window.onload = function() {
 	$('.showAllSongs').hide();
@@ -1751,13 +1817,19 @@ window.onload = function() {
 	 }
 }
 
-window.onload = function() {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-		    $('html').addClass( "lightMode" );
-		} else {
-			$('html').addClass( "darkMode" );
-		}
-}
+
+
+
+// Sve pjesme gumb
+$('.showAllSongs').bind('click', function() {
+	$('song').show();
+	$('.showAllSongs').hide();
+	$('h1.title').show();
+	$('html').removeClass('stick');
+	window.scrollTo(0, 0);
+
+})
+
 </script>
 
 
@@ -1770,35 +1842,39 @@ window.onload = function() {
   transform: none;
   transition: transform 0.4s;
 }
-.scroll-down.buttonDarkMode{
-  transform: translate3d(0, -200%, 0);
+.menuHidden.buttonDarkMode{
+  transform: translate3d(0, -300%, 0);
   transition: transform 0.7s;
 }
-.scroll-down.buttonMenu{
-  transform: translate3d(0, -200%, 0);
+.menuHidden.buttonMenu{
+  transform: translate3d(0, -300%, 0);
   transition: transform 0.4s;
 }
-.scroll-down.buttonLightMode{
-  transform: translate3d(0, -200%, 0);
+.menuHidden.buttonLightMode{
+  transform: translate3d(0, -300%, 0);
   transition: transform 0.7s;
 }
-.scroll-down.buttonZoomOut {
+.menuHidden.buttonDipa{
+  transform: translate3d(0, -300%, 0);
+  transition: transform 0.5s;
+}
+.menuHidden.buttonZoomOut {
   transform: translate3d(0, 200%, 0);
   transition: transform 0.3s;
 }
-.scroll-down.buttonZoomIn {
+.menuHidden.buttonZoomIn {
   transform: translate3d(0, 400%, 0);
   transition: transform .6s;
 }
-.scroll-down.buttonShare {
+.menuHidden.buttonShare {
   transform: translate3d(0, 200%, 0);
   transition: transform 0.8s;
 }
-.scroll-down.buttonHideTranslation {
+.menuHidden.buttonHideTranslation {
   transform: translate3d(0, 400%, 0);
   transition: transform 0.8s;
 }
-.scroll-up.buttonDarkMode,  .scroll-up.buttonLightMode, .scroll-up.buttonMenu, .scroll-up.buttonZoomIn, .scroll-up.buttonZoomOut, .scroll-up.buttonShare, .scroll-up.buttonHideTranslation {
+.menuShown.buttonDarkMode,  .menuShown.buttonLightMode, .menuShown.buttonDipa, .menuShown.buttonMenu, .menuShown.buttonZoomIn, .menuShown.buttonZoomOut, .menuShown.buttonShare, .menuShown.buttonHideTranslation {
   transform: none;
   transition: transform 0.4s;
 }
@@ -1811,7 +1887,7 @@ window.onload = function() {
 	$(function() {
 		$('article').click(function(e) {
 			if(!$(e.target).hasClass('menuIconHolder') ){
-				$( ".menuIconHolder" ).toggleClass( "scroll-down" );                
+				$( ".menuIconHolder" ).toggleClass( "menuHidden" );                
 			}
 		}); 
 		$("article div.thematicIcon").click(function(e) {
@@ -1820,47 +1896,20 @@ window.onload = function() {
 	});
 
 
-//Gumbi: sakrivanje i prikazivanje po skrolanju
-	//const body = document.body;
-	//const scrollUp = "scroll-up";
-	//const scrollDown = "scroll-down";
-	//let lastScroll = 0;
-	//
-	//
-	//window.addEventListener("scroll", () => {
-	//  const currentScroll = window.pageYOffset;
-	//  if (currentScroll <= 0) {
-	//    body.classList.remove(scrollUp);
-	//    return;
-	//  }
-	//  
-	//  if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
-	//    // down
-	//    body.classList.remove(scrollUp);
-	//    body.classList.add(scrollDown);
-	//  } else if (currentScroll < lastScroll - 7 && body.classList.contains(scrollDown)) {
-	//    // up
-	//    body.classList.remove(scrollDown);
-	//    body.classList.add(scrollUp);
-	//  }
-	//  lastScroll = currentScroll;
-	//});
 	
 
-//	Sadržaj: ukloni #... na anchor
-	$(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top - 50
-        }, 500);
-        return false;
-      }
-    }
-  });
+//	Sadržaj: ukloni hastag #... na odabir pjesme
+$(function() {
+	$('a[href*=#]:not([href=#])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+				$('html,body').animate({scrollTop: target.offset().top - 50}, 500);
+				return false;
+			}
+		}
+	});
 });
 
 
@@ -1884,7 +1933,7 @@ function CopyToClipboard(value, showNotification, notificationText) {
 				notificationTag = $("<div/>", { "class": "messageNotification", text: notificationText });
 				$("body").append(notificationTag);
 
-				notificationTag.fadeIn("slow", function () {
+				notificationTag.fadeIn("fast", function () {
 						setTimeout(function () {
 								notificationTag.fadeOut("slow", function () {
 										notificationTag.remove();
@@ -1902,13 +1951,12 @@ function notification(notificationText, notificationTimeout) {
 		notificationTimeout == 1000;
 	}
 
+	$("div.messageNotification").remove();
 	var notificationTag = $("div.messageNotification");
 	if (notificationTag.length == 0) {
 		notificationTag = $("<div/>", { "class": "messageNotification", text: notificationText });
 		$("body").append(notificationTag);
-//		$('<div class=messageNotification>' + notificationText  + '</div>').appendTo('body');
-		
-		notificationTag.fadeIn("slow", function () {
+		notificationTag.fadeIn("fast", function () {
 				setTimeout(function () {
 						notificationTag.fadeOut("slow", function () {
 								notificationTag.remove();
@@ -1985,10 +2033,52 @@ document.addEventListener("keydown", function(event) {
 	}
 })
 
-</script>
 
 
-<script>
+
+// NOSLEEP
+var noSleep = new NoSleep();
+var wakeLockEnabled = false;
+var toggleEl = document.querySelector("#toggleDipa");
+toggleEl.addEventListener('click', function() {
+	if (!wakeLockEnabled) {
+		noSleep.enable(); // keep the screen on!
+		wakeLockEnabled = true;
+		toggleEl.value = "Dipa je upaljena 🪔";
+		document.querySelector("article").classList.add("dipa");
+		notification("Ekran će ostati upaljen.", 2500);
+			
+	} else {
+		noSleep.disable(); // let the screen turn off.
+		wakeLockEnabled = false;
+		toggleEl.value = "Upali dipu 🪔";
+		document.querySelector("article").classList.remove("dipa");
+		notification("Ekran će se gasiti kao i obično.", 2500);
+	}
+}, false);
+
+
+window.addEventListener('touchstart', function onFirstTouch() {
+		if (!wakeLockEnabled) {
+			window.removeEventListener('touchstart', onFirstTouch, false);
+			window.removeEventListener('click', onFirstTouch, false);
+			$("#toggleDipa").trigger("click");
+			console.log('Screen should stay on from now on.');
+		}
+}, false);
+
+window.addEventListener('click', function onFirstTouch() {
+		if (!wakeLockEnabled) {
+			window.removeEventListener('click', onFirstTouch, false);
+			window.removeEventListener('touchstart', onFirstTouch, false);
+			$("#toggleDipa").trigger("click");
+			console.log('Screen should stay on from now on.');
+		}
+}, false);
+
+
+
+// UPDATE
 	window.isUpdateAvailable = new Promise(function(resolve, reject) {
 		if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
 		// register service worker file
