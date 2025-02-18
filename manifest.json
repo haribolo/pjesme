@@ -7,21 +7,44 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "https://haribolo.github.io/pjesme/img/favicon.png",
+      "src": "img/favicon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://haribolo.github.io/pjesme/img/android-startup.png",
+      "src": "img/android-startup.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "https://haribolo.github.io/pjesme/img/apple-touch-startup-image.png",
+      "src": "img/apple-touch-startup-image.png",
       "type": "image/png",
       "sizes": "960x960"
     }
   ],
   "start_url": "./", 
-	"scope": "./"
+	"scope": "./",
+	"screenshots": [
+		{
+			"src": "img/screen1n.jpg",
+			"sizes": "540x720",
+			"type": "image/jpg",
+			"form_factor": "narrow",
+			"label": "Pokušaj digitalizacije vaishnavskih pjesama u slavu Gospodina Krishne sa hrvatskim prijevodima. Sva slava Srila Prabhupadi!"
+		},
+		{
+			"src": "img/screen1w.jpg",
+			"sizes": "720x540",
+			"type": "image/jpg",
+			"form_factor": "wide",
+			"label": "Pokušaj digitalizacije vaishnavskih pjesama u slavu Gospodina Krishne sa hrvatskim prijevodima. Sva slava Srila Prabhupadi!"
+		},
+		{
+			"src": "img/screen2w.jpg",
+			"sizes": "720x540",
+			"type": "image/jpg",
+			"form_factor": "wide",
+			"label": "Pokušaj digitalizacije vaishnavskih pjesama u slavu Gospodina Krishne sa hrvatskim prijevodima. Sva slava Srila Prabhupadi!"
+		}
+	]
 }
