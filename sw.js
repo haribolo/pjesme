@@ -1,5 +1,5 @@
 (function() {
-var CACHE_VERSION = 2.7;
+var CACHE_VERSION = 3.0;
 var CURRENT_CACHES = {
   prefetch: 'haribol-v' + CACHE_VERSION
 };
@@ -15,37 +15,16 @@ var CURRENT_CACHES = {
 './img/yasoda_damodar.jpg',
 './img/android-startup.png',
 './img/apple-touch-icon.png',
-'./img/apple-touch-startup-image.png'
+'./img/apple-touch-startup-image.png',
+'./img/screen1n.jpg',
+'./img/screen1w.jpg',
+'./img/screen2w.jpg'
   ];
 
 self.addEventListener('install', function(event) {
   var now = Date.now();
   console.log('Handling install event. Resources to prefetch:', urlsToPrefetch);
 
-// event.waitUntil(
-//   caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
-//     var cachePromises = urlsToPrefetch.map(function(urlToPrefetch) {
-//       var url = new URL(urlToPrefetch, location.href);
-//       url.search += (url.search ? '&' : '?') + 'cache-bust=' + now;
-//       var request = new Request(url, {mode: 'cors'});
-//       return fetch(request).then(function(response) {
-//         if (response.status >= 400) {
-//           throw new Error('request for ' + urlToPrefetch +
-//             ' failed with status ' + response.statusText);
-//         }
-//         return cache.put(urlToPrefetch, response);
-//       }).catch(function(error) {
-//         console.error('Not caching ' + urlToPrefetch + ' due to ' + error);
-//       });
-//     });
-//
-//     return Promise.all(cachePromises).then(function() {
-//       console.log('Pre-fetching complete.');
-//     });
-//   }).catch(function(error) {
-//     console.error('Pre-fetching failed:', error);
-//   })
-// );
 event.waitUntil(
     caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
       var cachePromises = urlsToPrefetch.map(function(urlToPrefetch) {
@@ -95,9 +74,6 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-
-//importScripts('https://solutionbox.hr/wp-content/uploads/elements/sw-offline-google-analytics.js');
-//goog.offlineGoogleAnalytics.initialize();
 
 self.addEventListener('fetch', function(event) {
   //console.log('Handling fetch event for', event.request.url);
