@@ -2062,6 +2062,7 @@ window.addEventListener('touchstart', function onFirstTouch() {
 		if (!wakeLockEnabled) {
 			window.removeEventListener('touchstart', onFirstTouch, false);
 			window.removeEventListener('click', onFirstTouch, false);
+		wakeLockEnabled = false;
 			$("#toggleDipa").trigger("click");
 			console.log('Screen should stay on from now on.');
 		}
@@ -2071,6 +2072,7 @@ window.addEventListener('click', function onFirstTouch() {
 		if (!wakeLockEnabled) {
 			window.removeEventListener('click', onFirstTouch, false);
 			window.removeEventListener('touchstart', onFirstTouch, false);
+		wakeLockEnabled = false;
 			$("#toggleDipa").trigger("click");
 			console.log('Screen should stay on from now on.');
 		}
