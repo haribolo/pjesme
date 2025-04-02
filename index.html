@@ -72,133 +72,143 @@
 	<title>Pjesme Vaiṣṇava</title>
 
 
-	<script>
-		////Wake Lock, replaced by NoSleep JS
-		//	const changeUI = (status = 'acquired') => {
-		//		const acquired = status === 'acquired' ? true : false;
-		//		console.log(`Wake Lock ${acquired ? 'is active!' : 'has been released.'}`);
-		//		// acquired ? $('#wakelockframe').addClass('show') : $('#wakelockframe').removeClass('show');
-		//		acquired ? $('body').addClass('wakelocked') : $('body').removeClass('wakelocked');
-		//	}
-		//
-		//	// Check support for WakeLock
-		//	let isSupported = false;
-		//	if ('wakeLock' in navigator) {
-		//		isSupported = true;
-		//		console.log('Screen Wake Lock API supported');
-		//	} else {
-		//		wakeButton.disabled = true;
-		//		console.log('Wake lock is not supported by this browser.');
-		//	}
-		//	// If supported
-		//	if (isSupported) {
-		//		let wakeLock = null;
-		//		const requestWakeLock = async () => {
-		//			try {
-		//				wakeLock = await navigator.wakeLock.request('screen');
-		//
-		//				changeUI();
-		//				wakeLock.onrelease = function(ev) {
-		//					console.log(ev);
-		//				}
-		//				wakeLock.addEventListener('release', () => {
-		//					// if wake lock is released by something else
-		//					changeUI('released');
-		//				});
-		//
-		//			} catch (err) {
-		//			// if wake lock request fails - usually system related, such as battery
-		//
-		//			}
-		//		} 
-		//
-		//		window.addEventListener('touchstart', function onFirstTouch() {
-		//			requestWakeLock();
-		//			window.removeEventListener('touchstart', onFirstTouch, false);
-		//			console.log('Screen should stay on from now on.');
-		//		}, false);
-		//
-		//		const handleVisibilityChange = () => {
-		//			if (wakeLock !== null && document.visibilityState === 'visible') {
-		//				requestWakeLock();
-		//				console.log('Wake Lock active back again.');
-		//			}
-		//		}
-		//		document.addEventListener('visibilitychange', handleVisibilityChange);
-		//	}
+<script>
+	////Wake Lock, replaced by NoSleep JS
+	//	const changeUI = (status = 'acquired') => {
+	//		const acquired = status === 'acquired' ? true : false;
+	//		console.log(`Wake Lock ${acquired ? 'is active!' : 'has been released.'}`);
+	//		// acquired ? $('#wakelockframe').addClass('show') : $('#wakelockframe').removeClass('show');
+	//		acquired ? $('body').addClass('wakelocked') : $('body').removeClass('wakelocked');
+	//	}
+	//
+	//	// Check support for WakeLock
+	//	let isSupported = false;
+	//	if ('wakeLock' in navigator) {
+	//		isSupported = true;
+	//		console.log('Screen Wake Lock API supported');
+	//	} else {
+	//		wakeButton.disabled = true;
+	//		console.log('Wake lock is not supported by this browser.');
+	//	}
+	//	// If supported
+	//	if (isSupported) {
+	//		let wakeLock = null;
+	//		const requestWakeLock = async () => {
+	//			try {
+	//				wakeLock = await navigator.wakeLock.request('screen');
+	//
+	//				changeUI();
+	//				wakeLock.onrelease = function(ev) {
+	//					console.log(ev);
+	//				}
+	//				wakeLock.addEventListener('release', () => {
+	//					// if wake lock is released by something else
+	//					changeUI('released');
+	//				});
+	//
+	//			} catch (err) {
+	//			// if wake lock request fails - usually system related, such as battery
+	//
+	//			}
+	//		} 
+	//
+	//		window.addEventListener('touchstart', function onFirstTouch() {
+	//			requestWakeLock();
+	//			window.removeEventListener('touchstart', onFirstTouch, false);
+	//			console.log('Screen should stay on from now on.');
+	//		}, false);
+	//
+	//		const handleVisibilityChange = () => {
+	//			if (wakeLock !== null && document.visibilityState === 'visible') {
+	//				requestWakeLock();
+	//				console.log('Wake Lock active back again.');
+	//			}
+	//		}
+	//		document.addEventListener('visibilitychange', handleVisibilityChange);
+	//	}
 
-
-
-
-// Dark light mode
-
-function themeColorChange() {
-	if ($('html').hasClass('lightMode')) {
-		document.querySelector('meta[name="theme-color"]').setAttribute('content', '#dee4e7');
-	} else {
-		document.querySelector('meta[name="theme-color"]').setAttribute('content', '#202124');
+	function iOS() {
+		return [
+			'iPad Simulator',
+			'iPhone Simulator',
+			'iPod Simulator',
+			'iPad',
+			'iPhone',
+			'iPod'
+		].includes(navigator.platform)
+		// iPad on iOS 13 detection
+		|| (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 	}
-};
-
-$(function(){
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-		$('html').addClass( "lightMode" );
-		themeColorChange();
-	} else {
-		$('html').addClass( "darkMode" );
-		
-	}
-});
 
 
-/*const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-const setColorScheme = e => {
-  if (e.matches) {
-    // Dark
-    console.log('Dark mode')
-  } else {
-    // Light
-    console.log('Light mode')
-  }
-}
-setColorScheme(colorSchemeQueryList);
-colorSchemeQueryList.addEventListener('change', setColorScheme);*/
-
-/*window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-	const newColorScheme = event.matches ? "dark" : "light";
-	if (newColorScheme = "dark") {
-		console.log("Good day") ;
-	}
-		document.querySelector('meta[name="theme-color"]').setAttribute('content', '#202124');
-});
-*/
-
-// Check to see if Media-Queries are supported
-
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) { 
-	if (window.matchMedia) { // Check if the dark-mode Media-Query matches
-		if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-				// Dark
-				$('html').removeClass('lightMode');
-				$('html').addClass('darkMode');
-				themeColorChange();
-				console.log('Changed color scheme to dark.');
-			} else {
-				// Light
-				$('html').removeClass('darkMode');
-				$('html').addClass('lightMode');
-				themeColorChange();
-				console.log('Changed color scheme to light.');
-			}
+	// Dark light mode
+	function themeColorChange() {
+		if ($('html').hasClass('lightMode')) {
+			document.querySelector('meta[name="theme-color"]').setAttribute('content', '#dee4e7');
 		} else {
-			// Default (when Media-Queries are not supported)
+			document.querySelector('meta[name="theme-color"]').setAttribute('content', '#202124');
 		}
-})
+	};
+
+	$(function(){
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+			$('html').addClass( "lightMode" );
+			themeColorChange();
+		} else {
+			$('html').addClass( "darkMode" );
+			
+		}
+	});
+
+
+	/*const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+	const setColorScheme = e => {
+	  if (e.matches) {
+	    // Dark
+	    console.log('Dark mode')
+	  } else {
+	    // Light
+	    console.log('Light mode')
+	  }
+	}
+	setColorScheme(colorSchemeQueryList);
+	colorSchemeQueryList.addEventListener('change', setColorScheme);*/
+
+	/*window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+		const newColorScheme = event.matches ? "dark" : "light";
+		if (newColorScheme = "dark") {
+			console.log("Good day") ;
+		}
+			document.querySelector('meta[name="theme-color"]').setAttribute('content', '#202124');
+	});
+	*/
+
+	// Check to see if Media-Queries are supported
+
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) { 
+		if (window.matchMedia) { // Check if the dark-mode Media-Query matches
+			if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+					// Dark
+					$('html').removeClass('lightMode');
+					$('html').addClass('darkMode');
+					themeColorChange();
+					console.log('Changed color scheme to dark.');
+				} else {
+					// Light
+					$('html').removeClass('darkMode');
+					$('html').addClass('lightMode');
+					themeColorChange();
+					console.log('Changed color scheme to light.');
+				}
+			} else {
+				// Default (when Media-Queries are not supported)
+			}
+	})
 
 </script>
 
-	<style>
+<style>
 		html, body, .tocBack, html.darkMode, .darkMode body {color: #c4c7c5; background-color: #202124; }
 		.darkMode .tocBack {color: #c4c7c5; background-color: #4b4d5370;}
 		body {margin: 0;}
@@ -227,7 +237,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
 			.lightMode song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
 			.lightMode .tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
 
-::-webkit-scrollbar-thumb {background-color:#9aa0a6;}
+	::-webkit-scrollbar-thumb {background-color:#9aa0a6;}
 	.tocBackOverlay {
 		position: fixed;
 	}
@@ -243,10 +253,10 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
 	}
 	hr::after {background-color: #1f2831;}
 	@media (prefers-color-scheme: dark) {
-/*		img {filter: brightness(.8) contrast(1.2);}*/
+	/*		img {filter: brightness(.8) contrast(1.2);}*/
 	}
 	html {
-/*		transition:all .2s;*/
+	/*		transition:all .2s;*/
 		/*			filter: invert(0%) contrast(0.85);*/
 	}
 	song {
@@ -260,13 +270,13 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
 		margin: 0;
 		padding: 0;
 		height: 100%;
-/*		transition:all .2s;*/
+	/*		transition:all .2s;*/
 	}
 	body {
 		padding: 1em 2em;
 		line-height: 1.5;
 		font-size: 16px;
-/*		height: 100%;*/
+	/*		height: 100%;*/
 	}
 	nav#TOC {
 		width: 100%;
@@ -599,7 +609,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
 		font-weight: 600;
 	}
 	body.noscroll{
-/*		position:fixed;*/
+	/*		position:fixed;*/
 		overflow:hidden;
 		margin:0;
 	}
@@ -666,10 +676,10 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
 		text-align: center;
 		user-select: none;
 	}
-	</style>
+</style>
 
 
-	<script>
+<script>
 		
 	//	PROMJENA IKONE
 	(function() {
@@ -681,7 +691,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
 	})();
 
 
-	</script> 
+</script> 
 </head>
 
 <body id=web lang=hr>
@@ -2036,7 +2046,7 @@ document.addEventListener("keydown", function(event) {
 
 
 
-// NOSLEEP
+// NOSLEEP GUMB DIPA
 var noSleep = new NoSleep();
 var wakeLockEnabled = false;
 var toggleEl = document.querySelector("#toggleDipa");
@@ -2047,7 +2057,6 @@ toggleEl.addEventListener('click', function() {
 		toggleEl.value = "Dipa je upaljena 🪔";
 		document.querySelector("article").classList.add("dipa");
 		notification("Ekran će ostati upaljen.", 2500);
-			
 	} else {
 		noSleep.disable(); // let the screen turn off.
 		wakeLockEnabled = false;
@@ -2058,25 +2067,34 @@ toggleEl.addEventListener('click', function() {
 }, false);
 
 
-window.addEventListener('touchstart', function onFirstTouch() {
-		if (!wakeLockEnabled) {
-			window.removeEventListener('touchstart', onFirstTouch, false);
-			window.removeEventListener('click', onFirstTouch, false);
-		wakeLockEnabled = false;
-			$("#toggleDipa").trigger("click");
-			console.log('Screen should stay on from now on.');
-		}
-}, false);
+//NO SLEEP AUTOMATSKI PO KORIŠTENJU STRANICE
 
-window.addEventListener('click', function onFirstTouch() {
-		if (!wakeLockEnabled) {
-			window.removeEventListener('click', onFirstTouch, false);
-			window.removeEventListener('touchstart', onFirstTouch, false);
-		wakeLockEnabled = false;
-			$("#toggleDipa").trigger("click");
-			console.log('Screen should stay on from now on.');
-		}
-}, false);
+if (iOS()){
+	// window.addEventListener('touchstart', function onFirstTouch() {
+		// window.removeEventListener('touchstart', onFirstTouch, false);
+		// notification("Upalite dipu 🪔 kako se ekran nebi gasio.", 2500);
+	// }, false);
+} else {
+	window.addEventListener('touchstart', function onFirstTouch() {
+			if (!wakeLockEnabled) {
+				window.removeEventListener('touchstart', onFirstTouch, false);
+				window.removeEventListener('click', onFirstTouch, false);
+				wakeLockEnabled = false;
+				$("#toggleDipa").trigger("click");
+				console.log('Screen should stay on from now on.');
+			}
+	}, false);
+
+	window.addEventListener('click', function onFirstClick() {
+			if (!wakeLockEnabled) {
+				window.removeEventListener('click', onFirstClick, false);
+				window.removeEventListener('touchstart', onFirstTouch, false);
+				wakeLockEnabled = false;
+				$("#toggleDipa").trigger("click");
+				console.log('Screen should stay on from now on.');
+			}
+	}, false);
+}
 
 
 
