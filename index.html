@@ -33,7 +33,7 @@
 	<meta http-equiv='expires' content='0'> 
 	<meta http-equiv='pragma' content='no-cache'>
 	<script src='./jquery.min.js'></script>
-<!-- 	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<!--<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap&subset=latin-ext" rel="stylesheet"> -->
 	<style>
@@ -444,7 +444,10 @@
 	}
 	.prijevod{
 		text-align: justify;
-	  text-justify: inter-character;
+		text-justify: inter-word;
+		/* word-break: break-all; */
+		word-wrap: break-word;
+		hyphens: auto;
 	}
 	/*manj razmak kad je skriven prijevod*/
 	body.translationHidden  p.stih{
@@ -749,7 +752,7 @@
 			trāṇāya kāruṇya-ghanāghanatvam<br>
 			prāptasya kalyāṇa-guṇārṇavasya<br>
 			vande guroḥ śrī-caraṇāravindam</p>
-		<p class=prijevod>Duhovni učitelj prima blagoslove iz oceana milosti. Baš kao što oblak izlijeva vodu na šumski požar i time ga gasi, tako duhovni učitelj izbavlja ovaj svijet, kojeg more materijalne patnje, gaseći razbuktalu vatru materijalnog postojanja. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja koji je ocean povoljnih odlika.</p>
+		<p class=prijevod>Duhovni učitelj prima blagoslove iz oceana milosti. Baš poput oblaka koji izlijeva vodu na šumski požar i time ga gasi, tako duhovni učitelj izbavlja ovaj svijet kojeg more materijalne patnje i tako gasi razbuktalu vatru materijalnog postojanja. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja koji je ocean povoljnih odlika.</p>
 		<p class=stih>(2)<br>
 			mahāprabhoḥ kīrtana-nṛtya-gīta-<br>
 			vāditra-mādyan-manaso rasena<br>
@@ -826,8 +829,10 @@
 	<song id="harekrishna"> 
 		<h1 class=pjesmaNaslov>Hare Kṛṣṇa Mahā-mantra</h1>
 		<p class=stih>(1)<br>
-		hare kṛṣṇa hare kṛṣṇa kṛṣṇa kṛṣṇa hare hare<br>
-		hare rāma hare rāma rāma rāma hare hare</p>
+		hare kṛṣṇa hare kṛṣṇa <br>
+		kṛṣṇa kṛṣṇa hare hare<br>
+		hare rāma hare rāma <br>
+		rāma rāma hare hare</p>
 		<p class=prijevod>O Kṛṣṇa, O Kṛṣṇina Energijo, molim da me uključite u svoju službu.</p>
 		<hr>
 		
@@ -842,7 +847,7 @@
 		prahlādāhlāda-dāyine<br>
 		hiraṇyakaśipor vakṣaḥ-<br>
 		śilā-ṭańka-nakhālaye</p>
-	<p class=prijevod>Odajem poštovanje Gospodinu Nṛsimhi, koji bhaktama poput Prahlāde podaruje zadovoljstvo i čiji su nokti poput dlijetā na kamenolikim grudima demona Hiraṇyakaśipua.</p>
+	<p class=prijevod>Odajem poštovanje Gospodinu Nṛsimhi, koji bhaktama poput Prahlāde podaruje zadovoljstvo i čiji su nokti poput dlijeta na kamenolikim grudima demona Hiraṇyakaśipua.</p>
 	<p class=stih>(2)<br>
 		ito nṛsimhaḥ parato nṛsimho<br>
 		yato yato yāmi tato nṛsimhaḥ<br>
@@ -924,6 +929,47 @@
 
 
 
+<song id=sriguruvandana>
+	<h1 class=pjesmaNaslov>Śrī Guru Vandana</h1>
+	<h2>Guru Puja molitva</h2>
+	<p class=autor>Narottama Dasa Thakura</p>
+	<p class=stih>(1)<br>
+	śrī-guru-caraṇa-padma, kevala-bhakati-sadma,<br>
+	bando muñi sāvadhāna mate<br>
+	jāhāra prasāde bhāi, e bhava toriyā jāi,<br>
+	kṛṣṇa-prāpti hoy jāhā ha'te
+	</p>
+	<p class=prijevod>Lotosolika stopala našeg duhovnog učitelja su jedini način kojim možemo dostići čisto predano služenje. Klanjam se njegovim lotosolikim stopalima s velikim strahopoštovanjem. Njegovom milošću možemo prijeći ocean materijalnih patnji i dobiti milost Krsne.</p>
+	<p class=stih>(2)<br>
+	guru-mukha-padma-vākya, cittete koribo aikya,  <br>
+	ār nā koriho mane āśā                          <br>
+	śrī-guru-caraṇe rati, ei se uttama-gati,       <br>
+	je prasāde pūre sarva āśā
+	</p>
+	<p class=prijevod>Moja jedina želja je da moja svjesnost bude pročišćena riječima koje izviru iz njegovih lotosolikih usta. Privrženost njegovim lotosolikim stopalima je savršenstvo koje ispunjava sve želje. </p>
+	<p class=stih>(3)<br>
+	cakṣu-dān dilo jei, janme janme prabhu sei,      <br>
+	divya jñān hṛde prokāśito                        <br>
+	prema-bhakti jāhā hoite, avidyā vināśa jāte,     <br>
+	vede gāy jāhāra carito
+	</p>
+	<p class=prijevod>On otvara moje zatamnjene oči i ispunjava mi srce transcendentalnim znanjem. On je moj gospodar život za životom. On zrači zanosnom premom i uništava svo neznanje. Vedski spisi pjevaju o njegovom karakteru. </p>
+	<p class=stih>(4)<br>
+	śrī-guru karuṇā-sindhu, adhama janāra bandhu,   <br>
+	lokanāth lokera jīvana                          <br>
+	hā hā prabhu koro doyā, deho more pada-chāyā,   <br>
+	ebe jaśa ghuṣuk tribhuvana
+	</p>
+	<p class=prijevod>Naš duhovni učitelj je ocean milosti, prijatelj siromašnih i gospodar i učitelj bhakta. O gospodaru, budi milostiv prema meni! Daruj mi sjenu svojih lotosovih stopala. Neka se tvoja slava proširi u sva tri svijeta! </p>
+	
+	
+<hr>
+
+</song>
+
+
+
+
 <song id=gauraarotik>
 	<h1 class=pjesmaNaslov>Ārati Kīrtana (Gaura Ārotik)</h1>
 	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
@@ -959,46 +1005,6 @@
 		śiva-śuka-nārada preme gada-gada<br>
 		bhakativinoda dekhe gorāra sampada</p>
 	<p class=prijevod>Dok se glasovi Šive, Šukadeve i Narade guše u zanosu duhovne ljubavi, Bhaktivinoda Thakura promatra obilja Gospodina Gaurange.</p>
-<hr>
-
-</song>
-
-
-
-
-<song id=sriguruvandana>
-	<h1 class=pjesmaNaslov>Śrī Guru Vandana</h1>
-	<h2>Guru Puja molitva</h2>
-	<p class=autor>Narottama Dasa Thakura</p>
-	<p class=stih>(1)<br>
-	śrī-guru-caraṇa-padma, kevala-bhakati-sadma,<br>
-	bando muñi sāvadhāna mate<br>
-	jāhāra prasāde bhāi, e bhava toriyā jāi,<br>
-	kṛṣṇa-prāpti hoy jāhā ha'te
-	</p>
-	<p class=prijevod>Lotosolika stopala našeg duhovnog učitelja su jedini način kojim možemo dostići čisto predano služenje. Klanjam se njegovim lotosolikim stopalima s velikim strahopoštovanjem. Njegovom milošću možemo prijeći ocean materijalnih patnji i dobiti milost Krsne.</p>
-	<p class=stih>(2)<br>
-	guru-mukha-padma-vākya, cittete koribo aikya,  <br>
-	ār nā koriho mane āśā                          <br>
-	śrī-guru-caraṇe rati, ei se uttama-gati,       <br>
-	je prasāde pūre sarva āśā
-	</p>
-	<p class=prijevod>Moja jedina želja je da moja svjesnost bude pročišćena riječima koje izviru iz njegovih lotosolikih usta. Privrženost njegovim lotosolikim stopalima je savršenstvo koje ispunjava sve želje. </p>
-	<p class=stih>(3)<br>
-	cakṣu-dān dilo jei, janme janme prabhu sei,      <br>
-	divya jñān hṛde prokāśito                        <br>
-	prema-bhakti jāhā hoite, avidyā vināśa jāte,     <br>
-	vede gāy jāhāra carito
-	</p>
-	<p class=prijevod>On otvara moje zatamnjene oči i ispunjava mi srce transcendentalnim znanjem. On je moj gospodar život za životom. On zrači zanosnom premom i uništava svo neznanje. Vedski spisi pjevaju o njegovom karakteru. </p>
-	<p class=stih>(4)<br>
-	śrī-guru karuṇā-sindhu, adhama janāra bandhu,   <br>
-	lokanāth lokera jīvana                          <br>
-	hā hā prabhu koro doyā, deho more pada-chāyā,   <br>
-	ebe jaśa ghuṣuk tribhuvana
-	</p>
-	<p class=prijevod>Naš duhovni učitelj je ocean milosti, prijatelj siromašnih i gospodar i učitelj bhakta. O gospodaru, budi milostiv prema meni! Daruj mi sjenu svojih lotosovih stopala. Neka se tvoja slava proširi u sva tri svijeta! </p>
-	
 <hr>
 
 </song>
