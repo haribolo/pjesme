@@ -788,75 +788,75 @@
 	.hiddenBySearch { display: none; }
 
 	:root {
-	  --input-width: 360px;
-	  --input-font-size: 14px;
-	  --input-pad-x: 42px;
-	  --input-pad-y: 10px;
-	  --input-pad-x-right: 14px;
-	  --input-radius: 14px;
-	  --input-bg: #ffffff;
-	  --input-color: #111827;
-	  --input-placeholder: #9ca3af;
-	  --input-border: 2px solid #d1d5db;
-	  --input-focus-color: #9f752e;
-	  --input-focus-ring: 3.5px;
-	  --input-icon-color: #6b7280;
+	  --inputPretragaBackgroundColor: #ffffff;
+	  --inputPretragaColor: #111827;
+	  --inputPlaceholderColor: #9ca3af;
+	  --inputPretragaBorder: 2px solid #d1d5db;
+	  --inputPretragaFocusColor: #9f752e;
+	  --inputPretragaIconColor: #6b7280;
 	}
 
-	.input-wrapper {
+	.inputPretragaWrapper {
 	  position: relative;
 	  display: flex;
-	  width: var(--input-width);
-	  margin: 0 auto;
+	  width: 360px;
+	  margin: 0 auto 2em auto;
 	}
 
-	.custom-input {
+	.inputPretraga {
 	  width: 100%;
 	  font-family: inherit;
-	  font-size: var(--input-font-size);
-	  padding: var(--input-pad-y) var(--input-pad-x-right) var(--input-pad-y) var(--input-pad-x);
-	  border-radius: var(--input-radius);
-	  background: var(--input-bg);
-	  color: var(--input-color);
-	  border: var(--input-border);
+	  font-size: .9em;
+	  padding: 10px 14px 10px 42px;
+	  border-radius: 14px;
+	  background: var(--inputPretragaBackgroundColor);
+	  color: var(--inputPretragaColor);
+	  border: var(--inputPretragaBorder);
 	  outline: none;
 	  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	.custom-input::placeholder {
-	  color: var(--input-placeholder);
+	.inputPretraga::placeholder {
+	  color: var(--inputPlaceholderColor);
 	}
 
-	.custom-input:focus {
-	  border-color: var(--input-focus-color);
+	.inputPretraga:focus {
+	  border-color: var(--inputPretragaFocusColor);
 	  box-shadow: 0 0 0 3.5px rgba(159,117,46,0.35);
 	}
 
-	.icon-left {
-	  position: absolute;
-	  /*left: 10px;*/
-	  /*top: 50%;*/
-	  /*transform: translateY(-50%);*/
-	left: 15px;
-	top: 50%;
-	transform: translateY(-41%);
-	  color: var(--input-icon-color);
-	  pointer-events: none;
+	.inputPretragaIcon {
+		position: absolute;
+		/*left: 10px;*/
+		/*top: 50%;*/
+		/*transform: translateY(-50%);*/
+		left: 15px;
+		top: 50%;
+		transform: translateY(-41%);
+		color: var(--inputPretragaIconColor);
+		pointer-events: none;
 	}
 </style>
 
 <script>
-	function liveSearch() {
+	function liveSearch(POLJE) {
 		// Locate the card elements
 		let cards = document.querySelectorAll('song')
 		// Locate the search input
-		let search_query = document.getElementById("searchbox").value;
+		let search_query = ""
+		if (POLJE == "jezikHR") {
+			search_query = document.getElementById("searchboxHR").value;
+			search_query = search_query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]|\-/g, "");
+		} else {
+			search_query = document.getElementById("searchboxEN").value;
+			search_query = search_query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]|\-/g, "");
+		}
 		// Loop through the cards
 		for (var i = 0; i < cards.length; i++) {
 		// If the text is within the card...
-		if(cards[i].innerText.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+		if(cards[i].innerText.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]|\-/g, "")
 			// ...and the text matches the search query...
-			.includes(search_query.toLowerCase())) {
+			.includes(search_query)) {
 			// ...remove the `.hiddenBySearch` class.
 			cards[i].classList.remove("hiddenBySearch");
 		} else {
@@ -872,9 +872,10 @@
 	<h1 class="title jezikEN">Vaiṣṇava songs</h1>
 
 
-	<div class="input-wrapper">
-	<span class="icon-left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-	<input id="searchbox" class="custom-input" type="search" placeholder="Search anything..."  oninput="liveSearch()"/>
+	<div class="inputPretragaWrapper">
+	<span class="inputPretragaIcon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+	<input id="searchboxEN" class="inputPretraga jezikEN" type="search" placeholder="Type to search..."  oninput="liveSearch('jezikEN')"/>
+	<input id="searchboxHR" class="inputPretraga jezikHR" type="search" placeholder="Upišite pojam pretrage..."  oninput="liveSearch('jezikHR')"/>
 	</div>
 
 	<song id=sriguruastaka>
