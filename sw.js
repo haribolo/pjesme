@@ -1,5 +1,5 @@
 (function() {
-var CACHE_VERSION = 3.33;
+var CACHE_VERSION = 3.36;
 var CURRENT_CACHES = {
   prefetch: 'haribol-v' + CACHE_VERSION
 };
