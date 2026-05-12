@@ -2293,6 +2293,9 @@ function notification(notificationText, notificationTimeout) {
 }
 
 
+
+
+
 function shareDialog(){
 	  if (navigator.share) {
     navigator.share({
@@ -2478,7 +2481,13 @@ if (iOS()){
 	window['isUpdateAvailable']
 	.then(isAvailable => {
 		if (isAvailable) {
+		var jezik = window.localStorage.getItem('jezik');
+		if (jezik == null || jezik ==  "HR"){
 			notification("Nova verzija dostupna. Molimo osvježite.", 12000);
+		} else if (jezik == "EN") {
+			notification("New version is available. Please refresh", 12000);
+		}
+			
 		}
 	});
 </script>
