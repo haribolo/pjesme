@@ -786,14 +786,6 @@ h2.pjesmaNaslovPopularni{text-transform: capitalize;}
 
 	.hiddenBySearch { display: none; }
 
-	:root {
-	  --inputPretragaBackgroundColor: #ffffff;
-	  --inputPretragaColor: #111827;
-	  --inputPlaceholderColor: #9ca3af;
-	  --inputPretragaBorder: 2px solid #d1d5db;
-	  --inputPretragaFocusColor: #9f752e;
-	  --inputPretragaIconColor: #6b7280;
-	}
 
 	.inputPretragaWrapper {
 	  position: relative;
@@ -803,24 +795,33 @@ h2.pjesmaNaslovPopularni{text-transform: capitalize;}
 	}
 
 	.inputPretraga {
-	  width: 100%;
-	  font-family: inherit;
-	  font-size: .9em;
-	  padding: 10px 14px 10px 42px;
-	  border-radius: 14px;
-	  background: var(--inputPretragaBackgroundColor);
-	  color: var(--inputPretragaColor);
-	  border: var(--inputPretragaBorder);
-	  outline: none;
-	  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+		width: 100%;
+		font-family: inherit;
+		font-size: .9em;
+		padding: 10px 14px 10px 42px;
+		border-radius: 14px;
+		outline: none;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
 	}
-
-	.inputPretraga::placeholder {
-	  color: var(--inputPlaceholderColor);
+	.lightMode .inputPretraga {
+		background: #ffffff;
+		color: #111827;
+		border: 2px solid #d1d5db;
+	}
+	.lightMode .inputPretraga::placeholder {
+		color: #9ca3af;
+	}
+	.darkMode .inputPretraga {
+		background: #292a2d;
+		color: #c4c7c5;
+		border: 2px solid #464646;
+	}
+	.darkMode .inputPretraga::placeholder {
+		color: #464646;
 	}
 
 	.inputPretraga:focus {
-	  border-color: var(--inputPretragaFocusColor);
+	  border-color: #9f752e;
 	  box-shadow: 0 0 0 3.5px rgba(159,117,46,0.35);
 	}
 
@@ -832,7 +833,7 @@ h2.pjesmaNaslovPopularni{text-transform: capitalize;}
 		left: 15px;
 		top: 50%;
 		transform: translateY(-41%);
-		color: var(--inputPretragaIconColor);
+		color: #6b7280;
 		pointer-events: none;
 	}
 </style>
@@ -949,7 +950,7 @@ h2.pjesmaNaslovPopularni{text-transform: capitalize;}
 		<p class="prijevod jezikEN">I offer my respectful obeisances unto His Divine Grace A.C. Bhaktivedānta Svami Prabhupada, who is very dear to Lord Kṛṣṇa, having taken shelter at His lotus feet.</p>
 		<p class="stih"><span class=numS>(2)</span><br>
 		namas te sārasvate deve gaura-vāṇī-pracāriṇe<br>nirviśeṣa-śūnyavādi-pāścātya-deśa-tāriṇe</p>
-		<p class="prijevod jezikHR">Ponizno poštovanje tebi, o duhovni učitelju, slugo Sārasvati Goswamija. Ti milostivo propovjedaš poruku Gospodina Caitanyadeve i oslobađaš zapadne zemlje koje su pune impersionalizma i voidizma.</p>
+		<p class="prijevod jezikHR">Ponizno poštovanje tebi, o duhovni učitelju, slugo Sārasvati Gosvāmīja. Ti milostivo propovjedaš poruku Gospodina Caitanyadeve i oslobađaš zapadne zemlje koje su pune impersionalizma i voidizma.</p>
 		<p class="prijevod jezikEN">Our respectful obeisances are unto you, O spiritual master, servant of Sarasvatī Gosvāmī. You are kindly preaching the message of Lord Chaitanya and delivering the Western countries, which are filled with impersonalism and voidism.</p>
 		<hr>
 		
@@ -1192,7 +1193,7 @@ h2.pjesmaNaslovPopularni{text-transform: capitalize;}
 	ebe jaśa ghuṣuk tribhuvana
 	</p>
 	<p class="prijevod jezikHR">Naš duhovni učitelj je ocean milosti, prijatelj siromašnih i gospodar i učitelj bhakta. O gospodaru, budi milostiv prema meni! Daruj mi sjenu svojih lotosovih stopala. Neka se tvoja slava proširi u sva tri svijeta! </p>
-	<p class="prijevod jezikEN">Our spiritual master is the ocean of mercy, the friend of the poor, and the lord and master of the devotees. O Lokanatha Goswami! O master! Be merciful unto me. Give me the shade of your lotus feet. Your fame is spread all over the three worlds.</p>
+	<p class="prijevod jezikEN">Our spiritual master is the ocean of mercy, the friend of the poor, and the lord and master of the devotees. O Lokanatha Gosvāmī! O master! Be merciful unto me. Give me the shade of your lotus feet. Your fame is spread all over the three worlds.</p>
 	
 	
 <hr>
@@ -1573,7 +1574,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 
 <song id=paramakarunapahuduijana>
 	<h1 class=pjesmaNaslov>Śrī-Śrī-Gaura-Nityānandera Daya</h1>
-	<h2 class=pjesmaNaslov>Parama Karuṇa</h2>
+	<h2 class=pjesmaNaslovPopularni>Parama Karuṇa</h2>
 	<p class=autor>Śrīla Locana dāsa Ṭhākura</p>
 	<p class="stih"><span class=numS>(1)</span><br>
 		parama karuṇa, pahū dui jana<br>
@@ -1606,7 +1607,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 
 <song id=gaurangabolitehabe>
 	<h1 class=pjesmaNaslov>Lalasmayi Prarthana</h1>
-	<h2 class=pjesmaNaslov>Gaurāńga Bolite Habe</h2>
+	<h2 class=pjesmaNaslovPopularni>Gaurāńga Bolite Habe</h2>
 	<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>
 	<p class="stih"><span class=numS>(1)</span><br>'gaurāńga' bolite habe pulaka-śarīra<br>'hari hari' bolite nayane ba' be nīra</p>
 	<p class="prijevod jezikHR">Kada će doći taj prekrasan trenutak kada će mi tijelo drhtati od pjevanja imena Gospodina Gaurange? Kada će poteći suze iz mojih očiju dok pjevam Hare Kṛṣṇa?</p>
@@ -1621,11 +1622,11 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	<p class="prijevod jezikEN">When the mind is completely purified, being freed from material anxieties and desires, then I shall be able to understand Vrndavana and the conjugal love of Radha and Krsna, and then my spiritual life will be successful.</p>
 	
 	<p class="stih"><span class=numS>(4)</span><br>rūpa-raghunātha-pade hoibe ākuti<br>kabe hāma bujhabo se jugala-pīriti</p>
-	<p class="prijevod jezikHR">Kada ću imati želju za proučavanjem knjiga koje su ostavili šestorica Goswamija? <br>O ljubavnim zabavama Radhe i Kṛṣṇe treba učiti kroz učenja šestorice Goswamija.</p>
+	<p class="prijevod jezikHR">Kada ću imati želju za proučavanjem knjiga koje su ostavili šestorica Gosvāmīja? <br>O ljubavnim zabavama Radhe i Kṛṣṇe treba učiti kroz učenja šestorice Gosvāmīja.</p>
 	<p class="prijevod jezikEN">When shall I be very much eager to study the books left by the Six Gosvāmī's, headed by Srila Rupa Gosvāmī and Srila Raghunatha dasa Gosvāmī?  By their instruction I shall be able to properly understand the loving affairs of Radha and Krsna.</p>
 	
 	<p class="stih"><span class=numS>(5)</span><br>rūpa-raghunātha-pade rahu mora āśa<br>prārthanā koroye sadā narottama-dāsa</p>
-	<p class="prijevod jezikHR">Moja jedina težnja je dostići lotosolika stopala šestorice Goswamija na čelu sa Śrila Rupa Goswamijem i Śrila Raghunata dasa Goswamijem. Narottama dāsa se neprekidno moli da dosegne njihova lotosolika stopala.</p>
+	<p class="prijevod jezikHR">Moja jedina težnja je dostići lotosolika stopala šestorice Gosvāmīja na čelu sa Śrila Rupa Gosvāmījem i Śrila Raghunata dasa Gosvāmījem. Narottama dāsa se neprekidno moli da dosegne njihova lotosolika stopala.</p>
 	<p class="prijevod jezikEN">My only aspiration is to attain the lotus feet of the Six Gosvāmīs headed by Srila Rupa Gosvāmī and Srila Raghunatha dasa Gosvāmī. Narottama dasa constantly prays to attain their lotus feet.</p>
 	
 	<span class=" jezikHR">
@@ -1664,7 +1665,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 
 <song id=manasadehogeho>
 	<h1 class=pjesmaNaslov>Atma Nivedana</h1>
-	<h2 class=pjesmaNaslov>Mānasa deho geho</h2>
+	<h2 class=pjesmaNaslovPopularni>Mānasa deho geho</h2>
 	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
 	<p class="stih"><span class=numS>(1)</span><br>mānasa, deho, geho, jo kichu mor<br>arpilū tuwā pade, nanda-kiśor!</p>
 	<p class="prijevod jezikHR">O mladoliki Nandin sine, um, tijelo i obitelj, sve što <br>može biti moje, predao sam Tvojim lotosovim stopalima.</p>
@@ -1745,7 +1746,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	
 <song id=gopinathmamanivedanasuno>
 	<h1 class=pjesmaNaslov>Upalabdhi Vijnapti</h1>
-	<h2 class=pjesmaNaslov>gopīnāth mama nivedana śuno</h2>
+	<h2 class=pjesmaNaslovPopularni>gopīnāth mama nivedana śuno</h2>
 	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
 	<p class="stih"><span class=numS>(1)</span><br>gopīnāth, mama nivedana śuno<br>viṣayī durjana, sadā kāma-rata,<br>kichu nāhi mora guṇa</p>
 	<p class="prijevod jezikHR">O Gopīnātha, Gospodaru gopija, molim Te počuj moju molbu. Ja sam okorjeli materijalist, uvijek posvećen svjetovnim željama i nemam nikakve dobre osobine.</p>
@@ -1809,6 +1810,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
   <p class="stih">
   <p class="prijevod jezikEN">Lord Hari incarnated as the half-man, half-lion, Nṛsimha. He appeared as a dwarf-brahmana named Upendra and is the killer of the Madhu demon. He is the beloved son of the King of Vraja, Nanda Maharaja, and is blackish in complexion. He is the slayer of the Putana witch and the destroyer of the demon Kaitabha. All glories to Lord Hari, who appeared as Lord Rama, the son of King Dasaratha.</p>
 
+<p class="stih">
     <span class=numS>(3)</span>
     <br>yaśodā dulāla, govinda-gopāla, <br>vṛndāvana purandara <br>gopī-priya-jana, rādhikā-ramaṇa, <br>bhuvana-sundara-bara
   </p>
@@ -1904,10 +1906,10 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 
 	<span class="jezikEN">
 		<p class="smisao naslov">PURPORT</p>
-		<p class=smisao>OvThis is a song composed by Narottama Dasa Thakura. He prays to Lord Caitanya "My dear Lord, please be merciful to me, because who can be more merciful than Your Lordship within these three worlds?" Actually, this is a fact. Not only Narottama Dasa Thakura but Rupa Gosvami also prayed to Lord Caitanya in this way. At the time of the first meeting of Lord Caitanya and Rupa Gosvami at Prayaga (Allahabad), Srila Rupa Gosvami said, "My dear Lord, You are the most munificent of all incarnations, because You are distributing love of Krsna, Krsna consciousness." When Krsna was personally present He simply asked us to surrender, but He did not distribute Himself so easily. He made conditions - "First of all you surrender." But this incarnation, Lord Caitanya, although Krsna Himself, makes no such condition. He simply distributes: "Take love of Krsna." Therefore Lord Caitanya is approved as the most munificent incarnation. Narottama Dasa Thakura says, "Please be merciful to me. You are so magnanimous, because You have seen the fallen souls of this age, and You are very much compassionate to them, but You should know also that I am the most fallen. No one is more greatly fallen than me." Patita-pavana-hetu tava avatara. "Your incarnation is just to reclaim the conditioned, fallen souls, but I assure You that You will not find a greater fallen soul than me. Therefore, my claim is first."</p>
+		<p class=smisao>OvThis is a song composed by Narottama Dasa Thakura. He prays to Lord Caitanya "My dear Lord, please be merciful to me, because who can be more merciful than Your Lordship within these three worlds?" Actually, this is a fact. Not only Narottama Dasa Thakura but Rupa Gosvāmī also prayed to Lord Caitanya in this way. At the time of the first meeting of Lord Caitanya and Rupa Gosvāmī at Prayaga (Allahabad), Srila Rupa Gosvāmī said, "My dear Lord, You are the most munificent of all incarnations, because You are distributing love of Krsna, Krsna consciousness." When Krsna was personally present He simply asked us to surrender, but He did not distribute Himself so easily. He made conditions - "First of all you surrender." But this incarnation, Lord Caitanya, although Krsna Himself, makes no such condition. He simply distributes: "Take love of Krsna." Therefore Lord Caitanya is approved as the most munificent incarnation. Narottama Dasa Thakura says, "Please be merciful to me. You are so magnanimous, because You have seen the fallen souls of this age, and You are very much compassionate to them, but You should know also that I am the most fallen. No one is more greatly fallen than me." Patita-pavana-hetu tava avatara. "Your incarnation is just to reclaim the conditioned, fallen souls, but I assure You that You will not find a greater fallen soul than me. Therefore, my claim is first."</p>
 		<p class=smisao>Then he prays to Lord Nityananda. He says, ha ha prabhu, nityananda premananda-sukhi: "My dear Lord Nityananda, You are always joyful in spiritual bliss. Since You always appear very happy, I have come to You because I am most unhappy. If You kindly put Your glance over me, I may also become happy." Then he prays to Advaita Prabhu. Doya koro sita-pati adwaita gosai. Advaita Prabhu's wife's name was Sita. Therefore He is sometimes addressed as sita-pati. Thus Narottama Dasa Thakura prays, "My dear Advaita Prabhu, husband of Sita, You are so kind. Please be kind to me. If You are kind to me, naturally Lord Caitanya and Nityananda will also be kind to me." Actually, Advaita Prabhu invited Lord Caitanya to come down. When Advaita Prabhu saw that the fallen souls were all engaged simply in sense gratificatory processes, not understanding Krsna consciousness, He felt very much compassionate toward the fallen souls, and He also felt Himself incapable of claiming them all. He therefore prayed to Lord Krsna, "Please come Yourself. Without Your personal presence it is not possible to deliver these fallen souls." Thus by His invitation Lord Caitanya appeared. Naturally, Narottama Dasa Thakura prays to Advaita Prabhu, “If You will be kind to me, naturally Lord Caitanya and Nityananda also will be kind to me."</p>
-		<p class=smisao>Then he prays to the Gosvamis. “Ha ha swarup, sanatana, rupa, raghunatha.” Swarup refers to Svarupa Damodara, the personal secretary of Lord Caitanya. He was always with Caitanya Mahaprabhu and immediately arranged for whatever Caitanya Mahaprabhu wanted. Two personal attendants, Svarupa Damodara and Govinda, were always constantly with Lord Caitanya. Therefore, Narottama Dasa Thakura also prays to Svarupa Damodara and then to the six Gosvamis, the next disciples of Lord Caitanya--Sri Rupa Gosvami, Sri Sanatana Gosvami, Sri Bhatta Raghunatha Gosvami, Sri Gopala Bhatta Gosvami, Sri Jiva Gosvami, and Sri Raghunatha Dasa Gosvami. These six Gosvamis were directly instructed by Lord Caitanya to spread this movement of Krsna consciousness. Narottama Dasa Thakura also prays for their mercy.</p>
-		<p class=smisao>After the six Gosvamis, the next acarya was Srinivasa Acarya. Actually, Narottama Dasa Thakura was in the disciplic succession after Srinivasa Acarya and was almost his contemporary, and Narottama Dasa's personal friend was Ramacandra Cakravarti. Therefore he prays, "I always desire the company of Ramacandra." He desires a devotee's company. The whole process is that we should always pray for the mercy of the superior acaryas and keep company with pure devotees. Then it will be easier for us to advance in Krsna consciousness and receive the mercy of Lord Caitanya and Lord Krsna. This is the sum and substance of this song sung by Narottama Dasa Thakura.</p>
+		<p class=smisao>Then he prays to the Gosvāmīs. “Ha ha swarup, sanatana, rupa, raghunatha.” Swarup refers to Svarupa Damodara, the personal secretary of Lord Caitanya. He was always with Caitanya Mahaprabhu and immediately arranged for whatever Caitanya Mahaprabhu wanted. Two personal attendants, Svarupa Damodara and Govinda, were always constantly with Lord Caitanya. Therefore, Narottama Dasa Thakura also prays to Svarupa Damodara and then to the six Gosvāmīs, the next disciples of Lord Caitanya--Sri Rupa Gosvāmī, Sri Sanatana Gosvāmī, Sri Bhatta Raghunatha Gosvāmī, Sri Gopala Bhatta Gosvāmī, Sri Jiva Gosvāmī, and Sri Raghunatha Dasa Gosvāmī. These six Gosvāmīs were directly instructed by Lord Caitanya to spread this movement of Krsna consciousness. Narottama Dasa Thakura also prays for their mercy.</p>
+		<p class=smisao>After the six Gosvāmīs, the next acarya was Srinivasa Acarya. Actually, Narottama Dasa Thakura was in the disciplic succession after Srinivasa Acarya and was almost his contemporary, and Narottama Dasa's personal friend was Ramacandra Cakravarti. Therefore he prays, "I always desire the company of Ramacandra." He desires a devotee's company. The whole process is that we should always pray for the mercy of the superior acaryas and keep company with pure devotees. Then it will be easier for us to advance in Krsna consciousness and receive the mercy of Lord Caitanya and Lord Krsna. This is the sum and substance of this song sung by Narottama Dasa Thakura.</p>
 
 		<p class="smisao autor">Njegova Božanska milost A.C. Bhkativedanta Svami Prabhupada. 11.1.1969., Los Angeles, California, SAD</p>
 
@@ -1926,14 +1928,41 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	<h1 class=pjesmaNaslov>Mathura-virohcita Darsana Lalasa (3)</h1>
 	<h2 class=pjesmaNaslovPopularni>Vrindavana Ramya Sthana</h2>
 	<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>
-	<p class="stih"><span class=numS>(1)</span><br>vṛndāvana ramya-sthāna dibya-cińtāmaṇi-dhāma<br>ratana mandira manohara<br>abṛta kālindī-nīre rāja-hamsa keli kare<br>tāhe śobhe kanaka-kamal</p>
-	<p class="stih"><span class=numS>(2)</span><br>tār madhye hema-pīṭha aṣṭa-dale beṣṭita<br>aṣṭa-dale pradhāna nāyika<br>tār madhye ratnāsane ba’si āchen dui-jane<br>śyāma-sańge sundarī rādhikā</p>
-	<p class="stih"><span class=numS>(3)</span><br>o-rūpa-lābaṇya-rāśi amiyā pariche khasi<br>hāsya-parihāsa-sambhāṣaṇe<br>narottama-dāsa koy nitya-līlā sukha-moy<br>sadāi sphurūk mora mane</p>
-	<p class="prijevod jezikHR">Vrindavana je lijepo transcendentalno mjesto u duhovnom nebu gdje je sve načinjeno od kamena mudraca koji ispunjava sve želje i svi hramovi u njemu ukrašeni su skupocjenim draguljima. </p>
-<p class="prijevod jezikHR">U tom dalekom mjestu je i rijeka Yamuna, puna lotosovih cvjetova, a izmedju njih je zlatni brod koji izgleda baš kao veliki cvijet lotosa s 8 latica, koje nisu ništa drugo no 8 glavnih gopija koje uvijek okružuju Radhu i Krishnu. </p>
-<p class="prijevod jezikHR">Okružen tim laticama je zlatni tron na kome sjede transcendentalni ljubavnici, Radha i Krishna, a od svih njih Srimati Radharani je vladajuća Božica. Nema usporedbe Radharaninoj ljepoti i sjaju Njezina transcendentalnog tijela. U prisustvu Radharanine ljepote takozvana ljepota mjeseca pala je na zemlju. </p>
-<p class="prijevod jezikHR">Tijekom druženja Radhe i Krishne i njihovih glavnih pratilja, bezbrojni valovi smijeha i šala preplavljuju ih u medjusobnoj razmjeni. </p>
-<p class="prijevod jezikHR">Narottama das kaže da su vječne zabave Radhe i Krishne iz dana u dan sve punije transcendentalnoga blaženstva. Stoga, sjećajmo ih se stalno i tako postanimo sretni čak i u ovom materijalnom svijetu.</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+		vṛndāvana ramya-sthāna dibya-cińtāmaṇi-dhāma<br>
+		ratana mandira manohara<br>
+		abṛta kālindī-nīre rāja-hamsa keli kare<br>
+		tāhe śobhe kanaka-kamal
+	</p>
+	<p class="prijevod jezikHR">Prekrasna Vrndavana ispunjena je cińtāmaṇi dragim kamenjima i mnogim palačama i hramovima od dragulja. Mnogi kraljevski labudovi igraju se u vodama Yamune, a u tim vodama raste prekrasan zlatni lotosov cvijet. </p>
+
+	<p class="prijevod jezikEN">Beautiful Vrndavana is filled with cińtāmaṇi gems and many jewel palaces and temples.  Many regal swans play in the waters of the Yamunā, and in those waters a splendid golden lotus flower grows.</p>
+
+
+	<p class="stih"><span class=numS>(2)</span><br>
+		tār madhye hema-pīṭha aṣṭa-dale beṣṭita<br>
+		aṣṭa-dale pradhāna nāyika<br>
+		tār madhye ratnāsane ba’si āchen dui-jane<br>
+		śyāma-sańge sundarī rādhikā
+	</p>
+
+	<p class="prijevod jezikHR">U sredini tog lotosa nalazi se zlatno mjesto okruženo s osam latica. Na tih osam latica prebiva osam glavnih gopija, a u središtu Gospodin Śyāmasundara i prekrasna Śrīmatī Rādhārāṇī sjede na draguljastom prijestolju.</p>
+
+	<p class="prijevod jezikEN">In the middle of that lotus is a golden place surrounded by eight petals.  On these eight petals the eight principal gopis reside, and in the center Lord Śyāmasundara and beautiful Śrīmatī Rādhārāṇī sit on a jewel throne.</p>
+
+
+	<p class="stih"><span class=numS>(3)</span><br>
+		o-rūpa-lābaṇya-rāśi amiyā pariche khasi<br>
+		hāsya-parihāsa-sambhāṣaṇe<br>
+		narottama-dāsa koy nitya-līlā sukha-moy<br>
+		sadāi sphurūk mora mane
+	</p>
+
+
+	<p class="prijevod jezikHR">Velika ljepota Božanskog para i Njihova šarmantna zadirkivanje i smijeh neprestano posvuda obasipaju nektar. Narottama dasa kaže: "Molim se da se ove blažene vječne transcendentalne zabave Božanskog Para uvijek manifestiraju u mom srcu."</p>
+
+	<p class="prijevod jezikEN">The great beauty of the Divine couple and Their charming joking and laughter continually showers nectar everywhere. Narottama dasa says: "I pray that these blissful eternal transcendental pastimes of the Divine Couple may be always manifested in my heart."</p>
+
 
 <hr>
 
@@ -1947,47 +1976,71 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 <song id=kevalstakam>
 	<h1 class=pjesmaNaslov>Kevalạ̄ṣṭakam</h1>
 	<h2 class=pjesmaNaslovPopularni>Madhuram Madhurebhyo 'Pi</h2>
-	<p class=autor>Nilakanta Goswami</p>
-	<p class="stih"><span class=numS>(1)</span><br>madhuraḿ madhurebhyo ‘pi<br>
-mańgalebhyo ‘pi mańgalam<br>
-pāvanaḿ pāvanebhyo ‘pi<br>
-harer nāmaiva kevalam</p>
-	<p class="prijevod jezikHR">Slađe od svega što je slatko, povoljnije od svega što je povoljno, najpročišćujuće od svega što pročišćuje, sveto ime Gospodina Harija je sve. <span class=numS>(11)</span></p>
+	<p class=autor>Nilakanta Gosvāmī</p>
+	<p class="stih"><span class=numS>(1)</span>
+		<br>madhuraḿ madhurebhyo ‘pi<br>
+		mańgalebhyo ‘pi mańgalam<br>
+		pāvanaḿ pāvanebhyo ‘pi<br>
+		harer nāmaiva kevalam
+	</p>
+	<p class="prijevod jezikHR">Slađe od svega što je slatko, povoljnije od svega što je povoljno, najpročišćujuće od svega što pročišćuje, sveto ime Gospodina Harija je sve. (11)</p>
+	<p class="prijevod jezikEN">More sweet than all other sweet things; more auspicious than all other auspicious things; the greatest purifier of all purifying things. The holy name of Sri Hari alone is everything. [11]</p>
+	
+
 	<p class="stih"><span class=numS>(2)</span><br>ābrahmā-stamba-paryantaḿ<br>
 sarvaḿ māyā-mayaḿ jagat<br>
 satyaḿ satyaḿ punaḥ satyaḿ<br>
 harer nāmaiva kevalam</p>
 	<p class="prijevod jezikHR">Cijeli svemir, od uzvišenoga Brahme do obične trave, stvoren je od iluzorne energije Svevišnjeg Gospodina. Jedina stvar koja je stvarnost, stvarnost i samo stvarnost, sveto ime Gospodina Harija je sve. (39)</p>
+	<p class="prijevod jezikEN">The entire universe, from exalted Brahmā down to the lowly clump of grass, is a product of the illusory energy of the supreme Lord. The only thing that is reality, reality, again I say reality. The holy name of Śrī Hari alone is everything. [39]</p>
+	
+
 	<p class="stih"><span class=numS>(3)</span><br>sa guruḥ sa pitā cāpi<br>
 sā mātā bandhavo ‘pi saḥ<br>
 śikṣayec cet sadā smartuḿ<br>
 harer nāmaiva kevalam</p>
 	<p class="prijevod jezikHR">Netko je uistinu učitelj, otac, majka i prijatelj samo ako nam pomaže sjećati se da sveto ime Gospodina Harija je sve. (50)</p>
+	<p class="prijevod jezikEN">That person is a true preceptor, or a true father, a true mother, and a true friend also only if they teach one to always remember. The holy name of Śrī Hari alone is everything. [50]</p>
+	
+
 	<p class="stih"><span class=numS>(4)</span><br>niḥśvāse nāhi viśvāsaḥ<br>
 kadā ruddho bhaviṣyati<br>
 kīrtanīya mato bālyād<br>
 harer nāmaiva kevalam</p>
 	<p class="prijevod jezikHR">Ne znamo kada će zadnji udah naš biti, koji će donijeti nagli kraj svim našim materijalističkim planovima, stoga je mudro uvijek prakticirati pjevanje (mantranje) još od ranoga djetinjstva jer sveto ime Gospodina Harija je sve. (57)</p>
+	<p class="prijevod jezikEN">There is no certainty when the last breath will come and put an abrupt halt to all one’s material plans; therefore, it is wise to always practice chanting from very childhood. The holy name of Śrī Hari alone is everything. [57]</p>
+	
+
 	<p class="stih"><span class=numS>(5)</span><br>hariḥ sadā vaset tatra<br>
 yatra bhāgavatā janāḥ<br>
 gāyanti bhakti-bhāvena<br>
 harer nāmaiva kevalam</p>
 	<p class="prijevod jezikHR">Gospodin Hari vječno boravi na mjestima gdje istinski uzvišene, duhovno napredne, duše pjevaju sa čistom predanošću jer ime Gospodina Harija je sve. (62)</p>
+	<p class="prijevod jezikEN">Lord Hari eternally dwells in that place where truly exalted, spiritually advanced souls sing in the mood of pure devotion. The holy name of Śrī Hari alone is everything. [62]</p>
+	
+
 	<p class="stih"><span class=numS>(6)</span><br>aho duḥkhaḿ mahā-duḥkhaḿ<br>
 duḥkhād duḥkhataraḿ yataḥ<br>
 kācārthaḿ vismṛtam ratna-<br>
 harer nāmaiva kevalam</p>
 	<p class="prijevod jezikHR">Oh, kakva žalost, kakva velika žalost! Bolnija od bilo kakve druge bijede ovoga svijeta, poistovjećujući ga s komadom stakla, ljudi su zaboravili ovaj dragulj ‑ sveto ime Gospodina Harija je sve. (77)</p>
+	<p class="prijevod jezikEN">Aho! What a sorrow, what a great sorrow! More painful than any other misery in the world! Mistaking it as a mere piece of glass, the people have forgotten this jewel. The holy name of Śrī Hari alone is everything. [77]</p>
+
+
 	<p class="stih"><span class=numS>(7)</span><br>dīyatāḿ dīyatāḿ karṇo<br>
 nīyatāḿ nīyatāḿ vacaḥ<br>
 gīyatāḿ gīyatāḿ nityam<br>
 harer nāmaiva kevalam</p>
 	<p class="prijevod jezikHR">Svojim ušima potrebno ga je slušati iznova i iznova, svojim glasom izgovarati iznova i iznova, kao i neprekinuto pjevati jer sveto ime Gospodina Harija je sve. (89)</p>
+	<p class="prijevod jezikEN">It should be heard again and again with one’s ears; It should be uttered over and over with one’s voice; It should be perpetually sung and sung anew. The holy name of Śrī Hari alone is everything. [89]</p>
+	
+
 	<p class="stih"><span class=numS>(8)</span><br>tṛṇī-kṛtya jagat sarvaḿ<br>
 rājate sakalopari<br>
 cid-ānanda-mayaḿ śuddhaḿ<br>
 harer-nāmaiva kevalam</p>
 	<p class="prijevod jezikHR">Čini da cjelokupan svemir izgleda beznačajno poput vlati trave, blistavo nadvladava sve i puno je vječno svjesnog božanskog zanosa, sveto ime Gospodina Harija je sve. (99)</p>
+	<p class="prijevod jezikEN">It makes the entire universe seem insignificant as a blade of grass; it reigns supreme over all in a splendorous manner; it is full of eternally conscious divine ecstasy; it is supremely pure. The holy name of Śrī Hari alone is everything. [99]</p>
 
 
 <hr>
@@ -2440,19 +2493,26 @@ function notification(notificationText, notificationTimeout) {
 
 
 function shareDialog(){
-	  if (navigator.share) {
-    navigator.share({
-      title: $("h1.title").text(),
-      url: window.location.href
-    }).then(() => {
-      console.log('Thanks for sharing!');
-    })
-    .catch(console.error);
-  } else {
-//    shareDialog.classList.add('is-open');
-		CopyToClipboard(window.location.href, true, "Link kopiran!");
-//      console.log('Link copied!');
-  }
+	if (navigator.share) {
+		navigator.share({
+		title: $("h1.title").text(),
+		url: window.location.protocol + "//" + window.location.host + window.location.pathname
+		}).then(() => {
+			console.log('Thanks for sharing!');
+		})
+	.catch(console.error);
+	} else {
+		var jezik = window.localStorage.getItem('jezik');
+		var message = "";
+		if (jezik == null || jezik ==  "HR"){
+			var message = "Link kopiran!";
+		} else if (jezik == "EN") {
+			var message = "Link copied!";
+		}
+		CopyToClipboard(window.location.protocol + "//" + window.location.host + window.location.pathname, true, message);
+	}
+
+	
 }
 
 // Povećanje i smanjenje fonta
@@ -2553,13 +2613,31 @@ toggleEl.addEventListener('click', function() {
 		wakeLockEnabled = true;
 		toggleEl.value = "Dipa je upaljena 🪔";
 		document.querySelector("article").classList.add("dipa");
-		notification("Ekran će ostati upaljen.", 2500);
+
+		var jezik = window.localStorage.getItem('jezik');
+		var message = "";
+		if (jezik == null || jezik ==  "HR"){
+			var message = "Ekran će ostati upaljen.";
+		} else if (jezik == "EN") {
+			var message = "The screen should sty on.";
+		}
+		
+		notification(message, 2500);
 	} else {
 		noSleep.disable(); // let the screen turn off.
 		wakeLockEnabled = false;
 		toggleEl.value = "Upali dipu 🪔";
 		document.querySelector("article").classList.remove("dipa");
-		notification("Ekran će se gasiti kao i obično.", 2500);
+
+		var jezik = window.localStorage.getItem('jezik');
+		var message = "";
+		if (jezik == null || jezik ==  "HR"){
+			var message = "Ekran će se gasiti kao i obično.";
+		} else if (jezik == "EN") {
+			var message = "The screen should turn off as usual.";
+		}
+		
+		notification(message, 2500);
 	}
 }, false);
 
@@ -2578,7 +2656,6 @@ if (iOS()){
 				window.removeEventListener('click', onFirstTouch, false);
 				wakeLockEnabled = false;
 				$("#toggleDipa").trigger("click");
-				console.log('Screen should stay on from now on.');
 			}
 	}, false);
 
@@ -2588,7 +2665,6 @@ if (iOS()){
 				window.removeEventListener('touchstart', onFirstTouch, false);
 				wakeLockEnabled = false;
 				$("#toggleDipa").trigger("click");
-				console.log('Screen should stay on from now on.');
 			}
 	}, false);
 }
