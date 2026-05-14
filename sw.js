@@ -1,98 +1,2635 @@
-(function() {
-var CACHE_VERSION = 3.386;
-var CURRENT_CACHES = {
-  prefetch: 'haribol-v' + CACHE_VERSION
-};
+<!DOCTYPE html>
+<!-- <img src="https://haribolo.github.io/pjesme/img/Krishna-Vrindavan_tdqyrr.jpg"> -->
+<html class="html" lang="en-US">
+<head>
+	<link rel="canonical" href="https://haribolo.github.io/pjesme/" />
+	<link rel="manifest" href="./manifest.json">
+	<meta charset="UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" >
+	<meta name="description" content="Vedska poezija velikih acarya u digitalnom izdanju sa hrvatskim prijevodima." >
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" >
+	<meta name="msapplication-navbutton-color" content="#292f37">
+	<meta name="robots" content="index, follow" >
+	<meta name="theme-color" content="#202124">
+	<meta name="theme-color" media="(prefers-color-scheme: light)" content="#dee4e7" />
+	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#202124" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:description" content="Vedska poezija velikih acarya u digitalnom izdanju sa hrvatskim prijevodima." >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+	<meta property="og:description" content="Vedska poezija velikih acarya u digitalnom izdanju sa hrvatskim prijevodima." >
+	<meta property="og:image" content="https://haribolo.github.io/pjesme/img/Krishna-Vrindavan_tdqyrr.jpg" />
+	<meta property="og:image:height" content="850" />
+	<meta property="og:image:width" content="1520" />
+	<meta property="og:locale" content="hr_HR" >
+	<meta property="og:site_name" content="Pjesme Vaiṣṇava" />
+	<meta property="og:title" content="Pjesmarica u slavu Gospodina Kṛṣṇe" >
+	<meta property="og:type" content="article" >
+	<meta property="og:url" content="https://haribolo.github.io/pjesme/" >
+	<meta property="allChars" content="0123456789ABCDEGHIJKLMNOPRSTUVYZabcćčdḍefghḥijklmḿṁnṅṇoprṛsṣtṭuvwxyzáñĀāạ̄ćČčđīńŚśŠšūŽžḍḥḿṅṇṛṣṬṭ">
+	<meta http-equiv='cache-control' content='no-cache'> 
+	<meta http-equiv='expires' content='0'> 
+	<meta http-equiv='pragma' content='no-cache'>
+	<script src='./jquery.min.js'></script>
+	<!--<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap&subset=latin-ext" rel="stylesheet"> -->
+	<style>
+		/* latin-400-normal */
+		@font-face {
+		    font-family: 'Noto Serif';
+		    font-style: normal;
+		    font-weight: 400;
+		    font-stretch: 100%;
+		    font-display: swap;
+		    src: url('./fonts/noto-serif-latin-400-normal.woff2') format('woff2');
+		    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* latin-400-italic */
+		@font-face {
+		    font-family: 'Noto Serif';
+		    font-style: italic;
+		    font-weight: 400;
+		    font-stretch: 100%;
+		    font-display: swap;
+		    src: url('./fonts/noto-serif-latin-400-italic.woff2') format('woff2');
+		    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* latin-600-normal */
+		@font-face {
+		    font-family: 'Noto Serif';
+		    font-style: normal;
+		    font-weight: 600;
+		    font-stretch: 100%;
+		    font-display: swap;
+		    src: url('./fonts/noto-serif-latin-600-normal.woff2') format('woff2');
+		    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		html, body, .tocBack, html.darkMode, .darkMode body {
+			color: #c4c7c5; background-color: #202124; 
+		}
+		.darkMode .tocBack {
+			color: #c4c7c5; background-color: #4b4d5370;
+		}
+		body {margin: 0;}
+		.darkMode .dipa {
+			filter: brightness(1.35);
+		}
+		.lightMode .dipa   {
+			filter: brightness(1.06) contrast(0.95);
+		}
+	</style>
 
-  var urlsToPrefetch = [
-'./',
-'./jquery.min.js',
-'./fonts/noto-serif-latin-400-italic.woff2',
-'./fonts/noto-serif-latin-400-normal.woff2',
-'./fonts/noto-serif-latin-600-normal.woff2',
-'./img/favicon.png',
-'./dist/NoSleep.min.js',
-'./img/yasoda_damodar.jpg',
-'./img/android-startup.png',
-'./img/apple-touch-icon.png',
-'./img/apple-touch-startup-image.png',
-'./img/screen1n.jpg',
-'./img/screen1w.jpg',
-'./img/screen2w.jpg'
-  ];
+	<title>Pjesme Vaiṣṇava</title>
 
-self.addEventListener('install', function(event) {
-  var now = Date.now();
-  console.log('Handling install event. Resources to prefetch:', urlsToPrefetch);
 
-event.waitUntil(
-    caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
-      var cachePromises = urlsToPrefetch.map(function(urlToPrefetch) {
-        var url = new URL(urlToPrefetch, location.href);
-        url.search += (url.search ? '&' : '?') + 'cache-bust=' + now;
-        var request = new Request(url, {mode: 'cors'});
-        return fetch(request).then(function(response) {
-          if (response.status >= 400) {
-            throw new Error('request for ' + urlToPrefetch +
-              ' failed with status ' + response.statusText);
-          }
-          return cache.put(urlToPrefetch, response);
-        }).catch(function(error) {
-          console.error('Not caching ' + urlToPrefetch + ' due to ' + error);
-        });
-      });
-
-      return Promise.all(cachePromises).then(function() {
-        console.log('Pre-fetching complete.');
-        // skipWaiting of manual reload - toast notify @hand
-        if (self.skipWaiting) { // wrapping in an if while Chrome 40 is still around
-        self.skipWaiting();
+<script>
+	function iOS() {
+		return [
+			'iPad Simulator',
+			'iPhone Simulator',
+			'iPod Simulator',
+			'iPad',
+			'iPhone',
+			'iPod'
+		].includes(navigator.platform)
+		// iPad on iOS 13 detection
+		|| (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 	}
-      });
-    }).catch(function(error) {
-      console.error('Pre-fetching failed:', error);
-    })
-	)
+
+
+	// Dark light mode
+	function themeColorChange() {
+		if ($('html').hasClass('lightMode')) {
+			document.querySelector('meta[name="theme-color"]').setAttribute('content', '#dee4e7');
+		} else {
+			document.querySelector('meta[name="theme-color"]').setAttribute('content', '#202124');
+		}
+	};
+
+	$(function(){
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+			$('html').addClass( "lightMode" );
+			themeColorChange();
+		} else {
+			$('html').addClass( "darkMode" );
+			
+		}
+	});
+
+
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) { 
+		if (window.matchMedia) { // Check if the dark-mode Media-Query matches
+			if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+					// Dark
+					$('html').removeClass('lightMode');
+					$('html').addClass('darkMode');
+					themeColorChange();
+					console.log('Changed color scheme to dark.');
+				} else {
+					// Light
+					$('html').removeClass('darkMode');
+					$('html').addClass('lightMode');
+					themeColorChange();
+					console.log('Changed color scheme to light.');
+				}
+			} else {
+				// Default (when Media-Queries are not supported)
+			}
+	})
+
+</script>
+
+<style>
+
+		.pjesmaNaslovPopularni{
+			display: none;
+		}
+		.numS{
+			font-size: .8em;
+		}
+
+
+		h1.pjesmaNaslov{text-transform: capitalize;}
+
+		h2.pjesmaNaslovPopularni{text-transform: capitalize;}
+
+		body.translationHidden .menuTranslationContracted{display:none;}
+		body:not(.translationHidden) .menuTranslationExpanded{display:none;}
+		
+		.prijevod, .darkMode .prijevod{color: #9aa0a6;}
+		song, .darkMode song {background: #292a2d;filter:drop-shadow(0px 3px 3px #161718);}
+		.tocBack, .darkMode .tocBack {filter: drop-shadow(2px 4px 16px #161718);}
+		.menuIcon path, .tocClose path, .darkMode .menuIcon path, .darkMode .tocClose path {fill: #9f752e;}
+
+		article{
+			transition-duration: .1s;
+		} 
+
+		.quarantine{
+			display: none;
+		}
+
+		@media screen and (prefers-color-scheme: light){
+			html, body, .tocBack {color: #444746; background: #eef4f7;}
+			.prijevod{color: #1f1f1f;}
+			song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
+			.tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
+		}
+			html.lightMode, .lightMode body, .lightMode .tocBack {color: #444746; background: #dee4e7;}
+			.lightMode .prijevod{color: #1f1f1f;}
+			.lightMode song {background: #eef4f7;filter:drop-shadow(0px 3px 3px #7b7f89);}
+			.lightMode .tocBack {filter: drop-shadow(2px 4px 16px #7b7f89);}
+
+	::-webkit-scrollbar-thumb {background-color:#9aa0a6;}
+	.tocBackOverlay {
+		position: fixed;
+	}
+	body.noscroll .tocBackOverlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width:100%;
+		height:100%;
+		backdrop-filter: blur(10px);
+		background: #00000070;
+		z-index: 202;
+	}
+	hr::after {background-color: #1f2831;}
+	@media (prefers-color-scheme: dark) {
+	/*		img {filter: brightness(.8) contrast(1.2);}*/
+	}
+	html {
+	/*		transition:all .2s;*/
+		/*			filter: invert(0%) contrast(0.85);*/
+	}
+	song {
+		max-width: 50em;
+		padding: 3em 2em;
+		margin: 1.6em auto;
+		border-radius: 20px;
+		display: block;
+	}
+	html {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+	/*		transition:all .2s;*/
+	}
+	body {
+		padding: 1em 2em;
+		line-height: 1.5;
+		font-size: 16px;
+	/*		height: 100%;*/
+	}
+	nav#TOC {
+		width: 100%;
+		height: 90%;
+		display: block;
+		overflow: overlay;
+		position: relative;
+		bottom: 0;
+		padding-bottom: 50px;
+	}
+	html, body, p, h1, h2, h3{
+
+		font-family: 'Noto Serif', Georgia, serif;
+	}
+	html.centarTekst {
+		text-align: center;
+	}
+	html.centarTekst p {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+	}
+	.menuIconHolder {
+		z-index: 200 !important;
+		padding: 6px 12px;
+		margin: -6px -12px;	
+	}
+		
+	.topGradient{
+		background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+		top: 0;
+	}
+	.bottomGradient{
+		background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+		bottom: 0;
+	}
+	.topGradient, .bottomGradient{
+		display: block;
+		position: fixed;
+		width: 100%;
+		height: 50px;
+		left: 0;
+		z-index: 100;
+	}
+		
+		
+	/*RAZMAK IZMEĐU PJESAMA*/
+	song hr{
+		display: none;
+	}
+	/*hr{
+		margin-top: 4em;
+		max-width: 70%;
+	}
+	hr {
+		border: none;
+		height: .1em;
+		background-image: linear-gradient(to right, #f0f0f000, #8f8f8f, #f0f0f000);
+	}
+	hr::after {
+		content: '§';
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(60deg);
+		transform-origin: 50% 50%;
+		padding: 1rem;
+	}*/
+		
+	/*Tipografija*/
+	h1 {
+		text-align: center !important;
+	    font-size: 1.5em;
+	    /*margin: 3em 0 0 0;*/
+	}
+	h2 {
+	    font-size:1.2em;
+	    margin: 0 0 .5em 0;
+		text-align: center;
+	}
+	
+
+
+	/*.showAllSongs {
+		box-shadow: 0 0 2px 0px #00000094;
+		background-color: #f5f5f5;
+		border-radius: 6px;
+		border: 2px solid #717171;
+		color: #666666;
+		font-family: Arial;
+		font-size: 15px;
+		font-weight: bold;
+		padding: 6px 24px;
+		text-decoration: none;
+		margin: 60px auto;
+		user-select: none;
+		z-index: 2;
+		position: relative;
+		text-transform: uppercase;
+		letter-spacing: .11rem;
+		cursor: pointer;
+		transition: .1s;
+		display: block;
+		bottom: 30px;
+	}
+	.showAllSongs:hover {
+		background-color: #ffffff;
+		box-shadow: 0 0 9px 0px #000000;
+		transform-origin: center center;
+		padding: 8px 26px;
+		margin: 58px auto;
+	}
+	.showAllSongs:active {
+		position: relative;
+		box-shadow: 0 0 0px 0px #00000000;
+		padding: 4px 18px;
+		margin: 62px auto;
+		border: 2px solid #717171;
+		background-color: #cecece;
+	}*/
+	.button {
+		box-shadow: 0 0 2px 0px #000000d6;
+		background-color: #9f752e;
+		border-radius: 6px;
+		border: 0px solid #ffffff;
+		color: #000000ad;
+		font-family: system-ui;
+		font-size: 15px;
+		font-weight: bold;
+		padding: 8px 16px;
+		text-decoration: none;
+		margin: 60px auto;
+		user-select: none;
+		z-index: 2;
+		position: relative;
+		text-transform: uppercase;
+		letter-spacing: 1.5pt;
+		cursor: pointer;
+		transition: .1s;
+		display: block;
+		bottom: 30px;
+		opacity: 60%;
+	}
+	.button:hover {
+		opacity: 100%;
+	}
+
+	.songs{
+		max-width: 95% !important;
+	}
+	.autor{
+	    font-size: 1em;
+	    font-style: italic;
+		text-align: center;
+	}
+	.stih{
+	    font-size: 1.1em;
+	    font-weight: 600;
+	    margin-top: 20px;
+		text-align: center;
+	}
+	.prijevod{
+		text-align: justify;
+		text-justify: inter-word;
+		/* word-break: break-all; */
+		word-wrap: break-word;
+		hyphens: auto;
+	}
+	/*manj razmak kad je skriven prijevod*/
+	body.translationHidden  p.stih{
+		margin-top: 0 !important;
+		margin-block-end: .5em;
+	}
+
+	.songs{
+		max-width: 90%;
+		margin: 0 auto;
+	}
+	h1.title{
+		font-size: 2em;
+		margin: 3em 0 2em 0;
+		text-align: center;
+	}
+		h1.left{
+			text-align: left;
+		}
+
+	.hand{
+		cursor: pointer;
+	}
+		
+		
+	/* Responsive */
+	@media only screen and (max-width: 580px) {
+		body{
+			padding: 0;
+			margin: 0;
+		}
+		song {
+			max-width: 100vw;
+			padding: 1em;
+			margin: 1em 0;
+			border-radius: 11px;
+		}
+	}
+
+		
+		
+	/*	Gumbi */
+	.menuIcon{
+		height: 2em;
+		width: 2em;
+		opacity: 60%;
+	}
+	.menuIcon:hover{
+		opacity: 100%;
+	}
+	.menuIcon.mainMenu, svg{
+		height: 1.9em;
+	}
+	.buttonDarkMode {
+		position: fixed;
+		right: 20px;
+		top: 20px;
+		/*  padding: .5rem 1rem;*/
+		/*  background-color: #ddd;*/
+		background-color: transparent;
+	}
+	@media screen and (prefers-color-scheme: dark){
+		.buttonDarkMode {
+			display:none;
+		}
+	}
+	.buttonLightMode {
+		position: fixed;
+		right: 20px;
+		top: 20px;
+		/*  padding: .5rem 1rem;*/
+		/*  background-color: #ddd;*/
+		background-color: transparent;
+	}
+	.buttonDipa {
+		position: fixed;
+		right: 20px;
+		top: 70px;
+		background-color: transparent;
+	}
+	@media screen and (prefers-color-scheme: light){
+		.buttonDarkMode {
+			display:none;
+		}
+	}
+	.buttonMenu {
+		position: fixed;
+		left: 20px;
+		top: 20px;
+		background-color: transparent;
+	}
+	.buttonZoomIn {
+		position: fixed;
+		right: 20px;
+		bottom: calc(20px + 30px + 20px);
+		background-color: transparent;
+	}
+	.buttonZoomOut {
+		position: fixed;
+		right: 20px;
+		bottom: 20px;
+		background-color: transparent;
+	}
+	.buttonShare {
+		position: fixed;
+		left: 20px;
+		bottom: 20px;
+		background-color: transparent;
+	}
+	.buttonHideTranslation {
+		position: fixed;
+		left: 20px;
+		bottom:  calc(20px + 30px + 20px);
+		background-color: transparent;
+		max-width: 780px;
+	}
+	.buttonJezik {
+		position: fixed;
+		left: 20px;
+		bottom:  calc(20px + 30px + 20px + 30px + 20px);
+		background-color: transparent;
+		max-width: 780px;
+	}
+
+
+	.tocBack{
+		position: fixed;
+		top: 1em;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 80%;
+		padding: 2rem 2rem;
+		display: block;
+		z-index: 201;
+		overflow-y: clip;
+		overscroll-behavior: contain;
+		transition: top .2s;
+		margin: 0 auto;
+		border-radius: 20px 20px 0 0;
+		max-width: 700px;
+	}
+	.tocBack.closed{
+		top: 200vh !important;
+			 transition: top .2s;
+	}
+	@media only screen and (max-width: 50em) {
+		.tocBack{
+			padding: .5rem;
+			width: 88%;
+		}
+	}
+	.tocLink{
+		user-select: none;
+	}
+	.TOC h1{
+		margin: 1em 0 0 0;
+	}
+	.TOC{
+		position: static;
+		line-height: 1;
+	}
+	.tocClose{
+		display: block;
+		position: absolute;
+		left: 20px;
+		top: 20px;
+		font-family: sans-serif;
+		font-weight: 600;
+	}
+	body.noscroll{
+	/*		position:fixed;*/
+		overflow:hidden;
+		margin:0;
+	}
+	.noselect {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+		
+		
+	/*SADRŽAJ*/
+	.TOC ul{
+	  margin-left: 30px;
+	}
+	.TOC ul {
+	  padding: 0;
+	}
+	.TOC li {
+	  margin: 0 0 0.35em 0;
+	  text-wrap: balance;
+	  padding-right: 20px;
+	  padding-left: 5px;
+	}
+	.TOC a {
+		text-decoration: none;
+		line-height: 1.6;
+	}
+	.TOC a:link, .TOC a:visited {
+		color:inherit;
+	}
+
+
+	.TOC a:hover, .TOC a:active {
+	  text-decoration: underline;
+	}
+	.hidden{
+		display: none;
+	}
+	/*	animacija kad se odabere sadržaj*/
+	h1:target {
+	  animation: highlight 2s ease;
+	}
+	@keyframes highlight {
+	  from { color: #dd8309; }
+	  to { color: black; }
+	}
+		
+	/*Share: Kopiraj link*/
+	.messageNotification {
+		color: #ffffff;
+		background-color: rgba(0, 0, 0, 0.9);
+		padding: 20px;
+		border-radius: 30px;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 250px;
+		margin-top: -30px;
+		margin-left: -135px;
+		display: none;
+		text-align: center;
+		user-select: none;
+	}
+</style>
+
+
+<script>
+		
+	//	PROMJENA IKONE
+	(function() {
+	    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+	    link.type = 'image/png';
+	    link.rel = 'shortcut icon';
+	    link.href = './img/favicon.png';
+	    document.getElementsByTagName('head')[0].appendChild(link);
+	})();
+
+
+</script> 
+</head>
+
+<body id=web lang=hr>
+	<script src='dist/NoSleep.min.js'></script>
+	<!-- <input type="button" class="button" id="toggleDipa" value="Upali dipu 🪔" /> -->
+<div class=tech>
+	<div class=menu>
+			<div class="menuIconHolder buttonDarkMode noselect hand" onclick="$('html').toggleClass('lightMode darkMode'); window.localStorage.setItem('lightMode', $('html').hasClass('lightMode')); themeColorChange();">
+					<span><svg class="menuIcon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 112.88"><path d="M14.29 0h94.3c7.86 0 14.29 6.43 14.29 14.29v84.3c0 7.86-6.43 14.29-14.29 14.29h-94.3A14.33 14.33 0 010 98.59v-84.3C0 6.43 6.43 0 14.29 0zm47.07 24.87a25.74 25.74 0 0012.88 48.05c6.75 0 12.9-2.6 17.49-6.85 2.28-2.11 4.89-.57 4.01 1.94a35.37 35.37 0 01-68.79-11.65 35.3 35.3 0 0133.1-35.23c3.42-.2 4.3 2.01 1.31 3.74z" fill-rule="evenodd" clip-rule="evenodd"/></svg></span>
+			</div>
+			<div class="menuIconHolder buttonLightMode noselect hand" onclick="$('html').toggleClass('lightMode darkMode'); window.localStorage.setItem('lightMode', $('html').hasClass('lightMode')); themeColorChange();">
+					<span><svg class="menuIcon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 112.88"><path d="M14.29 0h94.3c7.86 0 14.29 6.43 14.29 14.29v84.3c0 7.86-6.43 14.29-14.29 14.29h-94.3A14.33 14.33 0 010 98.59v-84.3C0 6.43 6.43 0 14.29 0zm47.07 24.87a25.74 25.74 0 0012.88 48.05c6.75 0 12.9-2.6 17.49-6.85 2.28-2.11 4.89-.57 4.01 1.94a35.37 35.37 0 01-68.79-11.65 35.3 35.3 0 0133.1-35.23c3.42-.2 4.3 2.01 1.31 3.74z" fill-rule="evenodd" clip-rule="evenodd"/></svg></span>
+			</div>
+			<div class="menuIconHolder buttonDipa noselect hand" id="toggleDipa">
+					<span><svg  class="menuIcon" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 2708 2486" fill-rule="evenodd" clip-rule="evenodd"><path d="M2406 2486H301A302 302 0 0 1 0 2185V301C0 136 136 0 301 0h2105c166 0 301 136 301 301l1 1884c0 166-136 301-302 301zm-1052-317c-223 0-447-58-618-161-222-134-362-338-362-510 0-74 62-158 217-223h1l6-3 6-2 6-3 5-2 7-2 5-2h1l6-3 7-2 4-2 9-3 5-1 8-3 6-2 7-2 6-2 9-3 5-1 10-3 5-1 10-3 4-1 11-3 4-1 12-3 3-1 13-3h4l13-3 1-1h1l15-3h1l16-3 2-1 15-3h2l16-3h2l17-3h1l18-3 18-3h1l19-3h1l18-2h1l15-2 7 13 1 1v1h1v2h1v2h1v1l1 1v1l1 1v1h1v2h1v1l1 1v1h1v2h1v1l1 1v1h1v1l1 1v1h1v1l1 1v1l1 1v1h1v1l1 1v1h1v1l1 1v1l23 31-39 3h-1l-13 1-2 1-13 1-13 1h-1l-13 2h-1l-11 1-2 1h-3l-7 1h-1l-5 1h-2l-7 1h-3l-10 2h-2l-7 1h-2l-5 1-7 1-7 1-7 1h-1l-5 1-4 1-9 1-4 1-5 1-7 1-6 1-7 2-6 1-7 1-5 1-3 1-17 4-6 1c-53 12-99 26-137 43-79 35-123 80-123 135 0 71 105 142 278 180 176 39 442-64 579-241a16 16 0 0 1 26 0c136 177 402 280 579 241 172-38 278-109 278-180 0-55-44-100-123-135-38-17-84-31-137-43l-6-1-18-4-3-1-5-1-6-1-7-1-6-2-6-1h-1l-7-1-5-1-3-1-10-1-4-1-5-1-7-1-7-1-7-1-6-1h-2l-7-1h-2l-9-2h-4l-7-1h-2l-5-1h-1l-7-1h-3l-2-1-10-1h-1l-14-2h-1l-12-1h-1l-13-1-2-1-13-1-39-3 22-31v-1h1v-1h1v-2h1v-1l1-1v-1h1v-1l1-1v-1l1-1v-1h1v-1l1-1v-1h1v-1l1-1v-1h1v-2h1v-1l1-1v-1l1-1v-1h1v-2h1v-1l1-1v-1l1-1v-1l1-1v-1h1v-1l7-13 15 2h1l19 2h1l18 3h1l18 3h1l17 3h2l16 3h3l15 3h2l16 3 2 1 15 3h2l14 3h1l2 1 13 3h3l13 3 4 1 11 3 4 1 11 3 4 1 11 3 4 1 10 3 5 1 9 3 6 2 7 2 6 2 8 3 6 1 8 3 4 2 7 2 7 3 5 2h1l7 2 5 2 5 3 6 2 7 3c155 65 217 149 217 223 0 172-139 376-362 510a1228 1228 0 0 1-617 161zm14-1844c99 153 172 272 252 428 83 162 71 325 12 431-54 97-131 142-278 145-148-3-224-48-278-145a463 463 0 0 1 12-431c79-156 153-275 252-428 3-5 8-8 14-8s10 3 14 8zm-14 929c72-1 115-44 143-94 31-55 10-153-34-237-38-76-47-97-94-170a18 18 0 0 0-30 0c-47 73-56 94-95 170-43 84-64 182-34 237 28 50 72 93 144 94z"/></svg></span>
+			</div>
+			<div class="menuIconHolder buttonMenu noselect hand" onclick="open">
+					<span><svg class="menuIcon mainMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124"><path d="M112 6H12C5.4 6 0 11.4 0 18s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 94H12c-6.6 0-12 5.4-12 12s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"/></svg></span>
+			</div>
+			<div class="menuIconHolder buttonZoomIn noselect hand" onclick="pozicijaOdVrha();zoom('in');vratiPozicijuOdVrha();">
+					<span><svg class="menuIcon menuZoomIn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2S130.56 51.2 230.4 51.2s179.2 79.36 179.2 179.2-81.92 179.2-179.2 179.2z"/><path d="M332.8 204.8H256V128c0-15.36-10.24-25.6-25.6-25.6-15.36 0-25.6 12.8-25.6 25.6v76.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h76.8v76.8c0 15.36 10.24 25.6 25.6 25.6 15.36 0 25.6-10.24 25.6-25.6V256h76.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></svg></span>
+			</div>
+			<div class="menuIconHolder buttonZoomOut noselect hand" onclick="pozicijaOdVrha();zoom('out');vratiPozicijuOdVrha();">
+					<span><svg class="menuIcon menuZoomOut" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 512"><defs><style>.fil0{fill:#000;fill-rule:nonzero}</style></defs><g id="Layer_x0020_1"><path class="fil0" d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2 0-99.84 79.36-179.2 179.2-179.2 99.84 0 179.2 79.36 179.2 179.2 0 99.84-81.92 179.2-179.2 179.2z" id="_2236117764000"/><path class="fil0" d="M332.8 204.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h204.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></g></svg></span>
+			</div>
+			<div class="menuIconHolder buttonJezik noselect hand" onclick="toggleJezik();">
+					<span>
+						<svg class="menuIcon menuJezik" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M139 137h-7l-12 60h31zM381 257c7 17 15 31 25 43 10-12 19-26 26-43h-51z"/><path d="M467 91H281l39 312c0 12-3 24-12 34l-65 75h224c25 0 45-20 45-45V137c0-25-20-46-45-46zm0 166h-4c-9 27-22 49-36 66l34 27a15 15 0 11-18 24l-37-30-36 30a15 15 0 11-18-24l33-27c-14-17-26-39-35-66h-4a15 15 0 110-30h45v-15a15 15 0 1130 0v15h46a15 15 0 110 30z"/><path d="M244 39c-3-22-22-39-44-39H45C20 0 0 20 0 45v332c0 25 20 45 45 45h237c4-5 8-8 8-15L244 39zm-60 248c-8 1-16-4-18-12l-9-48h-43l-9 48c-2 8-10 13-18 12-8-2-13-10-12-18l30-150c2-7 8-12 15-12h31c7 0 13 5 15 12l30 150c1 8-4 16-12 18zM175 452l3 21c2 13 11 27 26 34l50-55h-79z"/></svg>
+					</span>
+			</div>
+
+			<div class="menuIconHolder buttonHideTranslation noselect hand" onclick="toggleTranslation();restoreJezik();">
+					<span class="menuTranslationContracted">
+						<svg class="menuIcon " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 112.88"><path fill-rule="evenodd" clip-rule="evenodd" d="M 17.245 6.607 C 10.635 13.216 10.635 23.863 10.635 45.15 L 10.635 67.731 C 10.635 89.018 10.635 99.664 17.245 106.274 C 23.861 112.89 34.502 112.89 55.794 112.89 L 67.085 112.89 C 88.372 112.89 99.019 112.89 105.628 106.274 C 112.245 99.664 112.245 89.018 112.245 67.731 L 112.245 45.15 C 112.245 23.863 112.245 13.216 105.628 6.607 C 99.019 -0.01 88.372 -0.01 67.085 -0.01 L 55.794 -0.01 C 34.502 -0.01 23.861 -0.01 17.245 6.607 Z M 38.86 40.916 C 36.517 40.916 34.626 42.814 34.626 45.15 C 34.626 47.488 36.517 49.384 38.86 49.384 L 84.02 49.384 C 86.357 49.384 88.254 47.488 88.254 45.15 C 88.254 42.814 86.357 40.916 84.02 40.916 L 38.86 40.916 Z M 38.86 63.497 C 36.517 63.497 34.626 65.393 34.626 67.731 C 34.626 70.067 36.517 71.965 38.86 71.965 L 67.085 71.965 C 69.421 71.965 71.319 70.067 71.319 67.731 C 71.319 65.393 69.421 63.497 67.085 63.497 L 38.86 63.497 Z"/></svg> 
+					</span>
+
+					<span class="menuTranslationExpanded">
+						<svg class="menuIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 112.88"><svg class="menuIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 112.88"><path fill-rule="evenodd" clip-rule="evenodd" d="M 17.245 6.606 C 10.635 13.216 10.635 23.863 10.635 45.15 L 10.635 67.73 C 10.635 89.017 10.635 99.664 17.245 106.274 C 23.861 112.89 34.508 112.89 55.795 112.89 L 67.085 112.89 C 88.372 112.89 99.019 112.89 105.629 106.274 C 112.245 99.664 112.245 89.017 112.245 67.73 L 112.245 45.15 C 112.245 23.863 112.245 13.216 105.629 6.606 C 99.019 -0.01 88.372 -0.01 67.085 -0.01 L 55.795 -0.01 C 34.508 -0.01 23.861 -0.01 17.245 6.606 Z M 34.626 33.86 C 34.626 31.523 36.523 29.626 38.86 29.626 L 84.02 29.626 C 86.357 29.626 88.254 31.523 88.254 33.86 C 88.254 36.197 86.357 38.094 84.02 38.094 L 38.86 38.094 C 36.523 38.094 34.626 36.197 34.626 33.86 Z M 34.626 56.44 C 34.626 54.103 36.523 52.206 38.86 52.206 L 84.02 52.206 C 86.357 52.206 88.254 54.103 88.254 56.44 C 88.254 58.777 86.357 60.674 84.02 60.674 L 38.86 60.674 C 36.523 60.674 34.626 58.777 34.626 56.44 Z M 38.86 74.786 C 36.523 74.786 34.626 76.683 34.626 79.02 C 34.626 81.357 36.523 83.254 38.86 83.254 L 67.085 83.254 C 69.422 83.254 71.319 81.357 71.319 79.02 C 71.319 76.683 69.422 74.786 67.085 74.786 L 38.86 74.786 Z"/></svg>
+					</span>
+			</div>
+
+			<div class="menuIconHolder buttonShare noselect hand" onclick="shareDialog()">
+					<span class=buttonShare-button><svg class="menuIcon menuShare" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.7 426.7"><path d="M352 256c-24 0-45.1 11.6-58.8 29.2l-144.4-55.6c.1-1.8.5-3.7.5-5.6 0-3.6-.5-7-1-10.5l148-68.3A74.2 74.2 0 00426.7 96a74.8 74.8 0 00-149.4 0c0 3.6.6 7 1 10.5l-148 68.3A74.2 74.2 0 000 224a74.3 74.3 0 00133.5 45.5L277.9 325c-.1 2-.6 3.7-.6 5.7a74.8 74.8 0 00149.4 0A74.8 74.8 0 00352 256z"/></svg></span>
+			</div>
+
+		</div>
+
+
+
+
+</div>
+	<!-- <div class=touchToHide></div> -->
+<style>
+	.touchToHide{
+	    width: 72%;
+	    height: 100vh;
+	    position: fixed;
+	    margin: 0 14%;
+	}
+
+	.hiddenBySearch { display: none; }
+
+
+	.inputPretragaWrapper {
+	  position: relative;
+	  display: flex;
+	  width: 360px;
+	  margin: 0 auto 2em auto;
+	}
+
+	.inputPretraga {
+		width: 100%;
+		font-family: inherit;
+		font-size: .9em;
+		padding: 10px 14px 10px 42px;
+		border-radius: 14px;
+		outline: none;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+	.lightMode .inputPretraga {
+		background: #ffffff;
+		color: #111827;
+		border: 2px solid #d1d5db;
+	}
+	.lightMode .inputPretraga::placeholder {
+		color: #9ca3af;
+	}
+	.darkMode .inputPretraga, .inputPretraga {
+		background: #292a2d;
+		color: #c4c7c5;
+		border: 2px solid #464646;
+	}
+	.darkMode .inputPretraga::placeholder {
+		color: #464646;
+	}
+
+	.inputPretraga:focus {
+	  border-color: #9f752e;
+	  box-shadow: 0 0 0 3.5px rgba(159,117,46,0.35);
+	}
+
+	.inputPretragaIcon {
+		position: absolute;
+		/*left: 10px;*/
+		/*top: 50%;*/
+		/*transform: translateY(-50%);*/
+		left: 15px;
+		top: 50%;
+		transform: translateY(-41%);
+		color: #6b7280;
+		pointer-events: none;
+	}
+</style>
+
+<script>
+	function liveSearch(POLJE) {
+		// Locate the card elements
+		let cards = document.querySelectorAll('song')
+		// Locate the search input
+		let search_query = ""
+		if (POLJE == "jezikHR") {
+			search_query = document.getElementById("searchboxHR").value;
+			search_query = search_query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]|\-/g, "");
+		} else {
+			search_query = document.getElementById("searchboxEN").value;
+			search_query = search_query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]|\-/g, "");
+		}
+	$('song').removeClass('quarantine');
+	$('.showAllSongs').hide();
+		// Loop through the cards
+		for (var i = 0; i < cards.length; i++) {
+		// If the text is within the card...
+		if(cards[i].innerText.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]|\-/g, "")
+			// ...and the text matches the search query...
+			.includes(search_query)) {
+			// ...remove the `.hiddenBySearch` class.
+			cards[i].classList.remove("hiddenBySearch");
+		} else {
+			// Otherwise, add the class.
+			cards[i].classList.add("hiddenBySearch");
+		}
+		}
+	}
+</script>
+<article>
+	<div class=songs>   
+	<h1 class="title jezikHR">Pjesme Vaiṣṇava</h1>
+	<h1 class="title jezikEN">Vaiṣṇava songs</h1>
+
+
+	<div class="inputPretragaWrapper">
+	<span class="inputPretragaIcon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+	<input id="searchboxEN" class="inputPretraga jezikEN" type="search" placeholder="Type to search..."  oninput="liveSearch('jezikEN')"/>
+	<input id="searchboxHR" class="inputPretraga jezikHR" type="search" placeholder="Upišite pojam pretrage..."  oninput="liveSearch('jezikHR')"/>
+	</div>
+
+	<song id=sriguruastaka>
+		<h1 class=pjesmaNaslov>Śrī Śrī Gurvaṣṭakam</h1>
+		<p class=autor>Viśvanātha Cakravarti Ṭhākura</p>
+		<p class="stih"><span class=numS>(1)</span><br>
+			samsāra-dāvānala-līḍha-loka-<br>
+			trāṇāya kāruṇya-ghanāghanatvam<br>
+			prāptasya kalyāṇa-guṇārṇavasya<br>
+			vande guroḥ śrī-caraṇāravindam</p>
+		<p class="prijevod jezikHR">Duhovni učitelj prima blagoslove iz oceana milosti. Baš poput oblaka koji izlijeva vodu na šumski požar i time ga gasi, tako duhovni učitelj izbavlja ovaj svijet kojeg more materijalne patnje i tako gasi razbuktalu vatru materijalnog postojanja. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja koji je ocean povoljnih odlika.</p>
+		<p class="prijevod jezikEN">The spiritual master is receiving benediction from the ocean of mercy. Just as a cloud pours water on a forest fire to extinguish it, so the spiritual master delivers the materially afflicted world by extinguishing the blazing fire of material existence. I offer my respectful obeisances unto the lotus feet of such a spiritual master, who is an ocean of auspicious qualities.</p>
+		<p class="stih"><span class=numS>(2)</span><br>
+			mahāprabhoḥ kīrtana-nṛtya-gīta-<br>
+			vāditra-mādyan-manaso rasena<br>
+			romāñca-kampāśru-tarańga-bhājo<br>
+			vande guroḥ śrī-caraṇāravindam</p>
+		<p class="prijevod jezikHR">Dok pjeva Sveto Ime pleše u zanosu, pjeva i svira glazbene instrumente, duhovni učitelj se uvijek raduje saṅkīrtana pokretu Gospodina Caitanye Mahāprabhua. Budući da u svom umu uživa u dražima čiste predanosti, ponekad mu se koža ježi, osjeća drhtanje tijela, a suze u valovima teku iz njegovih očiju. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+		<p class="prijevod jezikEN">Chanting the holy name, dancing in ecstasy, singing, and playing musical instruments, the spiritual master is always gladdened by the sankirtana movement of Lord Caitanya Mahāprabhu. Because he is relishing the mellows of pure devotion within his mind, sometimes his hair stands on end, he feels quivering in his body, and tears flow from his eyes like waves. I offer my respectful obeisances unto the lotus feet of such a spiritual master.</p>
+		<p class="stih"><span class=numS>(3)</span><br>
+			śrī-vigrahārādhana-nitya-nānā-<br>
+			śṛńgāra-tan-mandira-mārjanādau<br>
+			yuktasya bhaktāmś ca niyuñjato 'pi<br>
+			vande guroḥ śrī-caraṇāravindam</p>
+		<p class="prijevod jezikHR">Duhovni je učitelj neprestano zaokupljen hramskim obožavanjem Śri-Śri-Rādhe i Kṛṣṇe. On i svoje učenike zaokuplja takvim obožavanjem. Oni odijevaju Božanstva u predivnu odjeću i ukrašavaju ih nakitom, čiste Njihov hram i obožavaju Gospodina na druge slične načine. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+		<p class="prijevod jezikEN">The spiritual master is always engaged in the temple worship of Śri-Śri-Rādha and Kṛṣṇa. He also engages his disciples in such worship. They dress the Deities in beautiful clothes and ornaments, clean Their temple, and perform other similar worship of the Lord. I offer my respectful obeisances unto the lotus feet of such a spiritual master.</p>
+		<p class="stih"><span class=numS>(4)</span><br>
+			catur-vidha-śrī-bhagavat-prasāda-<br>
+			svādv-anna-tṛptān hari-bhakta-sańghān<br>
+			kṛtvaiva tṛptim bhajataḥ sadaiva<br>
+			vande guroḥ śrī-caraṇāravindam</p>
+		<p class="prijevod jezikHR">Duhovni učitelj stalno nudi Kṛṣṇi četiri vrste ukusne hrane (onu koja se liže, žvače, pije i siše). Kad duhovni učitelj vidi da su bhakte zadovoljni dok časte bhagavat-prāsādam i on je zadovoljan. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+		<p class="prijevod jezikEN">The spiritual master is always offering Krsna four kinds of delicious food [analyzed as that which is licked, chewed, drunk, and sucked]. When the spiritual master sees that the devotees are satisfied by eating bhagavat-prāsāda, he is satisfied. I offer my respectful obeisances unto the lotus feet of such a spiritual master.</p>
+		<p class="stih"><span class=numS>(5)</span><br>
+			śrī-rādhikā-mādhavayor apāra-<br>
+			mādhurya-līlā guṇa-rūpa-nāmnām<br>
+			prati-kṣaṇāsvādana-lolupasya<br>
+			vande guroḥ śrī-caraṇāravindam</p>
+		<p class="prijevod jezikHR">Duhovni učitelj uvijek žarko želi slušati i pjevati o neograničenim ljubavnim zabavama Rādhike i Mādhave te o Njihovim osobinama, imenima i oblicima. Duhovni učitelj teži da u svakom trenutku uživa u tome. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+		<p class="prijevod jezikEN">The spiritual master is always eager to hear and chant about the unlimited conjugal pastimes of Rādhika and Mādhava, and Their qualities, names, and forms. The spiritual master aspires to relish these at every moment. I offer my respectful obeisances unto the lotus feet of such a spiritual master.</p>
+		<p class="stih"><span class=numS>(6)</span><br>
+			nikuñja-yūno rati-keli-siddhyai<br>
+			yā yālibhir yuktir apekṣaṇīyā<br>
+			tatrāti-dākṣyād ati-vallabhasya<br>
+			vande guroḥ śrī-caraṇāravindam</p>
+		<p class="prijevod jezikHR">Duhovni učitelj je vrlo drag, jer vješto pomaže gopījama koje u različita vremena stvaraju razne aranžmane kako bi ljubavne zabave Rādhe i Kṛṣṇe u gajevima Vṛndāvane bile savršene. Odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja.</p>
+		<p class="prijevod jezikEN">The spiritual master is very dear, because he is expert in assisting the gopīs, who at different times make different tasteful arrangements for the perfection of Rādha and Kṛṣṇa's conjugal loving affairs within the groves of Vrndavana. I offer my most humble obeisances unto the lotus feet of such a spiritual master.</p>
+		<p class="stih"><span class=numS>(7)</span><br>
+			sākṣād-dharitvena samasta-śāstrair<br>
+			uktas tathā bhāvyata eva sadbhiḥ<br>
+			kintu prabhor yaḥ priya eva tasya<br>
+			vande guroḥ śrī-caraṇāravindam</p>
+		<p class="prijevod jezikHR">Duhovnog učitelja treba poštovati baš poput samog Svevišnjeg Gospodina, jer je on Gospodinov najpovjerljiviji sluga. To potvrđuju svi razotkriveni sveti spisi i to slijede svi autoriteti. Stoga odajem ponizno poštovanje lotosolikim stopalima takvog duhovnog učitelja koji je vjerodostojan predstavnik Śri Haria (Kṛṣṇe).</p>
+		<p class="prijevod jezikEN">The spiritual master is to be honored as much as the Supreme Lord, because he is the most confidential servitor of the Lord. This is acknowledged in all revealed scriptures and followed by all authorities. Therefore I offer my respectful obeisances unto the lotus feet of such a spiritual master, who is a bona fide representative of Śri Hari [Kṛṣṇa].</p>
+		<p class="stih"><span class=numS>(8)</span><br>
+			yasya prasādād bhagavat-prasādo<br>
+			yasyāprasādān na gatiḥ kuto 'pi<br>
+			dhyāyan stuvams tasya yaśas tri-sandhyam<br>
+			vande guroḥ śrī-caraṇāravindam</p>
+		<p class="prijevod jezikHR">Milošću duhovnog učitelja osoba dobiva Kṛṣṇin blagoslov. Bez milosti duhovnog učitelja ne možemo ni malo napredovati. Stoga se uvijek trebam sjećati i slaviti takvog duhovnog učitelja. Najmanje tri puta dnevno trebam odavati ponizno poštovanje njegovim lotosolikim stopalima.</p>
+		<p class="prijevod jezikEN">By the mercy of the spiritual master one receives the benediction of Krsna. Without the grace of the spiritual master, one cannot make any advancement. Therefore, I should always remember and praise the spiritual master. At least three times a day I should offer my respectful obeisances unto the lotus feet of my spiritual master.</p>
+		<hr>
+		
+	</song>
+
+	<song id=prabhupadapranati>
+		<h1 class=pjesmaNaslov>Śrīla Prabhupāda Praṇati</h1>
+		<p class=autor>Śrīla Prabhupāda</p>
+		<p class="stih"><span class=numS>(1)</span><br>
+		nama om viṣṇu-pādāya kṛṣṇa-preṣṭhāya bhū-tale<br>śrīmate bhaktivedānta-svāmin iti nāmine</p>
+		<p class="prijevod jezikHR">Odajem ponizno poštovanje Njegovoj Božanskoj milosti A.C.Bhaktivedānti Svamiju Prabhupadi, koji je veoma drag Gospodinu Kṛṣṇi jer je uzeo utočište Njegovih lotosolikih stopala.</p>
+		<p class="prijevod jezikEN">I offer my respectful obeisances unto His Divine Grace A.C. Bhaktivedānta Svami Prabhupada, who is very dear to Lord Kṛṣṇa, having taken shelter at His lotus feet.</p>
+		<p class="stih"><span class=numS>(2)</span><br>
+		namas te sārasvate deve gaura-vāṇī-pracāriṇe<br>nirviśeṣa-śūnyavādi-pāścātya-deśa-tāriṇe</p>
+		<p class="prijevod jezikHR">Ponizno poštovanje tebi, o duhovni učitelju, slugo Sārasvati Gosvāmīja. Ti milostivo propovjedaš poruku Gospodina Caitanyadeve i oslobađaš zapadne zemlje koje su pune impersionalizma i voidizma.</p>
+		<p class="prijevod jezikEN">Our respectful obeisances are unto you, O spiritual master, servant of Sarasvatī Gosvāmī. You are kindly preaching the message of Lord Chaitanya and delivering the Western countries, which are filled with impersonalism and voidism.</p>
+		<hr>
+		
+	</song>
+
+
+
+	<song id=pancatattva>
+		<h1 class=pjesmaNaslov>Pañca-tattva Mahā-mantra</h1>
+		<p class="stih"><span class=numS>(1)</span><br>
+		(jaya) śrī-kṛṣṇa-caitanya prabhu-nityānanda <br>
+		śrī-advaita gadādhara śrīvāsādi-gaura-bhakta-vṛnda</p>
+		<p class="prijevod jezikHR">Odajem ponizno poštovanje Śrī Kṛṣṇi Caitanyi, Prabhuu Nityānandi, Śrī-Advaiti, Gadādhari, Śrīvāsi i svim ostalim bhaktama Gospodina Caitanye.</p>
+		<p class="prijevod jezikEN">I offer my obeisances to Śrī Kṛṣṇa Chaitanya, Prabhu Nityānanda, Śrī Advaita, Gadādhara, Śrīvāsa and all the original devotees of Lord Caitanya.</p>
+		<hr>
+		
+	</song>
+
+
+	<song id="harekrishna"> 
+		<h1 class=pjesmaNaslov>Hare Kṛṣṇa Mahā-mantra</h1>
+		<p class="stih"><span class=numS>(1)</span><br>
+		hare kṛṣṇa hare kṛṣṇa <br>
+		kṛṣṇa kṛṣṇa hare hare<br>
+		hare rāma hare rāma <br>
+		rāma rāma hare hare</p>
+		<p class="prijevod jezikHR">O Kṛṣṇa, O Kṛṣṇina duhovna Energijo, molim da me uključite u Vašu službu.</p>
+		<p class="prijevod jezikEN">My dear Lord, and the spiritual energy of the Lord, kindly engage me in Your service.</p>
+		<hr>
+		
+	</song>
+
+	<song id="premadhvani"> 
+		<h1 class="pjesmaNaslov">Prema-Dhvani</h1>
+		<p class="stih">jaya oṁ viṣṇu-pāda paramahaṁsa parivrājakācārya aṣṭottara-śata śrī śrīmad a. c. bhaktivedānta svāmī māhārāja prabhupāda kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava ācāryi Oṁ Viṣṇu-pāda 108 Tridaṇḍī Gosvāmī A.C. Bhaktivedānti Svāmī Prabhupādi, koji putujući posvuda propovjeda slave Haria i koji se nalazi na najvišoj razini sannyāse!</p>
+		<p class="prijevod jezikEN">All glories to the ācārya Oṁ Viṣṇu-pāda 108 Tridaṇḍī Gosvāmī A. C. Bhaktivedanta Swami Prabhupāda, who travels everywhere, preaching the glories of Hari, and who is situated on the highest platform of sannyāsa.</p>
+		<p class="stih">jaya oṁ viṣṇu-pāda paramahaṁsa parivrājakācārya aṣṭottara-śata śrī śrīmad bhaktisiddhānta sarasvatī gosvāmī prabhupāda kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava ācāryi Oṁ Viṣṇu-pāda 108 Tridaṇḍī Gosvāmī Bhaktisiddhānta Sarasvatī Prabhupādi, koji putuje zemljom propovjedajući slave Haria i koji se nalazi na najvišoj razini sannyāse!</p>
+		<p class="prijevod jezikEN">All glories to the ācārya Oṁ Viṣṇu-pāda 108 Tridaṇḍī Gosvāmī Bhaktisiddhānta Sarasvatī Prabhupāda, who travels across the earth, preaching the glories of Hari, and who is situated on the highest platform of sannyāsa.</p>
+		<p class="stih">ananta-koṭi vaiṣṇava-vṛnda kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava neograničenim milijunima Vaiṣṇava!</p>
+		<p class="prijevod jezikEN">All glories to the unlimited millions of devotees of Lord Krishna.</p>
+		<p class="stih">nāmācārya śrīla haridāsa ṭhākura kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava Nāmācāryi Śrīla Haridāsa Ṭhākuri!</p>
+		<p class="prijevod jezikEN">All glories to the Nāmācārya Śrīla Haridāsa Ṭhākura.</p>
+		<p class="stih">prem-se kaho śrī-kṛṣṇa-caitanya-prabhu-nityānanda śrī-advaita gadādhara śrīvāsādi-gaura-bhakta-vṛnda kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sa ljubavlju pozivajte imena Śrī Kṛṣṇa Caitanya, Prabhu Nityānanda, Śrī Advaita, Śrī Gadādhara, Śrīvāsa i svih bhakta Gospodina Caitanya!</p>
+		<p class="prijevod jezikEN">Call out with love the names Śrī Kṛṣṇa Caitanya, Prabhu Nityānanda, Śrī Advaita, Śrī Gadādhara, Śrīvāsa and all the devotees of Lord Caitanya.</p>
+		<p class="stih">śrī śrī rādhā-kṛṣṇa go-gopīnātha śyāma-kuṇḍa rādhā-kuṇḍa giri-govardhana kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava Rādhī i Kṛṣṇi, pastirima i pastiricama, kravama, Śyāma-kuṇḍi, Rādhā-kuṇḍi and Govardhana brdu!</p>
+		<p class="prijevod jezikEN">All glories to Rādhā and Kṛṣṇa, the cowherd boys and girls, the cows, Śyāma-kuṇḍa, Rādhā-kuṇḍa and Govardhana Hill.</p>
+		<p class="stih">vṛndāvana-dhāma kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava Śrī Vṛndāvana-dhāmi!</p>
+		<p class="prijevod jezikEN">All glories to Śrī Vṛndāvana-dhāma.</p>
+		<p class="stih">navadvīpa-dhāma kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava Navadvīpa-dhāmi!</p>
+		<p class="prijevod jezikEN">All glories to Śrī Navadvīpa-dhāma.</p>
+		<p class="stih">yamunā-mayī kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava Yamunā-devī!</p>
+		<p class="prijevod jezikEN">All glories to Yamunā-devī.</p>
+		<p class="stih">gaṅgā-mayī kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava Gaṅgā-devī!</p>
+		<p class="prijevod jezikEN">All glories to Gaṅgā-devī.</p>
+		<p class="stih">bhakti-devī kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava Bhakti-devī!</p>
+		<p class="prijevod jezikEN">All glories to Bhakti-devī.</p>
+		<p class="stih">tulasī-devī kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava Tulasī-devī!</p>
+		<p class="prijevod jezikEN">All glories to Tulasī-devī.</p>
+		<p class="stih">samaveta-bhakta-vṛnda kī <b>jaya</b></p>
+		<p class="prijevod jezikHR">Sva slava okupljenim bhaktama!</p>
+		<p class="prijevod jezikEN">All glories to the assembled devotees.</p>
+		<p class="stih">Gaura premānande <b>Hari Haribol</b></p>
+		<p class="prijevod jezikHR">Pjevajte imena "Hari! Hari!" u zanosu Caitanya-preme!</p>
+		<p class="prijevod jezikEN">Chant the names "Hari! Hari!" in the ecstasy of Caitanya-prema.</p>
+
+		<p class="stih jezikHR">Sva slava okupljenim bhaktama! <b>Hare&nbsp;Krishna!</b></p>
+		<p class="stih jezikEN">All glories to the assembled devotees! <b>Hare&nbsp;Krishna!</b></p>
+		<p class="stih jezikHR">Sva slava okupljenim bhaktama! <b>Hare&nbsp;Krishna!</b></p>
+		<p class="stih jezikEN">All glories to the assembled devotees! <b>Hare&nbsp;Krishna!</b></p>
+		<p class="stih jezikHR">Sva slava okupljenim bhaktama! <b>Hare&nbsp;Krishna!</b></p>
+		<p class="stih jezikEN">All glories to the assembled devotees! <b>Hare&nbsp;Krishna!</b></p>
+
+		<p class="stih jezikHR">Sva slava Śrī Guruu i Śrī Gaurāṅgi. </br>Sva slava Śrīla Prabhupādi.</p>
+		<p class="stih jezikEN">All glories to Śrī Guru and Śrī Gaurāṅga. </br>All glories to Śrīla Prabhupāda.</p>
+	</song>
+
+<song id="srinrisimhapranama"> 
+	<h1 class=pjesmaNaslov>Śrī Nṛsimha Praṇama</h1>
+	<h2 class=pjesmaNaslovPopularni>Namaste Narasimhāya</h2>
+	<!-- <p class=autor>Vyasadeva</p> -->
+	<p class="stih"><span class=numS>(1)</span><br>
+		namas te narasimhāya<br>
+		prahlādāhlāda-dāyine<br>
+		hiraṇyakaśipor vakṣaḥ-<br>
+		śilā-ṭańka-nakhālaye</p>
+	<p class="prijevod jezikHR">Odajem poštovanje Gospodinu Nṛsimhi, koji bhaktama poput Prahlāde podaruje zadovoljstvo i čiji su nokti poput dlijeta na kamenolikim grudima demona Hiraṇyakaśipua.</p>
+		<p class="prijevod jezikEN">I offer my obeisances to Lord Nṛsimha, who gives joy to Prahlāda Maharaja and whose nails are like chisels on the stone like chest of the demon Hiraṇyakaśipu.</p>
+	<p class="stih"><span class=numS>(2)</span><br>
+		ito nṛsimhaḥ parato nṛsimho<br>
+		yato yato yāmi tato nṛsimhaḥ<br>
+		bahir nṛsimho hṛdaye nṛsimho<br>
+		nṛsimham ādim śaraṇam prapadye</p>
+	<p class="prijevod jezikHR">Gospodin Nṛsimha je i ovdje i ondje, gdje god da krenem, Nṛsimhadev je tamo! Nṛsimhadev je svuda, Nṛsimhadev je u srcu, predajem se Gospodinu Nṛsimhi, izvornom utočištu.</p>
+		<p class="prijevod jezikEN">Lord Nṛsimha is here and also there. Wherever I go Lord Nṛsimha is there. He is in the heart and is outside as well. I surrender to Lord Nṛsimha, the origin of all things and the supreme refuge.</p>
+	<p class="stih"><span class=numS>(3)</span><br>
+		tava kara-kamala-vare nakham adbhuta-śṛńgam<br>
+		dalita-hiraṇyakaśipu-tanu-bhṛńgam<br>
+		keśava dhṛta-narahari-rūpa jaya jagadīśa hare</p>
+		<p class="prijevod jezikHR">Čudesno oštrim noktima, na Tvojim lotosolikim rukama, rastrgao si tijelo demona Hiraṇyakaśipua, baš kao osu. O Keśava, Gospodine Hari, koji si uzeo oblik polučovjeka‑polulava, o gospodaru svemira, sva slava Tebi!</p>
+		<p class="prijevod jezikEN">Just as one can easily crush a wasp between one's fingernails, so in the same way the body of the wasp like demon Hiranyakasipu has been ripped apart by the wonderful pointed nails on Your beautiful lotus hands. O Keśava! O Lord of the universe! O Lord Hari, who have assumed the form of half-man, half-lion. All glories to You! </p>
+<hr>
+
+</song>
+
+
+<song id="jayaradhamadhava"> 
+	<h1 class=pjesmaNaslov>Śrī Kṛṣṇer Viṁśottara-Śata-Nām <span class=numS>(4)</span></h1>
+	<h2 class=pjesmaNaslovPopularni>Jaya Rādhā-Mādhava</h2>
+	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+		jaya rādhā-mādhava kuñja-bihārī<br>
+		gopī-jana-vallabha giri-vara-dhārī</p>
+		<p class="prijevod jezikHR">Sva slava Rādhinoj ljubavi, Mādhavi, koji uživa u razonodama po šumarcima Vṛndāvane. Subjekt je ljubavi i devocije mladih pastirica i držaoc je podignutog brda Govardhana.</p>
+
+		<p class="prijevod jezikEN">All glories to Rādhā's love, Mādhava, who enjoys pastimes in the groves of Vṛndāvana. He is the subject of love and devotion of cowherd maidens and the holder of the uplifted Govardhana hill.</p>
+	<p class="stih"><span class=numS>(2)</span><br>
+		yaśodā-nandana braja-jana-rañjana<br>
+		yāmuna-tīra-vana-cārī</p>
+	<p class="prijevod jezikHR">Voljeni je sin majke Yaśode. Izvor je zadovoljstva stanovnika Vraje. Luta i uživa u šumama duž obala rijeke Yāmune.</p>
+		<p class="prijevod jezikEN">He is the beloved son of mother Yaśoda. The delighter of the inhabitants of Vraja. He wanders in the forests along the banks of the River Yamuna.</p>
+<hr>
+
+</song>
+
+
+
+
+<song id=tulasikirtana>
+	<h1 class=pjesmaNaslov>Tulasī Kirtana</h1>
+	<p class=autor>Kṛṣṇa Dāsa</p>
+	<p class="stih">(Śrī Tulasī Praṇāma)<br>
+		vṛndāyai tulasī-devyai priyāyai keśavasya ca<br>
+		viṣṇu-bhakti-prade devī satya vatyai namo namaḥ
+	</p>
+	<p class="prijevod jezikHR">Neprestano odajem svoje poštovanje Vṛndi, Śrīmatī Tulasī Devī, koja je vrlo draga Gospodinu Keśavi. O božice, ti daruješ predano služenje Gospodina Kṛṣṇe i čuvaš najuzvišeniju istinu.</p>
+	<p class="prijevod jezikEN">I offer my repeated obeisances unto Vṛndā, Śrīmatī Tulasī-devī, who is very dear to Lord Keśava. O goddess, you bestow devotional service to Kṛṣṇa and you possess the highest truth.</p>
+	<p class="stih">(Śrī Tulasī-kīrtana)<br>
+		<span class=numS>(1)</span><br>
+		namo namaḥ tulasī kṛṣṇa-preyasi namo namaḥ<br>
+		rādhā-kṛṣṇa-sevā pābo ei abilāṣī
+	</p>
+	<p class="prijevod jezikHR">O, Tulasī, Kṛṣṇina voljena, neprestano ti se klanjam. Želim dostići služenje Śrī Śrī Rādhā-Kṛṣṇi.</p>
+	<p class="prijevod jezikEN">O Tulasī, beloved of Kṛṣṇa, I bow before you again and again. My desire is to obtain the service of Śrī Śrī Rādhā and Kṛṣṇa.</p>
+	<p class="stih"><span class=numS>(2)</span><br>
+		ye tomāra śaraṇa loy, tara vāñchā pūrṇa hoy<br>
+		kṛpā kori' koro tāre vṛndāvana-vāsi
+	</p>
+	<p class="prijevod jezikHR">Ispunjavaš sve želje onome tko uzme tvoje utočište. Pružajući mu svoju milost, pretvaraš ga u stanovnika Vṛndāvane.</p>
+	<p class="prijevod jezikEN">Whoever takes shelter of you has his wishes fulfilled. Bestowing your mercy on him, you make him a resident of Vṛndāvana.</p>
+	<p class="stih"><span class=numS>(3)</span><br>
+		mora ei abhilāṣa, vilāsa kuñje dio vāsa<br>
+		nayana heribo sadā yugala-rūpa-rāśi
+	</p>
+	<p class="prijevod jezikHR">Moja je želja da i meni dopustiš prebivati u gajevima koji pružaju zadovoljstvo, u Śrī Vṛndāvana-dhami. Tako će mi uvijek pred očima biti predivne zabave Rādhe i Kṛṣṇe.</p>
+	<p class="prijevod jezikEN">My desire is that you will also give me a residence in the pleasure groves of Śrī Vṛndāvana-dhāma. Thus within my vision I will always behold the beautiful pastimes of Rādhā and Kṛṣṇa.</p>
+	<p class="stih"><span class=numS>(4)</span><br>
+		ei nivedana dhara, sakhīra anugata koro<br>
+		sevā-adhikāra diye koro nīja dāsī
+	</p>
+	<p class="prijevod jezikHR">Molim te, pretvori me u sljedbenicu pastirica iz Vraje. Molim te, daj mi povlasticu predanog služenja i pretvori me u svoju sluškinju.</p>
+	<p class="prijevod jezikEN">I beg you to make me a follower of the cowherd damsels of Vraja. Please give me the privilege of devotional service and make me your own maidservant.</p>
+	<p class="stih"><span class=numS>(5)</span><br>
+		dīna kṛṣṇa-dāse koy, ei yena mora hoy<br>
+		śrī-rādhā-govinda-preme sadā yena bhāsi
+	</p>
+	<p class="prijevod jezikHR">Ovaj vrlo pao i bijedan Kṛṣṇin sluga se moli: "Neka uvijek plivam u ljubavi prema Śrī Rādhā i Govindi".</p>
+	<p class="prijevod jezikEN">This very fallen and lowly servant of Kṛṣṇa prays, "May I always swim in the love of Śrī Śrī Rādhā and Govinda".</p>
+	<p class="stih">(Śrī Tulasī Pradakṣiṇa)<br>
+		yāni kāni ca pāpāni brahma-hatyādikāni ca<br>
+		tāni tāni praṇaśyanti pradakṣiṇaḥ pade pade
+	</p>
+	<p class="prijevod jezikHR">Obilaženjem oko Śrīmatī Tulasī Devī svakim se korakom uništavaju svi grijesi koje smo počinili pa čak i grijeh ubijanja brahmana.</p>
+	<p class="prijevod jezikEN">When a person circumambulates Śrīmatī Tulasī-devī, all the sins he may have committed are destroyed at every step, even the sin of killing a brāhmaṇa.</p>
+<hr>
+
+</song>
+
+
+<song id=vaisnavapranama>
+	<h1 class=pjesmaNaslov>Vaiṣṇava Pranama</h1>
+	<p class="stih"><span class=numS>(1)</span><br>
+	vāñchā-kalpatarubhyaś ca kṛpā-sindhubhya eva ca<br>
+	patitānāṁ pāvanebhyo vaiṣṇavebhyo namo namaḥ
+	</p>
+	<p class="prijevod jezikHR">Odajem poštovanje svim Vaiṣṇavama, bhaktama Gospodina. Oni su poput drveća želja koji mogu ispuniti svačije želje i puni su suosjećanja za pale, uvjetovane, duše.</p>
+	<p class="prijevod jezikEN">I offer my respectful obeisances unto the Vaishnava devotees of the Lord. They are just like desire trees and can fulfill the desires of everyone, and they are full of compassion for the fallen conditioned souls.</p>
+
+
+	<hr>
+	
+</song>
+
+
+<song id=sriguruvandana>
+	<h1 class=pjesmaNaslov>Śrī Guru Vandana</h1>
+	<h2 class=pjesmaNaslovPopularni>Guru Puja</h2>
+	<p class=autor>Narottama Dasa Thakura</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+	śrī-guru-caraṇa-padma, kevala-bhakati-sadma,<br>
+	bando muñi sāvadhāna mate<br>
+	jāhāra prasāde bhāi, e bhava toriyā jāi,<br>
+	kṛṣṇa-prāpti hoy jāhā ha'te
+	</p>
+	<p class="prijevod jezikHR">Lotosolika stopala našeg duhovnog učitelja su jedini način kojim možemo dostići čisto predano služenje. Klanjam se njegovim lotosolikim stopalima s velikim strahopoštovanjem. Njegovom milošću možemo prijeći ocean materijalnih patnji i dobiti milost Krsne.</p>
+	<p class="prijevod jezikEN">The lotus feet of our spiritual master are the only way by which we can attain pure devotional service. I bow to his lotus feet with great awe and reverence. By his grace one can cross the ocean of material suffering and obtain the mercy of Krsna.</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>
+	guru-mukha-padma-vākya, cittete koribo aikya,<br>
+	ār nā koriho mane āśā<br>
+	śrī-guru-caraṇe rati, ei se uttama-gati,<br>
+	je prasāde pūre sarva āśā
+	</p>
+	<p class="prijevod jezikHR">Moja jedina želja je da moja svjesnost bude pročišćena riječima koje izviru iz njegovih lotosolikih usta. Privrženost njegovim lotosolikim stopalima je savršenstvo koje ispunjava sve želje. </p>
+	<p class="prijevod jezikEN">My only wish is to have my consciousness purified by the words emanating from his lotus mouth. Attachment to his lotus feet is the perfection that fulfills all desires.</p>
+	
+	<p class="stih"><span class=numS>(3)</span><br>
+	cakṣu-dān dilo jei, janme janme prabhu sei,<br>
+	divya jñān hṛde prokāśito<br>
+	prema-bhakti jāhā hoite, avidyā vināśa jāte,<br>
+	vede gāy jāhāra carito
+	</p>
+	<p class="prijevod jezikHR">On otvara moje zatamnjene oči i ispunjava mi srce transcendentalnim znanjem. On je moj gospodar život za životom. On zrači zanosnom premom i uništava svo neznanje. Vedski spisi pjevaju o njegovom karakteru. </p>
+	<p class="prijevod jezikEN">He opens my darkened eyes and fills my heart with transcendental knowledge. He is my Lord birth after birth. From him ecstatic prema emanates; by him ignorance is destroyed. The Vedic scriptures sing of his character.</p>
+	
+	<p class="stih"><span class=numS>(4)</span><br>
+	śrī-guru karuṇā-sindhu, adhama janāra bandhu,<br>
+	lokanāth lokera jīvana<br>
+	hā hā prabhu koro doyā, deho more pada-chāyā,<br>
+	ebe jaśa ghuṣuk tribhuvana
+	</p>
+	<p class="prijevod jezikHR">Naš duhovni učitelj je ocean milosti, prijatelj siromašnih i gospodar i učitelj bhakta. O gospodaru, budi milostiv prema meni! Daruj mi sjenu svojih lotosovih stopala. Neka se tvoja slava proširi u sva tri svijeta! </p>
+	<p class="prijevod jezikEN">Our spiritual master is the ocean of mercy, the friend of the poor, and the lord and master of the devotees. O Lokanatha Gosvāmī! O master! Be merciful unto me. Give me the shade of your lotus feet. Your fame is spread all over the three worlds.</p>
+	
+	
+<hr>
+
+</song>
+
+
+
+
+<song id=gauraarotik>
+	<h1 class=pjesmaNaslov>Ārati Kīrtana</h1>
+	<h2 class=pjesmaNaslov>Gaura Ārotik</h2>
+	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+		(kiba) jaya jaya gorācāńder āratiko śobhā<br>
+		jāhnavī-taṭa-vane jaga-mana-lobhā<br>
+		(gaurāńger ārotik śobhā jaga-janer-mana-lobhā)</p>
+	<p class="prijevod jezikHR">Sva slava, sva slava povoljnoj arati svečanosti slavljenja Gospodina Caitanye! U šumi na obali Jahnavi, ona privlači umove svih bića u svemiru.<br>
+	(Sjaj aratija Gospodina Gaurange privlači umove svih živih bića svemira)</p>
+	<p class="prijevod jezikEN">All glories, all glories to the beautiful arati ceremony of Lord Caitanya. This Gaura-arati is taking place in a grove on the banks of the Jahnavi (Ganges) and is attracting the minds of all living entities in the universe. <br>
+	(The splendor of Lord Gauranga’s arati attracts the minds of all living entities of the universe!)</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>
+		dakhiṇe nitāicāńd, bāme gadādhara<br>
+		nikaṭe advaita, śrīnivāsa chatra-dhara</p>
+	<p class="prijevod jezikHR">S desne strane Gospodina Caitanye stoji Gospodin Nityananda, a s lijeve je Šri Gadadhara. Do Nityanande je Šri Advaita, a pokraj Gadadhare Šrivas koji iznad glave Gospodina Caitanye drži ukrašeni suncobran.</p>
+	<p class="prijevod jezikEN">On Lord Caitanya's right side is Lord Nityananda and on His left is Sri Gadadhara. Nearby stands Sri Advaita, and Srivasa Thakura is holding an umbrella over Lord Caitanya's head.</p>
+
+	<p class="stih"><span class=numS>(3)</span><br>
+		bosiyāche gorācāńd ratna-simhāsane<br>
+		ārati koren brahmā-ādi deva-gaṇe</p>
+	<p class="prijevod jezikHR">Gospodin Caitanya sjedi na prijestolju od dragulja dok Brahma, okružen ostalim polubogovima, izvodi arati ceremoniju.</p>
+	<p class="prijevod jezikEN">Lord Caitanya has sat down on a jeweled throne, and the demigods, headed by Lord Brahma, perform the arati ceremony.</p>
+
+	<p class="stih"><span class=numS>(4)</span><br>
+		narahari-ādi kori' cāmara dhulāya<br>
+		sañjaya-mukunda-bāsu-ghoṣ-ādi gāya</p>
+	<p class="prijevod jezikHR">Narahari i drugi pratioci Gospodina Caitanye hlade Ga čamarama dok ostali, predvođeni Sanjayom, Mukundom i Vasu Ghošom, milozvučno pjevaju.</p>
+	<p class="prijevod jezikEN">Narahari Sarakara and other associates of Lord Caitanya fan Him with camaras, and devotees headed by Sanjaya Pandita, Mukunda Datta, and Vasu Ghosa sing sweet kirtana.</p>
+
+	<p class="stih"><span class=numS>(5)</span><br>
+		śańkha bāje ghaṇṭā bāje bāje karatāla<br>
+		madhura mṛdańga bāje parama rasāla<br>
+		(śankha bāje ghaṇṭā bāje madhur madhur madhur bāje)</p>
+	<p class="prijevod jezikHR">Zvuci školjki, zvona i cimbala, kao i slatki zvuci mridangi, vrhunski su ugodni za čuti.<br>
+	(Školjke odjekuju. Zvona odjekuju. Odjekuju slatkoća, slatkoća i slatkoća!)</p>
+	<p class="prijevod jezikEN">Conchshells, bells, and karatalas resound, and the mrdangas play very sweetly. This kirtana music is supremely sweet and relish able to hear.<br>
+	(Conchsells resound! bell resound! Sweetness, sweetness, and sweetness resounds!)</p>
+
+	<p class="stih"><span class=numS>(6)</span><br>
+		bahu-koṭi candra jini' vadana ujjvala<br>
+		gala-deśe bana-mālā kore jhalamala</p>
+	<p class="prijevod jezikHR">Sjaj prelijepog lica Gospodina Caitanye nadmašuje sjaj milijuna mjeseca, a vijenac od šumskoga cvijeća oko Njegova vrata također sja.</p>
+	<p class="prijevod jezikEN">The brilliance of Lord Caitanya's face conquers millions upon millions of moons, and the garland of forest flowers around His neck shines.</p>
+
+	<p class="stih"><span class=numS>(7)</span><br>
+		śiva-śuka-nārada preme gada-gada<br>
+		bhakativinoda dekhe gorāra sampada</p>
+	<p class="prijevod jezikHR">Dok se glasovi Šive, Šukadeve i Narade guše u zanosu duhovne ljubavi, Bhaktivinoda Thakura promatra obilja Gospodina Gaurange.</p>
+	<p class="prijevod jezikEN">Lord Siva, Sukadeva Gosvāmī, and Narada Muni are all there, and their voices are choked with the ecstasy of transcendental love. Thus Thakura Bhaktivinoda envisions the glory of Lord Sri Caitanya.</p>
+<hr>
+
+</song>
+    
+    
+
+<song id="damodarastaka">
+<h1 class="pjesmaNaslov">Śrī Dāmodarạ̄ṣṭaka</h1>
+<p class="autor">Satyavrata muni</p>
+
+<div class=thematicIcon></div>
+<style type="text/css">
+
+	img.thematicCover {
+		max-width: 100%;
+		border-radius: 10px;
+		width: 50vh;
+		height: 50vh;
+		margin: 0 auto;
+		display: block;
+		object-fit: cover;
+		object-position: bottom;
+	}
+	.thematicIcon {
+		position: relative;
+		max-width: 100%;
+		border-radius: 10px;
+		width: 50vh;
+		height: 50vh;
+		margin: 0 auto 10px;
+		display: block;
+		background-image: url(img/yasoda_damodar.jpg);
+		background-position: bottom;
+		background-size: cover;
+		background-repeat: no-repeat;
+		box-shadow: inset 0 0 100px #000000b3;
+		transition: width .2s, height .2s, background-position .2s;
+	}
+
+	@media screen and (orientation:portrait) { 
+		html.stick .thematicIcon {
+			position: sticky;
+			top: 10px;
+			width: 100%;
+			height: 40vh;
+			background-position-y: 84%;
+			outline: 10px solid white;
+			transition: width .2s, height .2s, background-position .2s;
+		}
+	}
+	@media screen and (orientation:landscape) { 
+		html.stick .thematicIcon {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 45vw;
+			height: 100vh;
+			border-radius: 0;
+			z-index: 1;
+		}
+		html.stick article {
+			margin: 0;
+			border-radius: 20px;
+			max-width: calc(55vw - 2em);
+			width: calc(55vw - 2em);
+			padding: 1em;
+			right: 0;
+			position: absolute;
+			border-radius: 0;
+			z-index: 2;
+		}
+		html.stick body {
+			margin: 0;
+			padding: 0;
+		}
+	}
+	.tech {
+		z-index: 20;
+		position: absolute;
+	}
+	/*@media screen and (min-width: 580px)  {
+		html.stick .thematicIcon {
+			position: sticky;
+			top: 10px;
+			width: 100%;
+			height: 0;
+			background-position-y: 84%;
+			outline: 10px solid white;
+			transition: width .2s, height .2s, background-position .2s;
+			padding-bottom: 70%;
+			min-height: 20%;
+		}
+	}*/
+</style>
+<script>
+	$('.thematicIcon').bind('click', function() {
+		$('html').toggleClass('stick');
+
+	})
+</script>
+
+
+<p class="stih"><span class=numS>(1)</span><br />
+namāmīśvaram sac-cid-ānanda-rūpam<br />
+lasat-kuṇḍalam gokule bhrājamanam<br />
+yaśodā-bhiyolūkhalād dhāvamānam<br />
+parāmṛṣṭam atyantato drutya gopyā</p>
+
+<p class="rijecporijec jezikHR prijevod"><strong>namami</strong>&nbsp;—&nbsp;klanjam se; <strong>ishvaram</strong>&nbsp;—&nbsp;Svevišnjem Gospodinu; <strong>sac‑cid‑ananda‑rupam</strong>&nbsp;—&nbsp;koji je utjelovljenje vječnosti, znanja i blaženstva; <strong>lasat‑kundalam</strong>&nbsp;—&nbsp;sa njišućim naušnicama; <strong>gokule</strong>&nbsp;—&nbsp;u Gokuli; <strong>bhrajamanam</strong>&nbsp;—&nbsp;koji sja; <strong>yaśodā‑bhiya</strong>&nbsp;—&nbsp;u strahu od Yashode; <strong>ulukhalad</strong>&nbsp;—&nbsp;od žrvnja; <strong>dhavamanam</strong>&nbsp;—&nbsp;bježati; <strong>para‑amrishtam</strong>&nbsp;—&nbsp;uhvaćen s leđa; <strong>atyantatah‑drutya</strong>&nbsp;—&nbsp;trčati brže; <strong>gopya</strong>&nbsp;—&nbsp;od strane gopije.</p>
+
+<p class="prijevod jezikHR">Svevišnjem Gospodinu — čije vječno tijelo, puno znanja i blaženstva, sija u Gokuli — odajem ponizno poštovanje. Njegove naušnice su se njihale dok je žurno pobjegao s drvenog žrvnja u strahu od Svoje majke Yaśode, koja Ga je, nakon jurnjave, konačno sustigla i uhvatila.</p>
+<p class="prijevod jezikEN">To the Supreme Lord, whose form is the embodiment of eternal existence, knowledge, and bliss, whose shark-shaped earrings are swinging to and fro, who is beautifully shining in the divine realm of Gokula, who is quickly running from the wooden grinding mortar in fear of mother Yaśoda, but who has been caught from behind by her who ran after Him with greater speed - to that Supreme Lord, Sri Damodara, I offer my humble obeisances.</p>
+
+<p class="stih"><span class=numS>(2)</span><br />
+rudantam muhur netra-yugmam mṛjantam<br />
+karāmbhoja-yugmena sātańka-netram<br />
+muhuḥ śvāsa-kampa-trirekhāńka-kaṇṭha-<br />
+sthita-graivam dāmodaram bhakti-baddham</p>
+
+<p class="rijecporijec jezikHR prijevod"><strong>rudantam</strong>&nbsp;—&nbsp;plačući; <strong>muhuh</strong>&nbsp;—&nbsp;iznova i iznova; <strong>netra‑yugmam</strong>&nbsp;—&nbsp;dva oka; <strong>mrijantam</strong>&nbsp;—&nbsp;trljati; <strong>kara‑ambhoja‑yugmena</strong>&nbsp;—&nbsp;sa dvijema lotosolikim rukama; <strong>satanka‑netram</strong>&nbsp;—&nbsp;prestrašenih očiju; <strong>muhuh</strong>&nbsp;—&nbsp;iznova i iznova; <strong>shvasa</strong>&nbsp;—&nbsp;zbog brzog disanja; <strong>kampa</strong>&nbsp;—&nbsp;drhtanje; <strong>tri‑rekha‑anka‑kantha</strong>&nbsp;—&nbsp;na vratu s tri crte, poput školjke; <strong>sthita</strong>&nbsp;—&nbsp;smješteno; <strong>graiva</strong>&nbsp;—&nbsp;ogrlica; damodaram&nbsp;—&nbsp;Damodaru; <strong>bhakti‑baddham</strong>&nbsp;—&nbsp;Koga veže bhakti.</p>
+
+<p class="prijevod jezikHR">Uhvaćen, rasplakao se i lotosolikim rukama stao neprestano trljati oči koje su bile pune straha, a oko Njegova vrata s tri crte, baš poput onih na školjki, uslijed drhtanja i brzog disanja, tresla se ogrlica. Tom Damodari, koji može biti vezan samo s bhakti, odajem ponizno poštovanje.</p>
+<p class="prijevod jezikEN">He is crying and rubbing His eyes again and again with His two lotus hands. His eyes are filled with fear, and the necklace of pearls around His neck, which is marked with three lines like a conch shell, is shaking because of His quick breathing due to crying. To this Supreme Lord, Sri Damodara, whose belly is bound not with ropes but with His mother's pure love, I offer my humble obeisances.</p>
+
+<p class="stih"><span class=numS>(3)</span><br />
+itīdṛk sva-līlābhir ānanda-kuṇḍe<br />
+sva-ghoṣam nimajjantam ākhyāpayantam<br />
+tadīyeṣita-jñeṣu bhaktair jitatvam<br />
+punaḥ prematas tam śatāvṛtti vande</p>
+
+<p class="rijecporijec jezikHR prijevod"><strong>iti</strong>&nbsp;—&nbsp;Tako; <strong>idrik‑sva‑lilabhih</strong>&nbsp;—&nbsp;takvim aktivnostima; <strong>ananda‑kunde</strong>&nbsp;—&nbsp;u jezeru baženstva; <strong>sva‑ghosham</strong>&nbsp;—&nbsp;Njegovo selo; <strong>nimajjantam</strong>&nbsp;—&nbsp;uranjanje; <strong>akhyapayantam</strong>&nbsp;—&nbsp;otkrivanje; <strong>tadiya‑ishita‑jneshu</strong>&nbsp;—&nbsp;onima koji su svjesni Njegove slave; <strong>bhaktaih jitatvam</strong>&nbsp;—&nbsp;Kojeg su osvojili bhakte; <strong>punah</strong>&nbsp;—&nbsp;opet; <strong>prematah</strong>&nbsp;—&nbsp;iz naklonosti; <strong>tam</strong>&nbsp;—&nbsp;prema Njemu; <strong>shata‑avritti</strong>&nbsp;—&nbsp;stotine puta; <strong>vande</strong>&nbsp;—&nbsp;pjevam Njegove slave.</p>
+
+<p class="prijevod jezikHR">Takvim zabavama uronio je stanovnike Gokule u ocean blaženstva, a osobama koje su s poštovanjem i bojaznošću zaokupljene znanjem o Njegovoj veličanstvenosti otkriva da Ga mogu osvojiti samo bhakte svojom čistom ljubavlju. Iz ljubavi, opetovano Ga slavim stotinama puta.</p>
+<p class="prijevod jezikEN">By such childhood pastimes as this He is drowning the inhabitants of Gokula in pools of ecstasy, and is revealing to those devotees who are absorbed in knowledge of His supreme majesty and opulence that He is only conquered by devotees whose pure love is imbues with intimacy and is free from all conceptions of awe and reverence. With great love I again offer my obeisances to Lord Damodara hundreds and hundreds of times.</p>
+
+<p class="stih"><span class=numS>(4)</span><br />
+varam deva mokṣam na mokṣāvadhim vā<br />
+na canyam vṛṇe ‘ham vareṣād apīha<br />
+idam te vapur nātha gopāla-bālam<br />
+sadā me manasy āvirāstām kim anyaih</p>
+
+<p class="rijecporijec jezikHR prijevod"><strong>varam</strong>&nbsp;—&nbsp;blagodat; <strong>deva</strong>&nbsp;—&nbsp;o Svevišnji Gospodine; <strong>moksham</strong>&nbsp;—&nbsp;oslobođenje; <strong>na</strong>&nbsp;—&nbsp;ne; <strong>moksha-avadhim</strong>&nbsp;—&nbsp;najviši stupanj oslobođenja; <strong>va</strong>&nbsp;—&nbsp;ili; <strong>na ca</strong>&nbsp;—&nbsp;niti; <strong>anyam</strong>&nbsp;—&nbsp;drugo; <strong>vrine</strong>&nbsp;—&nbsp;izabrati; <strong>aham</strong>&nbsp;—&nbsp;ja; <strong>vara-ishad</strong>&nbsp;—&nbsp;od Tebe, davatelja svake moguće blagodati; <strong>api</strong>&nbsp;—&nbsp;čak; <strong>iha</strong>&nbsp;—&nbsp;ovdje; <strong>idam</strong>&nbsp;—&nbsp;ovo; <strong>te</strong>&nbsp;—&nbsp;Tvoje; <strong>vapuh</strong>&nbsp;—&nbsp;od; <strong>natha</strong>&nbsp;—&nbsp;O Gospodine; <strong>gopala-balam</strong>&nbsp;—&nbsp;kao dijete pastir; <strong>sada</strong>&nbsp;—&nbsp;uvijek; <strong>me</strong>&nbsp;—&nbsp;moje; <strong>manasi</strong>&nbsp;—&nbsp;u umu; <strong>avirastam</strong>&nbsp;—&nbsp;može ući; <strong>kim</strong>&nbsp;—&nbsp;od kakve je koristi; <strong>anyaih</strong>&nbsp;—&nbsp;drugo (blagodati)</p>
+
+<p class="prijevod jezikHR">Gospodine, iako možeš podariti sve vrste blagoslova, ne molim Ti se radi blagodati impersonalnog oslobođenja, ni najvišeg oslobođenja — vječnog života u Vaikunthi — niti radi bilo koje druge dobrobiti. O Gospodine moj, želim samo da ovaj Tvoj oblik malog dječaka pastira bude uvijek prisutan u mome srcu, jer od kakve koristi mi može biti bilo koja druga dobrobit osim te?</p>
+<p class="prijevod jezikEN">O Lord, although You are able to give all kinds of benedictions, I do not pray to You for the boon of impersonal liberation, nor the highest liberation of eternal life in Vaikuntha, nor any other boon. O Lord, I simply wish that this form of Yours as Bala Gopala in Vrndavana may ever be manifest in my heart, for what is the use to me of any other boon besides this?</p>
+
+<p class="stih"><span class=numS>(5)</span><br />
+idam te mukhāmbhojam atyanta-nīlair<br />
+vṛtam kuntalaiḥ snigdha-raktaiś ca gopyā<br />
+muhuś cumbitam bimba-raktādharam me<br />
+manasy āvirāstām alam lakṣa-lābhaih</p>
+
+<p class="rijecporijec jezikHR prijevod"><strong>idam</strong>&nbsp;—&nbsp;ovo; <strong>te</strong>&nbsp;—&nbsp;Tvoje; <strong>mukha-ambhojam</strong>&nbsp;—&nbsp;lotosoliko lice; <strong>atyanta‑nilaih</strong>&nbsp;—&nbsp;tamnoplava; <strong>vritam</strong>&nbsp;—&nbsp;okružen; <strong>kuntalaih</strong>&nbsp;—&nbsp;pramenovima kose; <strong>snigdha‑raktaih</strong>&nbsp;—&nbsp;sjajna i crvenkasta; <strong>ca</strong>&nbsp;—&nbsp;i; <strong>gopya</strong>&nbsp;—&nbsp;od gopije (Yaśode); <strong>muhuh</strong>&nbsp;—&nbsp;iznova i iznova; <strong>cumbitam</strong>&nbsp;—&nbsp;poljubljeno; <strong>bimba-rakta-adharam</strong>&nbsp;—&nbsp;ima usne crvene kao bimba voće; <strong>me</strong>&nbsp;—&nbsp;moje; <strong>manasi</strong>&nbsp;—&nbsp;u umu; <strong>avirastam</strong>&nbsp;—&nbsp;može ući; <strong>alam</strong>&nbsp;—&nbsp;nema koristi od; <strong>laksha-labhaih</strong>&nbsp;—&nbsp;stotine tisuća blagodati.</p>
+
+<p class="prijevod jezikHR">Tvoje lotosoliko lice okruženo je crvenkasto sjajnim kovrdžama tamne kose i ukrašeno usnama crvenim poput voća bimba. Neka Tvoje lice, iznova i iznova ljubljeno od Tvoje majke, bude uvijek prisutno u mome umu. Nikakve koristi nemam od tisuća drugih blagodati.</p>
+<p class="prijevod jezikEN">O Lord, Your lotus face, which is encircled by locks of soft black hair tinged with red, is kissed again and again by mother Yasoda, and Your lips are reddish like the bimba fruit. May this beautiful vision of Your lotus face be ever manifest in my heart. Thousands and thousands of other benedictions are of no use to me.</p>
+
+<p class="stih"><span class=numS>(6)</span><br />
+namo deva dāmodarānanta viṣṇo<br />
+prasīda prabho duḥkha-jālābdhi-magnam<br />
+kṛpā-dṛṣṭi-vṛṣṭyāti-dīnam batānu<br />
+gṛhāṇeṣa mām ajñam edhy akṣi-dṛśyah</p>
+
+<p class="rijecporijec jezikHR prijevod"><strong>namaḥ</strong>&nbsp;—&nbsp;Klanjam Ti se; <strong>deva</strong>&nbsp;—&nbsp;o Svevišnji; <strong>damodara</strong>&nbsp;—&nbsp;o Damodara; <strong>ananta</strong>&nbsp;—&nbsp;o Neograničeni; <strong>vishno</strong>&nbsp;—&nbsp;o Sveprisutni; <strong>prasida</strong>&nbsp;—&nbsp;budi milostiv; <strong>prabho</strong>&nbsp;—&nbsp;o Svemogući; <strong>duhkha‑jala‑abdhi‑magnam</strong>&nbsp;—&nbsp;utapam se u oceanu tuge; <strong>kripa‑drishti‑vrishtya</strong>&nbsp;—&nbsp;Svojim milosrdnim pogledima; <strong>ati‑dinam</strong>&nbsp;—&nbsp;krajnje jadan; <strong>anugrihana</strong>&nbsp;—&nbsp;blagoslovi me; <strong>isha</strong>&nbsp;—&nbsp;o Vrhovno neovisni; <strong>mam</strong>&nbsp;—&nbsp;mene; <strong>ajñam</strong>&nbsp;—&nbsp;neuki; <strong>edhi</strong>&nbsp;—&nbsp;pojaviti; <strong>akshi‑drisyah</strong>&nbsp;—&nbsp;pred mojim očima.</p>
+
+<p class="prijevod jezikHR">Klanjam ti se Damodara, o neograničeni, sveprožimajući Bože! O Gospodaru, budi milostiv prema meni! Svojim milostivim pogledima izbavi ovu bespomoćnu neuku osobu koja je utopljena u ocean svjetovnih tuga i postani vidljiv mojim očima.</p>
+<p class="prijevod jezikEN">O Supreme Godhead, I offer my obeisances unto You. O Damodara! O Ananta! O Vishnu! O master! O my Lord, be pleased upon me. By showering Your glance of mercy upon me, deliver this poor ignorant fool who is immersed in an ocean of worldly sorrows, and become visible to my eyes.</p>
+
+<p class="stih"><span class=numS>(7)</span><br />
+kuverātmajau baddha-mūrtyaiva yadvat<br />
+tvayā mocitau bhakti-bhājau kṛtau ca<br />
+tathā prema-bhaktim svakām me prayaccha<br />
+na mokṣe graho me ‘sti dāmodareha</p>
+
+<p class="rijecporijec jezikHR prijevod"><strong>kuvera‑ātmajau</strong>&nbsp;—&nbsp;Dvojica sinova Kuvere; <strong>baddha‑mūrtā</strong>&nbsp;—&nbsp;zbog (Tebe), svezanog (za žrvanj); <strong>eva</strong>&nbsp;—&nbsp;baš; <strong>yat‑vat</strong>&nbsp;—&nbsp;kao (što su); <strong>tvayā</strong>&nbsp;—&nbsp;zbog Tebe; <strong>mocitau</strong>&nbsp;—&nbsp;oslobođeni; <strong>bhakti‑bhājau</strong>&nbsp;—&nbsp;primateljima bhakti; <strong>kṛtau</strong>&nbsp;—&nbsp;učinjeni; <strong>ca</strong>&nbsp;—&nbsp;i; <strong>tathā</strong>&nbsp;—&nbsp;tako; <strong>prema‑bhaktim</strong>&nbsp;—&nbsp;najuzivšeniju predanost; <strong>svakām</strong>&nbsp;—&nbsp;Svoju; <strong>me</strong>&nbsp;—&nbsp;meni; <strong>prayaccha</strong>&nbsp;—&nbsp;daruj; <strong>na</strong>&nbsp;—&nbsp;ne; <strong>mokṣe</strong>&nbsp;—&nbsp;za oslobođenjem; <strong>grahah</strong>&nbsp;—&nbsp;želja; <strong>me</strong>&nbsp;—&nbsp;moja; <strong>asti</strong>&nbsp;—&nbsp;jest; <strong>dāmodara</strong>&nbsp;—&nbsp;Dāmodara; <strong>iha</strong>&nbsp;—&nbsp;ovdje</p>
+
+<p class="prijevod jezikHR">O Damodara, baš kao što si svezan konopcima za drveni žrvanj oslobodio dvojicu sinova Kuvere i učinio ih Svojim velikim bhaktama, molim Te, na sličan način, podari i meni tu najuzvišeniju predanost k Tebi. Jedino čeznem za tim i ne želim nikakvo oslobođenje.</p>
+<p class="prijevod jezikEN">O Lord Damodara, just as the two sons of Kuvera, Manigriva and Nalakuvara, were delivered from the curse of Narada and made into great devotees by You in Your form as a baby tied with rope to a wooden grinding mortar, in the same way, please give to me Your own prema-bhakti. I only long for this and have no desire for any kind of liberation.</p>
+
+<p class="stih"><span class=numS>(8)</span><br />
+namas te ‘stu dāmne sphurad-dīpti-dhāmne<br />
+tvadīyodarāyātha viśvasya dhāmne<br />
+namo rādhikāyai tvadīya-priyāyai<br />
+namo ‘nanta-līlāya devāya tubhyam</p>
+
+<p class="rijecporijec jezikHR prijevod"><strong>namaḥ</strong>&nbsp;—&nbsp;Poštovanje; <strong>te</strong>&nbsp;—&nbsp;Tvojem; <strong>astu</strong>&nbsp;—&nbsp;neka bude; <strong>dāmne</strong>&nbsp;—&nbsp;konopcu; <strong>sphurat</strong>&nbsp;—&nbsp;blistavog; <strong>dīpti</strong>&nbsp;—&nbsp;sjaja; <strong>dhāmne</strong>&nbsp;—&nbsp;izvoru; <strong>tvadīya</strong>&nbsp;—&nbsp;Tvojem; <strong>udarāya</strong>&nbsp;—&nbsp;trbuščiću; <strong>atha</strong>&nbsp;—&nbsp;također; <strong>viśvasya</strong>&nbsp;—&nbsp;cijelog svemira; <strong>dhāmne</strong>&nbsp;—&nbsp;utočištu; <strong>namaḥ</strong>&nbsp;—&nbsp;poštovanje; <strong>rādhikāyai</strong>&nbsp;—&nbsp;Rādhiki; <strong>tvadīya</strong>&nbsp;—&nbsp;Tvojoj; <strong>priyāyai</strong>&nbsp;—&nbsp;voljenoj; <strong>namaḥ</strong>&nbsp;—&nbsp;poštovanje; <strong>ananta‑līlāya</strong>&nbsp;—&nbsp;beskrajne zabave; <strong>devāya</strong>&nbsp;—&nbsp;Božanskoj osobi; <strong>tubhyam</strong>&nbsp;—&nbsp;Tebi</p>
+
+<p class="prijevod jezikHR">Odajem ponizno poštovanje blistavo sjajnom konopcu kojim je svezan Tvoj trbuščić. Potom odajem ponizno poštovanje Tvom trbuščiću, prebivalištu cijeloga svemira. Ponizno se klanjam Tvojoj najvoljenijoj Shrim&aacute;ti Rādhiki i odajem svo poštovanje Tebi, Svevišnjem Gospodinu, koji provodi beskrajne zabave.</p>
+<p class="prijevod jezikEN">O Lord Damodara, I first of all offer my obeisances to the brilliantly effulgent rope which binds Your belly. I then offer my obeisances to Your belly, which is the abode of the entire universe. I humbly bow down to Your most beloved Srimati Radharani, and I offer all obeisances to You, the Supreme Lord, who displays unlimited pastimes.</p>
+
+
+<hr>
+
+</song>
+    
+    
+<song id=bhajahuremana>
+	<h1 class=pjesmaNaslov>Bhaja Hū Re Mana</h1>
+	<p class=autor>Govinda dāsa Kavirāja</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+	bhajahū re mana śrī-nanda-nandana<br>
+	abhaya-caraṇāravinda re<br>
+	durlabha mānava-janama sat-sańge<br>
+	taroho e bhava-sindhu re</p>
+	<p class="prijevod jezikHR">O ume, samo obožavaj lotosolika stopala sina Nande, koja osobu čine neustrašivom. <br>
+	Stekavši ovo rijetko ljudsko rođenje, prijeđi preko oceana svjetovnog postojanja kroz druženje sa svetim osobama.</p>
+	<p class="prijevod jezikEN">O mind, just worship the lotus feet of the son of Nanda, which make one fearless. Having obtained this rare human birth, cross over this ocean of worldly existence through the association of saintly persons.</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>
+	śīta ātapa bāta bariṣaṇa<br>
+	e dina jāminī jāgi re<br>
+	biphale sevinu kṛpaṇa durajana<br>
+	capala sukha-laba lāgi' re</p>
+	<p class="prijevod jezikHR">Ne spavam ni danju ni noću jer me more vrućina i hladnoća, vjetar i kiša. Beskorisno sam služio zle i škrte ljude zbog trunka nestalne sreće.</p>
+	<p class="prijevod jezikEN">Both in the day and at night I remain sleepless, suffering the pains of the heat and cold, the wind and the rain. For a fraction of flickering happiness I have uselessly served wicked and miserly men.</p>
+
+	<p class="stih"><span class=numS>(3)</span><br>
+	e dhana, yaubana, putra, parijana<br>
+	ithe ki āche paratīti re<br>
+	kamala-dala-jala, jīvana ṭalamala<br>
+	bhajahū hari-pada nīti re</p>
+	<p class="prijevod jezikHR">Kakvo su jamstvo istinske sreće bogatstvo, mladost, sinovi i rođaci koje imamo? <br>
+	Ovaj život treperi poput kapljice vode na lotosovoj latici, stoga uvijek trebate služiti i obožavati stopala Gospodina Harija.</p>
+	<p class="prijevod jezikEN">What assurance of real happiness is there in all of one's wealth, youthfulness, sons, and family members? This life is tottering like a drop of water on a lotus petal; therefore you should always serve and worship the divine feet of Lord Hari.</p>
+
+	<p class="stih"><span class=numS>(4)</span><br>
+	śravaṇa, kīrtana, smaraṇa, vandana,<br>
+	pāda-sevana, dāsya re<br>
+	pūjana, sakhī-jana, ātma-nivedana<br>
+	govinda-dāsa-abhilāṣa re</p>
+	<p class="prijevod jezikHR">Želja i velika čežnja Govinda dāse je biti uključen u devet procesa bhakti: <br>
+	da sluša i pjeva o slavama Gospodina Harija; da se neprestano sjeća na Njega; da Mu upućuje molitve; da služi Gospodinova lotosolika stopala; da Mu služi kao sluga; da Ga obožava cvijećem, mirisnim štapićima i drugim stvarima; da Mu služi kao prijatelj te da potpuno preda samog sebe Gospodinu.</p>
+	<p class="prijevod jezikEN">It is the desire and great longing of Govinda Dasa to engage himself in the nine processes of bhakti, namely hearing the glories of Lord Hari and chanting those glories, constantly remembering Him and offering prayers to Him, serving the Lord's lotus feet, serving the Supreme Lord as a servant, worshiping Him with flowers and incense and so forth, serving Him as a friend, and completely offering the Lord one's very self.</p>
+
+<hr>
+
+</song>
+
+
+
+<song id=srirupamanjaripadaseimorasampada>
+	<h1 class=pjesmaNaslov>Lalasa Song (1)</h1>
+	<h2 class=pjesmaNaslovPopularni>Śri Rupa Manjari Pada</h2>
+	<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+	śrī-rūpa-mañjarī-pada, sei mora sampada,<br>
+	sei mor bhajana-pūjana<br>
+	sei mora prāṇa-dhana, sei mora ābharaṇa,<br>
+	sei mor jīvanera jīvana</p>
+	<p class="prijevod jezikHR">Lotosolika stopala Śrī Rūpe Mañjarī moje su blago, moje su predano služenje i predmet su mog obožavanja. Ona su smisao mog života, ona su moji ukrasi i nosioci mog života.</p>
+	<p class="prijevod jezikEN">The lotus feet of Sri Rupa Manjari are my treasure, my devotional service, and my object of worship. They give my life meaning, and they are the life of my life.</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>
+	sei mora rasa-nidhi, sei mora vāñchā-siddhi,<br>
+	sei mor vedera dharama<br>
+	sei brata, sei tapa, sei mora mantra-japa,<br>
+	sei mor dharama-karama</p>
+	<p class="prijevod jezikHR">Ona su savršenstvo rase, koje vrijedi dostići. Ona su moja najuzvišenija želja. Za mene su ona zakon vedskih spisa i ona su moji religiozni zavjeti. Ona su moje pokore i moje recitiranje mantri. Ona su moje pobožne aktivnosti.</p>
+	<p class="prijevod jezikEN">They are the perfection of rasa, and they are perfection worthy of attainment. They are the very law of the Vedlc scriptures for me. They are the meaning of all my fasts and penances and my silent uttering of my mantras. They are the basis of religion and activities.</p>
+
+	<p class="stih"><span class=numS>(3)</span><br>
+	anukūla habe vidhi, se-pade hoibe siddhi,<br>
+	nirakhibo e dui nayane<br>
+	se rūpa-mādhurī-rāśi, prāṇa-kuvalaya-śaśi,<br>
+	praphullita habe niśi-dine</p>
+	<p class="prijevod jezikHR">Zahvaljujući procesu povoljnog predanog služenja, osoba će dostići savršenstvo i progledat će svojim očima. Njen transcendentalni oblik blista u mom srcu poput mjesečine, pa zato moje srce sja i uzvraća.</p>
+	<p class="prijevod jezikEN">By the purifying process of favorable devotional service, one will attain perfection and with these two eyes be able to see. Her transcendental form is shining like moonlight in my heart, and my heart therefore shines and reciprocates. </p>
+
+	<p class="stih"><span class=numS>(4)</span><br>
+	tuwā adarśana-ahi, garale jāralo dehī,<br>
+	ciro-dina tāpita jīvana<br>
+	hā hā rūpa koro doyā, deho more pada-chāyā,<br>
+	narottama loilo śaraṇa<br>
+	<p class="prijevod jezikHR">Nemogućnost da je vidim nalikuje dozi snažnog otrova pa ću patiti do kraja svog života. Narottama dāsa Ṭhākura kaže: “Molim te, daj mi svoju milost i sjenu svojih lotosolikih stopala.”</p>
+	<p class="prijevod jezikEN">Your absence from my vision is like a dose of strong poison, and I will suffer till the end of my life. Narottama dasa Thakura says: "Please give me your mercy and the shade of your lotus feet".</p>
+
+
+<hr>
+
+</song>
+
+
+
+
+
+<song id=nitaipadakamala>
+	<h1 class=pjesmaNaslov>Śrī Nityānanda-Nistha</h1>
+	<h2 class=pjesmaNaslovPopularni>Nitāi Pada Kamala</h2>
+	<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+		nitāi-pada-kamala, koṭi-candra-suśītala<br>
+		je chāyāy jagata jurāy<br>
+		heno nitāi bine bhāi, rādhā-kṛṣṇa pāite nāi<br>
+		dṛḍha kori' dharo nitāir pāy</p>
+	<p class="prijevod jezikHR">Lotosolika stopala Gospodina Nityānande okrilje su pod kojim se dobija okrepljujuća mjesečina ne jednog mjeseca, već milijuna njih. Ako svijet želi imati pravi mir, trebao bi stati pod okrilje Gospodina Nityānande. Ako osoba ne stane pod okrilje sjene lotosolikih stopala Gospodina Nityānande, jako teško će pristupiti Rādhā-Kṛṣṇi. Ako uistinu želi ući u plesnu zabavu Rādhā-Kṛṣṇe, mora se čvrsto uhvatiti za lotosolika stopala Gospodina Nityānande.</p>
+	<p class="prijevod jezikEN">The lotus feet of Lord Nityananda are a shelter where one will get the soothing moonlight not only of one, but of millions of moons. If the world wants to have real peace, it should take shelter of Lord Nityananda. Unless one takes shelter under the shade of the lotus feet of Lord Nityananda, it will be very difficult for him to approach Radha-Krsna. If one actually wants to enter into the dancing party of Radha-Krsna, he must firmly catch hold of the lotus feet of Lord Nityananda.</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>se sambandha nāhi jā'r, bṛthā janma gelo tā'r<br>sei paśu boro durācār<br>nitāi nā bolilo mukhe, majilo samsāra-sukhe<br>vidyā-kule ki koribe tār</p>
+	<p class="prijevod jezikHR">Smatra se da je onaj tko nije razvio svoj odnos s Nityānande Prabhuom upropastio svoje vrijedno ljudsko rođenje. Takav je čovjek, zapravo, nepripitomiva životinja. Uronio je u takozvanu materijalnu sreću, jer nikada nije izustio Nityānandino sveto ime. Od kakve su mu pomoći njegova beskorisna naobrazba i obiteljska tradicija?</p>
+	<p class="prijevod jezikEN">Anyone who has not established his relationship with Nityananda Prabhu is understood to have spoiled his valuable human birth. Such a human being is actually an uncontrollable animal. Because he never uttered the holy name of Nityananda, he has become merged into so-called material happiness. What can his useless education and family tradition do to help him?</p>
+
+	<p class="stih"><span class=numS>(3)</span><br>ahańkāre matta hoiyā, nitāi-pada pāsariyā<br>asatyere satya kori māni<br>nitāiyer koruṇā habe, braje rādhā-kṛṣṇa pābe<br>dharo nitāi-caraṇa du'khāni</p>
+	<p class="prijevod jezikHR">Osoba luda od lažnog ugleda i poistovjećenosti s tijelom misli: &ldquo;Oh, tko je Nityānanda? Što to On može učiniti za mene? Ne marim!&rdquo; Rezultat toga je prihvaćanje lažnog ega za istinito. Ako se uistinu želiš približiti druženju s Rādhā-Kṛṣṇom, prije svega moraš dobiti milost Gospodina Nityānande. Kad ti On ukaže milost, moći ćeš pristupiti Rādhā-Kṛṣṇi. Stoga se trebaš čvrsto uhvatiti za lotosolika stopala Gospodina Nityānande.</p>
+	<p class="prijevod jezikEN">Being maddened after false prestige and identification with the body, one is thinking, oh, what is Nityananda? What can He do for me? I don't care. The result is that he is accepting something false to be truth. If you actually want to approach the association of Radha-Krsna, you must first achieve the mercy of Lord Nityananda. When He is merciful toward you, then you will be able to approach Radha-Krsna. Therefore you should firmly grasp the lotus feet of Lord Nityananda.</p>
+
+	<p class="stih"><span class=numS>(4)</span><br>nitāiyer caraṇa satya, tāhāra sevaka nitya<br>nitāi-pada sadā koro āśa<br>narottama boro dukhī, nitāi more koro sukhī<br>rākho rāńgā-caraṇera pāśa</p>
+	<p class="prijevod jezikHR">Lotosolika stopala Gospodina Nityānande nisu opsjena, već stvarnost. Onaj tko se zaokupi transcendentalnim služenjem Nityānandi s ljubavlju isto tako je transcendentalan. Uvijek pokušaj uhvatiti lotosolika stopala Gospodina Nityānande. Ovaj je Narottama dāsa vrlo nesretan, pa se zato moli Gospodinu Nityānandi kako bi postao sretan. Dragi moj Gospodine, molim Te, drži me uza Svoja stopala.</p>
+	<p class="prijevod jezikEN">The lotus feet of Nityananda are not illusion; they are a fact. One who engages in the transcendental loving service of Nityananda is also transcendental. Always try to catch the lotus feet of Lord Nityananda. This Narottama dasa is very unhappy, therefore I am praying to Lord Nityananda to make me happy. My dear Lord, please keep me close to Your lotus feet.</p>
+
+
+<hr>
+
+</song>
+
+
+
+
+
+<song id=paramakarunapahuduijana>
+	<h1 class=pjesmaNaslov>Śrī-Śrī-Gaura-Nityānandera Daya</h1>
+	<h2 class=pjesmaNaslovPopularni>Parama Karuṇa</h2>
+	<p class=autor>Śrīla Locana dāsa Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+		parama karuṇa, pahū dui jana<br>
+		nitāi gauracandra<br>
+		saba avatāra-sāra śiromaṇi<br>
+		kevala ānanda-kanda</p>
+	<p class="prijevod jezikHR">Dva Gospodina, Nitāi–Gauracandra, jako su milostivi. Oni su suština svih inkarnacija. Poseban značaj ovih inkarnacija leži u tome što su uveli proces pjevanja i plesanja koji je jednostavno radostan.</p>
+	<p class="prijevod jezikEN">The two Lords, Nitāi–Gauracandra, are very merciful. They are the essence of all incarnations. The specific significance of these incarnations is that They introduced a process of chanting and dancing that is simply joyful.</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>bhajo bhajo bhāi, caitanya nitāi<br>sudṛḍha biśwāsa kori<br>viṣaya chāḍiyā, se rase majiyā,<br>mukhe bolo hari hari</p>
+	<p class="prijevod jezikHR">Dragi moj brate, molim te da sa čvrstim uvjerenjem i vjerom samo obožavaš Gospodina Caitanyu i Nityānandu. Ako netko ovim procesom želi biti svjestan Kṛṣne, mora se ostaviti svoje upletenosti u ugađanje osjetilima. Jednostavno treba pjevati: “Hare Kṛṣna! Hari Hari!” bez ikakvih motiva.</p>
+	<p class="prijevod jezikEN"></p>
+
+	<p class="stih"><span class=numS>(3)</span><br>dekho ore bhāi, tri-bhuvane nāi,<br>emona doyāla dātā<br>paśu pākhī jhure, pāṣāṇa vidare,<br>śuni' jāńra guṇa-gāthā</p>
+	<p class="prijevod jezikHR">Dragi moj brate, pokušaj samo ovo razmotriti. U tri svijeta ne postoji nitko nalik Gospodinu Caitanyi ili Gospodinu Nityānandi. Milostivost Njihovih odlika tako je velika da se, kad za Njih čuju, čak i ptice i zvijeri rasplaču, a kamenje topi.</p>
+	<p class="prijevod jezikEN">My dear brother, just try and examine this. Within the three worlds there is no one like Lord Caitanya or Lord Nityananda. Their merciful qualities are so great that upon hearing Them even birds and beasts cry and stones melt.</p>
+
+	<p class="stih"><span class=numS>(4)</span><br>samsāre majiyā, rohili poriyā,<br>se pade nahilo āśa<br>āpana karama, bhuñjāye śamana,<br>kahoye locana-dāsa</p>
+	<p class="prijevod jezikHR">Locana dasa žali što je zarobljen osjetilnim užicima. Kako ne osjeća nikakvu privlačnost prema lotosolikim stopalima Gospodina Caitanye i Gospodina Nityānande, Yamaraja, nadzornik smrti, kažnjava ga tako što mu ne dopušta da ga privuče ovaj pokret.</p>
+	<p class="prijevod jezikEN">But Locana dasa regrets that I am entrapped by sense gratification. Since I have no attraction for the lotus feet of Lord Caitanya and Lord Nityananda, then Yamaraja, the superintendent of death, is punishing me by not allowing me to be attracted by this movement.</p>
+
+
+
+<hr>
+
+</song>
+
+
+
+
+<song id=gaurangabolitehabe>
+	<h1 class=pjesmaNaslov>Lalasmayi Prarthana</h1>
+	<h2 class=pjesmaNaslovPopularni>Gaurāńga Bolite Habe</h2>
+	<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>'gaurāńga' bolite habe pulaka-śarīra<br>'hari hari' bolite nayane ba' be nīra</p>
+	<p class="prijevod jezikHR">Kada će doći taj prekrasan trenutak kada će mi tijelo drhtati od pjevanja imena Gospodina Gaurange? Kada će poteći suze iz mojih očiju dok pjevam Hare Kṛṣṇa?</p>
+	<p class="prijevod jezikEN">When will that opportune moment come to us, when there will be shivering of the body as soon as we chant Lord Gauranga's name?  While chanting Hare Krsna, when will there be tears in the eyes?</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>āra kabe nitāi-cānder koruṇā hoibe<br>samsāra-bāsanā mora kabe tuccha ha'be</p>
+	<p class="prijevod jezikHR">Kada će doći dan bezuzročne milosti Gospodina Nityanande, koju će mi darovati kako bi želje za materijalnim uživanjem postale potpuno beznačajne?</p>
+	<p class="prijevod jezikEN">When will I obtain the mercy of Lord Nityananda-candra?  When, by His mercy will the desire for material enjoyment become very insignificant?</p>
+	
+	<p class="stih"><span class=numS>(3)</span><br>viṣaya chāriyā kabe śuddha ha 'be mana<br>kabe hāma herabo śrī-bṛndābana</p>
+	<p class="prijevod jezikHR">Kada moj um, potpuno pročišćen, bude slobodan od materijalnih tjeskoba i želja, tada ću moći shvatiti Vrndavanu i bračnu ljubav Radhe i Kṛṣṇe, a moj duhovni život će biti uspješan.</p>
+	<p class="prijevod jezikEN">When the mind is completely purified, being freed from material anxieties and desires, then I shall be able to understand Vrndavana and the conjugal love of Radha and Krsna, and then my spiritual life will be successful.</p>
+	
+	<p class="stih"><span class=numS>(4)</span><br>rūpa-raghunātha-pade hoibe ākuti<br>kabe hāma bujhabo se jugala-pīriti</p>
+	<p class="prijevod jezikHR">Kada ću imati želju za proučavanjem knjiga koje su ostavili šestorica Gosvāmīja? <br>O ljubavnim zabavama Radhe i Kṛṣṇe treba učiti kroz učenja šestorice Gosvāmīja.</p>
+	<p class="prijevod jezikEN">When shall I be very much eager to study the books left by the Six Gosvāmī's, headed by Srila Rupa Gosvāmī and Srila Raghunatha dasa Gosvāmī?  By their instruction I shall be able to properly understand the loving affairs of Radha and Krsna.</p>
+	
+	<p class="stih"><span class=numS>(5)</span><br>rūpa-raghunātha-pade rahu mora āśa<br>prārthanā koroye sadā narottama-dāsa</p>
+	<p class="prijevod jezikHR">Moja jedina težnja je dostići lotosolika stopala šestorice Gosvāmīja na čelu sa Śrila Rupa Gosvāmījem i Śrila Raghunata dasa Gosvāmījem. Narottama dāsa se neprekidno moli da dosegne njihova lotosolika stopala.</p>
+	<p class="prijevod jezikEN">My only aspiration is to attain the lotus feet of the Six Gosvāmīs headed by Srila Rupa Gosvāmī and Srila Raghunatha dasa Gosvāmī. Narottama dasa constantly prays to attain their lotus feet.</p>
+	
+	<span class=" jezikHR">
+		<p class="smisao naslov">SMISAO</p>
+		<p class=smisao>Ovu pjesmu je spjevao Narottama das Thakura, veliki bhakta i acarya u Gaudiya Vaishnava sampradayi, učeničkom slijedu koji silazi od Gospodina Caitanye. Narottama das Thakura napisao je brojne pjesme koje su prepoznate kao vjerodostojne od strane svih vaišnava. Spjevao je te pjesme na jednostavnom bengalskom jeziku, ali je poruka i duboki smisao njegovih pjesama veoma značajan.</p>
+
+		<p class=smisao>U ovoj pjesmi on kaže: “‘gaurāńga’ bolite habe pulaka-śarīra” Savršenstvo pjevanja dostigao je onaj tko čim počne pjevati ime Gospodina Gaurange, koji je uveo ovaj sankirtana pokret, odmah počne drhtati, ali takvo što ne bi smo trebali oponašati i Narotama das Thakura se pita: “Kada ćemo doživjeti to povoljno iskustvo da zadrhtimo čim zapjevamo ime Gospodina Gaurange?” A nakon drhtanja: “‘hari hari’ bolite nayane ba’ be nīra” “Suze će se pojaviti u našim očima dok pjevamo Hare Krishna.”</p>
+
+		<p class=smisao>Potom on kaže: “āra kabe nitāi-cānder koruṇā hoibe” Svi mi tražimo milost Gospodina Nityanande. Smatra se da je Nityananda izvorni duhovni učitelj i u skladu s tim trebamo prići Gaurangi, Gospodinu Caitanyi, kroz milost Gospodina Nityanande. Koji je simptom osobe koja je dostigla bezuzročnu milost Gospodina Nityanande? Narottama das Thakura kaže da je simptom onoga tko je uistinu primio milost Gospodina Nityanande taj da više nema materijalnih želja. “āra kabe nitāi-cānder koruṇā hoibe samsāra-bāsanā mora kabe tuccha ha’be” Samsara vasana znači želja za materijalnim uživanjem i Narottama das se pita kada će ona postati potpuno beznačajna? Naravno, dok god imamo tijela moramo prihvatiti brojne materijalne stvari, ali ne u duhu uživanja, već samo da održimo tijelo i dušu zajedno.</p>
+
+		<p class=smisao>Narottama dasa dalje kaže: “rūpa-raghunātha-pade hoibe ākuti” “Kada ću snažno željeti proučavati knjige koje su ostavili šestorica gosvamija?” ākuti znači žudnja. Kao otac predanoga služenja Rupa Gosvāmī je napisao knjigu “Bhakti-rasamrita-sindhu” u kojoj su lijepe upute o predanom služenju. O njemu se govori i u Caitanya Caritamriti, kao i u drugim knjigama, a mi smo dali sažetak ovih uputa u našoj knjizi “Učenja Gospodina Caitanye”. Osoba treba učiti o ljubavnim zabavama Radhe i Krishne kroz učenja ovih šest gosvamija. Narottam das Thakur nas savjetuje da ne pokušavamo vlastitim nastojanjima shvatiti ljubav izmedju Radhe i Krishne. Trebali bi smo taj ljubavni odnos, yugala-piriti, pokušati shvatiti pod vodstvom gosvamija.</p>
+
+		<p class=smisao>Sve dok nam je um previše zaokupljen materijalističkim mislima, ne možemo ući u kraljevstvo Vrindavana. Ali Narottama das Thakura kaže: “viṣaya chāriyā kabe śuddha ha ‘be mana kabe hāma herabo śrī-bṛndābana” “Kada je um u potpunosti pročišćen, bivajući slobodan od materijalnih tjeskoba i žudnji, tada ću moći shvatiti Vrindavan i ljubav izmedju Radhe i Krishne, a moj duhovni život će postati uspješan.”</p>
+		<p class="smisao autor">Njegova Božanska milost A.C. Bhkativedanta Svami Prabhupada. 29.12.1968. Los Angeles, California, SAD</p>
+	</span>
+
+	<span class="jezikEN">
+		<p class="smisao naslov">Purport</p>
+		<p class=smisao>This song was sung by Narottama dasa Thakura, a great devotee and acarya in the Gaudiya Vaisnava-sampradaya, the disciplic succession coming down from Lord Caitanya. Narottama dasa Thakura has written many songs, which are recognized as authoritative by all Vaisnavas. He has sung these songs in simple Bengali language, but the purport-the deep meaning of his songs-is very significant.</p>
+
+		<p class=smisao>In this song he says, "'gauranga' bolite habe pulaka sarira". One has attained the perfection of chanting when as soon as he chants the name of Lord Gauranga, who initiated this sankirtana movement, at once there is shivering in his body. This is not to be imitated, but Narottama dasa Thakura is asking, "When will that opportune moment come to us when there will be shivering of the body as soon as we chant Lord Gauranga's name?" And after the shivering-'hari hari' bolite nayane ba 'be nira: "While chanting Hare Krsna, there will be tears in the eyes."</p>
+
+		<p class=smisao>Then he says, ara kabe nitai-cander koruna hoibe. We are all asking about the mercy of Lord Nityananda. Nityananda is supposed to be the original spiritual master, so we have to approach Gauranga, Lord Caitanya, through the mercy of Lord Nityananda. What is the symptom of a person who has achieved the causeless mercy of Lord Nityananda? Narottama dasa Thakura says that the symptom of one who has actually received the causeless mercy of Lord Nityananda is that he has no more material desire. Ara kabe nitai-cander koruna hoibe samsara-basana mora kabe tuccha ha'be. Samsara-basana means "desire for material enjoyment," and Narottama dasa wonders when it will become very insignificant. Of course, as long as we have bodies we have to accept so many material things, but not in the spirit of enjoyment, but only to keep body and soul together.</p>
+
+		<p class=smisao>Narottama dasa says further, rupa-raghunatha-pade hoibe akuti: "When shall I be very much eager to study the books left by the six Gosvāmīs?" Akuti means "eagerness." Because Rupa Gosvāmī is the father of devotional service, he has written a book called Bhakti-rasamrta-sindhu, in which there are nice directions on devotional service. These topics are also dealt with in Caitanya-caritamrta and other books, and we have given the summary of those directions in our book Teachings of Lord Caitanya. One has to learn of the conjugal loving affairs of Radha-Krsna through the teachings of these six Gosvāmīs. Narottama dasa Thakura directs us not to try to understand the conjugal love of Radha-Krsna by our own endeavor. We should try to understand this yugala-piriti, conjugal love, under the direction of the Gosvāmīs.</p>
+
+		<p class=smisao>As long as the mind is too much absorbed in materialistic thought, one cannot enter into the kingdom of Vrndavana. But Narottama dasa Thakura says, visaya chariya kabe suddha ha'be mana kabe hama herabo sri-brndabana: "When the mind is completely purified, being freed from material anxieties and desires, then I shall be able to understand Vrndavana and the conjugal love of Radha and Krsna, and then my spiritual life will be successful."</p>
+		<p class="smisao autor">His Divine grace A.C. Bhkativedanta Svami Prabhupada. December 29th 1968, Los Angeles, CA, USA</p>
+	</span>
+<hr>
+
+</song>
+
+
+
+
+<song id=manasadehogeho>
+	<h1 class=pjesmaNaslov>Atma Nivedana</h1>
+	<h2 class=pjesmaNaslovPopularni>Mānasa deho geho</h2>
+	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>mānasa, deho, geho, jo kichu mor<br>arpilū tuwā pade, nanda-kiśor!</p>
+	<p class="prijevod jezikHR">O mladoliki Nandin sine, um, tijelo i obitelj, sve što <br>može biti moje, predao sam Tvojim lotosovim stopalima.</p>
+	<p class="prijevod jezikEN">Mind, body, and family, whatever may be mine, I have surrendered at Your lotus feet, O youthful son of Nanda!</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>sampade vipade, jīvane-maraṇe<br>dāy mama gelā, tuwā o-pada baraṇe</p>
+	<p class="prijevod jezikHR">U sreći ili nesreći, u životu ili smrti, sve su teškoće nestale kada sam izabrao Tvoja stopala kao jedino utočište.</p>
+	<p class="prijevod jezikEN">In good fortune or in bad, in life or at death, all my difficulties have disappeared by choosing those feet of Yours as my only shelter.</p>
+
+	<p class="stih"><span class=numS>(3)</span><br>mārobi rākhobi-jo icchā tohārā<br>nitya-dāsa prati tuwā adhikārā</p>
+	<p class="prijevod jezikHR">Pogubi me ili me zaštiti kako Ti želiš, jer Ti si gospodar svog vječnog sluge.</p>
+	<p class="prijevod jezikEN">Slay me or protect me as You wish, for You are the master of Your eternal servant.</p>
+
+	<p class="stih"><span class=numS>(4)</span><br>janmāobi moe icchā jadi tor<br>bhakta-gṛhe jani janma hau mor</p>
+	<p class="prijevod jezikHR">Ako je to Tvoja želja, ponovo ću se roditi, ali neka to bude u domu Tvog bhakte.</p>
+	<p class="prijevod jezikEN">If it is Your will that I be born again, then may it be in the home of Your devotee.</p>
+
+	<p class="stih"><span class=numS>(5)</span><br>kīṭa-janma hau jathā tuwā dās<br>bahir-mukha brahma janme nāhi āś</p>
+	<p class="prijevod jezikHR">Mogu se ponovo roditi čak i kao crv samo da ostanem Tvoj bhakta. Nemam nikakvu želju roditi se kao Brahma, a biti protiv Tebe.</p>
+	<p class="prijevod jezikEN"></p>
+
+	<p class="stih"><span class=numS>(6)</span><br>bhukti-mukti-spṛhā vihīna je bhakta<br>labhaite tāko sańga anurakta</p>
+	<p class="prijevod jezikHR">Čeznem za društvom takvih bhakta koji su lišeni svih želja za materijalnim uživanjem ili oslobođenjem.</p>
+	<p class="prijevod jezikEN">I yearn for the company of that devotee who is completely devoid of all desire for worldly enjoyment or liberation.</p>
+
+	<p class="stih"><span class=numS>(7)</span><br>janaka, jananī, dayita, tanay<br>prabhu, guru, pati-tuhū sarva-moy</p>
+	<p class="prijevod jezikHR">Otac, majka, ljubavnik, sin, Gospodin, učitelj i suprug – Ti si mi to sve.</p>
+	<p class="prijevod jezikEN">Father, mother, lover, son, Lord, preceptor, and husband; You are everything to me.</p>
+
+	<p class="stih"><span class=numS>(8)</span><br>bhakativinoda kohe, śuno kāna!<br>rādhā-nātha! tuhū hāmāra parāṇa</p>
+	<p class="prijevod jezikHR">Ṭhākura Bhaktivinoda kaže: "O Kana, molim Te, čuj me!  O gospodaru Rādhe, Ti si moj život i duša!"</p>
+	<p class="prijevod jezikEN">Thakura Bhaktivinoda says, "O Kana, please hear me! O Lord of Radha, You are my life and soul!"</p>
+
+
+<hr>
+
+
+</song>
+
+
+
+
+
+
+<song id=jivjagojivjago>
+	<h1 class=pjesmaNaslov>Arunodaya Kirtana</h1>
+	<h2 class=pjesmaNaslov>jīv jāgo, jīv jāgo</h2>
+	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>jīv jāgo, jīv jāgo, gauracānda bole<br>kota nidrā jāo māyā-piśācīra kole</p>
+	<p class="prijevod jezikHR">Gospodin Gauranga poziva: "Probudite se uspavane duše! Probudite se uspavane duše! Do kada ćete spavati u krilu vještice Maye?"</p>
+	<p class="prijevod jezikEN">Lord Gauranga is calling, "Wake up, sleeping souls! Wake up, sleeping souls! How long will you sleep in the lap of the witch called Maya?"</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>bhajibo boliyā ese samsāra-bhitare<br>bhuliyā rohile tumi avidyāra bhare</p>
+	<p class="prijevod jezikHR">"Zaboravili ste put predanog služenja i izgubljeni ste u svijetu rođenja i smrti".</p>
+	<p class="prijevod jezikEN">"You have forgotten the way of devotional service and are lost in the world of birth and death."</p>
+	
+	<p class="stih"><span class=numS>(3)</span><br>tomāre loite āmi hoinu avatāra<br>āmi binā bandhu āra ke āche tomāra</p>
+	<p class="prijevod jezikHR">"Sišao sam samo da vas spasim; osim Mene nemate prijatelja na ovom svijetu".</p>
+	<p class="prijevod jezikEN">"I have descended just to save you; other than Myself you have no friend in this world."</p>
+	
+	<p class="stih"><span class=numS>(4)</span><br>enechi auṣadhi māyā nāśibāro lāgi’<br>hari-nāma mahā-mantra lao tumi māgi’</p>
+	<p class="prijevod jezikHR">"Donio sam lijek koji će zbrisati bolest iluzije od koje patite. Uzmite ovu mahā-mantru: Hare Kṛṣṇa, Hare Kṛṣṇa, Kṛṣṇa Kṛṣṇa, Hare Hare, Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare."</p>
+	<p class="prijevod jezikEN">"I have brought the medicine that will wipe out the disease of illusion from which you are suffering. Take this maha-mantra: Hare Kṛṣṇa, Hare Kṛṣṇa, Kṛṣṇa Kṛṣṇa, Hare Hare, Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare."</p>
+	
+	<p class="stih"><span class=numS>(5)</span><br>bhakativinoda prabhu-caraṇe pariyā<br>sei hari-nāma-mantra loilo māgiyā</p>
+	<p class="prijevod jezikHR">Śri Bhaktivinoda Thakura kaže: "Prihvativši ovu maha-mantru, padam pred Gospodinova lotosolika stopala."</p>
+	<p class="prijevod jezikEN">Srila Bhaktivinoda Thakura says: "I fall at the Lord's feet, having taken this mahā-mantra."</p>
+	
+	
+<hr>
+
+
+	
+</song>
+	
+	
+	
+	
+<song id=gopinathmamanivedanasuno>
+	<h1 class=pjesmaNaslov>Upalabdhi Vijnapti</h1>
+	<h2 class=pjesmaNaslovPopularni>gopīnāth mama nivedana śuno</h2>
+	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>gopīnāth, mama nivedana śuno<br>viṣayī durjana, sadā kāma-rata,<br>kichu nāhi mora guṇa</p>
+	<p class="prijevod jezikHR">O Gopīnātha, Gospodaru gopija, molim Te počuj moju molbu. Ja sam okorjeli materijalist, uvijek posvećen svjetovnim željama i nemam nikakve dobre osobine.</p>
+	<p class="prijevod jezikEN">O Gopīnātha, Lord of the gopīs, please hear my request. I am a wicked materialist, always addicted to worldly desires, and no good qualities do I possess.</p>
+	
+	<p class="stih"><span class=numS>(2)</span><br>gopīnāth, āmāra bharasā tumi<br>tomāra caraṇe, loinu śaraṇa,<br>tomāra kińkora āmi</p>
+	<p class="prijevod jezikHR">O Gopīnātha, Ti si moja jedina nada. Kao tvoj vječni sluga, sada uzimam utočište Tvojih lotosolikih stopala.</p>
+	<p class="prijevod jezikEN">O Gopīnātha, You are my only hope, and therefore I have taken shelter at Your lotus feet. I am now Your eternal servant.</p>
+	
+	<p class="stih"><span class=numS>(3)</span><br>gopīnāth, kemone śodhibe more<br>nā jāni bhakati, karme jaḍa-mati,<br>porechi somsāra-ghore</p>
+	<p class="prijevod jezikHR">O Gopīnātha, kako ću se uzdići? Ne znam ništa o predanom služenju, slaba sam uma i pao sam u ponor materijalne iluzije.</p>
+	<p class="prijevod jezikEN">O Gopīnātha, how will You purify me? I do not know what devotion is, and my materialistic mind is absorbed in fruitive work. I have fallen into this dark and perilous worldly existence.</p>
+	
+	<p class="stih"><span class=numS>(4)</span><br>gopīnāth, sakali tomāra māyā<br>nāhi mama bala, jñāna sunirmala,<br>swādīna nahe e kāyā</p>
+	<p class="prijevod jezikHR">O Gopīnātha, sve je ovdje Tvoja iluzorna energija. Ja nemam snagu niti transcendentalno znanje i moje tijelo nije neovisno i slobodno od kontrole materijalne prirode.</p>
+	<p class="prijevod jezikEN">O Gopīnātha, everything here is Your illusory energy. I have no strength or transcendental knowledge, and this body of mine is not independent and free from the control of material nature.</p>
+
+	<p class="stih"><span class=numS>(5)</span><br>gopīnāth, niyata caraṇe sthāna<br>māge e pāmara, kāndiyā kāndiyā,<br>korohe karuṇā dāna</p>
+	<p class="prijevod jezikHR">O Gopīnātha, ovaj grješnik koji plače i plače, moli za vječno mjesto do Tvojih božanskih stopala. Daj mu Svoju milost, molim Te.</p>
+	<p class="prijevod jezikEN">O Gopīnātha, this sinner, who is weeping and weeping, begs for an eternal place at Your divine feet. Please give him Your mercy.</p>
+	
+	<p class="stih"><span class=numS>(6)</span><br>gopīnāth, tumi to' sakali pāro<br>durjane tārite, tomāra śakati,<br>ke āche pāpīra āro</p>
+	<p class="prijevod jezikHR">O Gopīnātha, Ti si sposoban sve učiniti, stoga imaš moć osloboditi sve grješnike. Tko je taj koji je veći grješnik od mene?</p>
+	<p class="prijevod jezikEN">O Gopīnātha, You are able to do anything, and therefore You have the power to deliver all sinners. Who is there that is more of a sinner than myself?</p>
+	
+	<p class="stih"><span class=numS>(7)</span><br>gopīnāth, tumi kṛpā-pārābāra<br>jīvera kāraṇe, āsiyā prapañce,<br>līlā koile subistāra</p>
+	<p class="prijevod jezikHR">O Gopīnātha, Ti si ocean milosti. Došavši u ovaj materijalni svijet, Ti očituješ Svoje božanske zabave za dobrobit palih duša.</p>
+	<p class="prijevod jezikEN">O Gopīnātha, You are the ocean of mercy. Having come into this phenomenal world, You expand Your divine pastimes for the sake of the fallen souls.</p>
+	
+	<p class="stih"><span class=numS>(8)</span><br>gopīnāth, āmi ki doṣe doṣī<br>asura sakala, pāilo caraṇa,<br>vinodá thākilo bosi'</p>
+	<p class="prijevod jezikHR">O Gopīnātha, iako sam najgrešniji od grešnika, ipak iščekujem Tvoju milost, jer brojni su demoni dostigli Tvoja lotosolika stopala.</p>
+	<p class="prijevod jezikEN">O Gopīnātha, I am so sinful that although all the demons attained Your lotus feet, Bhaktivinoda has remained in worldly existence.</p>
+
+
+<hr>
+
+
+
+</song>
+
+
+
+
+
+<song id=vibhavarisesa>
+  <h1 class=pjesmaNaslov>Ucchvasa Kirtana Nama Kirtana (2)</h1>
+  <h2 class="pjesmaNaslovPopularni">Vibhāvarī Śeṣa</h2>
+  <p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
+  <p class="stih">
+    <span class=numS>(1)</span>
+    <br>vibhāvarī śeṣa, āloka-praveśa, <br>nidrā chāri' uṭho jīva <br>bolo hari hari, mukunda murāri, <br>rāma kṛṣṇa hayagrīva
+  </p>
+  <p class="prijevod jezikHR">Noć se primakla kraju i svjetlost zore se nazire. O uspavane duše, probudite se, ustanite i pjevajte sveta imena Gospodina Harija! On je davatelj oslobođenja, neprijatelj demona Mure, vrhovni uživatelj, sveprivlačan i inkarnacija s glavom konja, Hayagrīva.</p>
+  <p class="prijevod jezikEN">The night has come to an end and the light of dawn is entering. O jiva soul, arise and give up your sleep. Chant the holy names of Lord Hari, who is the giver of liberation; the enemy of the Mura demon; the supreme enjoyer; the all-attractive one; and the horse-headed incarnation, Hayagrīva.</p>
+
+  <p class="stih">
+    <span class=numS>(2)</span>
+    <br>nṛsiṁha vāmana, śrī-madhusūdana, <br>brajendra-nandana śyāma <br>pūtanā-ghātana, kaiṭabha-śātana, <br>jaya dāśarathi-rāma
+  </p>
+  <p class="prijevod jezikHR">Pojavio se kao Nṛsimha, polu-čovjek, polu-lav, Vamana, patuljasti dječak brahmana i ubojica demona Madhua. Tamnoputi je voljeni sin kralja Vraje, Nande Maharaje, ubojica je demonice Putane i uništavatelj demona Kaitabhe. Sva slava Gospodinu koji se pojavio kao Rāma, sin kralja Dāsharathe.</p>
+  <p class="stih">
+  <p class="prijevod jezikEN">Lord Hari incarnated as the half-man, half-lion, Nṛsimha. He appeared as a dwarf-brahmana named Upendra and is the killer of the Madhu demon. He is the beloved son of the King of Vraja, Nanda Maharaja, and is blackish in complexion. He is the slayer of the Putana witch and the destroyer of the demon Kaitabha. All glories to Lord Hari, who appeared as Lord Rama, the son of King Dasaratha.</p>
+
+<p class="stih">
+    <span class=numS>(3)</span>
+    <br>yaśodā dulāla, govinda-gopāla, <br>vṛndāvana purandara <br>gopī-priya-jana, rādhikā-ramaṇa, <br>bhuvana-sundara-bara
+  </p>
+  <p class="prijevod jezikHR">Voljeni je sin majke Yaśode i davatelj zadovoljstva kravama, zemlji i duhovnim osjetilima. Zaštitnik je krava, gospodar šume Vṛndavana, ljubljeni od gopija, ljubavnik Rādhike i najljepša osobnost u svim svjetovima.</p>
+  <p class="prijevod jezikEN">He is the darling of mother Yaśodā; the giver of pleasure to the cows, land, and spiritual senses; and the protector of the cows. He is the Lord of the Vṛndavana forest; the gopis' beloved; the lover of Rādhikā; and the most beautiful personality in all the worlds.</p>
+
+  <p class="stih">
+    <span class=numS>(4)</span>
+    <br>rāvāṇāntakara, mākhana-taskara, <br>gopī-jana-vastra-hārī <br>brajera rākhāla, gopa-vṛnda-pāla, <br>citta-hārī baṁśī-dhārī
+  </p>
+  <p class="prijevod jezikHR">Ubojica je demona Rāvāne, kradljivac maslaca i odjeće mladih gopija, zaštitnik Vraje i dječaka pastira, kradljivac umova i onaj koji uvijek nosi flautu.</p>
+  <p class="prijevod jezikEN">As Rāmacandra He brought about the end of the demoniac king Rāvāna; as Kṛṣṇa He stole the older gopis' butter; He stole the younger gopis' clothes while they were bathing in the Yāmuna. He is a cowherd boy of Vraja and the protector of the cowherd boys. He steals the hearts of all and always holds a flute.</p>
+
+  <p class="stih">
+    <span class=numS>(5)</span>
+    <br>yogīndra-bandana, śrī-nanda-nandana, <br>braja-jana-bhaya-hārī <br>navīna nīrada, rūpa manohara, <br>mohana-baṁśī-bihārī
+  </p>
+  <p class="prijevod jezikHR">Obožavan je od najvećih yogija i sin je Maharaje Nande. On otklanja svaki strah stanovnika Vraje. Boje je tamnoga kišnoga oblaka i očaravajućeg izgleda, kakav je i zvuk njegove flaute.</p>
+  <p class="prijevod jezikEN">Lord Kṛṣṇa is worshiped by the best of yogis and is the son of Nanda. He removes all the fears of the inhabitants of Vraja. He is the color of a fresh rain cloud, and His form is enchanting. When He wanders about, playing His flute, He looks very charming.</p>
+
+  <p class="stih">
+    <span class=numS>(6)</span>
+    <br>yaśodā-nandana, kaṁsa-nisūdana, <br>nikuñja-rāsa-vilāsī <br>kadamba-kānana, rāsa-parāyaṇa, <br>bṛnda-vipina-nivāsī
+  </p>
+  <p class="prijevod jezikHR">Sin je majke Yaśode i ubojica Kaṁse. On provodi različite ljubavne zabave u šumama Vraje, poput rasa plesa u kadamba šumi i voli boraviti u šumama Vṛndavane.</p>
+  <p class="prijevod jezikEN">He is the son of Yaśodā and the killer of King Kaṁsa, and He sports in the rasa dance among the groves of Vraja. Kṛṣṇa engages in this rasa dance underneath the kadamba trees, and He resides in the forest of Vṛndavana.</p>
+
+  <p class="stih">
+    <span class=numS>(7)</span>
+    <br>ānanda-vardhana, prema-niketana, <br>phula-śara-jojaka kāma <br>gopāṅganā-gaṇa, citta-vinodana, <br>samasta-guṇa-gaṇa-dhāma
+  </p>
+  <p class="prijevod jezikHR">On povećava zanos Svojih bhakta i spremište je sve ljubavi. Transcendentalni je Kupid koji koristi svoje cvjetne strelice kako bi povećao ljubavne želje gopija. Zadovoljstvo je srca gopija i boravište svih prekrasnih osobina.</p>
+  <p class="prijevod jezikEN">He increases the ecstasy of His devotees. He is the reservoir of all love and is the transcendental Cupid who uses His flowered arrows to increase the loving desires of the gopis. He is the pleasure of the gopis' hearts and the abode of all wonderful qualities.</p>
+
+  <p class="stih">
+    <span class=numS>(8)</span>
+    <br>jāmuna-jīvana, keli-parāyaṇa, <br>mānasa-candra-cakora <br>nāma-sudhā-rasa, gāo kṛṣṇa-jaśa <br>rākho vacana mana mora
+  </p>
+  <p class="prijevod jezikHR">Život je rijeke Yāmune i uvijek je zaokupljen ljubavnim zabavama. Mjesec je umova gopija koji su poput cakora ptica, koje su aktivne samo za mjesečine. O ume, pokori se ovim riječima i pjevaj slave Śrī Kṛṣṇe u obliku ovih svetih imena, koja su puna nektara.</p>
+  <p class="prijevod jezikEN">Lord Krsna is the life of the Yāmuna river. He is always absorbed in amorous pastimes, and He is the moon of the gopis' minds, which are like the cakora birds that subsist only upon moonlight. O mind, obey these words of mine and sing the glories of Śrī Kṛṣṇa in the form of these holy names, which are full of nectarean mellows.</p>
+  <hr>
+</song>
+
+
+
+
+
+<song id=srikrishnacaitanyaprabhudoyakoromore>
+	<h1 class=pjesmaNaslov>Savarana Śrī Gaura Pada Padme Prarthana</h1>
+	<h2 class=pjesmaNaslovPopularni>Śrī Kṛṣṇa Caitanya Prabhu Doya Koro More</h2>
+	<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>śrī-kṛṣṇa-caitanya prabhu doyā koro more<br>tomā binā ke doyālu jagat-samsāre</p>
+	<p class="prijevod jezikHR">Dragi moj Gospodine Caitanya, molim Te budi milostiv prema meni jer tko može biti milostiviji od Tvog Gospodstva u ova tri svijeta?</p>
+  <p class="prijevod jezikEN">My dear Lord Caitanya, please be merciful to me, because who can be more merciful than Your Lordship within these three worlds?</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>patita-pāvana-hetu tava avatāra<br>mo sama patita prabhu nā pāibe āra</p>
+	<p class="prijevod jezikHR">Pojavio si se da bi izbavio pale, uvjetovane duše. Uvjeravam te da nećeš naći paliju dušu od mene, stoga je moja molba primarna.</p>
+  <p class="prijevod jezikEN">Your incarnation is just to reclaim the conditioned, fallen souls, but I assure You that You will not find a greater fallen soul than me. Therefore, my claim is first.</p>
+
+	<p class="stih"><span class=numS>(3)</span><br>hā hā prabhu nityānanda, premānanda sukhī<br>kṛpābalokana koro āmi boro duḥkhī</p>
+	<p class="prijevod jezikHR">Dragi moj Gospodine Nityananda, uvijek si radostan u duhovnom blaženstvu. Budući da uvijek izgledaš sretan, prilazim ti jer sam nejnesretniji. Ako se ljubazno osvrneš na mene možda i ja postanem sretan.</p>
+  <p class="prijevod jezikEN">My dear Lord Nityananda, You are always joyful in spiritual bliss. Since You always appear very happy, I have come to You because I am most unhappy. If You kindly put Your glance over me, then I may also become happy.</p>
+
+	<p class="stih"><span class=numS>(4)</span><br>doyā koro sītā-pati adwaita gosāi<br>tava kṛpā-bale pāi caitanya-nitāi</p>
+	<p class="prijevod jezikHR">Dragi moj Advaita Prabhu, mužu Site, Ti si tako ljubazan. Molim te, budi milostiv prema meni. Ako si ljubazan prema meni, prirodno će i Gospodin Caitanya i Nityananda također biti ljubazni prema meni.</p>
+  <p class="prijevod jezikEN">My dear Advaita Prabhu, husband of Sita, You are so kind. Please be merciful to me. If You are kind to me, naturally Lord Caitanya and Nityananda will also be kind to me.</p>
+
+	<p class="stih"><span class=numS>(5)</span><br>hā hā swarūp, sanātana, rūpa, raghunātha<br>bhaṭṭa-juga, śrī-jīva hā prabhu lokanātha</p>
+  <p class="prijevod jezikEN">Gaura’s love embodiment is shown by Gadadhara Pandita. Srinivasa Pandita and Haridasa Thakura are the ocean of mercy.</p>
+
+	<p class="prijevod jezikHR">O Svarūpa Dāmodara, osobni pratioče Gospodina Caitanye, o Śrī Rūpa Gosvāmī, Śrī Sanātana Gosvāmī, Śrī Raghunātha Bhaṭṭa Gosvāmī, Śrī Gopāla Bhaṭṭa Gosvāmī, Śrī Jiva Gosvāmī i Śrī Raghunātha dāsa Gosvāmī! O Lokanātha Gosvāmī, moj voljeni duhovni gospodaru! Narottama dāsa moli za vašu milost.</p>
+  <p class="prijevod jezikEN">O Svarūpa Dāmodara, personal secretary of Lord Caitanya, o Śrī Rūpa Gosvāmī, Śrī Sanātana Gosvāmī, Śrī Raghunātha Bhaṭṭa Gosvāmī, Śrī Gopāla Bhaṭṭa Gosvāmī, Śrī Jiva Gosvāmī and Śrī Raghunātha dāsa Gosvāmī! O Lokanātha Gosvāmī, my beloved spiritual master! Narottama dāsa also prays for your mercy.</p>
+
+	<p class="stih"><span class=numS>(6)</span><br>doyā koro śrī-ācārya prabhu śrīnivāsa<br>rāmacandra-sańga māge narottama-dāsa</p>
+	<p class="prijevod jezikHR">O Śrinivasa Acāryo, nasljedniče šestorice Gosvāmīja! Molim Te, budi milostiv prema meni. Narottama dāsa je uvijek željan društva Rāmacandre Cakravartīja.</p>
+  <p class="prijevod jezikEN">O Śrinivasa Acārya, successor to the six Gosvāmīs! Please be merciful to me. Narottama dāsa always desires the company of Rāmacandre Cakravartī.</p>
+
+
+	<span class="jezikHR">
+		<p class="smisao naslov">SMISAO</p>
+		<p class=smisao>Ovo je pjesma koju je spjevao Narottama das Thakura. On moli se Gospodinu Caitanyi: "Moj dragi Gospodine, molim Te budi milostiv prema meni, jer tko može biti milostiviji od Tvog Gospodstva u sva tri svijeta? Uistinu, to je činjenica. Ne samo Narottama das Thakur već se i Rupa Gosvāmī također molio Gospodinu Caitanyi na takav način. Kada su se Gospodin Caitanya i Rupa Gosvāmī prvi puta susreli u Prayagu (Allahabadu), Srila Rupa Gosvāmī je rekao: "Moj dragi Gospodine, Ti si najmilostiviji od svih inkarnacija jer dijeliš ljubav prema Krishni, svjesnost Krishne." Kada je Krishna osobno bio prisutan jednostavno je tražio od nas da se predamo, ali Sebe nije davao tako lako. Postavio je uvjet: "Prije svega, predaj se." Ali ova inkarnacija, Gospodin Caitanya, iako Sam Krishna, ne pravi takve uvjete. On jednostavno daje: "Uzmite ljubav prema Krishni." Zbog toga je Gospodin Caitanya prepoznat kao najmilostivija inkarnacija. Narottama das Thakur kaže: "Molim Te budi milostiv prema meni. Vidjevši pale duše ovog doba, postao Si tako velikodušan i vrlo samilostan prema njima, ali znaj također da sam ja najpaliji. Nitko nije paliji od mene." Patita-pavana-hetu tava avatara "Pojavio Si se samo da izbaviš uvjetovane, pale duše, ali uvjeravam Te da nećeš naći paliju dušu od mene. Stoga je moja molba primarna."</p>
+		<p class=smisao>Potom, on moli se Gospodinu Nityanandi. On kaže: "<i>ā hā prabhu nityānanda, premānanda sukhī</i>", "Moj dragi Gospodine Nityananda, Ti si uvijek radostan u duhovnom blaženstvu. Pošto uvijek izgledaš jako sretan, prišao sam ti jer sam najnesretniji. Ako me samo ljubazno pogledaš i ja mogu postati sretan."</p>
+		<p class=smisao>Potom se moli Advaita prabhu-u: "<i>doyā koro sītā-pati adwaita gosāi</i>". Supruga Advaita prabhua zvala se Sita pa su ga stoga ponekad zvali Sita-pati. Narottam das Thakur stoga moli: "Dragi moj Advaita prabhu, mužu Site, ti si tako ljubazan. Molim te, budi ljubazan i prema meni. Ako si ti ljubazan prema meni, prirodno će i Gospodin Caitanya i Nityananda također biti ljubazni prema meni". Ustvari, Advaita prabhu je pozvao Gospodina Caitanyu da siđe. Kada je Advaita prabhu vidio da su sve pale duše samo zaokupljene zadovoljavanjem osjetila, ne shvaćajući svjesnost Krishne, osjetio je veliku samilost prema palim dušama. Istovremeno se osjećao nesposobnim izbaviti ih i stoga se molio Gospodinu Krišni: "Molim Te, dođi osobno. Bez Tvoga osobnog prisustva nije moguće izbaviti ove pale duše". Tako se zbog njegova poziva Gospodin Caitanya pojavio.
+		Prirodno, Narottam das Thakur se moli Advaita prabhu-u: "Ako si ti ljubazan prema meni, prirodno će i Gospodin Caitanya i Nityananda također biti ljubazni prema meni". </p>
+		<p class=smisao>Potom, on moli se gosvamijima: "<i>hā hā swarūp, sanātana, rūpa, raghunātha</i>". Svarupa se odnosi na Svarupa Damodara, osobnog tajnika Gospodina Caitanye. On je uvijek bio uz Caitanyu Mahaprabhua i odmah bi napravio što god bi On poželio. Dvojica osobnih slugu, Svarupa Damodara i Govinda, uvijek su bili uz Gospodina Caitanyu. Zbog toga se Narottama das Thakura također moli Svarupi Damodari, a potom i šestorici gosvamija, učenicima Gospodina Caitanye: Sri Rupi, Sri Sanatani, Sri Batti Raghunathi, Sri Gopali Batti, Sri Jivi i Raghunathi Dasi. Ovih šest gosvamija su izravno upućeni od Gospodina Caitanye da prošire ovaj pokret svjesnosti Krishne. Narottama das Thakur također se moli za njihovu milost.</p>
+		<p class=smisao>Nakon šestorice gosvamija sljedeći acarya bio je Srinivas acarya. Ustvari, Narottam das Thakur je u učeničkom slijedu odmah nakon Srinivase acarye i bio je gotovo njegov istovremenik, a njegov bliski prijatelj bio je Ramacandra Cakravarti. Stoga se on moli: "Uvijek žudim za društvom Ramacandre."<br>
+		On žudi za društvom bhakta. Cijeli proces je u tome da se moramo uvijek moliti za milost nadređenih acarya i biti u društvu čistih bhakta. Tako će nam biti lakše napredovati u svjesnosti Krišne i primiti milost Gospodina Caitanye i Gospodina Krishne. </p>
+		<p class=smisao>Ovo je suština i bit ove pjesme koju je spjevao Narottama das Thakura.</p>
+
+		<p class="smisao autor">His Divine grace A.C. Bhkativedanta Svami Prabhupada. January 11th 1969, Los Angeles, CA, USA</p>
+
+</span>
+
+	<span class="jezikEN">
+		<p class="smisao naslov">PURPORT</p>
+		<p class=smisao>OvThis is a song composed by Narottama Dasa Thakura. He prays to Lord Caitanya "My dear Lord, please be merciful to me, because who can be more merciful than Your Lordship within these three worlds?" Actually, this is a fact. Not only Narottama Dasa Thakura but Rupa Gosvāmī also prayed to Lord Caitanya in this way. At the time of the first meeting of Lord Caitanya and Rupa Gosvāmī at Prayaga (Allahabad), Srila Rupa Gosvāmī said, "My dear Lord, You are the most munificent of all incarnations, because You are distributing love of Krsna, Krsna consciousness." When Krsna was personally present He simply asked us to surrender, but He did not distribute Himself so easily. He made conditions - "First of all you surrender." But this incarnation, Lord Caitanya, although Krsna Himself, makes no such condition. He simply distributes: "Take love of Krsna." Therefore Lord Caitanya is approved as the most munificent incarnation. Narottama Dasa Thakura says, "Please be merciful to me. You are so magnanimous, because You have seen the fallen souls of this age, and You are very much compassionate to them, but You should know also that I am the most fallen. No one is more greatly fallen than me." Patita-pavana-hetu tava avatara. "Your incarnation is just to reclaim the conditioned, fallen souls, but I assure You that You will not find a greater fallen soul than me. Therefore, my claim is first."</p>
+		<p class=smisao>Then he prays to Lord Nityananda. He says, ha ha prabhu, nityananda premananda-sukhi: "My dear Lord Nityananda, You are always joyful in spiritual bliss. Since You always appear very happy, I have come to You because I am most unhappy. If You kindly put Your glance over me, I may also become happy." Then he prays to Advaita Prabhu. Doya koro sita-pati adwaita gosai. Advaita Prabhu's wife's name was Sita. Therefore He is sometimes addressed as sita-pati. Thus Narottama Dasa Thakura prays, "My dear Advaita Prabhu, husband of Sita, You are so kind. Please be kind to me. If You are kind to me, naturally Lord Caitanya and Nityananda will also be kind to me." Actually, Advaita Prabhu invited Lord Caitanya to come down. When Advaita Prabhu saw that the fallen souls were all engaged simply in sense gratificatory processes, not understanding Krsna consciousness, He felt very much compassionate toward the fallen souls, and He also felt Himself incapable of claiming them all. He therefore prayed to Lord Krsna, "Please come Yourself. Without Your personal presence it is not possible to deliver these fallen souls." Thus by His invitation Lord Caitanya appeared. Naturally, Narottama Dasa Thakura prays to Advaita Prabhu, “If You will be kind to me, naturally Lord Caitanya and Nityananda also will be kind to me."</p>
+		<p class=smisao>Then he prays to the Gosvāmīs. “Ha ha swarup, sanatana, rupa, raghunatha.” Swarup refers to Svarupa Damodara, the personal secretary of Lord Caitanya. He was always with Caitanya Mahaprabhu and immediately arranged for whatever Caitanya Mahaprabhu wanted. Two personal attendants, Svarupa Damodara and Govinda, were always constantly with Lord Caitanya. Therefore, Narottama Dasa Thakura also prays to Svarupa Damodara and then to the six Gosvāmīs, the next disciples of Lord Caitanya--Sri Rupa Gosvāmī, Sri Sanatana Gosvāmī, Sri Bhatta Raghunatha Gosvāmī, Sri Gopala Bhatta Gosvāmī, Sri Jiva Gosvāmī, and Sri Raghunatha Dasa Gosvāmī. These six Gosvāmīs were directly instructed by Lord Caitanya to spread this movement of Krsna consciousness. Narottama Dasa Thakura also prays for their mercy.</p>
+		<p class=smisao>After the six Gosvāmīs, the next acarya was Srinivasa Acarya. Actually, Narottama Dasa Thakura was in the disciplic succession after Srinivasa Acarya and was almost his contemporary, and Narottama Dasa's personal friend was Ramacandra Cakravarti. Therefore he prays, "I always desire the company of Ramacandra." He desires a devotee's company. The whole process is that we should always pray for the mercy of the superior acaryas and keep company with pure devotees. Then it will be easier for us to advance in Krsna consciousness and receive the mercy of Lord Caitanya and Lord Krsna. This is the sum and substance of this song sung by Narottama Dasa Thakura.</p>
+
+		<p class="smisao autor">Njegova Božanska milost A.C. Bhkativedanta Svami Prabhupada. 11.1.1969., Los Angeles, California, SAD</p>
+
+	</span>
+<hr>
+
+
+
+</song>
+
+
+
+
+
+<song id=vrindavanaramyasthana>
+	<h1 class=pjesmaNaslov>Mathura-virohcita Darsana Lalasa (3)</h1>
+	<h2 class=pjesmaNaslovPopularni>Vrindavana Ramya Sthana</h2>
+	<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+		vṛndāvana ramya-sthāna dibya-cińtāmaṇi-dhāma<br>
+		ratana mandira manohara<br>
+		abṛta kālindī-nīre rāja-hamsa keli kare<br>
+		tāhe śobhe kanaka-kamal
+	</p>
+	<p class="prijevod jezikHR">Prekrasna Vrndavana ispunjena je cińtāmaṇi dragim kamenjima i mnogim palačama i hramovima od dragulja. Mnogi kraljevski labudovi igraju se u vodama Yamune, a u tim vodama raste prekrasan zlatni lotosov cvijet. </p>
+
+	<p class="prijevod jezikEN">Beautiful Vrndavana is filled with cińtāmaṇi gems and many jewel palaces and temples.  Many regal swans play in the waters of the Yamunā, and in those waters a splendid golden lotus flower grows.</p>
+
+
+	<p class="stih"><span class=numS>(2)</span><br>
+		tār madhye hema-pīṭha aṣṭa-dale beṣṭita<br>
+		aṣṭa-dale pradhāna nāyika<br>
+		tār madhye ratnāsane ba’si āchen dui-jane<br>
+		śyāma-sańge sundarī rādhikā
+	</p>
+
+	<p class="prijevod jezikHR">U sredini tog lotosa nalazi se zlatno mjesto okruženo s osam latica. Na tih osam latica prebiva osam glavnih gopija, a u središtu Gospodin Śyāmasundara i prekrasna Śrīmatī Rādhārāṇī sjede na draguljastom prijestolju.</p>
+
+	<p class="prijevod jezikEN">In the middle of that lotus is a golden place surrounded by eight petals.  On these eight petals the eight principal gopis reside, and in the center Lord Śyāmasundara and beautiful Śrīmatī Rādhārāṇī sit on a jewel throne.</p>
+
+
+	<p class="stih"><span class=numS>(3)</span><br>
+		o-rūpa-lābaṇya-rāśi amiyā pariche khasi<br>
+		hāsya-parihāsa-sambhāṣaṇe<br>
+		narottama-dāsa koy nitya-līlā sukha-moy<br>
+		sadāi sphurūk mora mane
+	</p>
+
+
+	<p class="prijevod jezikHR">Velika ljepota Božanskog para i Njihova šarmantna zadirkivanje i smijeh neprestano posvuda obasipaju nektar. Narottama dasa kaže: "Molim se da se ove blažene vječne transcendentalne zabave Božanskog Para uvijek manifestiraju u mom srcu."</p>
+
+	<p class="prijevod jezikEN">The great beauty of the Divine couple and Their charming joking and laughter continually showers nectar everywhere. Narottama dasa says: "I pray that these blissful eternal transcendental pastimes of the Divine Couple may be always manifested in my heart."</p>
+
+
+<hr>
+
+
+</song>
+
+
+
+
+
+<song id=kevalstakam>
+	<h1 class=pjesmaNaslov>Kevalạ̄ṣṭakam</h1>
+	<h2 class=pjesmaNaslovPopularni>Madhuram Madhurebhyo 'Pi</h2>
+	<p class=autor>Nilakanta Gosvāmī</p>
+	<p class="stih"><span class=numS>(1)</span>
+		<br>madhuraḿ madhurebhyo ‘pi<br>
+		mańgalebhyo ‘pi mańgalam<br>
+		pāvanaḿ pāvanebhyo ‘pi<br>
+		harer nāmaiva kevalam
+	</p>
+	<p class="prijevod jezikHR">Slađe od svega što je slatko, povoljnije od svega što je povoljno, najpročišćujuće od svega što pročišćuje, sveto ime Gospodina Harija je sve. (11)</p>
+	<p class="prijevod jezikEN">More sweet than all other sweet things; more auspicious than all other auspicious things; the greatest purifier of all purifying things. The holy name of Sri Hari alone is everything. [11]</p>
+	
+
+	<p class="stih"><span class=numS>(2)</span><br>ābrahmā-stamba-paryantaḿ<br>
+sarvaḿ māyā-mayaḿ jagat<br>
+satyaḿ satyaḿ punaḥ satyaḿ<br>
+harer nāmaiva kevalam</p>
+	<p class="prijevod jezikHR">Cijeli svemir, od uzvišenoga Brahme do obične trave, stvoren je od iluzorne energije Svevišnjeg Gospodina. Jedina stvar koja je stvarnost, stvarnost i samo stvarnost, sveto ime Gospodina Harija je sve. (39)</p>
+	<p class="prijevod jezikEN">The entire universe, from exalted Brahmā down to the lowly clump of grass, is a product of the illusory energy of the supreme Lord. The only thing that is reality, reality, again I say reality. The holy name of Śrī Hari alone is everything. [39]</p>
+	
+
+	<p class="stih"><span class=numS>(3)</span><br>sa guruḥ sa pitā cāpi<br>
+sā mātā bandhavo ‘pi saḥ<br>
+śikṣayec cet sadā smartuḿ<br>
+harer nāmaiva kevalam</p>
+	<p class="prijevod jezikHR">Netko je uistinu učitelj, otac, majka i prijatelj samo ako nam pomaže sjećati se da sveto ime Gospodina Harija je sve. (50)</p>
+	<p class="prijevod jezikEN">That person is a true preceptor, or a true father, a true mother, and a true friend also only if they teach one to always remember. The holy name of Śrī Hari alone is everything. [50]</p>
+	
+
+	<p class="stih"><span class=numS>(4)</span><br>niḥśvāse nāhi viśvāsaḥ<br>
+kadā ruddho bhaviṣyati<br>
+kīrtanīya mato bālyād<br>
+harer nāmaiva kevalam</p>
+	<p class="prijevod jezikHR">Ne znamo kada će zadnji udah naš biti, koji će donijeti nagli kraj svim našim materijalističkim planovima, stoga je mudro uvijek prakticirati pjevanje (mantranje) još od ranoga djetinjstva jer sveto ime Gospodina Harija je sve. (57)</p>
+	<p class="prijevod jezikEN">There is no certainty when the last breath will come and put an abrupt halt to all one’s material plans; therefore, it is wise to always practice chanting from very childhood. The holy name of Śrī Hari alone is everything. [57]</p>
+	
+
+	<p class="stih"><span class=numS>(5)</span><br>hariḥ sadā vaset tatra<br>
+yatra bhāgavatā janāḥ<br>
+gāyanti bhakti-bhāvena<br>
+harer nāmaiva kevalam</p>
+	<p class="prijevod jezikHR">Gospodin Hari vječno boravi na mjestima gdje istinski uzvišene, duhovno napredne, duše pjevaju sa čistom predanošću jer ime Gospodina Harija je sve. (62)</p>
+	<p class="prijevod jezikEN">Lord Hari eternally dwells in that place where truly exalted, spiritually advanced souls sing in the mood of pure devotion. The holy name of Śrī Hari alone is everything. [62]</p>
+	
+
+	<p class="stih"><span class=numS>(6)</span><br>aho duḥkhaḿ mahā-duḥkhaḿ<br>
+duḥkhād duḥkhataraḿ yataḥ<br>
+kācārthaḿ vismṛtam ratna-<br>
+harer nāmaiva kevalam</p>
+	<p class="prijevod jezikHR">Oh, kakva žalost, kakva velika žalost! Bolnija od bilo kakve druge bijede ovoga svijeta, poistovjećujući ga s komadom stakla, ljudi su zaboravili ovaj dragulj ‑ sveto ime Gospodina Harija je sve. (77)</p>
+	<p class="prijevod jezikEN">Aho! What a sorrow, what a great sorrow! More painful than any other misery in the world! Mistaking it as a mere piece of glass, the people have forgotten this jewel. The holy name of Śrī Hari alone is everything. [77]</p>
+
+
+	<p class="stih"><span class=numS>(7)</span><br>dīyatāḿ dīyatāḿ karṇo<br>
+nīyatāḿ nīyatāḿ vacaḥ<br>
+gīyatāḿ gīyatāḿ nityam<br>
+harer nāmaiva kevalam</p>
+	<p class="prijevod jezikHR">Svojim ušima potrebno ga je slušati iznova i iznova, svojim glasom izgovarati iznova i iznova, kao i neprekinuto pjevati jer sveto ime Gospodina Harija je sve. (89)</p>
+	<p class="prijevod jezikEN">It should be heard again and again with one’s ears; It should be uttered over and over with one’s voice; It should be perpetually sung and sung anew. The holy name of Śrī Hari alone is everything. [89]</p>
+	
+
+	<p class="stih"><span class=numS>(8)</span><br>tṛṇī-kṛtya jagat sarvaḿ<br>
+rājate sakalopari<br>
+cid-ānanda-mayaḿ śuddhaḿ<br>
+harer-nāmaiva kevalam</p>
+	<p class="prijevod jezikHR">Čini da cjelokupan svemir izgleda beznačajno poput vlati trave, blistavo nadvladava sve i puno je vječno svjesnog božanskog zanosa, sveto ime Gospodina Harija je sve. (99)</p>
+	<p class="prijevod jezikEN">It makes the entire universe seem insignificant as a blade of grass; it reigns supreme over all in a splendorous manner; it is full of eternally conscious divine ecstasy; it is supremely pure. The holy name of Śrī Hari alone is everything. [99]</p>
+
+
+<hr>
+
+
+
+</song>
+
+
+
+
+<song id=jayaradhejayakrishnajayavrindavana>
+	<h1 class=pjesmaNaslov>Śrī Vraja-dhāma-mahimāmṛta</h1>
+	<h2 class=pjesmaNaslovPopularni>Jaya Rādhe Jaya kṛṣṇa Jaya vṛndāvana</h2>
+	<p class=autor>Kṛṣṇa Dāsa</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+jaya rādhe, jaya kṛṣṇa, jaya vṛndāvan<br>
+śrī govinda, gopīnātha, madana-mohan
+	</p>
+	<p class="prijevod jezikHR">Sva slava Rādhi i Kṛṣṇi i božanskoj šumi Vṛndāvane. Sva slava Śrī Govindi, Gopīnāthi i Madana-mohani [trima predsjedavajućim Božanstvima Vṛndāvane].</p>
+	<p class="prijevod jezikEN">All glories to Śrī Rādhā, Śrī Kṛṣṇa, and the divine forest of Śrī Vṛndāvana. All glories to Śrī Govinda, Gopīnātha, and Madanamohana [the three presiding deities of Vṛndāvana].</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>
+śyama-kunḍa, rādhā-kuṇḍa, giri-govardhan<br>
+kālindi jamunā jaya, jaya mahāvan
+	</p>
+	<p class="prijevod jezikHR">Sva slava Śyama-kunḍi, Rādhā-kunḍi, brdu Govardhana. Sva slava rijeci Yamuni (Kālindi) i velikoj i slavnoj šumi poznatoj kao Gokula Mahāvan [gdje su Kṛṣṇa i Balarāma proveli Svoje dječje razonode].</p>
+	<p class="prijevod jezikEN">All glories to Śyāma-kuṇḍa, Rādhā-kuṇḍa, and Govardhana Hill. All glories to the river Yamunā (Kālindī) and to the great forest known as Gokula Mahāvana [where Kṛṣṇa and Balarāma performed Their childhood pastimes].</p>
+
+	<p class="stih"><span class=numS>(3)</span><br>
+keśī-ghāṭa, baḿśi-baṭa, dwādaśa-kānan<br>
+jāhā saba līlā koilo śrī-nanda-nandan
+	</p>
+	<p class="prijevod jezikHR">Sva slava Keśī-ghāṭu [gdje je Kṛṣṇa ubio demona Keśīja]. Sva slava Vaḿśi-vaṭi [stablu banjana pod kojim je Kṛṣṇa privukao gopīje svirajući svoju flautu]. Sva slava dvanaest šumama Vraje. Na tim je mjestima Nandin sin, Śrī Kṛṣṇa, provodio sve Svoje razonode.</p>
+	<p class="prijevod jezikEN">All glories to Keśī-ghāṭa [where Kṛṣṇa killed the Keśī demon], Vaṁśīvaṭa [the banyan tree that Krsna stood under and attracted the gopīs by playing His flute], and to the twelve forests of Vraja, where the son of Nanda performed His pastimes.</p>
+
+	<p class="stih"><span class=numS>(4)</span><br>
+śrī-nanda-jaśodā jaya, jaya gopa-gaṇ<br>
+śrīdāmādi jaya, jaya dhenu-vatsa-gaṇ
+	</p>
+	<p class="prijevod jezikHR">Sva slava Śrī Nandi and Śrī Yaśodi [ocu i majci Kṛṣṇe]. Sva slava pastirima, na čelu sa Śrīdāmom [stariji brat Śrīmatī Rādhārāṇī]. Sva slava kravama i teladi iz Vraje.</p>
+	<p class="prijevod jezikEN">All glories to Śrī Nanda and Śrī Yaśodā [Kṛṣṇa’s father and mother]. All glories to the cowherd boys, headed by Śrīdāma [the older brother of Śrīmatī Rādhārāṇī]. All glories to the cows and calves of Vraja.</p>
+
+
+	<p class="stih"><span class=numS>(5)</span><br>
+jaya bṛṣabhānu, jaya kīrtidā sundarī<br>
+jaya paurṇamāsī, jaya ābhīra-nāgarī
+	</p>
+	<p class="prijevod jezikHR">Sva slava Śrī Vṛṣabhānuu i prekrasnoj Kīrtidi [Rādhārāṇīnom ocu i majci]. Sva slava, sva slava Paurṇamāsī, guruu pastirske zajednice; majci Sāṅdīpani Muni; baki Madhumaṅgale i Nāndī-mukhī; i učenici Devarṣija Nārade]. Sva slava djevojkama iz Vraje.</p>
+	<p class="prijevod jezikEN">All glories to Śrī Vṛṣabhānu and the beautiful Kīrtidā [Rādhārāṇī’s father and mother]. All glories, all glories to Paurṇamāsī, the guru of the cowherd community; the mother of Sāṅdīpani Muni; the grandmother of Madhumaṅgala and Nāndī-mukhī; and the disciple of Devarṣi Nārada]. All glories to the damsels of Vraja.</p>
+
+
+	<p class="stih"><span class=numS>(6)</span><br>
+jaya jaya gopīśwara vṛndāvana-mājh<br>
+jaya jaya kṛṣṇa-sakhā baṭu dwija-rāj
+	</p>
+	<p class="prijevod jezikHR">Sva slava, sva slava Gopīśvari Śivi, koji prebiva u Vrindāvani [kako bi zaštitio svetu dhāmu]. Sva slava, sva slava Kṛṣṇinom prijatelju, mladom brāhmaṇi, Madhumaṅgali.</p>
+	<p class="prijevod jezikEN">All glories, all glories to Gopīśvara Śiva, who resides within Vṛndāvana [to protect the holy dhāma]. All glories, all glories to Kṛṣṇa’s young brāhmaṇa friend, Madhumaṅgala.</p>
+
+
+	<p class="stih"><span class=numS>(7)</span><br>
+jaya rāma-ghāta, jaya rohiṇī-nandan
+jaya jaya vṛndāvana-bāsī jata janv
+	</p>
+	<p class="prijevod jezikHR">Sva slava Rāma-ghāṭu [gdje je Balarāma provodio Svoj rāsa ples]. Sva slava Balarāmi, sinu Rohiṇī. Sva slava, sva slava svim stanovnicima Vrindāvane.</p>
+	<p class="prijevod jezikEN">All glories to Rāma-ghāṭa [where Balarāma performed His rāsa dance]. All glories to Balarāma, the son of Rohiṇī. All glories, all glories to all the residents of Vṛndāvana.</p>
+
+
+	<p class="stih"><span class=numS>(8)</span><br>
+jaya dwija-patnī, jaya nāga-kanyā-gaṇ<br>
+bhaktite jāhārā pāilo govinda-caraṇ
+	</p>
+	<p class="prijevod jezikHR">Sva slava ženama ponosnih vedskih brāhmaṇa i ženama zmije Kālīye, koje su sve čistom bhakti dostigle lotosolika stopala Govinde.</p>
+	<p class="prijevod jezikEN">All glories to the wives of the proud Vedic brāhmaṇas and to the wives of the serpent Kālīya, all of whom attained the lotus feet of Govinda through pure bhakti.</p>
+
+	<p class="stih"><span class=numS>(9)</span><br>
+śrī-rasa-maṇḍala jaya, jaya rādhā-śyām<br>
+jaya jaya rasa-līlā sarva-manoram
+	</p>
+	<p class="prijevod jezikHR">Sva slava kružnoj areni rāsa plesa. Sva slava Rādhi i Śyāmi. Sva slava, sva slava najljepšoj rāsa-līli.</p>
+	<p class="prijevod jezikEN">All glories to the circular arena of the rāsa dance. All glories to Rādhā and Śyāma. All glories, all glories to the most beautiful rāsa-līlā.</p>
+
+	<p class="stih"><span class=numS>(10)</span><br>
+jaya jayojjwala-rasa sarva-rasa-sār<br>
+parakīyā-bhāve jāhā brajete pracār
+	</p>
+	<p class="prijevod jezikHR">Sva slava, sva slava ujjvala-rasi (śṛṅgāra-rasi), koja je suština te od svih rasa najizvrsnija i koja je poznata kao parakīya-bhāva Vraje.</p>
+	<p class="prijevod jezikEN">All glories, all glories to ujjvala-rasa (śṛṅgāra-rasa), which is the essence and most excellent of all rasas and which is known as the parakīya-bhāva of Vraja.</p>
+
+	<p class="stih"><span class=numS>(11)</span><br>
+śrī-jāhnavā-pāda-padma koriyā smaraṇ<br>
+dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
+	</p>
+	<p class="prijevod jezikHR">Prisjećajući se lotosolikih stopala Śrī Jāhnavā-devī [supruge Nityānande Prabhua], ovaj pali Kṛṣṇa dāsa vodi nāma-sankīrtanu.</p>
+	<p class="prijevod jezikEN">Remembering the lotus feet of Śrī Jāhnavā-devī [Nityānanda Prabhu’s consort], this fallen Kṛṣṇa dāsa performs nāma-saṅkīrtana.</p>
+
+<hr>
+
+
+
+</song>
+
+
+
+
+	<song id=vandesrikrishnacaitanyanityanandasahoditau>
+		<h1 class="pjesmaNaslov jezikHR">Molitva Gospodinu Caitanyi i Gospodinu Nityānandi</h1>
+		<h1 class="pjesmaNaslov jezikEN">Prayer to Lord Caitanya and Lord Nityānanda</h1>
+		<h2>CC Ādi 1.84</h2>
+		<p class="stih"><span class=numS>(1)</span><br>
+		vande śrī-kṛṣṇa-caitanya-<br>
+		nityānandau sahoditau<br>
+		gauḍodaye puṣpavantau<br>
+		citrau śan-dau tamo-nudau<br>
+		</p>
+		<p class="rijecporijec jezikHR prijevod"><strong>vande</strong>&nbsp;—&nbsp;odajem ponizno poštovanje; <strong>śrī-kṛṣṇa-caitanya</strong>&nbsp;—&nbsp;Gospodinu Śrī Kṛṣṇa Caitanyi; <strong>nityānandau</strong>&nbsp;—&nbsp;i Gospodinu Nityānandi; <strong>saha-uditau</strong>&nbsp;—&nbsp;istovremeno uzdignuti; <strong>gauḍa-udaye</strong>&nbsp;—&nbsp;na istočnom horizontu Gauḍe; <strong>puṣpavantau</strong>&nbsp;—&nbsp;unce i mesec zajedno; <strong>citrau</strong>&nbsp;—&nbsp;čudesan; <strong>śam-dau</strong>&nbsp;—&nbsp;odarili blagoslov; <strong>tamaḥ-nudau</strong>&nbsp;—&nbsp;raspršujući tamu.</p>
+
+		<p class="prijevod jezikHR">Odajem ponizno poštovanje Gospodinu Śrī Kṛṣṇa Caitanyi i Gospodinu Nityānandi, koji su baš poput sunca i mjeseca. Istovremeno su se pojavili na horizontu Gauḍe kako bi raspršili tamu neznanja i na takav čudesan način podarili svima blagoslov.</p>
+		<p class="prijevod jezikEN">I offer my respectful obeisances unto Śrī Kṛṣṇa Caitanya and Lord Nityānanda, who are like the sun and moon. They have arisen simultaneously on the horizon of Gauḍa to dissipate the darkness of ignorance and thus wonderfully bestow benediction upon all.</p>
+		<hr>
+		
+	</song>
+
+
+	<song id=namomahavadanyaya>
+		<h1 class="pjesmaNaslov jezikHR">Molitva Gospodinu Caitanyi</h1>
+		<h1 class="pjesmaNaslov jezikEN">Prayer to Lord Caitanya</h1>
+		<h2>CC Madhya 19.53</h2>
+		<p class="stih"><span class=numS>(1)</span><br>
+		namo mahā-vadānyāya<br>
+		kṛṣṇa-prema-pradāya te<br>
+		kṛṣṇāya kṛṣṇa-caitanya-<br>
+		nāmne gaura-tviṣe namaḥ<br>
+		</p>
+		<p class="prijevod jezikHR">O najvelikodušnija inkarnacijo! Sam si Kṛṣṇa koji se pojavio kao Śrī Kṛṣṇa Caitanya. Poprimio si zlatnu boju Śrīmatī Rādhāraṇī i milostivo dijeliš čistu ljubav prema Kṛṣṇi. Odajem Ti ponizno poštovanje.</p>
+		<p class="prijevod jezikEN">O most munificent incarnation! You are Kṛṣṇa Himself appearing as Śrī Kṛṣṇa Caitanya Mahāprabhu. You have assumed the golden color of Śrīmatī Rādhārāṇī, and You are widely distributing pure love of Kṛṣṇa. We offer our respectful obeisances unto You.</p>
+		<hr>
+		
+	</song>
+
+	<song id=namobrahmanyadevaya>
+		<h1 class="pjesmaNaslov jezikHR">Molitva Gospodinu Kṛṣṇi</h1>
+		<h1 class="pjesmaNaslov jezikEN">Prayer to Lord Kṛṣṇa</h1>
+		<h2>Viṣṇu Purāṇa (1.19.65)</h2>
+		<p class="stih"><span class=numS>(1)</span><br>
+		namo brahmaṇya-devāya<br>
+		go-brāhmaṇa-hitāya ca<br>
+		jagad-dhitāya kṛṣṇāya<br>
+		govindāya namo namaḥ
+		</p>
+		<p class="prijevod jezikHR">Odajem ponizno poštovanje Gospodinu koji je obožavano Božanstvo brāhmana; dobronamjerniku krava, brāhmana i cijeloga svemira. Iznova i iznova odajem poštovanje Božanskoj Osobi poznatoj kao Kṛṣṇa i Govinda.</p>
+		<p class="prijevod jezikEN">Let me offer my respectful obeisances unto Lord Kṛṣṇa, who is the worshipable Deity for all brahminical men, who is the well-wisher of cows and brāhmaṇas, and who is always benefiting the whole world. I offer my repeated obeisances to the Personality of Godhead, known as Kṛṣṇa and Govinda.</p>
+		<hr>
+		
+	</song>
+
+
+	<song id=prasadasevaya>
+		<h1 class=pjesmaNaslov>Prasāda Sevāya</h1>
+		<p class=autor>Śrīla Narottama dāsa Ṭhākura</p>
+
+		<p class="stih">
+		mahā-prasāde govinde<br>
+		nāma-brahmaṇi vaiṣṇave<br>
+		svalpa-puṇyavatāḿ rājan<br>
+		viśvāso naiva jāyate<br>
+		(Mahābhārata, Skanda Purāṇa)</p>
+		<p class="prijevod jezikHR">O kralju, za one koji su prikupli vrlo malo pobožnih djela, njihova vjera u mahā-prasādu, u Śrī Govindu, u Sveto Ime te u Vaiṣṇavu nikada se ne rađa.</p>
+
+		<p class="stih"><span class=numS>(1)</span><br>
+		(bhāi-re!) śarīra abidyā-jāl, joḍendriya tāhe kāl,<br>
+		jīve phele viṣaya-sāgore<br>
+		tā’ra madhye jihwā ati, lobhamoy sudurmati,<br>
+		tā’ke jetā kaṭhina saḿsāre</p>
+		<p class="prijevod jezikHR">(O braćo!) Ovo materijalno tijelo je sjedište neznanja, a osjetila su mreža puteva koja vode u smrt. Na neki način pali smo u ovaj ocean materijalnog osjetilnog uživanja. Vrlo je teško ovladati jezik u ovome svijetu jer od svih osjetila jezik je najlakomiji i vrlo teško ga je kontrolirati.</p>
+		<p class="prijevod jezikEN">(O brothers!) This material body is a lump of ignorance, and the senses are a network of paths leading to death. Somehow, we have fallen into this ocean of material sense enjoyment. It is very difficult to control the tongue in this world, because out of all the senses the tongue is the most voracious and uncontrollable.</p>
+
+		<p class="stih"><span class=numS>(2)</span><br>
+		kṛṣṇa baro doyāmoy, koribāre jihwā jay,<br>
+		swa-prasād-anna dilo bhāi<br>
+		sei annāmṛta pāo, rādhā-kṛṣṇa-guṇa gāo,<br>
+		preme ḍāko caitanya-nitāi</p>
+		<p class="prijevod jezikHR">Ali Ti, dragi Kṛṣṇa, si vrlo ljubazan prema nama te si nam dao tako ukusan prasādam samo da bi mogli obuzdati jezik. Sada prihvatimo ovaj prasādam do punog zadovoljstva slaveći Vaša Gospodstva - Rādhu i Kṛṣṇu - i s ljubavlju prizivajmo pomoć Gospodina Caitanye i Gospodina Nityānande.</p>
+		<p class="prijevod jezikEN">But You, dear Kṛṣṇa, are very kind to us and have given us such nice prasādam, just to control the tongue. Therefore let us take this prasāda to our full satisfaction and glorify Your Lordships Śrī Śrī Rādhā and Kṛṣṇa, and with love call out "Caitanya! Nitai!" for help.</p>
+
+
+		<hr>
+		
+	</song>
+    
+</div>
+
+
+
+<button class="button showAllSongs" style="display:block;"><span class=jezikHR>Sve pjesme</span><span class=jezikEN>All songs</span></button>
+
+
+</article>
+
+
+<script>
+
+
+//	Sadržaja: Izrada sadržaja
+var ToC =
+  "<div class='tocBackOverlay noselect' onclick='close()'>" + 
+  "<div class='tocBack closed'>" +
+  "<div class='tocClose noselect hand menuIcon ' onclick='close()'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 348.33 348.33'><path d='M336.56 68.61L231.02 174.16l105.54 105.55a40.2 40.2 0 01-56.83 56.85L174.17 231 68.6 336.56a40.06 40.06 0 01-28.42 11.77 40.2 40.2 0 01-28.41-68.62l105.54-105.55L11.77 68.61A40.2 40.2 0 0168.6 11.77l105.57 105.55L279.72 11.77a40.2 40.2 0 0156.84 56.84z'/></svg></div>" +
+    "<h1 class='left'>Sadržaj:</h1>" +
+"<nav role='navigation' class='TOC' id='TOC'>" +
+    "<ol>";
+
+var newLine, el, title, link;
+
+	$("article song").each(function() {
+		el = $(this);
+		//  title = el.text();
+		title =  $(this).find("h1").text();
+		titleh2 =  $(this).find("h2").text();
+		if ( el.attr("id")) {
+			link = "#" + el.attr("id");
+
+			newLine =
+			"<li>" +
+			"<a class='tocLink' href='" + link + "'>" +
+			title + "</br><i>" + titleh2 + "</i>" +
+			"</a>" +
+			"</li>";
+			ToC += newLine;
+		}
+	});
+
+ToC +=
+   "</ol>" +
+  "</nav></div></div>";
+
+$("body").prepend(ToC);  
+
+
+//Sadržaj: zatvaranje po odabiru; ostale stvari
+var open = function() {
+	 $('.tocBack').removeClass( "closed" );
+	 $('body').addClass( "noscroll" );
+}
+document.querySelector('.buttonMenu').onclick = open;
+
+
+function closeTOC() {
+	$('.tocBack').addClass( "closed" );
+	$('body').removeClass( "noscroll" );
+}
+
+window.addEventListener("load", eventWindowLoaded, false);
+function eventWindowLoaded(){
+	document.querySelector('.tocClose').onclick = closeTOC();
+	document.querySelector('.tocBackOverlay').onclick = closeTOC();
+}
+
+// Sadržaj: Kod odabira pjesme, sakrij sve ostale
+$('.tocLink').bind('click', function() {
+	//$('song').show();
+		$('song').removeClass('quarantine');
+		$('.showAllSongs').hide();
+		$('html').removeClass('stick');
+	var id = $(this).attr('href'); 
+	//$('song').not(id).hide();
+	$('song').not(id).addClass('quarantine');
+	$('h1.title').addClass('quarantine');
+	$('.showAllSongs').show();
+	closeTOC();
+})
+
+$('.tocClose').bind('click', function() {
+	closeTOC();
+})
+
+window.onload = function() {
+	$('.showAllSongs').hide();
+	 var anchors = document.getElementsByTagName('a');
+	 for(var i = 0; i < anchors.length; i++) {
+			 var anchor = anchors[i];
+			 anchor.onclick = function() {
+					$('.tocBack').addClass( "closed" );
+					$('body').removeClass( "noscroll" );
+			 }
+	 }
+}
+
+// Sve pjesme gumb
+$('.showAllSongs').bind('click', function() {
+	//$('song').show();
+	$('song').removeClass('quarantine');
+	$('.showAllSongs').hide();
+	$('h1.title').removeClass('quarantine');
+	$('html').removeClass('stick');
+	window.scrollTo(0, 0);
+	open();
+})
+
+</script>
+
+
+<style>
+	/*Sadržaj: izbornik animacija sakrivanja i pokazivanja*/
+	.menuIcon{
+		font-size: 16px;
+	}
+	.menuIconHolder{
+	  transform: none;
+	  transition: transform 0.4s;
+	}
+	.menuHidden.buttonDarkMode{
+	  transform: translate3d(0, -300%, 0);
+	  transition: transform 0.7s;
+	}
+	.menuHidden.buttonMenu{
+	  transform: translate3d(0, -300%, 0);
+	  transition: transform 0.4s;
+	}
+	.menuHidden.buttonLightMode{
+	  transform: translate3d(0, -300%, 0);
+	  transition: transform 0.7s;
+	}
+	.menuHidden.buttonDipa{
+	  transform: translate3d(0, -300%, 0);
+	  transition: transform 0.5s;
+	}
+	.menuHidden.buttonZoomOut {
+	  transform: translate3d(0, 200%, 0);
+	  transition: transform 0.3s;
+	}
+	.menuHidden.buttonZoomIn {
+	  transform: translate3d(0, 400%, 0);
+	  transition: transform .6s;
+	}
+	.menuHidden.buttonShare {
+	  transform: translate3d(0, 200%, 0);
+	  transition: transform 0.8s;
+	}
+	.menuHidden.buttonHideTranslation {
+	  transform: translate3d(0, 400%, 0);
+	  transition: transform 0.8s;
+	}
+	.menuHidden.buttonJezik {
+	  transform: translate3d(0, 600%, 0);
+	  transition: transform 0.8s;
+	}
+	.menuShown.buttonDarkMode,  .menuShown.buttonLightMode, .menuShown.buttonDipa, .menuShown.buttonMenu, .menuShown.buttonZoomIn, .menuShown.buttonZoomOut, .menuShown.buttonShare, .menuShown.buttonHideTranslation, .menuShown.buttonJezik {
+	  transform: none;
+	  transition: transform 0.4s;
+	}
+</style>
+
+
+
+<script>
+	// Gumbi: sakrivanje i prikazivanje po dodiru
+	$(function() {
+		$('article').not('button').click(function(e) {
+			if(!$(e.target).hasClass('menuIconHolder') ){
+				$( ".menuIconHolder" ).toggleClass( "menuHidden" );                
+			}
+		}); 
+		$("article div.thematicIcon").click(function(e) {
+			e.stopPropagation();
+		});
+	});
+
+
+	
+
+//	Sadržaj: ukloni hastag #... na odabir pjesme
+$(function() {
+	$('a[href*=#]:not([href=#])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+				$('html,body').animate({scrollTop: target.offset().top - 50}, 500);
+				return false;
+			}
+		}
+	});
 });
 
-self.addEventListener('activate', function(event) {
-  var expectedCacheNames = Object.keys(CURRENT_CACHES).map(function(key) {
-    return CURRENT_CACHES[key];
-  });
 
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (expectedCacheNames.indexOf(cacheName) === -1) {
-            console.log('Deleting out of date cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
-});
+//	Share: Kopiraj link
+function CopyToClipboard(value, showNotification, notificationText) {
+		var $temp = $("<input>");
+		$("body").append($temp);
+		$temp.val(value).select();
+		document.execCommand("copy");
+		$temp.remove();
+
+		if (typeof showNotification === 'undefined') {
+				showNotification = true;
+		}
+		if (typeof notificationText === 'undefined') {
+				notificationText = "Copied to clipboard";
+		}
+
+		var notificationTag = $("div.messageNotification");
+		if (showNotification && notificationTag.length == 0) {
+				notificationTag = $("<div/>", { "class": "messageNotification", text: notificationText });
+				$("body").append(notificationTag);
+
+				notificationTag.fadeIn("fast", function () {
+						setTimeout(function () {
+								notificationTag.fadeOut("slow", function () {
+										notificationTag.remove();
+								});
+						}, 1000);
+				});
+		}
+}
+	
+function notification(notificationText, notificationTimeout) {
+	if (typeof notificationText === 'undefined') {
+		notificationText = "Default text.";
+	}
+	if (!(notificationTimeout > 50)){
+		notificationTimeout == 1000;
+	}
+
+	$("div.messageNotification").remove();
+	var notificationTag = $("div.messageNotification");
+	if (notificationTag.length == 0) {
+		notificationTag = $("<div/>", { "class": "messageNotification", text: notificationText });
+		$("body").append(notificationTag);
+		notificationTag.fadeIn("fast", function () {
+				setTimeout(function () {
+						notificationTag.fadeOut("slow", function () {
+								notificationTag.remove();
+						});
+				}, notificationTimeout);
+		});
+	}
+}
 
 
-self.addEventListener('fetch', function(event) {
-  //console.log('Handling fetch event for', event.request.url);
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      if (response) {
-        //console.log('Found response in cache:', response);
-        return response;
-      }
-      console.log('No response found in cache. About to fetch from network...');
-      return fetch(event.request).then(function(response) {
-        //console.log('Response from network is:', response);
-        return response;
-      }).catch(function(error) {
-        console.error('Fetching failed:', error);
-        throw error;
-      });
-    })
-  );
-});
 
-})();
+
+
+function shareDialog(){
+	if (navigator.share) {
+		navigator.share({
+		title: $("h1.title").text(),
+		url: window.location.protocol + "//" + window.location.host + window.location.pathname
+		}).then(() => {
+			console.log('Thanks for sharing!');
+		})
+	.catch(console.error);
+	} else {
+		var jezik = window.localStorage.getItem('jezik');
+		var message = "";
+		if (jezik == null || jezik ==  "HR"){
+			var message = "Link kopiran!";
+		} else if (jezik == "EN") {
+			var message = "Link copied!";
+		}
+		CopyToClipboard(window.location.protocol + "//" + window.location.host + window.location.pathname, true, message);
+	}
+
+	
+}
+
+// Povećanje i smanjenje fonta
+var pozicijaPostotak;
+function pozicijaOdVrha(){
+	var trenutnaPozicija = $(window).scrollTop(); //trenutna pozicija
+	var visinaHtml = $(document).height(); // visina HTML dokumenta
+	pozicijaPostotak = Math.round(trenutnaPozicija / visinaHtml * 100);
+}
+function vratiPozicijuOdVrha(){
+	$(window).scrollTop(Math.round(pozicijaPostotak / 100 * $(document).height()));
+}
+	
+// zumiranje teksta
+function zoom(mukunda) {
+	var fontSize = parseInt(getComputedStyle(document.body).fontSize.replace("px",""));
+	if (mukunda == "in"){fontSize += 2;} else {fontSize -= 2;}
+	if (fontSize +2 < 30 && fontSize -2 > 6){
+		document.body.style.fontSize = fontSize + "px";
+		window.localStorage.setItem('fontSize', fontSize);
+}}
+
+//vrati veličinu fonta
+var fontSize = window.localStorage.getItem('fontSize');
+if (fontSize > 6 && fontSize < 32){
+	document.body.style.fontSize = fontSize + "px";
+}
+
+// na pritisak tipke tipkovnice
+document.addEventListener("keydown", function(event) {
+	if (event.which == 107) {
+		zoom("in");
+	} else if (event.which == 109) {
+		zoom("out");
+	}
+})
+
+// odabir jezika
+function toggleJezik(){
+	var jezik = window.localStorage.getItem('jezik');
+	if (jezik == null || jezik ==  "HR"){
+		$("body").removeClass("translationHidden");
+		$(".jezikEN").removeClass("hidden");
+		$(".jezikHR").addClass("hidden");
+		window.localStorage.setItem('jezik', "EN");
+	} else if (jezik == "EN") {
+		$("body").removeClass("translationHidden");
+		$(".jezikHR").removeClass("hidden");
+		$(".jezikEN").addClass("hidden");
+		window.localStorage.setItem('jezik', "HR");
+	}
+}
+
+//vrati jezik po pokretanju
+function restoreJezik(){
+		if ($("body").hasClass("translationHidden")) {
+
+		} else {
+			var jezik = window.localStorage.getItem('jezik');
+			if (jezik == null || jezik ==  "HR"){
+				$(".jezikHR").removeClass("hidden");
+				$(".jezikEN").addClass("hidden");
+			} else if (jezik == "EN") {
+				$(".jezikEN").removeClass("hidden");
+				$(".jezikHR").addClass("hidden");
+			}
+		}
+	}
+restoreJezik();
+	
+// sakrivanje prijevoda
+function toggleTranslation(){
+	if ($("body").hasClass("translationHidden")) {
+		$(".prijevod").removeClass("hidden");
+		$(".smisao").removeClass("hidden");
+		//$(".menuTranslationExpanded").addClass("hidden");
+		//$(".menuTranslationContracted").removeClass("hidden");
+		$("body").removeClass("translationHidden");
+	} else {
+		$(".prijevod").addClass("hidden");
+		$(".smisao").addClass("hidden");
+		//$(".menuTranslationContracted").addClass("hidden");
+		//$(".menuTranslationExpanded").removeClass("hidden");
+		$("body").addClass("translationHidden");
+	}
+}
+
+
+
+
+// NOSLEEP GUMB DIPA
+var noSleep = new NoSleep();
+var wakeLockEnabled = false;
+var toggleEl = document.querySelector("#toggleDipa");
+toggleEl.addEventListener('click', function() {
+	if (!wakeLockEnabled) {
+		noSleep.enable(); // keep the screen on!
+		wakeLockEnabled = true;
+		toggleEl.value = "Dipa je upaljena 🪔";
+		document.querySelector("article").classList.add("dipa");
+
+		var jezik = window.localStorage.getItem('jezik');
+		var message = "";
+		if (jezik == null || jezik ==  "HR"){
+			var message = "Ekran će ostati upaljen.";
+		} else if (jezik == "EN") {
+			var message = "The screen should stay on.";
+		}
+		
+		notification(message, 2500);
+	} else {
+		noSleep.disable(); // let the screen turn off.
+		wakeLockEnabled = false;
+		toggleEl.value = "Upali dipu 🪔";
+		document.querySelector("article").classList.remove("dipa");
+
+		var jezik = window.localStorage.getItem('jezik');
+		var message = "";
+		if (jezik == null || jezik ==  "HR"){
+			var message = "Ekran će se gasiti kao i obično.";
+		} else if (jezik == "EN") {
+			var message = "The screen should turn off as usual.";
+		}
+		
+		notification(message, 2500);
+	}
+}, false);
+
+
+//NO SLEEP AUTOMATSKI PO KORIŠTENJU STRANICE
+
+if (iOS()){
+	// window.addEventListener('touchstart', function onFirstTouch() {
+		// window.removeEventListener('touchstart', onFirstTouch, false);
+		// notification("Upalite dipu 🪔 kako se ekran nebi gasio.", 2500);
+	// }, false);
+} else {
+	window.addEventListener('touchstart', function onFirstTouch() {
+			if (!wakeLockEnabled) {
+				window.removeEventListener('touchstart', onFirstTouch, false);
+				window.removeEventListener('click', onFirstTouch, false);
+				wakeLockEnabled = false;
+				$("#toggleDipa").trigger("click");
+			}
+	}, false);
+
+	window.addEventListener('click', function onFirstClick() {
+			if (!wakeLockEnabled) {
+				window.removeEventListener('click', onFirstClick, false);
+				window.removeEventListener('touchstart', onFirstTouch, false);
+				wakeLockEnabled = false;
+				$("#toggleDipa").trigger("click");
+			}
+	}, false);
+}
+
+
+
+// UPDATE
+	window.isUpdateAvailable = new Promise(function(resolve, reject) {
+		if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
+		// register service worker file
+		navigator.serviceWorker.register('./sw.js')
+			.then(reg => {
+				reg.onupdatefound = () => {
+					const installingWorker = reg.installing;
+					installingWorker.onstatechange = () => {
+						switch (installingWorker.state) {
+						case 'installed':
+						if (navigator.serviceWorker.controller) {
+							// new update available
+							resolve(true);
+						} else {
+							// no update available
+							resolve(false);
+						}
+						break;}
+					};
+				};
+			})
+			.catch(err => console.error('[SW ERROR]', err));
+		}
+	});
+	// listen to the service worker promise
+	window['isUpdateAvailable']
+	.then(isAvailable => {
+		if (isAvailable) {
+		var jezik = window.localStorage.getItem('jezik');
+		if (jezik == null || jezik ==  "HR"){
+			notification("Nova verzija dostupna. Molimo osvježite.", 12000);
+		} else if (jezik == "EN") {
+			notification("New version is available. Please refresh", 12000);
+		}
+			
+		}
+	});
+</script>
+</body>
+
+</html>
