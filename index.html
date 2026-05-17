@@ -776,6 +776,8 @@
 			search_query = document.getElementById("searchboxEN").value;
 			search_query = search_query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]|\-/g, "");
 		}
+	$('song').removeClass('quarantine');
+	$('.showAllSongs').hide();
 		// Loop through the cards
 		for (var i = 0; i < cards.length; i++) {
 		// If the text is within the card...
