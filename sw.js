@@ -1,4 +1,4 @@
-function() {
+(function() {
 var CACHE_VERSION = 3.387;
 var CURRENT_CACHES = {
   prefetch: 'haribol-v' + CACHE_VERSION
@@ -54,3 +54,45 @@ event.waitUntil(
     })
 	)
 });
+
+self.addEventListener('activate', function(event) {
+  var expectedCacheNames = Object.keys(CURRENT_CACHES).map(function(key) {
+    return CURRENT_CACHES[key];
+  });
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (expectedCacheNames.indexOf(cacheName) === -1) {
+            console.log('Deleting out of date cache:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
+
+self.addEventListener('fetch', function(event) {
+  //console.log('Handling fetch event for', event.request.url);
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      if (response) {
+        //console.log('Found response in cache:', response);
+        return response;
+      }
+      console.log('No response found in cache. About to fetch from network...');
+      return fetch(event.request).then(function(response) {
+        //console.log('Response from network is:', response);
+        return response;
+      }).catch(function(error) {
+        console.error('Fetching failed:', error);
+        throw error;
+      });
+    })
+  );
+});
+
+})();
