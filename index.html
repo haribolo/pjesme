@@ -2169,17 +2169,52 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 </article>
 
 
+
+<!-- COLOR PICKER -->
+<input type="color" id="colorPicker" style='opacity:0;width:100px;position:absolute;'/>
+<script>
+const element = document.querySelector("#colorPicker");
+element.addEventListener("input", restoreBojaOnEvenet);
+element.addEventListener("change", restoreBojaOnEvenet);
+element.select();
+
+function restoreBojaOnEvenet(event) {
+	document.querySelectorAll(".menuIcon path").forEach((element) => {
+		element.style.fill = event.target.value;
+		window.localStorage.setItem('boja', event.target.value);
+	});
+}
+
+function updateBoja(event) {
+	document.querySelectorAll(".menuIcon path").forEach((element) => {
+		element.style.fill = event;
+	});
+}
+
+function restoreBoja(){
+	var boja = window.localStorage.getItem('boja');
+	if (boja == null) {
+		
+	} else {
+		updateBoja(boja)
+	}
+}
+restoreBoja();
+</script>
+
+
+
 <script>
 
 
 //	Sadržaja: Izrada sadržaja
-var ToC =
-  "<div class='tocBackOverlay noselect' onclick='close()'>" + 
-  "<div class='tocBack closed'>" +
-  "<div class='tocClose noselect hand menuIcon ' onclick='close()'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 348.33 348.33'><path d='M336.56 68.61L231.02 174.16l105.54 105.55a40.2 40.2 0 01-56.83 56.85L174.17 231 68.6 336.56a40.06 40.06 0 01-28.42 11.77 40.2 40.2 0 01-28.41-68.62l105.54-105.55L11.77 68.61A40.2 40.2 0 0168.6 11.77l105.57 105.55L279.72 11.77a40.2 40.2 0 0156.84 56.84z'/></svg></div>" +
-    "<h1 class='left'>Sadržaj:</h1>" +
-"<nav role='navigation' class='TOC' id='TOC'>" +
-    "<ol>";
+	var ToC =
+	"<div class='tocBackOverlay noselect' onclick='close()'>" + 
+	"<div class='tocBack closed'>" +
+	"<div class='tocClose noselect hand menuIcon ' onclick='close()'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 348.33 348.33'><path d='M336.56 68.61L231.02 174.16l105.54 105.55a40.2 40.2 0 01-56.83 56.85L174.17 231 68.6 336.56a40.06 40.06 0 01-28.42 11.77 40.2 40.2 0 01-28.41-68.62l105.54-105.55L11.77 68.61A40.2 40.2 0 0168.6 11.77l105.57 105.55L279.72 11.77a40.2 40.2 0 0156.84 56.84z'/></svg></div>" +
+	"<h1 class='left'>Sadržaj:</h1>" +
+	"<nav role='navigation' class='TOC' id='TOC'>" +
+	"<ol>";
 
 var newLine, el, title, link;
 
