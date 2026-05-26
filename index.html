@@ -1229,10 +1229,9 @@
 <h1 class="pjesmaNaslov">Śrī Dāmodarạ̄ṣṭaka</h1>
 <p class="autor">Satyavrata muni</p>
 
-<div class=thematicIcon></div>
-<style type="text/css">
-
-	img.thematicCover {
+<div class=stickySlika></div>
+<style>
+	img.stickySlikaCover {
 		max-width: 100%;
 		border-radius: 10px;
 		width: 50vh;
@@ -1242,7 +1241,7 @@
 		object-fit: cover;
 		object-position: bottom;
 	}
-	.thematicIcon {
+	.stickySlika {
 		position: relative;
 		max-width: 100%;
 		border-radius: 10px;
@@ -1258,8 +1257,36 @@
 		transition: width .2s, height .2s, background-position .2s;
 	}
 
+
+	@media screen and (orientation:landscape) { 
+		html.stick .stickySlika {
+			width: calc(50% - 20px);
+			height: 100vh;
+			/* display: grid; */
+			justify-content: start;
+			grid-auto-flow: column;
+			display: block;
+			margin: 0;
+			position: sticky;
+			top: 0;
+			left: 0;
+		}
+		html.stick .stickyText {
+			width: 50%;
+			display: inline-block;
+			margin: -100vh 0 0 50%;
+		}
+		html.stick article {
+			width: 100%;
+		}
+		html.stick body {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
 	@media screen and (orientation:portrait) { 
-		html.stick .thematicIcon {
+		html.stick .stickySlika {
 			position: sticky;
 			top: 10px;
 			width: 100%;
@@ -1267,32 +1294,6 @@
 			background-position-y: 84%;
 			outline: 10px solid white;
 			transition: width .2s, height .2s, background-position .2s;
-		}
-	}
-	@media screen and (orientation:landscape) { 
-		html.stick .thematicIcon {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 45vw;
-			height: 100vh;
-			border-radius: 0;
-			z-index: 1;
-		}
-		html.stick article {
-			margin: 0;
-			border-radius: 20px;
-			max-width: calc(55vw - 2em);
-			width: calc(55vw - 2em);
-			padding: 1em;
-			right: 0;
-			position: absolute;
-			border-radius: 0;
-			z-index: 2;
-		}
-		html.stick body {
-			margin: 0;
-			padding: 0;
 		}
 	}
 	.tech {
@@ -1314,14 +1315,13 @@
 	}*/
 </style>
 <script>
-	$('.thematicIcon').bind('click', function() {
+	$('.stickySlika').bind('click', function() {
 		$('html').toggleClass('stick');
-
 	})
 </script>
 
-
-<p class="stih"><span class=numS>(1)</span><br />
+<div class=stickyText>
+	<p class="stih"><span class=numS>(1)</span><br />
 namāmīśvaram sac-cid-ānanda-rūpam<br />
 lasat-kuṇḍalam gokule bhrājamanam<br />
 yaśodā-bhiyolūkhalād dhāvamānam<br />
@@ -1408,6 +1408,8 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 
 <p class="prijevod jezikHR">Odajem ponizno poštovanje blistavo sjajnom konopcu kojim je svezan Tvoj trbuščić. Potom odajem ponizno poštovanje Tvom trbuščiću, prebivalištu cijeloga svemira. Ponizno se klanjam Tvojoj najvoljenijoj Shrim&aacute;ti Rādhiki i odajem svo poštovanje Tebi, Svevišnjem Gospodinu, koji provodi beskrajne zabave.</p>
 <p class="prijevod jezikEN">O Lord Damodara, I first of all offer my obeisances to the brilliantly effulgent rope which binds Your belly. I then offer my obeisances to Your belly, which is the abode of the entire universe. I humbly bow down to Your most beloved Srimati Radharani, and I offer all obeisances to You, the Supreme Lord, who displays unlimited pastimes.</p>
+</div>
+
 
 
 <hr>
