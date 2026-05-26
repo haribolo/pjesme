@@ -163,7 +163,7 @@
 		.prijevod, .darkMode .prijevod{color: #9aa0a6;}
 		song, .darkMode song {background: #292a2d;filter:drop-shadow(0px 3px 3px #161718);}
 		.tocBack, .darkMode .tocBack {filter: drop-shadow(2px 4px 16px #161718);}
-		.menuIcon path, .tocClose path, .darkMode .menuIcon path, .darkMode .tocClose path {fill: #9f752e;}
+		.menuIcon path, .tocClose path, .darkMode .menuIcon path, .darkMode .tocClose path {fill: var(--themeColor);}
 
 		article{
 			transition-duration: .1s;
@@ -348,9 +348,14 @@
 		border: 2px solid #717171;
 		background-color: #cecece;
 	}*/
+	:root {
+    	--themeColor:#9f752e;
+	}
+
 	.button {
 		box-shadow: 0 0 2px 0px #000000d6;
-		background-color: #9f752e;
+		/*background-color: #9f752e;*/
+		background-color: var(--themeColor);
 		border-radius: 6px;
 		border: 0px solid #ffffff;
 		color: #000000ad;
@@ -588,10 +593,15 @@
 	  padding: 0;
 	}
 	.TOC li {
-	  margin: 0 0 0.35em 0;
-	  text-wrap: balance;
-	  padding-right: 20px;
-	  padding-left: 5px;
+		margin: 0 0 0.7em 0;
+		text-wrap: balance;
+		padding-right: 20px;
+		padding-left: 5px;
+		font-size: 1.07em;
+	}
+
+	.TOC li::marker {
+		font-size: .8em;
 	}
 	.TOC a {
 		text-decoration: none;
@@ -746,7 +756,7 @@
 	}
 
 	.inputPretraga:focus {
-	  border-color: #9f752e;
+	  border-color: var(--themeColor);
 	  box-shadow: 0 0 0 3.5px rgba(159,117,46,0.35);
 	}
 
@@ -1076,6 +1086,33 @@
 	</p>
 	<p class="prijevod jezikHR">Odajem poštovanje svim Vaiṣṇavama, bhaktama Gospodina. Oni su poput drveća želja koji mogu ispuniti svačije želje i puni su suosjećanja za pale, uvjetovane, duše.</p>
 	<p class="prijevod jezikEN">I offer my respectful obeisances unto the Vaishnava devotees of the Lord. They are just like desire trees and can fulfill the desires of everyone, and they are full of compassion for the fallen conditioned souls.</p>
+
+
+	<hr>
+	
+</song>
+
+
+<song id=govindamadipurusam>
+	<h1 class=pjesmaNaslov>Śṛṅgāra Ārati</h1>
+	<h1 class=pjesmaNaslovPopularni>Darśana Ārati</h1>
+	<p class="stih"><span class=numS>(1)</span><br>
+		veṇum kvaṇantāravinda-dalāyatākṣam<br>
+		bārhāvataṃsam asitāmbuda sundarāńgam<br>
+		kandarpa-koṭi-kamanīya-viś'eṣa ś'obham <br>
+		govindam ādi-puruṣaḿ tam ahaḿ bhajāmi
+	</p>
+	<p class="prijevod jezikHR">Obožavam Govindu, Prvobitnog Gospodina, vještog svirača Svoje flaute, čije oči cvjetaju poput latica lotosa, Čija je glava ukrašena paunovim perom, Čiji je lik ljepote obojen nijansom plavih oblaka, a Njegova jedinstvena ljupkost očarava milijune Kupida.</p>
+	<p class="prijevod jezikEN">I worship Govinda, the primeval Lord, who is adept in playing on His flute, with blooming eyes like lotus petals with head decked with peacock's feather, with the figure of beauty tinged with the hue of blue clouds, and His unique loveliness charming millions of Cupids.</p>
+	
+	<p class="stih"><span class=numS>(2)</span><br>
+		ańgāni yasya sakalendriya-vṛtti-manti<br>
+		paśyanti pānti kalayanti ciram jaganti<br>
+		ānanda-cin-maya-sad-ujjvala-vigrahasya<br>
+		govindam ādi-puruṣaḿ tam ahaḿ bhajāmi
+	</p>
+	<p class="prijevod jezikHR">Obožavam Govindu, Prvobitnog Gospodina, Čiji je transcendentalni oblik pun blaženstva, istine, supstancijalnosti i stoga pun najblistavijeg sjaja. Svaki od udova te Transcendentalne Figure posjeduje u Sebi punopravne funkcije svih organa te vječno vidi, održava i manifestira beskonačni broj i duhovnih i materijalnih svemira.</p>
+	<p class="prijevod jezikEN">I worship Govinda, the primeval Lord, whose transcendental form is full of bliss, truth, substantiality and is thus full of the most dazzling splendor. Each of the limbs of that transcendental figure possesses in Himself, the full-fledged functions of all the organs, and eternally sees, maintains and manifests the infinite universes, both spiritual and mundane.</p>
 
 
 	<hr>
@@ -1593,7 +1630,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 
 <song id=manasadehogeho>
 	<h1 class=pjesmaNaslov>Atma Nivedana</h1>
-	<h2 class=pjesmaNaslovPopularni>Mānasa deho geho</h2>
+	<h2 class=pjesmaNaslovPopularni>Mānasa Deho Geho</h2>
 	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
 	<p class="stih"><span class=numS>(1)</span><br>mānasa, deho, geho, jo kichu mor<br>arpilū tuwā pade, nanda-kiśor!</p>
 	<p class="prijevod jezikHR">O mladoliki Nandin sine, um, tijelo i obitelj, sve što <br>može biti moje, predao sam Tvojim lotosovim stopalima.</p>
@@ -1640,7 +1677,7 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 
 <song id=jivjagojivjago>
 	<h1 class=pjesmaNaslov>Arunodaya Kirtana</h1>
-	<h2 class=pjesmaNaslov>jīv jāgo, jīv jāgo</h2>
+	<h2 class=pjesmaNaslovPopularni>Jīv Jāgo, Jīv Jāgo</h2>
 	<p class=autor>Śrīla Bhaktivinoda Ṭhākura</p>
 	<p class="stih"><span class=numS>(1)</span><br>jīv jāgo, jīv jāgo, gauracānda bole<br>kota nidrā jāo māyā-piśācīra kole</p>
 	<p class="prijevod jezikHR">Gospodin Gauranga poziva: "Probudite se uspavane duše! Probudite se uspavane duše! Do kada ćete spavati u krilu vještice Maye?"</p>
@@ -1661,12 +1698,72 @@ namo ‘nanta-līlāya devāya tubhyam</p>
 	<p class="stih"><span class=numS>(5)</span><br>bhakativinoda prabhu-caraṇe pariyā<br>sei hari-nāma-mantra loilo māgiyā</p>
 	<p class="prijevod jezikHR">Śri Bhaktivinoda Thakura kaže: "Prihvativši ovu maha-mantru, padam pred Gospodinova lotosolika stopala."</p>
 	<p class="prijevod jezikEN">Srila Bhaktivinoda Thakura says: "I fall at the Lord's feet, having taken this mahā-mantra."</p>
-	
-	
+
 <hr>
+</song>
 
 
-	
+
+<song id=jeanilopremadhana>
+	<h1 class=pjesmaNaslov>Sapārṣada-bhagavad-viraha-janita-vilāpa</h1>
+	<h2 class=pjesmaNaslovPopularni>Je Ānilo Prema-Dhana Koruṇā Pracur</h2>
+	<p class=autor>Narottama dāsa Ṭhākura</p>
+	<p class="stih"><span class=numS>(1)</span><br>
+		je ānilo prema-dhana koruṇā pracur<br>
+		heno prabhu kothā gelā ācārya-ṭhākur
+	</p>
+	<p class="prijevod jezikHR">
+		On koji je donio blago božanske ljubavi i koji je bio ispunjen suosjećanjem i milosrđem - kud li je nestala takva osoba poput Advaita Ācārye?
+	</p>
+	<p class="prijevod jezikEN">
+		He who brought the treasure of divine love and who was filled with compassion and mercy—where has such a personality as Srinivasa Acarya gone?
+	</p>
+
+	<p class="stih"><span class=numS>(2)</span><br>
+		kāhā mora swarūp rūpa kāhā sanātan<br>
+		kāhā dāsa raghunātha patita-pāvan
+	</p>
+	<p class="prijevod jezikHR">
+		Gdje li su moji Svarūpa Dāmodara i Rūpa Gosvāmī? Gdje li je Sanātana? Gdje li je Raghunātha dāsa, spasitelj palih?
+	</p>
+	<p class="prijevod jezikEN">
+		Where are my Svarupa Damodara and Rupa Gosvami? Where is Sanatana? Where is Raghunatha dasa, the savior of the fallen?
+	</p>
+
+	<p class="stih"><span class=numS>(3)</span><br>
+		kāhā mora bhaṭṭa-juga kāhā kavirāj<br>
+		eka-kāle kothā gelā gorā naṭa-rāj
+	</p>
+	<p class="prijevod jezikHR">
+		Gdje li su moji Raghunātha Bhaṭṭa i Gopāla Bhaṭṭa i gdje li je Kṛṣṇadāsa Kavirāja? Kuda li je Gospodin Gauranga, čuveni plesač, odjednom otišao?
+	</p>
+	<p class="prijevod jezikEN">
+		Where are my Raghunatha Bhatta and Gopala Bhatta, and where is Krishnadasa Kaviraja? Where did Lord Gauranga, the great dancer, suddenly go?
+	</p>
+
+	<p class="stih"><span class=numS>(4)</span><br>
+		pāṣāṇe kuṭibo māthā anale paśibo<br>
+		gaurāńga guṇera nidhi kothā gele pābo
+	</p>
+	<p class="prijevod jezikHR">
+		Razbit ću si glavu o stijenu i ući ću u vatru! Gdje ću li naći Gospodina Gaurangu, izvor svih divnih odlika?!
+	</p>
+	<p class="prijevod jezikEN">
+		I will smash my head against the rock and enter into the fire. Where will I find Lord Gauranga, the reservoir of all wonderful qualities?
+	</p>
+
+	<p class="stih"><span class=numS>(5)</span><br>
+		se-saba sańgīra sańge je koilo bilās<br>
+		se-sańga nā pāiyā kānde narottama dās
+	</p>
+	<p class="prijevod jezikHR">
+		Jer nije dosegao okruženje društva Gospodina Gaurange i svih ovih bhakta koji Ga prate, s kojima je izvodio Svoje zabave, Narottama dāsa jednostavno plače.
+	</p>
+	<p class="prijevod jezikEN">
+		Being unable to obtain the association of Lord Gauranga accompanied by all of these devotees in whose association He performed His pastimes, Narottama dasa simply weeps.
+	</p>
+
+<hr>
 </song>
 	
 	
@@ -2075,9 +2172,8 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 
 
 	<song id=vandesrikrishnacaitanyanityanandasahoditau>
-		<h1 class="pjesmaNaslov jezikHR">Molitva Gospodinu Caitanyi i Gospodinu Nityānandi</h1>
-		<h1 class="pjesmaNaslov jezikEN">Prayer to Lord Caitanya and Lord Nityānanda</h1>
-		<h2>CC Ādi 1.84</h2>
+		<h1 class="pjesmaNaslov">Śrī Śrī Gaura-Nitai Praṇāma</h1>
+		<p class=autor>CC Ādi 1.84</p>
 		<p class="stih"><span class=numS>(1)</span><br>
 		vande śrī-kṛṣṇa-caitanya-<br>
 		nityānandau sahoditau<br>
@@ -2094,9 +2190,8 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 
 
 	<song id=namomahavadanyaya>
-		<h1 class="pjesmaNaslov jezikHR">Molitva Gospodinu Caitanyi</h1>
-		<h1 class="pjesmaNaslov jezikEN">Prayer to Lord Caitanya</h1>
-		<h2>CC Madhya 19.53</h2>
+		<h1 class="pjesmaNaslov">Śrī Kṛṣṇa Caitanya Praṇāma</h1>
+		<p class=autor>CC Madhya 19.53</p>
 		<p class="stih"><span class=numS>(1)</span><br>
 		namo mahā-vadānyāya<br>
 		kṛṣṇa-prema-pradāya te<br>
@@ -2110,9 +2205,8 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 	</song>
 
 	<song id=namobrahmanyadevaya>
-		<h1 class="pjesmaNaslov jezikHR">Molitva Gospodinu Kṛṣṇi</h1>
-		<h1 class="pjesmaNaslov jezikEN">Prayer to Lord Kṛṣṇa</h1>
-		<h2>Viṣṇu Purāṇa (1.19.65)</h2>
+		<h1 class="pjesmaNaslov">Śrī Kṛṣṇa Praṇāma</h1>
+		<p class=autor>Viṣṇu Purāṇa (1.19.65)</p>
 		<p class="stih"><span class=numS>(1)</span><br>
 		namo brahmaṇya-devāya<br>
 		go-brāhmaṇa-hitāya ca<br>
@@ -2178,17 +2272,26 @@ element.addEventListener("input", restoreBojaOnEvenet);
 element.addEventListener("change", restoreBojaOnEvenet);
 element.select();
 
+// function restoreBojaOnEvenet(event) {
+// 	document.querySelectorAll(".menuIcon path").forEach((element) => {
+// 		element.style.fill = event.target.value;
+// 		window.localStorage.setItem('boja', event.target.value);
+// 	});
+// }
 function restoreBojaOnEvenet(event) {
-	document.querySelectorAll(".menuIcon path").forEach((element) => {
-		element.style.fill = event.target.value;
+
+		document.body.style.setProperty('--themeColor',event.target.value);
 		window.localStorage.setItem('boja', event.target.value);
-	});
 }
 
+
+// function updateBoja(event) {
+// 	document.querySelectorAll(".menuIcon path").forEach((element) => {
+// 		element.style.fill = event;
+// 	});
+// }
 function updateBoja(event) {
-	document.querySelectorAll(".menuIcon path").forEach((element) => {
-		element.style.fill = event;
-	});
+	document.body.style.setProperty('--themeColor',event);
 }
 
 function restoreBoja(){
@@ -2217,24 +2320,22 @@ restoreBoja();
 	"<ol>";
 
 var newLine, el, title, link;
-
-	$("article song").each(function() {
-		el = $(this);
-		//  title = el.text();
-		title =  $(this).find("h1").text();
-		titleh2 =  $(this).find("h2").text();
-		if ( el.attr("id")) {
-			link = "#" + el.attr("id");
-
-			newLine =
-			"<li>" +
-			"<a class='tocLink' href='" + link + "'>" +
-			title + "</br><i>" + titleh2 + "</i>" +
-			"</a>" +
-			"</li>";
-			ToC += newLine;
-		}
-	});
+$("article song").each(function() {
+	el = $(this);
+	//  title = el.text();
+	title =  $(this).find("h1").text();
+	titleh2 =  $(this).find("h2").text();
+	if ( el.attr("id")) {
+		link = "#" + el.attr("id");
+		newLine =
+		"<li>" +
+		"<a class='tocLink' href='" + link + "'>" +
+		title + "</br><i>" + titleh2 + "</i>" +
+		"</a>" +
+		"</li>";
+		ToC += newLine;
+	}
+});
 
 ToC +=
    "</ol>" +
