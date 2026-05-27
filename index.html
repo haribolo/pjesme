@@ -491,6 +491,12 @@
 		top: 20px;
 		background-color: transparent;
 	}
+	.buttonColorSelect {
+		position: fixed;
+		left: 20px;
+		top: calc(20px + 30px + 20px);
+		background-color: transparent;
+	}
 	.buttonZoomIn {
 		position: fixed;
 		right: 20px;
@@ -678,6 +684,15 @@
 			<div class="menuIconHolder buttonMenu noselect hand" onclick="open">
 					<span><svg class="menuIcon mainMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124"><path d="M112 6H12C5.4 6 0 11.4 0 18s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12zM112 94H12c-6.6 0-12 5.4-12 12s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"/></svg></span>
 			</div>
+			<div class="menuIconHolder buttonColorSelect noselect hand" onclick="open">
+					<span><svg xmlns="http://www.w3.org/2000/svg" class="menuIcon" viewBox="0 0 124 124"><path d="M11.54 26.88C29.64 2.75 67.11-4.27 93.76 12.35c26.34 16.37 36.06 47.82 25.23 77.36-10.15 27.94-36.99 38.95-56.37 24.92-7.2-5.23-10.03-11.82-11.38-22.52l-.62-6.1-.3-2.46c-.75-5.72-1.91-8.3-4.32-9.66-3.32-1.84-5.53-1.84-9.84-.18l-2.16.86-1.1.49c-6.22 2.7-10.4 3.7-15.63 2.58l-1.24-.3-1.04-.25c-17.1-5.35-19.7-28.61-3.45-50.21m79.57 29.04a7.7 7.7 0 1 0 15.06-3.17 7.7 7.7 0 0 0-15.06 3.17M94.2 77.4a7.7 7.7 0 1 0 15.19-2.46A7.7 7.7 0 0 0 94.2 77.4m-15.26-40a7.7 7.7 0 1 0 14.83-3.94 7.7 7.7 0 0 0-14.83 4m-.19 55.39a7.7 7.7 0 1 0 14.84-3.94 7.7 7.7 0 0 0-14.84 4M57.21 31.6a7.71 7.71 0 1 0 14.89-4 7.71 7.71 0 0 0-14.9 4" style="transform-box:fill-box" transform-origin="50% 50%"/></svg></path>
+</svg></span>
+			</div>
+
+
+
+
+
 			<div class="menuIconHolder buttonZoomIn noselect hand" onclick="pozicijaOdVrha();zoom('in');vratiPozicijuOdVrha();">
 					<span><svg class="menuIcon menuZoomIn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M496.64 424.96l-71.68-71.68c23.04-35.84 35.84-76.8 35.84-122.88C460.8 102.4 358.4 0 230.4 0S0 102.4 0 230.4s102.4 230.4 230.4 230.4c46.08 0 87.04-12.8 122.88-35.84l71.68 71.68c20.48 20.48 51.2 20.48 71.68 0 20.48-20.48 20.48-51.2 0-71.68zM230.4 409.6c-99.84 0-179.2-79.36-179.2-179.2S130.56 51.2 230.4 51.2s179.2 79.36 179.2 179.2-81.92 179.2-179.2 179.2z"/><path d="M332.8 204.8H256V128c0-15.36-10.24-25.6-25.6-25.6-15.36 0-25.6 12.8-25.6 25.6v76.8H128c-12.8 0-25.6 10.24-25.6 25.6 0 15.36 10.24 25.6 25.6 25.6h76.8v76.8c0 15.36 10.24 25.6 25.6 25.6 15.36 0 25.6-10.24 25.6-25.6V256h76.8c15.36 0 25.6-10.24 25.6-25.6 0-15.36-12.8-25.6-25.6-25.6z"/></svg></span>
 			</div>
@@ -2267,12 +2282,19 @@ dīna kṛṣṇa-dāsa kohe nāma-sańkīrtan
 
 
 <!-- COLOR PICKER -->
-<input type="color" id="colorPicker" value="#9f752e" style="opacity:0;width:100px;position:absolute;"/>
+<input type="color" id="colorPicker" tabindex=-1 value="#9f752e" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;"/>
 <script>
 const element = document.querySelector("#colorPicker");
 element.addEventListener("input", restoreBojaOnEvenet);
 element.addEventListener("change", restoreBojaOnEvenet);
 element.select();
+
+document.querySelector(".buttonColorSelect").addEventListener("click", function() {
+	//document.getElementById("colorPicker").focus();
+	//document.getElementById("colorPicker").value = "#FFCC00";
+	document.getElementById("colorPicker").click();
+});
+
 
 // function restoreBojaOnEvenet(event) {
 // 	document.querySelectorAll(".menuIcon path").forEach((element) => {
@@ -2426,6 +2448,10 @@ $('.showAllSongs').bind('click', function() {
 	  transform: translate3d(0, -300%, 0);
 	  transition: transform 0.4s;
 	}
+	.menuHidden.buttonColorSelect{
+	  transform: translate3d(0, -400%, 0);
+	  transition: transform 0.4s;
+	}
 	.menuHidden.buttonLightMode{
 	  transform: translate3d(0, -300%, 0);
 	  transition: transform 0.7s;
@@ -2454,7 +2480,7 @@ $('.showAllSongs').bind('click', function() {
 	  transform: translate3d(0, 600%, 0);
 	  transition: transform 0.8s;
 	}
-	.menuShown.buttonDarkMode,  .menuShown.buttonLightMode, .menuShown.buttonDipa, .menuShown.buttonMenu, .menuShown.buttonZoomIn, .menuShown.buttonZoomOut, .menuShown.buttonShare, .menuShown.buttonHideTranslation, .menuShown.buttonJezik {
+	.menuShown.buttonDarkMode,  .menuShown.buttonLightMode, .menuShown.buttonDipa, .menuShown.buttonMenu, .menuShown.buttonColorSelect, .menuShown.buttonZoomIn, .menuShown.buttonZoomOut, .menuShown.buttonShare, .menuShown.buttonHideTranslation, .menuShown.buttonJezik {
 	  transform: none;
 	  transition: transform 0.4s;
 	}
